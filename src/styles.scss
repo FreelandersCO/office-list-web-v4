@@ -4,3 +4,12 @@
 @import 'base/reset';
 @import 'base/animations';
 @import 'base/global';
+
+
+.page-container {
+    padding: 0.01em 16px;
+    width: 100%;
+    min-width: 320px;
+    max-width: $page-max-width;
+    margin: 0 auto;
+}

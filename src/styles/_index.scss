@@ -1,7 +1,14 @@
 // theme
 @import 'theme/index';
+
+//fonts
+@import 'fonts';
+
 // abstracts
 @import 'abstracts/functions';
 @import 'abstracts/mixins';
 @import 'abstracts/variables';
 
+* {
+    font-family: $font-family;
+}
