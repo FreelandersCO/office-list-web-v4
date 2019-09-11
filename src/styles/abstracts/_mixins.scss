@@ -1,57 +1,64 @@
 @mixin center($position) {
     position: absolute;
-
-    @if $position == 'vertical' {
+    @if $position == "vertical" {
         top: 50%;
         transform: translateY(-50%);
-    }
-
-    @else if $position == 'horizontal' {
+   }
+    @else if $position == "horizontal" {
         left: 50%;
         transform: translate(-50%);
-    }
-
-    @else if $position == 'both' {
+   }
+    @else if $position == "both" {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-    }
+   }
 }
 
 @mixin keyframes($animation-name) {
-    @-webkit-keyframes #{$animation-name} {
+    @-webkit-keyframes #{
+       $animation-name
+   }
+    {
         @content;
-    }
-
-    @-moz-keyframes #{$animation-name} {
+   }
+    @-moz-keyframes #{
+       $animation-name
+   }
+    {
         @content;
-    }
-
-    @-ms-keyframes #{$animation-name} {
+   }
+    @-ms-keyframes #{
+       $animation-name
+   }
+    {
         @content;
-    }
-
-    @-o-keyframes #{$animation-name} {
+   }
+    @-o-keyframes #{
+       $animation-name
+   }
+    {
         @content;
-    }
-
-    @keyframes #{$animation-name} {
+   }
+    @keyframes #{
+       $animation-name
+   }
+    {
         @content;
-    }
+   }
 }
 
 @mixin background-gradient($angle, $start-color, $end-color, $orientation) {
     background: $start-color;
-
-    @if $orientation == 'vertical' {
+    @if $orientation == "vertical" {
         background: linear-gradient($angle, $start-color, $end-color);
-    }
-    @else if $orientation == 'horizontal' {
+   }
+    @else if $orientation == "horizontal" {
         background: linear-gradient($angle, $start-color, $end-color);
-    }
+   }
     @else {
         background: radial-gradient($angle, $start-color, $end-color);
-    }
+   }
 }
 
 @mixin square-element($size) {
@@ -70,28 +77,32 @@
     @if map-has-key($breakpoints, $bp) {
         $list: map-get($breakpoints, $bp);
         $bp: nth($list, 1);
-
-        @media screen and (min-width: #{$bp}) {
+        @media screen and (min-width: #{
+           $bp
+       }
+       ) {
             @content;
-        }
-    }
+       }
+   }
     @else {
         @content;
-    }
+   }
 }
 
-@mixin font($font-size, $line-height, $font-weight:400) {
+@mixin font($font-size, $line-height, $font-weight: 400) {
     font-size: $font-size;
     line-height: $line-height;
     font-weight: $font-weight;
 }
 
-@mixin aspect-ratio($width, $height, $content:null) {
+@mixin aspect-ratio($width, $height, $content: null) {
     width: 100%;
     padding-top: ($height / $width) * 100%;
-
     @if ($content) {
-        #{$content} {
+        #{
+           $content
+       }
+        {
             position: absolute;
             top: 0;
             left: 0;
@@ -99,44 +110,11 @@
             height: 100%;
             display: flex;
             align-items: center;
-        }
-    }
+       }
+   }
 }
 
-@mixin btn-hover-focus() {
-    &:hover,
-    &:focus {
-        text-decoration: none;
-        cursor: pointer;
-        /* stylelint-disable at-rule-empty-line-before */
-        @content;
-    }
-
-    &:focus {
-        @include focus-border-dotted();
-    }
-}
-
-@mixin link-focus-border($width, $focus-color) {
-    border: $width solid transparent;
-
-    &:focus {
-        border-color: $focus-color;
-    }
-}
-
-@mixin focus-border-dotted() {
-    border-style: dotted;
-    border-width: 1px;
-
-    @content;
-}
-
-@mixin carousel-calc($percentvar) {
-    left: calc(-68vw * 0.77 - 3 * (5px - #{$percentvar} * 68vw / 4));
-}
-
-@mixin link-button ($bg-color:null, $color:null, $border-raduis:3px) {
+@mixin link-button($bg-color: null, $color: null, $border-raduis: 3px) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -146,14 +124,7 @@
     background-color: $bg-color;
     color: $color;
     border-radius: $border-raduis;
-
-    &:hover,
-    &:focus {
+    &:hover, &:focus {
         text-decoration: none;
-    }
-}
-
-@mixin lp-chat-icon($color) {
-    font-family: wdwicons, pepmdx, arial;
-    color: $color;
+   }
 }

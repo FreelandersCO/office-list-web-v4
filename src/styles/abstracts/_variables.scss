@@ -1,37 +1,16 @@
 // Default breakpoints
 $breakpoints: (
-    mobile-xl: 569px, // breakpoint added in comps (http://ultron.wdproux.wdig.com/dcl/Cruise101/WhyCruise/SupplementalSection/index.html#artboard4)
+    mobile-xl: 569px,
     tablet: 768px,
-    desktop-s: 960px, // breakpoint added in comps (http://ultron.wdproux.wdig.com/dcl/Cruise101/WhyCruise/PersistentPersonaNav/index.html#artboard2)
-    syndycated-desktop: 975px, // syndicated desktop viewport
+    desktop-s: 960px,
     desktop: 1024px,
     desktop-l: 1440px
 );
 
 //Z-index
 $zindex: (
-    'base': 9,
-    'menu': 99,
-    'hc-image': 0,
-    'hc-shadow': 1,
-    'hc-proggres-title': 2,
-    'hc-controls': 3,
-    'hb-separator': 0,
-    'hb-media': 1,
-    'hb-icon': 5,
-    'hb-content': 4,
-    'hb-base': 3,
-    'syndicated-logo': 2,
-    'live-chat': 100
+    'base': 1,
+    'menu': 2,
 );
-
-$section-desktop-margin: calc((100vw * 0.3125) - 280px);
 
 $font-family-components: 'Avenir';
-$font-family-syndicate-layout: 'dclmdx', $font-family-components;
-
-// border radius
-$curved-radius: (
-    'hb-media':  0 0 200% 200%/0 0 50% 50%,
-    'circle' : 50%
-);
