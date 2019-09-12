@@ -5,10 +5,12 @@
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
-        "build:prod": "ng build --target production --build-optimizer --vendor-chunk",
+        "build:prod": "ng build --prod",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "lint:styles": "stylelint \"src/**/*.scss\" --fix",
+        "e2e": "ng e2e",
+        "prepush": "git status --porcelain | grep . && echo you have unstaged files please commit them or stash them && exit -1 || npm run lint && npm run lint:styles"
     },
     "private": true,
     "dependencies": {
@@ -43,6 +45,8 @@
         "protractor": "~5.4.0",
         "ts-node": "~7.0.0",
         "tslint": "~5.15.0",
-        "typescript": "~3.5.3"
+        "typescript": "~3.5.3",
+        "husky": "^0.14.3",
+        "stylelint": "^9.6.0"
     }
 }

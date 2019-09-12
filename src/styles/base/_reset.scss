@@ -73,13 +73,13 @@ time,
 mark,
 audio,
 video {
-  background: colors("transparent");
-  border: 0;
-  font-size: 100%;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-  vertical-align: baseline;
+    background: colors('transparent');
+    border: 0;
+    font-size: 100%;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
 }
 
 article,
@@ -94,64 +94,64 @@ img,
 menu,
 nav,
 section {
-  display: block;
+    display: block;
 }
 
 ol,
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 blockquote,
 q {
-  quotes: none;
+    quotes: none;
 
-  :before,
-  :after {
-    content: none;
-  }
+    :before,
+    :after {
+        content: none;
+    }
 }
 
 a {
-  background: colors("transparent");
-  font-size: 100%;
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
+    background: colors('transparent');
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 hr {
-  border: 0;
-  display: block;
-  height: 1px;
-  margin: 1em 0;
-  padding: 0;
+    border: 0;
+    display: block;
+    height: 1px;
+    margin: 1em 0;
+    padding: 0;
 }
 
 input,
 select {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 address {
-  font-style: normal;
+    font-style: normal;
 }
 
 input {
-  &::-ms-clear {
-    display: none;
-  }
+    &::-ms-clear {
+        display: none;
+    }
 }
 
 button {
-  background: none;
-  border: 0;
-  padding: 0;
+    background: none;
+    border: 0;
+    padding: 0;
 }

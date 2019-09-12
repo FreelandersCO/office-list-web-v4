@@ -1,144 +1,144 @@
-@import "index";
+@import 'index';
 
 header {
-	background-color: colors("coffee-bg");
-	color: colors("white");
-	min-height: 40px;
+    background-color: colors('coffee-bg');
+    color: colors('white');
+    min-height: 40px;
 
-	.header-content {
-		overflow: hidden;
+    .header-content {
+        overflow: hidden;
 
-		@include from-breakpoint("tablet") {
-			min-height: 90px;
-		}
+        @include from-breakpoint('tablet') {
+            min-height: 90px;
+        }
 
-		.item-nav {
-			width: 100%;
-			padding: 14px 1rem;
-			float: left;
-			text-align: center;
+        .item-nav {
+            width: 100%;
+            padding: 14px 1rem;
+            float: left;
+            text-align: center;
 
-			a {
-				color: colors("white");
-			}
+            a {
+                color: colors('white');
+            }
 
-			&:not(:first-child) {
-				display: none;
+            &:not(:first-child) {
+                display: none;
 
-				@include from-breakpoint("tablet") {
-					display: block;
-					color: #f2f2f2;
-					text-align: center;
-					text-decoration: none;
-					font-size: 17px;
-				}
-			}
+                @include from-breakpoint('tablet') {
+                    display: block;
+                    color: #F2F2F2;
+                    text-align: center;
+                    text-decoration: none;
+                    font-size: 17px;
+                }
+            }
 
-			@include from-breakpoint("tablet") {
-				height: 90px;
-				line-height: 90px;
-				padding: 0 8px;
+            @include from-breakpoint('tablet') {
+                height: 90px;
+                line-height: 90px;
+                padding: 0 8px;
 
-				&:nth-child(1),
-				&:nth-child(5) {
-					width: 20%;
-				}
+                &:nth-child(1),
+                &:nth-child(5) {
+                    width: 20%;
+                }
 
-				&:nth-child(3),
-				&:nth-child(4) {
-					width: 10%;
-				}
+                &:nth-child(3),
+                &:nth-child(4) {
+                    width: 10%;
+                }
 
-				&:nth-child(2) {
-					width: 40%;
-				}
-			}
-		}
+                &:nth-child(2) {
+                    width: 40%;
+                }
+            }
+        }
 
-		.logo {
-			cursor: pointer;
-			display: initial;
-			max-width: 200px;
+        .logo {
+            cursor: pointer;
+            display: initial;
+            max-width: 200px;
 
-			@include from-breakpoint("tablet") {
-				margin-top: 13%;
-			}
-		}
+            @include from-breakpoint('tablet') {
+                margin-top: 13%;
+            }
+        }
 
-		.search-input {
-			width: 100%;
-		}
+        .search-input {
+            width: 100%;
+        }
 
-		.callus {
-			background-color: colors("green-primary");
-			line-height: 25px;
-			padding-top: 2%;
+        .callus {
+            background-color: colors('green-primary');
+            line-height: 25px;
+            padding-top: 2%;
 
-			&::after {
-				content: " ";
-				width: 16px;
-				height: 100%;
-				right: -16px;
-				top: 0;
-				position: absolute;
-				background-color: colors("green-primary");
+            &:after {
+                content: ' ';
+                width: 16px;
+                height: 100%;
+                right: -16px;
+                top: 0;
+                position: absolute;
+                background-color: colors('green-primary');
 
-				@include from-breakpoint("tablet") {
-					display: none;
-				}
-			}
+                @include from-breakpoint('tablet') {
+                    display: none;
+                }
+            }
 
-			&::before {
-				content: " ";
-				width: 16px;
-				height: 100%;
-				left: -16px;
-				top: 0;
-				position: absolute;
-				background-color: colors("green-primary");
+            &:before {
+                content: ' ';
+                width: 16px;
+                height: 100%;
+                left: -16px;
+                top: 0;
+                position: absolute;
+                background-color: colors('green-primary');
 
-				@include from-breakpoint("tablet") {
-					display: none;
-				}
-			}
+                @include from-breakpoint('tablet') {
+                    display: none;
+                }
+            }
 
-			.callus_text {
-				width: 100%;
-			}
+            .callus_text {
+                width: 100%;
+            }
 
-			.callus_phone {
-				color: colors("white");
-				font-weight: 700;
-			}
-		}
+            .callus_phone {
+                color: colors('white');
+                font-weight: 700;
+            }
+        }
 
-		.icon {
-			color: colors("white");
-			cursor: pointer;
-			float: right;
-			display: block;
-			font-size: 35px;
-			position: absolute;
-			right: 0.8rem;
-			top: 0.4rem;
+        .icon {
+            color: colors('white');
+            cursor: pointer;
+            float: right;
+            display: block;
+            font-size: 35px;
+            position: absolute;
+            right: 0.8rem;
+            top: 0.4rem;
 
-			@include from-breakpoint("tablet") {
-				display: none;
-			}
-		}
+            @include from-breakpoint('tablet') {
+                display: none;
+            }
+        }
 
-		&.responsive {
-			position: relative;
+        &.responsive {
+            position: relative;
 
-			.item-nav {
-				float: none;
-				display: block;
-				text-align: center;
-			}
-		}
-	}
+            .item-nav {
+                float: none;
+                display: block;
+                text-align: center;
+            }
+        }
+    }
 
-	@include from-breakpoint("tablet") {
-		min-height: 90px;
-	}
+    @include from-breakpoint('tablet') {
+        min-height: 90px;
+    }
 }

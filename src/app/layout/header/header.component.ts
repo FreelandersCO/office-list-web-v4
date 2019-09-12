@@ -11,7 +11,8 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit() {
     }
-    openMenu(){
+
+    openMenu() {
         this.status = !this.status;
     }
 }
