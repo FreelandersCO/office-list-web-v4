@@ -1,0 +1,42 @@
+@import 'index';
+
+.callus-container {
+    background-color: colors('green-primary');
+    padding: 2%;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+
+    &:after {
+        content: ' ';
+        width: 16px;
+        height: 100%;
+        right: -16px;
+        top: 0;
+        position: absolute;
+        background-color: colors('green-primary');
+    }
+
+    &:before {
+        content: ' ';
+        width: 16px;
+        height: 100%;
+        left: -16px;
+        top: 0;
+        position: absolute;
+        background-color: colors('green-primary');
+    }
+
+    .callus-text {
+        color: colors('white');
+        width: 100%;
+    }
+
+    .callus-phone {
+        color: colors('white');
+        font-weight: 700;
+        padding-left: 20px;
+    }
+}
