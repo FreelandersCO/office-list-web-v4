@@ -1,8 +1,19 @@
 <header>
-    <ul class="page-container">
-        <li>logo</li>
-        <li>List your Office Space</li>
-        <li>Sign in</li>
-        <li>call us toll free at</li>
-    </ul>
+    <nav class="page-container header-content" [ngClass]="status ? 'responsive' : 'danger'">
+        <div class="item-nav">
+            <img class="logo" src="assets/images/logo-officelist-dark.svg" alt="Office List logotype">
+        </div>
+        <div class="item-nav">
+            <office-list-search-input class="search-input"></office-list-search-input>
+        </div>
+        <div class="item-nav">List your Office Space</div>
+        <div class="item-nav"><a href="/login">Sign in</a></div>
+        <div class="item-nav callus">
+            <div class="callus_text">Call us toll free</div>
+            <a class="callus_phone" href="tel:1-866-354-5478">1-866-354-5478</a>
+        </div>
+        <button class="icon" (click)="openMenu()">
+            <i class="zwicon-hamburger-menu"></i>
+        </button>
+    </nav>
 </header>
