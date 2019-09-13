@@ -41,7 +41,7 @@
                 flex-direction: column;
                 width: 100%;
                 margin-bottom: 1.2rem;
-                box-shadow: 0px 3px 40px 1px colors('black-18');
+                box-shadow: 0 3px 40px 1px colors('black-18');
 
                 .bc-card-slider {
                     display: flex;
@@ -85,10 +85,14 @@
                             color: colors('black');
                             padding: 0.5rem 0;
                         }
-                        .bc-street, .bc-city , .bc-area{
+
+                        .bc-street,
+                        .bc-city,
+                        .bc-area {
                             color: colors('black-50');
                             padding: 0.5rem 0;
                         }
+
                         .bc-description {
                             color: colors('black');
                             white-space: nowrap;
@@ -104,6 +108,7 @@
                         .bc-price-list {
                             width: 100%;
                             margin: 0.5rem 0;
+
                             .bc-price-row {
                                 padding: 0.25rem 0;
                                 color: colors('black-50');
@@ -147,5 +152,6 @@
     .bussines-column-map {
         width: 100%;
     }
+
     /* Media Query */
 }
