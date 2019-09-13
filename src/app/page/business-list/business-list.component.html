@@ -2,8 +2,8 @@
     <article class="bc-column-info">
         <office-list-call-us></office-list-call-us>
         <div class="bc-info">
-            <h1 class="bussines-title">Office space for rent in New York, New York</h1>
-            <select class="bussines-filter">
+            <h1 class="bc-title">Office space for rent in New York, New York</h1>
+            <select class="bc-filter">
                 <option selected="selected">Filter by area</option>
                 <option>Area 1</option>
                 <option>Area 2</option>
@@ -16,23 +16,7 @@
         </p>
         <div class="bc-list">
             <div class="bc-card" *ngFor="let item of bussinesCenters">
-                <aside class="bc-card-slider">
-                    <div class="bc-card-img">
-                        <img src="https://picsum.photos/150/100">
-                    </div>
-                    <div class="bc-card-img">
-                        <img src="https://picsum.photos/150/100">
-                    </div>
-                    <div class="bc-card-img">
-                        <img src="https://picsum.photos/150/100">
-                    </div>
-                    <span class="arrow-left">
-                        <i class="zwicon-arrow-left"></i>
-                    </span>
-                    <span class="arrow-right">
-                        <i class="zwicon-arrow-right"></i>
-                    </span>
-                </aside>
+                <office-list-bc-slider></office-list-bc-slider>
                 <aside class="bc-card-info">
                     <div class="bc-data">
                         <p class="bc-title">Title</p>

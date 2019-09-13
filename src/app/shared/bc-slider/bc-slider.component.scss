@@ -1,0 +1,38 @@
+@import 'index';
+
+.bc-card-slider {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow: hidden;
+
+    .bc-card-img {
+        width: 100%;
+
+        &:not(:first-child) {
+            display: none;
+        }
+    }
+
+    .arrow-left,
+    .arrow-right {
+        color: colors('green-primary');
+        position: absolute;
+        font-size: 40px;
+        top: calc(50% - 20px);
+        opacity: 1;
+        padding: 0.2rem;
+    }
+
+    .arrow-right {
+        right: 0;
+    }
+
+    &:hover {
+        .arrow-left,
+        .arrow-right {
+            color: colors('green-primary');
+            opacity: 1;
+        }
+    }
+}

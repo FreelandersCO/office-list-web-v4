@@ -43,37 +43,6 @@
                 margin-bottom: 1.2rem;
                 box-shadow: 0 3px 40px 1px colors('black-18');
 
-                .bc-card-slider {
-                    display: flex;
-                    flex-direction: row;
-                    position: relative;
-                    overflow: hidden;
-
-                    .bc-card-img {
-                        width: 100%;
-
-                        &:not(:first-child) {
-                            display: none;
-                        }
-                    }
-
-                    .arrow-left {
-                        color: colors('white');
-                        position: absolute;
-                        font-size: 40px;
-                        top: calc(50% - 20px);
-                        left: 0;
-                    }
-
-                    .arrow-right {
-                        color: colors('white');
-                        position: absolute;
-                        font-size: 40px;
-                        top: calc(50% - 20px);
-                        right: 0;
-                    }
-                }
-
                 .bc-card-info {
                     display: flex;
                     flex-direction: column;
