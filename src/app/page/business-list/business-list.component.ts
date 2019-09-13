@@ -14,7 +14,7 @@ export class BusinessListComponent implements OnInit {
 
     ngOnInit() {
         this.api.getBussinesList().subscribe(result =>
-            console.log(result)
+            this.bussinesCenters = result
         );
     }
 

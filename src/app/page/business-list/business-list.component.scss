@@ -1,3 +1,151 @@
-.text-align {
-    text-align: justify;
+@import 'index';
+
+.bc-list-container {
+    display: flex;
+    flex-direction: column;
+
+    .bc-column-info {
+        width: 100%;
+
+        .bc-info {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 0;
+
+            .bc-title {
+                font-size: 14px;
+            }
+
+            .bc-filter {
+                border: 1px colors('black') solid;
+                background-color: colors('white');
+                font-size: 1rem;
+                height: 35px;
+                margin: 1rem 0;
+                padding: 0.2rem 1rem;
+                width: 100%;
+            }
+        }
+
+        .bc-num-result {
+            color: colors('black-70');
+            text-align: justify;
+            padding-bottom: 0.5rem;
+        }
+
+        .bc-list {
+            padding: 1rem 0;
+
+            .bc-card {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                margin-bottom: 1.2rem;
+                box-shadow: 0px 3px 40px 1px colors('black-18');
+
+                .bc-card-slider {
+                    display: flex;
+                    flex-direction: row;
+                    position: relative;
+                    overflow: hidden;
+
+                    .bc-card-img {
+                        width: 100%;
+
+                        &:not(:first-child) {
+                            display: none;
+                        }
+                    }
+
+                    .arrow-left {
+                        color: colors('white');
+                        position: absolute;
+                        font-size: 40px;
+                        top: calc(50% - 20px);
+                        left: 0;
+                    }
+
+                    .arrow-right {
+                        color: colors('white');
+                        position: absolute;
+                        font-size: 40px;
+                        top: calc(50% - 20px);
+                        right: 0;
+                    }
+                }
+
+                .bc-card-info {
+                    display: flex;
+                    flex-direction: column;
+
+                    .bc-data {
+                        padding: 0 0.5rem;
+
+                        .bc-title {
+                            color: colors('black');
+                            padding: 0.5rem 0;
+                        }
+                        .bc-street, .bc-city , .bc-area{
+                            color: colors('black-50');
+                            padding: 0.5rem 0;
+                        }
+                        .bc-description {
+                            color: colors('black');
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            padding: 0.5rem 0;
+                        }
+                    }
+
+                    .bc-contact {
+                        padding: 0 0.5rem 1rem;
+
+                        .bc-price-list {
+                            width: 100%;
+                            margin: 0.5rem 0;
+                            .bc-price-row {
+                                padding: 0.25rem 0;
+                                color: colors('black-50');
+                                border-bottom: 1px colors('black-50') dashed;
+                                font-size: 12px;
+
+                                .bc-price {
+                                    text-align: right;
+                                }
+                            }
+                        }
+
+                        .bc-tel {
+                            width: 100%;
+                            padding: 0.5rem;
+                            text-align: center;
+
+                            a {
+                                color: colors('black');
+
+                                .zwicon-phone {
+                                    padding-right: 0.3rem;
+                                }
+                            }
+                        }
+
+                        .bc-contact {
+                            background-color: colors('green-primary');
+                            color: colors('white');
+                            font-size: 16px;
+                            font-weight: bold;
+                            padding: 0.5rem;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .bussines-column-map {
+        width: 100%;
+    }
+    /* Media Query */
 }

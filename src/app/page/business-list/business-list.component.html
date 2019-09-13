@@ -1,3 +1,68 @@
-<section class="bussines-list-container">
-    <office-list-call-us></office-list-call-us>
+<section class="bc-list-container">
+    <article class="bc-column-info">
+        <office-list-call-us></office-list-call-us>
+        <div class="bc-info">
+            <h1 class="bussines-title">Office space for rent in New York, New York</h1>
+            <select class="bussines-filter">
+                <option selected="selected">Filter by area</option>
+                <option>Area 1</option>
+                <option>Area 2</option>
+                <option>Area 3</option>
+            </select>
+        </div>
+        <p class="bc-num-result">
+            285 flexible office space solutions found in New York, including private offices, coworking spaces and
+            virtual offices
+        </p>
+        <div class="bc-list">
+            <div class="bc-card" *ngFor="let item of bussinesCenters">
+                <aside class="bc-card-slider">
+                    <div class="bc-card-img">
+                        <img src="https://picsum.photos/150/100">
+                    </div>
+                    <div class="bc-card-img">
+                        <img src="https://picsum.photos/150/100">
+                    </div>
+                    <div class="bc-card-img">
+                        <img src="https://picsum.photos/150/100">
+                    </div>
+                    <span class="arrow-left">
+                        <i class="zwicon-arrow-left"></i>
+                    </span>
+                    <span class="arrow-right">
+                        <i class="zwicon-arrow-right"></i>
+                    </span>
+                </aside>
+                <aside class="bc-card-info">
+                    <div class="bc-data">
+                        <p class="bc-title">Title</p>
+                        <p class="bc-street">Street</p>
+                        <p class="bc-city">City</p>
+                        <p class="bc-area">Area</p>
+                        <p class="bc-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                            sagittis velit id elit feugiat, non condimentum dolor sagittis. Pellentesque ac lorem ac dui
+                            placerat convallis. Mauris ac nisl euismod, vehicula dui sed, blandit ligula. Nam aliquam
+                            iaculis pellentesque. Vivamus quis posuere nulla, sit amet interdum erat. Phasellus iaculis
+                            elementum nibh sed mollis. Aenean facilisis gravida suscipit. Quisque lacinia eleifend
+                            pellentesque. Nullam augue tellus, interdum et arcu a, commodo viverra erat.</p>
+                    </div>
+                    <div class="bc-contact">
+                        <table class="bc-price-list">
+                            <tr class="bc-price-row">
+                                <td class="bc-price-title">Private Office</td>
+                                <td class="bc-price">Starting at $1.499</td>
+                            </tr>
+                        </table>
+                        <p class="bc-tel">
+                            <a href="tel:3118599777"><i class="zwicon-phone"></i>3118599777</a>
+                        </p>
+                        <button class="bc-contact">Contact Manager</button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </article>
+    <article class="bussines-column-map">
+        Hola soy un mapa
+    </article>
 </section>
