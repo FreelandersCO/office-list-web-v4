@@ -7,7 +7,7 @@
     scroll-behavior: smooth;
 
     &::-webkit-scrollbar {
-        width: 0px;
+        width: 0;
         background: transparent;
     }
 
@@ -27,6 +27,7 @@
     height: 100%;
     width: 100%;
     top: 0;
+
     .arrow-left,
     .arrow-right {
         width: 35px;
@@ -42,6 +43,7 @@
     .arrow-right {
         right: 0;
     }
+
     @include from-breakpoint('tablet') {
         .arrow-left {
             color: colors('white');
@@ -50,12 +52,13 @@
             cursor: pointer;
 
             &:hover {
-                background: linear-gradient(
-                    270deg,
-                    rgba(0, 0, 0, 0.1) 0%,
-                    rgba(0, 0, 0, 0.05) 50%,
-                    rgba(0, 0, 0, 0) 100%
-                );
+                background:
+                    linear-gradient(
+                        270deg,
+                        rgba(0, 0, 0, 0.1) 0%,
+                        rgba(0, 0, 0, 0.05) 50%,
+                        rgba(0, 0, 0, 0) 100%
+                    );
             }
         }
 
@@ -66,12 +69,13 @@
             cursor: pointer;
 
             &:hover {
-                background: linear-gradient(
-                    90deg,
-                    rgba(0, 0, 0, 0.1) 0%,
-                    rgba(0, 0, 0, 0.05) 50%,
-                    rgba(0, 0, 0, 0) 100%
-                );
+                background:
+                    linear-gradient(
+                        90deg,
+                        rgba(0, 0, 0, 0.1) 0%,
+                        rgba(0, 0, 0, 0.05) 50%,
+                        rgba(0, 0, 0, 0) 100%
+                    );
             }
         }
 
