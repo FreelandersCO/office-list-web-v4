@@ -11,116 +11,217 @@
             display: flex;
             flex-direction: column;
             padding: 1rem 0;
+        }
 
-            .bc-title {
-                font-size: 14px;
-            }
+        .bc-city-title {
+            font-size: 14px;
+        }
 
-            .bc-filter {
-                border: 1px colors('black') solid;
-                background-color: colors('white');
-                font-size: 1rem;
-                height: 35px;
-                margin: 1rem 0;
-                padding: 0.2rem 1rem;
-                width: 100%;
-            }
+        .bc-filter {
+            border: 1px colors('black') solid;
+            background-color: colors('white');
+            font-size: 1rem;
+            height: 35px;
+            margin: 1rem 0;
+            padding: 0.2rem 1rem;
+            width: 100%;
         }
 
         .bc-num-result {
             color: colors('black-70');
             text-align: justify;
             padding-bottom: 0.5rem;
+            font-size: 12px;
         }
 
         .bc-list {
             padding: 1rem 0;
+        }
 
-            .bc-card {
+        .bc-card {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 1.2rem;
+            border: 1px solid colors('black-18');
+
+            .bc-card-slider {
+                width: 100%;
+            }
+
+            .bc-card-info {
+                width: 100%;
                 display: flex;
                 flex-direction: column;
+                padding: 0 0.5rem;
+
+                .bc-title {
+                    color: colors('black');
+                    padding: 0.5rem 0;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+
+                .bc-street,
+                .bc-city,
+                .bc-area {
+                    color: colors('black-50');
+                    font-size: 12px;
+                }
+
+                .bc-description {
+                    color: colors('black');
+                    padding: 0.5rem 0;
+                    font-size: 10px;
+                    line-height: 20px;
+                    text-align: justify;
+                }
+            }
+
+            .bc-contact {
                 width: 100%;
-                margin-bottom: 1.2rem;
-                box-shadow: 0 3px 40px 1px colors('black-18');
+                padding: 0 0.5rem 1rem;
 
-                .bc-card-info {
-                    display: flex;
-                    flex-direction: column;
+                .bc-price-list {
+                    width: 100%;
+                    margin: 0.5rem 0;
 
-                    .bc-data {
-                        padding: 0 0.5rem;
+                    .bc-price-row {
+                        color: colors('black-50');
+                        border-bottom: 1px colors('black-50') dashed;
+                        font-size: 12px;
 
-                        .bc-title {
-                            color: colors('black');
-                            padding: 0.5rem 0;
+                        .bc-price-title {
+                            padding: 0.25rem 0;
                         }
 
-                        .bc-street,
-                        .bc-city,
-                        .bc-area {
-                            color: colors('black-50');
-                            padding: 0.5rem 0;
-                        }
-
-                        .bc-description {
-                            color: colors('black');
-                            white-space: nowrap;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            padding: 0.5rem 0;
+                        .bc-price {
+                            padding: 0.25rem 0;
+                            text-align: right;
                         }
                     }
+                }
 
-                    .bc-contact {
-                        padding: 0 0.5rem 1rem;
+                .bc-tel {
+                    width: 100%;
+                    padding: 0.5rem;
+                    text-align: center;
 
-                        .bc-price-list {
-                            width: 100%;
-                            margin: 0.5rem 0;
+                    a {
+                        color: colors('black');
+                        font-size: 12px;
 
-                            .bc-price-row {
-                                padding: 0.25rem 0;
-                                color: colors('black-50');
-                                border-bottom: 1px colors('black-50') dashed;
-                                font-size: 12px;
-
-                                .bc-price {
-                                    text-align: right;
-                                }
-                            }
-                        }
-
-                        .bc-tel {
-                            width: 100%;
-                            padding: 0.5rem;
-                            text-align: center;
-
-                            a {
-                                color: colors('black');
-
-                                .zwicon-phone {
-                                    padding-right: 0.3rem;
-                                }
-                            }
-                        }
-
-                        .bc-contact {
-                            background-color: colors('green-primary');
-                            color: colors('white');
-                            font-size: 16px;
-                            font-weight: bold;
-                            padding: 0.5rem;
-                            width: 100%;
+                        .zwicon-phone {
+                            padding-right: 0.3rem;
+                            font-size: 12px;
                         }
                     }
+                }
+
+                .bc-contact-btn {
+                    background-color: colors('green-primary');
+                    border-radius: 0.3rem;
+                    color: colors('white');
+                    font-size: 14px;
+                    font-weight: bold;
+                    padding: 0.5rem;
+                    width: 100%;
                 }
             }
         }
     }
 
-    .bussines-column-map {
+    .bc-column-map {
         width: 100%;
+        border: 1px black dashed;
     }
 
     /* Media Query */
+
+    @include from-breakpoint('tablet') {
+        .bc-column-info {
+            padding: 0 1rem;
+
+            .bc-info {
+                flex-direction: row;
+                padding: 1rem 0;
+            }
+
+            .bc-city-title {
+                font-size: 16px;
+                width: 70%;
+                padding: 0.5rem 0;
+            }
+
+            .bc-filter {
+                width: 30%;
+                margin: 0;
+            }
+
+            .bc-num-result {
+                font-size: 14px;
+                padding-bottom: 0;
+            }
+
+            .bc-card {
+                flex-direction: row;
+
+                .bc-card-slider {
+                    width: 25%;
+                }
+
+                .bc-card-info {
+                    width: 50%;
+                    padding: 0.5rem;
+
+                    .bc-title {
+                        font-size: 16px;
+                        padding: 0 0 0.25rem;
+                    }
+
+                    .bc-street,
+                    .bc-city,
+                    .bc-area {
+                        color: colors('black-50');
+                        font-size: 14px;
+                        padding: 0 0 0.25rem;
+                    }
+
+                    .bc-description {
+                        font-size: 12px;
+                    }
+                }
+
+                .bc-contact {
+                    width: 25%;
+                    padding: 0.5rem;
+                    display: flex;
+                    flex-direction: column-reverse;
+
+                    .bc-price-list  {
+                        margin: 0;
+                    }
+
+                    .bc-tel a {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .bc-column-map {
+            width: 30%;
+        }
+    }
+
+    @include from-breakpoint('desktop-s') {
+        flex-direction: row;
+        .bc-column-info {
+            width: 70%;
+        }
+
+        .bc-column-map {
+            width: 30%;
+        }
+    }
 }

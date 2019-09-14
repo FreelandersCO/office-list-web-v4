@@ -2,7 +2,7 @@
     <article class="bc-column-info">
         <office-list-call-us></office-list-call-us>
         <div class="bc-info">
-            <h1 class="bc-title">Office space for rent in New York, New York</h1>
+            <h1 class="bc-city-title">Office space for rent in New York, New York</h1>
             <select class="bc-filter">
                 <option selected="selected">Filter by area</option>
                 <option>Area 1</option>
@@ -15,38 +15,31 @@
             virtual offices
         </p>
         <div class="bc-list">
-            <div class="bc-card" *ngFor="let item of bussinesCenters">
-                <office-list-bc-slider></office-list-bc-slider>
+            <div class="bc-card" *ngFor="let bc of bussinesCenters">
+                <office-list-bc-slider class="bc-card-slider" [images]="bc.images"> </office-list-bc-slider>
                 <aside class="bc-card-info">
-                    <div class="bc-data">
-                        <p class="bc-title">Title</p>
-                        <p class="bc-street">Street</p>
-                        <p class="bc-city">City</p>
-                        <p class="bc-area">Area</p>
-                        <p class="bc-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            sagittis velit id elit feugiat, non condimentum dolor sagittis. Pellentesque ac lorem ac dui
-                            placerat convallis. Mauris ac nisl euismod, vehicula dui sed, blandit ligula. Nam aliquam
-                            iaculis pellentesque. Vivamus quis posuere nulla, sit amet interdum erat. Phasellus iaculis
-                            elementum nibh sed mollis. Aenean facilisis gravida suscipit. Quisque lacinia eleifend
-                            pellentesque. Nullam augue tellus, interdum et arcu a, commodo viverra erat.</p>
-                    </div>
-                    <div class="bc-contact">
-                        <table class="bc-price-list">
-                            <tr class="bc-price-row">
-                                <td class="bc-price-title">Private Office</td>
-                                <td class="bc-price">Starting at $1.499</td>
-                            </tr>
-                        </table>
-                        <p class="bc-tel">
-                            <a href="tel:3118599777"><i class="zwicon-phone"></i>3118599777</a>
-                        </p>
-                        <button class="bc-contact">Contact Manager</button>
-                    </div>
+                    <p class="bc-title">{{bc.descriptive_title}}</p>
+                    <p class="bc-street">{{bc.cross_street}}</p>
+                    <p class="bc-city">{{bc.city}}</p>
+                    <p class="bc-area">{{bc.area}}</p>
+                    <p class="bc-description">{{bc.short_intro}} ...</p>
+                </aside>
+                <aside class="bc-contact">
+                    <table class="bc-price-list">
+                        <tr class="bc-price-row" *ngFor="let office of bc.offices">
+                            <td class="bc-price-title">{{office.type}}</td>
+                            <td class="bc-price">Starting at {{office.price}}</td>
+                        </tr>
+                    </table>
+                    <p class="bc-tel">
+                        <a href="tel:3118599777"><i class="zwicon-phone"></i>{{bc.phone}}</a>
+                    </p>
+                    <button class="bc-contact-btn">Contact Manager</button>
                 </aside>
             </div>
         </div>
     </article>
-    <article class="bussines-column-map">
+    <article class="bc-column-map">
         Hola soy un mapa
     </article>
 </section>

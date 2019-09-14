@@ -8,9 +8,13 @@
         </div>
         <div class="item-nav">List your Office Space</div>
         <div class="item-nav"><a href="/login">Sign in</a></div>
-        <div class="item-nav callus">
-            <div class="callus_text">Call us toll free</div>
-            <a class="callus_phone" href="tel:1-866-354-5478">1-866-354-5478</a>
+        <div class="item-nav callus" *ngIf="!status">
+            <p class="callus-text">Call us toll free at</p>
+            <p>
+                <a class="callus-phone" href="tel:1-866-354-5478">
+                    1-866-354-5478
+                </a>
+            </p>
         </div>
         <button class="icon" (click)="openMenu()">
             <i class="zwicon-hamburger-menu"></i>

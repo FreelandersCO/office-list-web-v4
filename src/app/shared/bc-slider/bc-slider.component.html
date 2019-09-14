@@ -1,17 +1,17 @@
-<aside class="bc-card-slider">
-    <div class="bc-card-img">
-        <img src="https://picsum.photos/150/100">
-    </div>
-    <div class="bc-card-img">
-        <img src="https://picsum.photos/150/100">
-    </div>
-    <div class="bc-card-img">
-        <img src="https://picsum.photos/150/100">
-    </div>
-    <span class="arrow-left">
-        <i class="zwicon-arrow-circle-left"></i>
-    </span>
-    <span class="arrow-right">
-        <i class="zwicon-arrow-circle-right"></i>
-    </span>
+<aside class="bc-card-slider" #slider>
+    <ng-container *ngFor="let img of images">
+        <div class="bc-card-img" #item>
+            <!--https://picsum.photos/290/190-->
+            <img src="{{img}}">
+        </div>
+    </ng-container>
 </aside>
+<div class="bc-card-slider-btns">
+
+    <button class="arrow-left" (click)="onClickLeft()">
+        <i class="zwicon-arrow-circle-left"></i>
+    </button>
+    <button class="arrow-right" (click)="onClickRight()">
+        <i class="zwicon-arrow-circle-right"></i>
+    </button>
+</div>
