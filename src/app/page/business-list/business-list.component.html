@@ -2,16 +2,14 @@
     <article class="bc-column-info">
         <office-list-call-us></office-list-call-us>
         <div class="bc-info">
-            <h1 class="bc-city-title">Office space for rent in New York, New York</h1>
-            <select class="bc-filter">
-                <option selected="selected">Filter by area</option>
-                <option>Area 1</option>
-                <option>Area 2</option>
-                <option>Area 3</option>
+            <h1 class="bc-city-title">Office space for rent in {{state}}, {{city}}</h1>
+            <select class="bc-filter" (change)="filterArea($event.target.value);">
+                <option selected="selected" value="">Filter by area</option>
+                <option *ngFor="let area of areas" value="{{area}}">{{area}}</option>
             </select>
         </div>
         <p class="bc-num-result">
-            285 flexible office space solutions found in New York, including private offices, coworking spaces and
+            {{bussinesCentersCount}} flexible office space solutions found in {{city}}, including private offices, coworking spaces and
             virtual offices
         </p>
         <div class="bc-list">
@@ -32,7 +30,7 @@
                         </tr>
                     </table>
                     <p class="bc-tel">
-                        <a href="tel:3118599777"><i class="zwicon-phone"></i>{{bc.phone}}</a>
+                        <a href="tel:{{bc.phone}}"><i class="zwicon-phone"></i>{{bc.phone}}</a>
                     </p>
                     <button class="bc-contact-btn">Contact Manager</button>
                 </aside>
