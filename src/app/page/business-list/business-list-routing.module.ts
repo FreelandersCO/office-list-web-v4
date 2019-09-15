@@ -4,7 +4,7 @@ import { BusinessListComponent } from './business-list.component';
 
 const routes: Routes = [
     {
-        path: '',
+        path: ':country/:state/:city',
         component: BusinessListComponent
     }
 ];

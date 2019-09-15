@@ -196,9 +196,9 @@
                     width: 25%;
                     padding: 0.5rem;
                     display: flex;
-                    flex-direction: column-reverse;
+                    flex-direction: column;
 
-                    .bc-price-list {
+                    .bc-price-list  {
                         margin: 0;
                     }
 
@@ -216,7 +216,6 @@
 
     @include from-breakpoint('desktop-s') {
         flex-direction: row;
-
         .bc-column-info {
             width: 70%;
         }

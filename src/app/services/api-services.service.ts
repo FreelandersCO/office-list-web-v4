@@ -22,8 +22,8 @@ export class ApiServicesService {
     constructor(private http: HttpClient) { }
 
     // tslint:disable-next-line: ban-types
-    getBussinesList(): Observable<Object> {
-        return this.http.get(this.apiURL + '/Ey8QU3QIP')
+    getBussinesList(country, state, city): Observable<Object> {
+        return this.http.get(this.apiURL + '/BusinessCenter/' + country + '/' + state + '/' + city)
             .pipe(
                 retry(1),
                 catchError(this.handleError)

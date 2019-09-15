@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ApiServicesService } from '@service/api-services.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'office-list-business-list',
@@ -10,12 +11,16 @@ import { ApiServicesService } from '@service/api-services.service';
 export class BusinessListComponent implements OnInit {
     bussinesCenters;
 
-    constructor(private api: ApiServicesService) { }
+    constructor(private api: ApiServicesService,
+                private route: ActivatedRoute) { }
 
     ngOnInit() {
-        this.api.getBussinesList().subscribe(result =>
-            this.bussinesCenters = result
-        );
+        this.route.params.subscribe( params => {
+            this.api.getBussinesList(params['country'], params['state'], params['city']).subscribe(result =>
+                this.bussinesCenters = result
+            );
+        });
+
     }
 
 }

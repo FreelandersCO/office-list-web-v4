@@ -19,16 +19,16 @@
                 <office-list-bc-slider class="bc-card-slider" [images]="bc.images"> </office-list-bc-slider>
                 <aside class="bc-card-info">
                     <p class="bc-title">{{bc.descriptive_title}}</p>
-                    <p class="bc-street">{{bc.cross_street}}</p>
+                    <p class="bc-street">{{bc.cross_streets}}</p>
                     <p class="bc-city">{{bc.city}}</p>
-                    <p class="bc-area">{{bc.area}}</p>
+                    <p class="bc-area">{{bc.area_name}}</p>
                     <p class="bc-description">{{bc.short_intro}} ...</p>
                 </aside>
                 <aside class="bc-contact">
                     <table class="bc-price-list">
                         <tr class="bc-price-row" *ngFor="let office of bc.offices">
-                            <td class="bc-price-title">{{office.type}}</td>
-                            <td class="bc-price">Starting at {{office.price}}</td>
+                            <td class="bc-price-title">{{office.off_type}}</td>
+                            <td class="bc-price">Starting at {{office.off_pricing}}</td>
                         </tr>
                     </table>
                     <p class="bc-tel">
