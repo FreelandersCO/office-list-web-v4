@@ -114,7 +114,6 @@ header {
 
     @include from-breakpoint('desktop-l') {
         .header-content .item-nav {
-
             &:nth-child(3),
             &:nth-child(4) {
                 line-height: 25px;
