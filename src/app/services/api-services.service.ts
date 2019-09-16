@@ -23,13 +23,21 @@ export class ApiServicesService {
 
     // tslint:disable-next-line: ban-types
     getBussinesList(country, state, city): Observable<Object> {
-        return this.http.get(this.apiURL + '/BusinessCenter/' + country + '/' + state + '/' + city)
+        return this.http.get(this.apiURL + '/BusinessCenter/List/' + country + '/' + state + '/' + city)
             .pipe(
                 retry(1),
                 catchError(this.handleError)
             );
     }
 
+    // tslint:disable-next-line: ban-types
+    getCoordinates(country, state, city): Observable<Object> {
+        return this.http.get(this.apiURL + '/BusinessCenter/Coordinates/' + country + '/' + state + '/' + city)
+            .pipe(
+                retry(1),
+                catchError(this.handleError)
+            );
+    }
     // Error handling
     handleError(error) {
         let errorMessage = '';

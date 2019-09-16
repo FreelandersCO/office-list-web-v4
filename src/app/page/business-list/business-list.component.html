@@ -13,7 +13,7 @@
             virtual offices
         </p>
         <div class="bc-list">
-            <div class="bc-card" *ngFor="let bc of bussinesCenters">
+            <div class="bc-card" *ngFor="let bc of bussinesCenter">
                 <office-list-bc-slider class="bc-card-slider" [images]="bc.images"> </office-list-bc-slider>
                 <aside class="bc-card-info">
                     <p class="bc-title">{{bc.descriptive_title}}</p>
@@ -38,6 +38,6 @@
         </div>
     </article>
     <article class="bc-column-map">
-        Hola soy un mapa
+        <office-list-map [bussinesCenter]="bussinesCenter"></office-list-map>
     </article>
 </section>

@@ -1,24 +1,24 @@
 @import 'index';
 
 footer {
-    min-height: 550px;
     font-size: 12px;
+    min-height: 550px;
 
     .footer-content {
         background-color: colors('black-footer');
-        min-height: 430px;
         display: flex;
         flex-direction: column;
+        min-height: 430px;
 
         .footer-item {
-            width: 100%;
-            padding: 1rem;
             border-bottom: 1px colors('white') dashed;
+            padding: 1rem;
+            width: 100%;
 
             &:nth-child(1) {
                 color: colors('white-50');
-                text-align: justify;
                 line-height: 30px;
+                text-align: justify;
             }
 
             .footer-menu {
@@ -49,8 +49,8 @@ footer {
                 }
 
                 .input-container {
-                    padding: 1rem 0;
                     display: flex;
+                    padding: 1rem 0;
 
                     i {
                         font-size: 25px;
@@ -58,14 +58,14 @@ footer {
 
                     .input-field {
                         background-color: colors('black-footer');
-                        border-top: none;
+                        border-bottom: 1px colors('white') solid;
                         border-left: none;
                         border-right: none;
-                        border-bottom: 1px colors('white') solid;
+                        border-top: none;
                         color: colors('white');
+                        font-size: 16px;
                         margin: 0 0.5rem;
                         width: 100%;
-                        font-size: 16px;
                     }
                 }
 
@@ -73,19 +73,19 @@ footer {
                     background-color: colors('black');
                     color: colors('white');
                     font-size: 16px;
-                    text-transform: uppercase;
                     padding: 1rem;
+                    text-transform: uppercase;
                 }
             }
         }
 
         @include from-breakpoint('tablet') {
-            padding: 66px 0;
             flex-direction: row;
+            padding: 66px 0;
 
             .footer-item {
-                width: 25%;
                 border: none;
+                width: 25%;
 
                 &:nth-child(1) {
                     width: 30%;
@@ -106,21 +106,21 @@ footer {
     .legal {
         background-color: colors('black');
         color: colors('white-50');
+        font-size: 14px;
         margin: 0 auto;
+        min-height: 120px;
         padding-top: 55px;
         text-align: center;
         vertical-align: middle;
-        font-size: 14px;
-        min-height: 120px;
     }
 
     @include from-breakpoint('tablet') {
-        padding: 66px 0 0;
         flex-direction: row;
+        padding: 66px 0 0;
 
         .footer-item {
-            width: 25%;
             border: none;
+            width: 25%;
 
             &:nth-child(1) {
                 width: 30%;

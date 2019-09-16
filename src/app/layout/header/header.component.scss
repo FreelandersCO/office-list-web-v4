@@ -4,15 +4,18 @@ header {
     background-color: colors('coffee-bg');
     color: colors('white');
     min-height: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 
     .header-content {
         overflow: hidden;
 
         .item-nav {
-            width: 100%;
-            padding: 14px 1rem;
             float: left;
+            padding: 14px 1rem;
             text-align: center;
+            width: 100%;
 
             a {
                 color: colors('white');
@@ -34,22 +37,22 @@ header {
         }
 
         .icon {
+            color: colors('white');
             cursor: pointer;
-            float: right;
             display: block;
+            float: right;
             font-size: 35px;
             position: absolute;
             right: 0.8rem;
             top: 0.4rem;
-            color: colors('white');
         }
 
         &.responsive {
             position: relative;
 
             .item-nav {
-                float: none;
                 display: block;
+                float: none;
                 text-align: center;
             }
         }
@@ -60,9 +63,9 @@ header {
 
         .header-content {
             .item-nav {
+                font-size: 14px;
                 height: 50px;
                 padding: 0.5rem 0;
-                font-size: 14px;
 
                 &:nth-child(1),
                 &:nth-child(2) {
@@ -82,9 +85,9 @@ header {
 
             .callus {
                 background-color: colors('green-primary');
-                padding-top: 0.5rem;
-                line-height: 25px;
                 font-size: 12px;
+                line-height: 25px;
+                padding-top: 0.5rem;
 
                 .callus-text {
                     line-height: 1px;
@@ -111,6 +114,7 @@ header {
 
     @include from-breakpoint('desktop-l') {
         .header-content .item-nav {
+
             &:nth-child(3),
             &:nth-child(4) {
                 line-height: 25px;

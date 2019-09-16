@@ -2,30 +2,30 @@
 
 .callus-container {
     background-color: colors('green-primary');
-    padding: 2%;
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
     font-size: 18px;
+    margin: 0 auto;
+    padding: 2%;
+    text-align: center;
+    width: 100%;
 
     &:after {
+        background-color: colors('green-primary');
         content: ' ';
-        width: 16px;
         height: 100%;
+        position: absolute;
         right: -16px;
         top: 0;
-        position: absolute;
-        background-color: colors('green-primary');
+        width: 16px;
     }
 
     &:before {
+        background-color: colors('green-primary');
         content: ' ';
-        width: 16px;
         height: 100%;
         left: -16px;
-        top: 0;
         position: absolute;
-        background-color: colors('green-primary');
+        top: 0;
+        width: 16px;
     }
 
     .callus-text {

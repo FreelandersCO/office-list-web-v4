@@ -9,10 +9,10 @@ import { ActivatedRoute } from '@angular/router';
     styleUrls: ['./business-list.component.scss']
 })
 export class BusinessListComponent implements OnInit {
-    bussinesCenters;
+    bussinesCenter;
     areas;
     originalData;
-    bussinesCentersCount;
+    bussinesCenterCount;
     city;
     state;
 
@@ -20,13 +20,13 @@ export class BusinessListComponent implements OnInit {
 
     ngOnInit() {
         this.route.params.subscribe(params => {
-            this.city = params['city'];
-            this.state = params['state'];
+            this.city = this.capitalizeWords(params['city']);
+            this.state = this.capitalizeWords(params['state']);
             this.api.getBussinesList(params['country'], params['state'], params['city']).subscribe(result => {
-                this.bussinesCenters = result;
-                this.bussinesCentersCount = Object.keys(this.bussinesCenters).length;
+                this.bussinesCenter = result;
+                this.bussinesCenterCount = Object.keys(this.bussinesCenter).length;
                 this.originalData = result;
-                this.areas = this.bussinesCenters.reduce((a, d) => {
+                this.areas = this.bussinesCenter.reduce((a, d) => {
                     if (a.indexOf(d.area_name) === -1) {
                         a.push(d.area_name);
                     }
@@ -39,14 +39,24 @@ export class BusinessListComponent implements OnInit {
 
     filterArea(area) {
         if (area !== '') {
-            this.bussinesCenters = this.originalData.filter((item) => {
+            this.bussinesCenter = this.originalData.filter((item) => {
                 return item.area_name === area;
             });
         } else {
-            this.bussinesCenters = this.originalData;
+            this.bussinesCenter = this.originalData;
         }
 
-        this.bussinesCentersCount = Object.keys(this.bussinesCenters).length;
+        this.bussinesCenterCount = Object.keys(this.bussinesCenter).length;
+    }
+
+    capitalizeWords(str) {
+        const max = 2;
+
+        return str.split('-').map((val) => {
+            return val.replace(/\w\S*/g, (txt) => {
+                return (txt.length <= max) ? txt : txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            });
+        }).join(' ');
     }
 
 }

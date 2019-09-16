@@ -18,8 +18,8 @@
         }
 
         .bc-filter {
-            border: 1px colors('black') solid;
             background-color: colors('white');
+            border: 1px colors('black') solid;
             font-size: 1rem;
             height: 35px;
             margin: 1rem 0;
@@ -29,9 +29,9 @@
 
         .bc-num-result {
             color: colors('black-70');
-            text-align: justify;
-            padding-bottom: 0.5rem;
             font-size: 12px;
+            padding-bottom: 0.5rem;
+            text-align: justify;
         }
 
         .bc-list {
@@ -39,27 +39,27 @@
         }
 
         .bc-card {
+            border: 1px solid colors('black-18');
             display: flex;
             flex-direction: column;
-            width: 100%;
             margin-bottom: 1.2rem;
-            border: 1px solid colors('black-18');
+            width: 100%;
 
             .bc-card-slider {
                 width: 100%;
             }
 
             .bc-card-info {
-                width: 100%;
                 display: flex;
                 flex-direction: column;
                 padding: 0 0.5rem;
+                width: 100%;
 
                 .bc-title {
                     color: colors('black');
-                    padding: 0.5rem 0;
                     font-size: 14px;
                     font-weight: bold;
+                    padding: 0.5rem 0;
                 }
 
                 .bc-street,
@@ -71,24 +71,24 @@
 
                 .bc-description {
                     color: colors('black');
-                    padding: 0.5rem 0;
                     font-size: 10px;
                     line-height: 20px;
+                    padding: 0.5rem 0;
                     text-align: justify;
                 }
             }
 
             .bc-contact {
-                width: 100%;
                 padding: 0 0.5rem 1rem;
+                width: 100%;
 
                 .bc-price-list {
-                    width: 100%;
                     margin: 0.5rem 0;
+                    width: 100%;
 
                     .bc-price-row {
-                        color: colors('black-50');
                         border-bottom: 1px colors('black-50') dashed;
+                        color: colors('black-50');
                         font-size: 12px;
 
                         .bc-price-title {
@@ -103,17 +103,17 @@
                 }
 
                 .bc-tel {
-                    width: 100%;
                     padding: 0.5rem;
                     text-align: center;
+                    width: 100%;
 
                     a {
                         color: colors('black');
                         font-size: 12px;
 
                         .zwicon-phone {
-                            padding-right: 0.3rem;
                             font-size: 12px;
+                            padding-right: 0.3rem;
                         }
                     }
                 }
@@ -132,11 +132,9 @@
     }
 
     .bc-column-map {
+        height: 100vh;
         width: 100%;
-        border: 1px black dashed;
     }
-
-    /* Media Query */
 
     @include from-breakpoint('tablet') {
         .bc-column-info {
@@ -149,13 +147,13 @@
 
             .bc-city-title {
                 font-size: 16px;
-                width: 70%;
                 padding: 0.5rem 0;
+                width: 70%;
             }
 
             .bc-filter {
-                width: 30%;
                 margin: 0;
+                width: 30%;
             }
 
             .bc-num-result {
@@ -171,8 +169,8 @@
                 }
 
                 .bc-card-info {
-                    width: 50%;
                     padding: 0.5rem;
+                    width: 50%;
 
                     .bc-title {
                         font-size: 16px;
@@ -193,10 +191,10 @@
                 }
 
                 .bc-contact {
-                    width: 25%;
-                    padding: 0.5rem;
                     display: flex;
                     flex-direction: column;
+                    padding: 0.5rem;
+                    width: 25%;
 
                     .bc-price-list {
                         margin: 0;
@@ -222,6 +220,9 @@
         }
 
         .bc-column-map {
+            position: sticky;
+            right: 0;
+            top: 50px;
             width: 30%;
         }
     }
