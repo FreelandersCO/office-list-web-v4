@@ -5,8 +5,12 @@ import { BusinessListComponent } from './business-list.component';
 const routes: Routes = [
     {
         path: ':country/:state/:city',
-        component: BusinessListComponent
-    }
+        component: BusinessListComponent,
+    },
+    {
+        path: ':country/:state/:city/:zip_code',
+        component: BusinessListComponent,
+    },
 ];
 
 @NgModule({

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 // tslint:disable-next-line: import-blacklist
 import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { retry, catchError, zip } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
 
@@ -22,8 +22,20 @@ export class ApiServicesService {
     constructor(private http: HttpClient) { }
 
     // tslint:disable-next-line: ban-types
-    getBussinesList(country, state, city): Observable<Object> {
-        return this.http.get(this.apiURL + '/BusinessCenter/List/' + country + '/' + state + '/' + city)
+    getBussinesList(country, state, city, zipCode): Observable<Object> {
+        const limit = '2';
+        // tslint:disable-next-line: no-magic-numbers
+        const exclude =  '500, 1254';
+        const  headers = new  HttpHeaders({
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+        }).set('limit', limit).set('exclude', exclude);
+
+        const url = (zipCode === undefined) ?
+            `${this.apiURL}/BusinessCenter/List/${country}/${state}/${city}/` :
+            `${this.apiURL}/BusinessCenter/List/${country}/${state}/${city}/${zipCode}`;
+
+        return this.http.get(url, {headers})
             .pipe(
                 retry(1),
                 catchError(this.handleError)

@@ -22,7 +22,7 @@ export class BusinessListComponent implements OnInit {
         this.route.params.subscribe(params => {
             this.city = this.capitalizeWords(params['city']);
             this.state = this.capitalizeWords(params['state']);
-            this.api.getBussinesList(params['country'], params['state'], params['city']).subscribe(result => {
+            this.api.getBussinesList(params['country'], params['state'], params['city'], params['zip_code']).subscribe(result => {
                 this.bussinesCenter = result;
                 this.bussinesCenterCount = Object.keys(this.bussinesCenter).length;
                 this.originalData = result;
