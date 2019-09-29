@@ -4,7 +4,6 @@ import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { AgmCoreModule } from '@agm/core';
 
 import { SearchInputComponent } from './search-input/search-input.component';
-import { CallUsComponent } from './call-us/call-us.component';
 import { BcSliderComponent } from './bc-slider/bc-slider.component';
 import { MapComponent } from './map/map.component';
 import { BcCardComponent } from './bc-card/bc-card.component';
@@ -21,14 +20,12 @@ import { BcCardComponent } from './bc-card/bc-card.component';
     ],
     declarations: [
         SearchInputComponent,
-        CallUsComponent,
         BcSliderComponent,
         MapComponent,
         BcCardComponent
     ],
     exports: [
         SearchInputComponent,
-        CallUsComponent,
         BcSliderComponent,
         MapComponent,
         BcCardComponent

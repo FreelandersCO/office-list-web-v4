@@ -5,11 +5,11 @@ header {
     color: colors('white');
     top: 0;
     z-index: 1;
-	
+
     .menu-container {
         display: flex;
         padding: 20px 20px 18px;
-		
+
         .logo-container {
             width: 60%;
         }
@@ -49,69 +49,6 @@ header {
 
             span {
                 font-weight: 400;
-            }
-        }
-    }
-
-    @include from-breakpoint('tablet') {
-        min-height: 50px;
-
-        .header-content {
-            .item-nav {
-                font-size: 14px;
-                height: 50px;
-                padding: 0.5rem 0;
-
-                &:nth-child(1),
-                &:nth-child(2) {
-                    width: 27.5%;
-                }
-
-                &:nth-child(3),
-                &:nth-child(4),
-                &:nth-child(5) {
-                    width: 15%;
-                }
-
-                &:not(:first-child) {
-                    display: block;
-                }
-            }
-
-            .callus {
-                background-color: colors('green-primary');
-                font-size: 12px;
-                line-height: 25px;
-                padding-top: 0.5rem;
-
-                .callus-text {
-                    line-height: 1px;
-                    margin-top: 0.5rem;
-                }
-
-                .callus-phone {
-                    color: colors('white');
-                    font-weight: 700;
-                }
-            }
-
-            .logo {
-                display: block;
-                position: absolute;
-                top: 0.5rem;
-            }
-
-            .icon {
-                display: none;
-            }
-        }
-    }
-
-    @include from-breakpoint('desktop-l') {
-        .header-content .item-nav {
-            &:nth-child(3),
-            &:nth-child(4) {
-                line-height: 25px;
             }
         }
     }
