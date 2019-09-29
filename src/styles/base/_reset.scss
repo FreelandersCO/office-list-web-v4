@@ -151,14 +151,14 @@ input {
 
 button {
     background: none;
-	border: 0;
-	cursor: pointer;
-	padding: 0;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
 	
-	:hover,
-	:active,
-	:focus,
-	:visited {
-		outline: none;
-	}
+    :hover,
+    :active,
+    :focus,
+    :visited {
+        outline: none;
+    }
 }

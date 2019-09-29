@@ -7,19 +7,19 @@
 @import 'abstracts/variables';
 
 body {
-	background: #F8F8F8;
-	font-weight: 300;
+    background: #F8F8F8;
+    font-weight: 300;
 }
 
 section {
-	margin: 10px 0 !important;
-	padding: 20px 0 !important;
+    margin: 10px 0 !important;
+    padding: 20px 0 !important;
 }
 
 article {
-	margin: 0 auto !important;
-	max-width: 1400px;
-	width: 90%;
+    margin: 0 auto !important;
+    max-width: 1400px;
+    width: 90%;
 }
 
 .page-container {
@@ -31,26 +31,26 @@ article {
 }
 
 .icon {
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	display: block;
-	height: 30px;
-	width: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    height: 30px;
+    width: 30px;
 
-	&.facebook {
-		background-image: url('assets/images/icons/icon-facebook.svg');
-	}
+    &.facebook {
+        background-image: url('assets/images/icons/icon-facebook.svg');
+    }
 
-	&.linkedin {
-		background-image: url('assets/images/icons/icon-linkedin.svg');
-	}
+    &.linkedin {
+        background-image: url('assets/images/icons/icon-linkedin.svg');
+    }
 
-	&.twitter {
-		background-image: url('assets/images/icons/icon-twitter.svg');
-	}
+    &.twitter {
+        background-image: url('assets/images/icons/icon-twitter.svg');
+    }
 }
 
 .group-form {
-	position: relative;
+    position: relative;
 }

@@ -19,4 +19,4 @@ const routes: Routes = [
 })
 export class BusinessListRoutingModule { }
 
-//:country/:state/:city
+// :country/:state/:city

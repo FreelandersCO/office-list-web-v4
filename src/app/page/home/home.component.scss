@@ -7,162 +7,159 @@
 @import 'abstracts/variables';
 
 .popular-cities-container {
-	background-image: url('../../../assets/images/bg-dottedmap.png');
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+    background-image: url('../../../assets/images/bg-dottedmap.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .cities-container,
 .logo-company-container {
-	display: flex;
-	flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .card-white {
-	flex-grow: 1;
-	margin-right: 10px;
-	width: 46%;
+    flex-grow: 1;
+    margin-right: 10px;
+    width: 46%;
 
-	&:nth-child(2n){
-		margin-right: 0;
-	}
+    &:nth-child(2n) {
+        margin-right: 0;
+    }
 
-	.img-city-container {
-		border-radius: 10px 10px 0 0;
-		height: 130px;
-		overflow: hidden;
+    .img-city-container {
+        border-radius: 10px 10px 0 0;
+        height: 130px;
+        overflow: hidden;
 
-		img {
-			height: 100%;
-			object-fit: cover;
-			object-position: center;
-		}
-	}
+        img {
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
 
-	.title-city {
-		color: colors('primary');
-		font-size: 1.1rem;
-		font-weight: 700;
-		margin-top: 10px;
-		padding: 0 12px;
-	}
+    .title-city {
+        color: colors('primary');
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-top: 10px;
+        padding: 0 12px;
+    }
 
-	.number-offices {
-		color: colors('black-4');
-		font-size: 0.8rem;
-		font-weight: 300;
-		padding: 0 12px;
-	}
+    .number-offices {
+        color: colors('black-4');
+        font-size: 0.8rem;
+        font-weight: 300;
+        padding: 0 12px;
+    }
 }
 
 .type-office-container {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-	.type-office {
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
-		height: 312px;
-		margin-bottom: 20px;
-		overflow: hidden;
-		padding: 10px;
-		position: relative;
+    .type-office {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 312px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        padding: 10px;
+        position: relative;
 
-		&.privatte-office {
-			background-image: url('../../../assets/images/img-private-office.jpg');
-		}
+        &.privatte-office {
+            background-image: url('../../../assets/images/img-private-office.jpg');
+        }
 
-		&.coworking {
-			background-image: url('../../../assets/images/img-coworking.jpg');
-		}
+        &.coworking {
+            background-image: url('../../../assets/images/img-coworking.jpg');
+        }
 
-		&.virtual-office {
-			background-image: url('../../../assets/images/img-virtual-office.jpg');
-		}
+        &.virtual-office {
+            background-image: url('../../../assets/images/img-virtual-office.jpg');
+        }
 
-		.name-type-office {
-			background: linear-gradient(to bottom, colors('black-0'), colors('black'));
-			bottom: 0;
-			color: colors('white');
-			height: 80px;
-			left: 0;
-			padding: 10px;
-			position: absolute;
-			width: 100%;
-		}
+        .name-type-office {
+            background: linear-gradient(to bottom, colors('black-0'), colors('black'));
+            bottom: 0;
+            color: colors('white');
+            height: 80px;
+            left: 0;
+            padding: 10px;
+            position: absolute;
+            width: 100%;
+        }
 
-		.name-office {
-			font-size: 2.6rem;
-			font-weight: 700;
-		}
+        .name-office {
+            font-size: 2.6rem;
+            font-weight: 700;
+        }
 
-		.detail-office-container {
-			background-color: colors('primary-9');
-			bottom: -312px;
-			color: colors('white');
-			height: 100%;
-			left: 0;
-			padding: 50px 20px 0;
-			position: absolute;
-			width: 100%;
+        .detail-office-container {
+            background-color: colors('primary-9');
+            bottom: -312px;
+            color: colors('white');
+            height: 100%;
+            left: 0;
+            padding: 50px 20px 0;
+            position: absolute;
+            width: 100%;
 
-			.text-detail-info {
-				font-size: 1.1rem;
-				font-weight: 300;
-			}
+            .text-detail-info {
+                font-size: 1.1rem;
+                font-weight: 300;
+            }
 
-			.title-detail-office {
-				font-size: 1.1rem;
-				font-weight: 700;
-				margin: 10px 0;
-			}
-		}
-
-	}
+            .title-detail-office {
+                font-size: 1.1rem;
+                font-weight: 700;
+                margin: 10px 0;
+            }
+        }
+    }
 }
 
 .item-doit-container {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-	.itemhw-container {
-		text-align: center;
-		margin-bottom: 20px;
+    .itemhw-container {
+        text-align: center;
+        margin-bottom: 20px;
 
-		.icon-howw {
-			margin: 20px auto;
-			width: 24%;
-		}
+        .icon-howw {
+            margin: 20px auto;
+            width: 24%;
+        }
 
-		.title-howw {
-			font-size: 2.2rem;
-			font-weight: 700;
-			margin: 20px 0;
-		}
+        .title-howw {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 20px 0;
+        }
 
-		.text-howw {
-			font-size: 1.2rem;
-		}
-	}
-
+        .text-howw {
+            font-size: 1.2rem;
+        }
+    }
 }
 
 .pressed-form-container {
-	background: colors('black-8');
+    background: colors('black-8');
 
-	.white-title {
-		color: colors('white');
-	}
+    .white-title {
+        color: colors('white');
+    }
 
-	.text-intro-form-button {
-		text-align: center;
-	}
+    .text-intro-form-button {
+        text-align: center;
+    }
 }
 
 .testimonials-container {
-	background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../../assets/images/img-bg-testimonials.jpg');
-	margin-bottom: 0 !important;
-	
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../../assets/images/img-bg-testimonials.jpg');
+    margin-bottom: 0 !important;
 }

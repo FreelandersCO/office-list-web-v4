@@ -4,53 +4,54 @@ header {
     background: linear-gradient(to bottom, #484741, colors('black'));
     color: colors('white');
     top: 0;
-	z-index: 1;
+    z-index: 1;
 	
-	.menu-container {
-		display:flex;
-		padding: 20px 20px 18px;
+    .menu-container {
+        display: flex;
+        padding: 20px 20px 18px;
 		
-		.logo-container  {
-			width: 60%;
-		}
-		.items-menu {
-			text-align: right;
-			width: 40%;
-		}
-		.button-icon {
-			color: colors('white');
-			font-size: 2rem;
-			line-height: 1rem;
-			margin-top: -5px;
-		}
+        .logo-container {
+            width: 60%;
+        }
 
-		#btn-nav-search,
-		#btn-nav-user {
-			display: none;
-		}
-	}
+        .items-menu {
+            text-align: right;
+            width: 40%;
+        }
 
+        .button-icon {
+            color: colors('white');
+            font-size: 2rem;
+            line-height: 1rem;
+            margin-top: -5px;
+        }
 
-	.callus-container {
-		background: colors('white');
-		color: colors('black');
-		font-size: 1.2rem;
-		padding: 8px;
-		text-align: center;
+        #btn-nav-search,
+        #btn-nav-user {
+            display: none;
+        }
+    }
 
-		.text-callus {
-			font-weight: 300;
+    .callus-container {
+        background: colors('white');
+        color: colors('black');
+        font-size: 1.2rem;
+        padding: 8px;
+        text-align: center;
 
-			.zwicon-phone {
-				color: colors('primary');
-				font-size: 1.4rem;
-			}
+        .text-callus {
+            font-weight: 300;
 
-			span {
-				font-weight: 400;
-			}
-		}
-	}
+            .zwicon-phone {
+                color: colors('primary');
+                font-size: 1.4rem;
+            }
+
+            span {
+                font-weight: 400;
+            }
+        }
+    }
 
     @include from-breakpoint('tablet') {
         min-height: 50px;
