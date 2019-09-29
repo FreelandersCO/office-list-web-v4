@@ -1,23 +1,49 @@
 <header>
-    <nav class="page-container header-content" [ngClass]="status ? 'responsive' : 'danger'">
-        <div class="item-nav">
-            <img class="logo" src="assets/images/logo-officelist-dark.svg" alt="Office List logotype">
-        </div>
-        <div class="item-nav">
-            <office-list-search-input class="search-input"></office-list-search-input>
-        </div>
-        <div class="item-nav">List your Office Space</div>
-        <div class="item-nav"><a href="/login">Sign in</a></div>
-        <div class="item-nav callus" *ngIf="!status">
-            <p class="callus-text">Call us toll free at</p>
-            <p>
-                <a class="callus-phone" href="tel:1-866-354-5478">
-                    1-866-354-5478
-                </a>
-            </p>
-        </div>
-        <button class="icon" (click)="openMenu()">
-            <i class="zwicon-hamburger-menu"></i>
-        </button>
-    </nav>
+    <nav class="page-comtainer menu-container">
+		<div class="logo-container">
+			<img src="../../../assets/images/logo-officelist-dark.svg" alt="">
+		</div>
+		<div class="items-menu">
+			<button class="button-icon" id="btn-nav-search">
+				<i class="zwicon-search"></i> 
+			</button>
+			<button class="button-icon" id="btn-nav-user">
+				<i class="zwicon-user-circle"></i> 
+			</button>
+			<button class="button-icon">
+				<i class="zwicon-hamburger-menu"></i>
+			</button>
+		</div>
+
+		<div style="display:none;" class="search-container">
+			<input type="text" placeholder="Where? Type city or zip/post code">
+			<button class="search-button">
+				<i></i>
+			</button>
+		</div>
+		<div style="display:none;" class="login-container">
+			<i></i>
+			<form action="">
+				<div class="group-form">
+					<label for="name" class="text-label">
+						Name
+					</label>
+					<input type="text" name="name" id="" >
+				</div>
+				<div class="group-form">
+					<label for="name" class="text-label">
+						Name
+					</label>
+					<input type="text" name="name" id="" >
+				</div>
+			</form>
+		</div>
+	</nav>
+	<div class="callus-container">
+		<p class="text-callus">
+			<i class="zwicon-phone"></i>
+			Call Us
+			<span>1-866-354-5478</span>
+		</p>
+	</div>
 </header>

@@ -1,139 +1,84 @@
 @import 'index';
 
 footer {
-    font-size: 12px;
-    min-height: 550px;
+	background: colors('black');
+	color: colors('white-3');
+	display: flex;
+	flex-direction: column;
+	padding: 42px 20px 0;
 
-    .footer-content {
-        background-color: colors('black-footer');
-        display: flex;
-        flex-direction: column;
-        min-height: 430px;
+	.lists-container {
+		border-bottom: 1px solid colors('white-2');
+	}
 
-        .footer-item {
-            border-bottom: 1px colors('white') dashed;
-            padding: 1rem;
-            width: 100%;
+	.list-items-footer {
+		li {
+			margin-bottom: 10px;
+		}
+	}
 
-            &:nth-child(1) {
-                color: colors('white-50');
-                line-height: 30px;
-                text-align: justify;
-            }
+	.link-footer,
+	.text-footer  {
+		color: colors('white-3');
+		font-size: 1.1rem;
+	}
 
-            .footer-menu {
-                li {
-                    height: 30px;
-                }
+	.social-container {
+		display: flex;
+		flex-direction: row;
+		padding-top: 20px;
 
-                a {
-                    color: colors('white');
-                    cursor: pointer;
+		.text-footer {
+			margin-left: 5%;
+		}
+		
+		.button-icon {
+			margin: -6px 6px 0;
+		}
+	}
 
-                    .icon {
-                        fill: colors('white');
-                    }
+	/*Newsletter*/
+	.newsletter-container {
+		padding: 30px 0 10px;
+		text-align: center;
 
-                    &:hover {
-                        color: colors('green-primary');
-                    }
-                }
-            }
+		.zwicon-mail {
+			color: colors('white-3');
+			font-size: 1.4rem;
+		}
 
-            .news_letter_form {
-                color: colors('white');
+		.group-form {
+			.text-label-footer {
+				color: colors('white-3');
+				font-size: 1.1rem;
+			}
 
-                h4 {
-                    font-size: 24px;
-                    font-weight: 300;
-                }
+			.input-footer {
+				background-color: colors('white-8');
+				border: 0;
+				border-radius: 25px;
+				font-size: 1rem;
+				font-weight: 300;
+				margin-top: 12px;
+				padding: 10px 18px;
+				width: 100%;
+			}
+		}
+	}
 
-                .input-container {
-                    display: flex;
-                    padding: 1rem 0;
+	.copyright-container {
+		display: flex;
+		flex-direction: column;
+		padding: 20px 0;
 
-                    i {
-                        font-size: 25px;
-                    }
+		.terms-footer {
+			font-size: 0.9rem;
 
-                    .input-field {
-                        background-color: colors('black-footer');
-                        border-bottom: 1px colors('white') solid;
-                        border-left: none;
-                        border-right: none;
-                        border-top: none;
-                        color: colors('white');
-                        font-size: 16px;
-                        margin: 0 0.5rem;
-                        width: 100%;
-                    }
-                }
-
-                .btn-newsletter {
-                    background-color: colors('black');
-                    color: colors('white');
-                    font-size: 16px;
-                    padding: 1rem;
-                    text-transform: uppercase;
-                }
-            }
-        }
-
-        @include from-breakpoint('tablet') {
-            flex-direction: row;
-            padding: 66px 0;
-
-            .footer-item {
-                border: none;
-                width: 25%;
-
-                &:nth-child(1) {
-                    width: 30%;
-                }
-
-                &:nth-child(2),
-                &:nth-child(3) {
-                    width: 20%;
-                }
-
-                &:nth-child(4) {
-                    width: 30%;
-                }
-            }
-        }
-    }
-
-    .legal {
-        background-color: colors('black');
-        color: colors('white-50');
-        font-size: 14px;
-        margin: 0 auto;
-        min-height: 120px;
-        padding-top: 55px;
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    @include from-breakpoint('tablet') {
-        flex-direction: row;
-        padding: 66px 0 0;
-
-        .footer-item {
-            border: none;
-            width: 25%;
-
-            &:nth-child(1) {
-                width: 30%;
-            }
-
-            &:nth-child(2),
-            &:nth-child(3) {
-                width: 20%;
-            }
-
-            &:nth-child(4) {
-                width: 30%;
-            }
-        }
-    }
+			&.align-r {
+				margin-top: 12px;
+				text-align: right;
+			}
+		}
+	}
 }
+

@@ -4,7 +4,7 @@ import { BusinessListComponent } from './business-list.component';
 
 const routes: Routes = [
     {
-        path: ':country/:state/:city',
+        path: '',
         component: BusinessListComponent,
     },
     {
@@ -18,3 +18,5 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 export class BusinessListRoutingModule { }
+
+//:country/:state/:city

@@ -16,7 +16,6 @@
     .bc-street,
     .bc-city,
     .bc-area {
-        color: colors('black-50');
         font-size: 12px;
     }
 
@@ -38,8 +37,6 @@
         width: 100%;
 
         .bc-price-row {
-            border-bottom: 1px colors('black-50') dashed;
-            color: colors('black-50');
             font-size: 12px;
 
             .bc-price-title {

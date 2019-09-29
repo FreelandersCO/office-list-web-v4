@@ -1,62 +1,56 @@
 @import 'index';
 
 header {
-    background-color: colors('coffee-bg');
+    background: linear-gradient(to bottom, #484741, colors('black'));
     color: colors('white');
-    min-height: 40px;
-    position: sticky;
     top: 0;
-    z-index: 1;
+	z-index: 1;
+	
+	.menu-container {
+		display:flex;
+		padding: 20px 20px 18px;
+		
+		.logo-container  {
+			width: 60%;
+		}
+		.items-menu {
+			text-align: right;
+			width: 40%;
+		}
+		.button-icon {
+			color: colors('white');
+			font-size: 2rem;
+			line-height: 1rem;
+			margin-top: -5px;
+		}
 
-    .header-content {
-        overflow: hidden;
+		#btn-nav-search,
+		#btn-nav-user {
+			display: none;
+		}
+	}
 
-        .item-nav {
-            float: left;
-            padding: 14px 1rem;
-            text-align: center;
-            width: 100%;
 
-            a {
-                color: colors('white');
-            }
+	.callus-container {
+		background: colors('white');
+		color: colors('black');
+		font-size: 1.2rem;
+		padding: 8px;
+		text-align: center;
 
-            &:not(:first-child) {
-                display: none;
-            }
-        }
+		.text-callus {
+			font-weight: 300;
 
-        .logo {
-            cursor: pointer;
-            display: initial;
-            max-width: 200px;
-        }
+			.zwicon-phone {
+				color: colors('primary');
+				font-size: 1.4rem;
+			}
 
-        .search-input {
-            width: 100%;
-        }
-
-        .icon {
-            color: colors('white');
-            cursor: pointer;
-            display: block;
-            float: right;
-            font-size: 35px;
-            position: absolute;
-            right: 0.8rem;
-            top: 0.4rem;
-        }
-
-        &.responsive {
-            position: relative;
-
-            .item-nav {
-                display: block;
-                float: none;
-                text-align: center;
-            }
-        }
-    }
+			span {
+				font-weight: 400;
+			}
+		}
+	}
 
     @include from-breakpoint('tablet') {
         min-height: 50px;
