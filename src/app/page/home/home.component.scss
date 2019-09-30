@@ -19,7 +19,7 @@
     flex-wrap: wrap;
 }
 
-.card-white {
+.card-white{
     flex-grow: 1;
     margin-right: 10px;
     width: 46%;
@@ -104,12 +104,12 @@
             color: colors('white');
             height: 100%;
             left: 0;
-            padding: 50px 20px 0;
+            padding: 40px 20px 0;
             position: absolute;
             width: 100%;
 
             .text-detail-info {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
                 font-weight: 300;
             }
 
@@ -142,7 +142,7 @@
         }
 
         .text-howw {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
     }
 }
@@ -157,6 +157,12 @@
     .text-intro-form-button {
         text-align: center;
     }
+}
+
+.img-trust-container {
+	flex-grow: 1;
+	margin-right: 20px;
+	width: 30%;
 }
 
 .testimonials-container {
