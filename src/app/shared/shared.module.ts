@@ -38,7 +38,8 @@ import { ModalDetailComponent } from './modal-detail/modal-detail.component';
         BcSliderComponent,
         MapComponent,
         BcCardComponent,
-        BannerHomeComponent
+        BannerHomeComponent,
+        ModalDetailComponent
     ]
 })
 export class SharedModule { }
