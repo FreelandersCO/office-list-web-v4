@@ -8,18 +8,23 @@
 
 body {
     background: #F8F8F8;
-    font-weight: 300;
+	font-weight: 300;
+	position: relative;
 }
 
 section {
-    margin: 10px 0 0; 
-    padding: 20px 0; 
+    margin: 10px 0 0;
+    padding: 20px 0;
 }
 
 article {
     margin: 0 auto;
     max-width: 1400px;
     width: 90%;
+}
+
+.info-city-list-container {
+    margin-top: 30%;
 }
 
 .page-container {

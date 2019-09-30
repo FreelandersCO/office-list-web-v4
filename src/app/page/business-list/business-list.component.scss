@@ -1,43 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'index';
-@import 'base/reset';
-@import 'base/animations';
-@import 'base/global';
-@import 'theme/index';
-@import 'abstracts/variables';
-
-.info-city-list-container {
-    margin: 0;
-}
 
 .result-list-container {
     margin: 0 0  20px;
     padding: 0;
 
     .filter-container {
-		margin: 0 0 20px;
-		padding: 0;
-		width: 100%;
-	}
+        margin: 0 0 20px;
+        padding: 0;
+        width: 100%;
+    }
 	
-	.btn-icon-filter {
-		color: colors('black-6');
-		font-size: 2rem;
-		margin-right: 8px;
+    .btn-icon-filter {
+        color: colors('black-6');
+        font-size: 2rem;
+        margin-right: 8px;
 
-		&:hover,
-		&:active,
-		&:visited {
-			color: colors('primary');
-		}
-	} 
+        &:hover,
+        &:active,
+        &:visited {
+            color: colors('primary');
+        }
+    }
 }
 
-.category-filter-container  {
-	box-shadow: none;
-	margin-top: 10px;
+.category-filter-container {
+    box-shadow: none;
+    margin-top: 10px;
 }
-
 
 .office-list-card {
     display: flex;
@@ -140,8 +130,8 @@
 		
         .button-icon {
             background: colors('white-7');
-			border-radius: 100%;
-			font-size: 1rem;
+            border-radius: 100%;
+            font-size: 1rem;
             height: 30px;
             position: absolute;
             right: 12px;

@@ -7,6 +7,7 @@ import { SearchInputComponent } from './search-input/search-input.component';
 import { BcSliderComponent } from './bc-slider/bc-slider.component';
 import { MapComponent } from './map/map.component';
 import { BcCardComponent } from './bc-card/bc-card.component';
+import { ModalDetailComponent } from './modal-detail/modal-detail.component';
 
 @NgModule({
     imports: [
@@ -22,13 +23,15 @@ import { BcCardComponent } from './bc-card/bc-card.component';
         SearchInputComponent,
         BcSliderComponent,
         MapComponent,
-        BcCardComponent
+        BcCardComponent,
+        ModalDetailComponent
     ],
     exports: [
         SearchInputComponent,
         BcSliderComponent,
         MapComponent,
-        BcCardComponent
+		BcCardComponent,
+		ModalDetailComponent
     ]
 })
 export class SharedModule { }
