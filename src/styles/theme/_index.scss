@@ -36,6 +36,24 @@
     text-align: center;
 }
 
+.title-pages {
+	color: colors('primary');
+    font-size: 2.4rem;
+	font-weight: 700;
+	line-height: 2.4rem;
+	margin-bottom: 20px;
+    text-align: center;
+}
+
+.text-intro {
+	font-size: 1.3rem;
+}
+
+h3 {
+	color: colors('primary');
+	font-size: 1.4rem;
+}
+
 hr {
     border: 2px solid colors('primary');
     border-radius: 5px;
@@ -133,4 +151,12 @@ hr {
         margin: 0;
         text-align: center;
     }
+}
+
+.badge-city {
+	border-radius: 4px;
+	background: colors('black-2');
+	color: colors('black-6');
+	font-size: 0.8rem;
+	padding: 3px 12px;
 }
