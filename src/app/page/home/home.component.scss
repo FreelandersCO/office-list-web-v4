@@ -19,7 +19,7 @@
     flex-wrap: wrap;
 }
 
-.card-white{
+.card-white {
     flex-grow: 1;
     margin-right: 10px;
     width: 46%;
@@ -160,12 +160,12 @@
 }
 
 .img-trust-container {
-	flex-grow: 1;
-	margin-right: 20px;
-	width: 30%;
+    flex-grow: 1;
+    margin-right: 20px;
+    width: 30%;
 }
 
 .testimonials-container {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../../assets/images/img-bg-testimonials.jpg');
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
 }
