@@ -9,6 +9,9 @@
             "@env/*": [
                 "environments/*"
             ],
+            "@interface/*": [
+                "app/interfaces/*"
+            ],
             "@service/*": [
                 "app/services/*"
             ],

@@ -28,6 +28,7 @@
         "@google/markerclustererplus": "^2.1.11",
         "angular-ng-autocomplete": "^1.1.14",
         "js-marker-clusterer": "^1.0.0",
+        "ngx-webstorage-service": "^4.1.0",
         "rxjs": "^6.5.3",
         "tslib": "^1.10.0",
         "zone.js": "^0.10.2"

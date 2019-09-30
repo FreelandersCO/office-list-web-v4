@@ -1,5 +1,7 @@
-import { Component, AfterViewInit, ViewEncapsulation, ViewChild, OnInit } from '@angular/core';
+import { Component, AfterViewInit, ViewEncapsulation, ViewChild, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 
 import { ApiServicesService } from '@service/api-services.service';
 
@@ -11,23 +13,32 @@ import { ApiServicesService } from '@service/api-services.service';
 })
 export class SearchInputComponent implements AfterViewInit, OnInit {
     @ViewChild('auto', { static: false }) auto;
-    elementList;
+    STORAGE_KEY = 'cities_list';
     keyword = 'name';
     loading = true;
     disable = true;
     data;
 
-    constructor(public router: Router, private api: ApiServicesService) { }
+    constructor(public router: Router, private api: ApiServicesService, @Inject(LOCAL_STORAGE) private storage: StorageService) { }
 
     ngAfterViewInit() {
 
     }
     ngOnInit() {
-        this.api.getCityList().subscribe(result => {
-            this.data = result;
+        const elementList = this.storage.get(this.STORAGE_KEY);
+        if (!elementList) {
+            this.api.getCityList().subscribe(result => {
+                this.data = result;
+                this.loading = false;
+                this.disable = false;
+                this.storage.set(this.STORAGE_KEY, result);
+            });
+        } else {
+            this.data = elementList;
             this.loading = false;
             this.disable = false;
-        });
+        }
+
     }
 
     selectEvent(item) {
