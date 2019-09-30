@@ -52,12 +52,10 @@
 
             &:hover {
                 background:
-                    linear-gradient(
-                        270deg,
+                    linear-gradient(270deg,
                         rgba(0, 0, 0, 0.1) 0%,
                         rgba(0, 0, 0, 0.05) 50%,
-                        rgba(0, 0, 0, 0) 100%
-                    );
+                        rgba(0, 0, 0, 0) 100%);
             }
         }
 
@@ -69,16 +67,15 @@
 
             &:hover {
                 background:
-                    linear-gradient(
-                        90deg,
+                    linear-gradient(90deg,
                         rgba(0, 0, 0, 0.1) 0%,
                         rgba(0, 0, 0, 0.05) 50%,
-                        rgba(0, 0, 0, 0) 100%
-                    );
+                        rgba(0, 0, 0, 0) 100%);
             }
         }
 
         &:hover {
+
             .arrow-left,
             .arrow-right {
                 opacity: 1;

@@ -1,9 +1,9 @@
 export interface CityAutoComplete {
-    id: number;
-    name: string;
-    url: string;
+	id: number;
+	name: string;
+	url: string;
 }
 
 export interface AutoCompleteObj {
-    item: CityAutoComplete;
+	item: CityAutoComplete;
 }

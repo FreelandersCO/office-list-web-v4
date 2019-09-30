@@ -9,11 +9,11 @@ import { HomeComponent } from './home.component';
 	declarations: [HomeComponent],
 	imports: [
 		CommonModule,
-        HomeRoutingModule,
-        SharedModule
-    ],
-    schemas: [
-        CUSTOM_ELEMENTS_SCHEMA
-    ]
+		HomeRoutingModule,
+		SharedModule
+	],
+	schemas: [
+		CUSTOM_ELEMENTS_SCHEMA
+	]
 })
 export class HomeModule { }

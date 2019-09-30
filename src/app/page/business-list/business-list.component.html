@@ -1,118 +1,118 @@
 <section class="info-city-list-container">
-    <article>
-        <div class="title-info-city">
-            <h1 class="title-pages">
-                Office space for rent in Miami, Florida
-            </h1>
-            <p class="text-intro">
-                There are currently 100 locations in Miami. Select the flexible office solutions you are interested in
-                by marking them as “favorites”.
-            </p>
-        </div>
-    </article>
+	<article>
+		<div class="title-info-city">
+			<h1 class="title-pages">
+				Office space for rent in Miami, Florida
+			</h1>
+			<p class="text-intro">
+				There are currently 100 locations in Miami. Select the flexible office solutions you are interested in
+				by marking them as “favorites”.
+			</p>
+		</div>
+	</article>
 </section>
 <section class="result-list-container">
-    <!--Filtro-->
-    <article class="filter-container">
-        <div class="buttons-filters">
-            <div class="show-map-container">
-                <p class="text-show-map">Show map</p>
-                <label class="switch-show-map">
-                    <input type="checkbox">
-                    <span class="slider-show-map" (click)="toogleMap();"></span>
-                </label>
-            </div>
-            <div class="button-icon-filter">
-                <button class="btn-icon-filter active" (click)="toogleCard();" [ngClass]="{
+	<!--Filtro-->
+	<article class="filter-container">
+		<div class="buttons-filters">
+			<div class="show-map-container">
+				<p class="text-show-map">Show map</p>
+				<label class="switch-show-map">
+					<input type="checkbox">
+					<span class="slider-show-map" (click)="toogleMap();"></span>
+				</label>
+			</div>
+			<div class="button-icon-filter">
+				<button class="btn-icon-filter active" (click)="toogleCard();" [ngClass]="{
                     'active': cardActive
                   }">
-                    <i class="zwicon-grid"></i>
-                </button>
-                <button class="btn-icon-filter" (click)="toogleCard();" [ngClass]="{
+					<i class="zwicon-grid"></i>
+				</button>
+				<button class="btn-icon-filter" (click)="toogleCard();" [ngClass]="{
                     'active': !cardActive
                   }">
-                    <i class="zwicon-list-bullet"></i>
-                </button>
-                <button class="btn-icon-filter" (click)="toogleFilter();" [ngClass]="{
+					<i class="zwicon-list-bullet"></i>
+				</button>
+				<button class="btn-icon-filter" (click)="toogleFilter();" [ngClass]="{
                     'active': mapActive
                   }">
-                    <i class="zwicon-filter"></i>
-                </button>
-            </div>
-        </div>
-        <div class="category-filter-container" *ngIf="filterActive">
-            <button class="btn-icon-filter">
-                <i class="zwicon-expand-alt"></i>
-            </button>
-            <button class="btn-icon-filter">
-                <i class="zwicon-expand"></i>
-            </button>
-            <button class="btn-icon-filter">
-                <i class="zwicon-calendar-month"></i>
-            </button>
-        </div>
+					<i class="zwicon-filter"></i>
+				</button>
+			</div>
+		</div>
+		<div class="category-filter-container" *ngIf="filterActive">
+			<button class="btn-icon-filter">
+				<i class="zwicon-expand-alt"></i>
+			</button>
+			<button class="btn-icon-filter">
+				<i class="zwicon-expand"></i>
+			</button>
+			<button class="btn-icon-filter">
+				<i class="zwicon-calendar-month"></i>
+			</button>
+		</div>
 
-    </article>
-    <!--List-->
-    <article>
-        <div class="office-card-container">
-            <ng-container *ngFor="let bc of bussinesCenter">
-                <div class="office-list-card card-white card-style" [ngClass]="{
+	</article>
+	<!--List-->
+	<article>
+		<div class="office-card-container">
+			<ng-container *ngFor="let bc of bussinesCenter">
+				<div class="office-list-card card-white card-style" [ngClass]="{
                     'card-style': cardActive,
                     'list-style': !cardActive
                   }">
-                    <figure class="img-card-office">
-                        <img src="assets/images/img-office-exmp.jpg" alt="">
-                        <button class="button-icon" id="btn-list-search">
-                            <i class="zwicon-search"></i>
-                        </button>
-                    </figure>
-                    <div class="info-office-container">
-                        <p class="text-default">Office</p>
-                        <h3 class="title-name-office">{{bc.cross_streets}}</h3>
-                        <p class="name-city">{{bc.city}}, {{bc.state}} {{bc.zcode}}</p>
-                        <span class="badge-city">{{bc.area_name}}</span>
-                        <p class="phone-number">
-                            <i class="zwicon-phone"></i>
-                            786-707-4264
-                        </p>
-                    </div>
-                    <div class="price-container" *ngIf="bc.offices?.length > 0">
-                        <h3 class="title-price">Starting at :</h3>
-                        <ul class="list-prices-office">
-                            <li *ngFor="let office of bc.offices">
-                                <p class="price-office">${{office.off_pricing}}</p>
-                                <p class="type-office">{{office.off_type}}</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="price-container" *ngIf="bc.offices?.length === 0">
-                        <h3 class="title-price">Call for pricing</h3>
-                    </div>
-                    <div class="btn-container">
-                        <button class="button-default primary">
-                            Get quote
-                        </button>
-                        <p class="text-default" *ngIf="bc.offices?.length > 0">
-                            <em>
-                                Call for pricing
-                            </em>
-                        </p>
-                    </div>
-                    <div class="like-container">
-                        <button class="btn-like">
-                            <i class="zwicon-heart"></i>
-                        </button>
-                    </div>
-                </div>
-            </ng-container>
-        </div>
-    </article>
-    <!--Map-->
-    <article class="result-map-container" *ngIf="mapActive">
-        <office-list-map [bussinesCenter]="bussinesCenter"></office-list-map>
-    </article>
-    <div class="call-info-modal-container" *ngIf="detailOfficeInfo" @ngIfAnimation >
-            <office-list-modal-detail></office-list-modal-detail>
-    </div>
+					<figure class="img-card-office">
+						<img src="assets/images/img-office-exmp.jpg" alt="">
+						<button class="button-icon" id="btn-list-search">
+							<i class="zwicon-search"></i>
+						</button>
+					</figure>
+					<div class="info-office-container">
+						<p class="text-default">Office</p>
+						<h3 class="title-name-office">{{bc.cross_streets}}</h3>
+						<p class="name-city">{{bc.city}}, {{bc.state}} {{bc.zcode}}</p>
+						<span class="badge-city">{{bc.area_name}}</span>
+						<p class="phone-number">
+							<i class="zwicon-phone"></i>
+							786-707-4264
+						</p>
+					</div>
+					<div class="price-container" *ngIf="bc.offices?.length > 0">
+						<h3 class="title-price">Starting at :</h3>
+						<ul class="list-prices-office">
+							<li *ngFor="let office of bc.offices">
+								<p class="price-office">${{office.off_pricing}}</p>
+								<p class="type-office">{{office.off_type}}</p>
+							</li>
+						</ul>
+					</div>
+					<div class="price-container" *ngIf="bc.offices?.length === 0">
+						<h3 class="title-price">Call for pricing</h3>
+					</div>
+					<div class="btn-container">
+						<button class="button-default primary">
+							Get quote
+						</button>
+						<p class="text-default" *ngIf="bc.offices?.length > 0">
+							<em>
+								Call for pricing
+							</em>
+						</p>
+					</div>
+					<div class="like-container">
+						<button class="btn-like">
+							<i class="zwicon-heart"></i>
+						</button>
+					</div>
+				</div>
+			</ng-container>
+		</div>
+	</article>
+	<!--Map-->
+	<article class="result-map-container" *ngIf="mapActive">
+		<office-list-map [bussinesCenter]="bussinesCenter"></office-list-map>
+	</article>
+	<div class="call-info-modal-container" *ngIf="detailOfficeInfo" @ngIfAnimation>
+		<office-list-modal-detail></office-list-modal-detail>
+	</div>
 </section>>

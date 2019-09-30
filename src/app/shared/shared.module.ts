@@ -14,32 +14,32 @@ import { BannerHomeComponent } from './banner-home/banner-home.component';
 import { ModalDetailComponent } from './modal-detail/modal-detail.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        AgmCoreModule.forRoot({
-            // please get your own API key here:
-            // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
-            apiKey: 'AIzaSyCop_zSgXsfr2eS48LTbflHNRx5N3Un3co'
-        }),
-        AgmJsMarkerClustererModule,
-        AutocompleteLibModule,
-        StorageServiceModule
-    ],
-    declarations: [
-        SearchInputComponent,
-        BcSliderComponent,
-        MapComponent,
-        BcCardComponent,
-        BannerHomeComponent,
-        ModalDetailComponent
-    ],
-    exports: [
-        SearchInputComponent,
-        BcSliderComponent,
-        MapComponent,
-        BcCardComponent,
-        BannerHomeComponent,
-        ModalDetailComponent
-    ]
+	imports: [
+		CommonModule,
+		AgmCoreModule.forRoot({
+			// please get your own API key here:
+			// https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
+			apiKey: 'AIzaSyCop_zSgXsfr2eS48LTbflHNRx5N3Un3co'
+		}),
+		AgmJsMarkerClustererModule,
+		AutocompleteLibModule,
+		StorageServiceModule
+	],
+	declarations: [
+		SearchInputComponent,
+		BcSliderComponent,
+		MapComponent,
+		BcCardComponent,
+		BannerHomeComponent,
+		ModalDetailComponent
+	],
+	exports: [
+		SearchInputComponent,
+		BcSliderComponent,
+		MapComponent,
+		BcCardComponent,
+		BannerHomeComponent,
+		ModalDetailComponent
+	]
 })
 export class SharedModule { }

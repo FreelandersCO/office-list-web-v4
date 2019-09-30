@@ -1,16 +1,16 @@
 <ng-container *ngIf="lat && lng">
-    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [zoomControl]="true" [fullscreenControl]="true"
-        [styles]='[{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"administrative.country","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#b6c0cb"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"geometry.fill","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#a6bdcc"},{"visibility":"on"}]}]'>
-        <agm-marker-cluster [imagePath]="'assets/images/map_cluster_icon'">
+	<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [zoomControl]="true" [fullscreenControl]="true"
+		[styles]='[{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"administrative.country","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#b6c0cb"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"geometry.fill","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#a6bdcc"},{"visibility":"on"}]}]'>
+		<agm-marker-cluster [imagePath]="'assets/images/map_cluster_icon'">
 
-        <agm-marker *ngFor="let bc of markersList; let i = index"
-            [latitude]="bc.latitude" [longitude]="bc.longitude" [markerDraggable]="false" [iconUrl]="'assets/images/map-marker.png'">
+			<agm-marker *ngFor="let bc of markersList; let i = index" [latitude]="bc.latitude"
+				[longitude]="bc.longitude" [markerDraggable]="false" [iconUrl]="'assets/images/map-marker.png'">
 
-            <agm-info-window>
-                <office-list-bc-card [bc]="bc"></office-list-bc-card>
-            </agm-info-window>
+				<agm-info-window>
+					<office-list-bc-card [bc]="bc"></office-list-bc-card>
+				</agm-info-window>
 
-        </agm-marker>
-        </agm-marker-cluster>
-    </agm-map>
+			</agm-marker>
+		</agm-marker-cluster>
+	</agm-map>
 </ng-container>

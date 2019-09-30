@@ -13,23 +13,23 @@ import { ButtonsmobileComponent } from './shared/buttonsmobile/buttonsmobile.com
 
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HeaderComponent,
-        FooterComponent,
+	declarations: [
+		AppComponent,
+		HeaderComponent,
+		FooterComponent,
 		ButtonsmobileComponent
-    ],
-    imports: [
+	],
+	imports: [
 		BrowserAnimationsModule,
-        BrowserModule,
-        HttpClientModule,
-        AppRoutingModule,
-        SharedModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent],
-    schemas: [
-        CUSTOM_ELEMENTS_SCHEMA
-    ]
+		BrowserModule,
+		HttpClientModule,
+		AppRoutingModule,
+		SharedModule
+	],
+	providers: [],
+	bootstrap: [AppComponent],
+	schemas: [
+		CUSTOM_ELEMENTS_SCHEMA
+	]
 })
 export class AppModule { }

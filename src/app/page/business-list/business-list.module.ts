@@ -6,11 +6,11 @@ import { BusinessListComponent } from './business-list.component';
 import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({
-    declarations: [BusinessListComponent],
-    imports: [
-        CommonModule,
-        BusinessListRoutingModule,
+	declarations: [BusinessListComponent],
+	imports: [
+		CommonModule,
+		BusinessListRoutingModule,
 		SharedModule,
-    ]
+	]
 })
 export class BusinessListModule { }

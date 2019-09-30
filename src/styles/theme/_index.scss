@@ -107,8 +107,8 @@ hr {
         padding: 10px 18px;
         width: 100%;
 
-        &:focus + .label-default,
-        &:valid + .label-default {
+        &:focus+.label-default,
+        &:valid+.label-default {
             font-size: 100%;
             top: 0;
             transform: translate3d(8px, 114%, 0);
@@ -172,16 +172,16 @@ hr {
 }
 
 .list-prices-office {
-	display: flex;
-	flex-direction: row;
-	margin: 10px 0;
-	justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+    justify-content: space-around;
 
-	li {
-		padding: 4px;
-	}
+    li {
+        padding: 4px;
+    }
 
-	.price-office {
+    .price-office {
         color: colors('black-7');
         font-size: 1.3rem;
         font-weight: 700;
@@ -217,15 +217,15 @@ hr {
         opacity: 0;
         width: 0;
 
-        &:checked + .slider-show-map {
+        &:checked+.slider-show-map {
             background-color: colors('primary');
         }
 
-        &:focus + .slider-show-map {
+        &:focus+.slider-show-map {
             box-shadow: 0 0 1px colors('primary');
         }
 
-        &:checked + .slider-show-map {
+        &:checked+.slider-show-map {
             &:before {
                 transform: translateX(26px);
             }
