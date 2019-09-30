@@ -11,6 +11,9 @@
             ],
             "@service/*": [
                 "app/services/*"
+            ],
+            "@shared/*": [
+                "app/shared/*"
             ]
         },
         "outDir": "./dist/out-tsc",

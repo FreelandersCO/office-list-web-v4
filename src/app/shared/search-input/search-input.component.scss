@@ -1,32 +1,26 @@
 @import 'index';
 
-.form-search {
-    display: flex;
-    width: 100%;
+.autocomplete {
+    z-index: 999;
 
-    @include from-breakpoint('tablet') {
-        display: inline-flex;
-    }
-}
+    .ng-autocomplete {
+        .autocomplete-container {
+            border-radius: 50px;
 
-.input-search {
-    border-bottom: 1px colors('primary') solid;
-    font-size: 14px;
-    height: 30px;
-    width: 89%;
+            .input-container {
+                input {
+                    border-radius: 50px;
+                }
 
-    @include from-breakpoint('tablet') {
-        width: 80%;
-    }
-}
+                .x {
+                    display: none;
+                }
+            }
 
-.button-locate {
-    background-color: colors('primary');
-    height: 30px;
-    margin: 0 0.1rem;
-    width: 30px;
-
-    i {
-        font-size: 25px;
+            .suggestions-container {
+                border-radius: 8px;
+                margin-top: 10px;
+            }
+        }
     }
 }

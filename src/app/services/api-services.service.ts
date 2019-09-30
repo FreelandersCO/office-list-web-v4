@@ -44,7 +44,15 @@ export class ApiServicesService {
 
     // tslint:disable-next-line: ban-types
     getCoordinates(country, state, city): Observable<Object> {
-        return this.http.get(this.apiURL + '/BusinessCenter/Coordinates/' + country + '/' + state + '/' + city)
+        return this.http.get(`${this.apiURL}/BusinessCenter/Coordinates/${country}/${state}/${city}`)
+            .pipe(
+                retry(1),
+                catchError(this.handleError)
+            );
+    }
+    // tslint:disable-next-line: ban-types
+    getCityList(): Observable<Object> {
+        return this.http.get(`${this.apiURL}/AutoComplete/City/`)
             .pipe(
                 retry(1),
                 catchError(this.handleError)
