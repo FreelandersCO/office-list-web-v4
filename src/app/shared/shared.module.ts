@@ -11,6 +11,7 @@ import { BcSliderComponent } from './bc-slider/bc-slider.component';
 import { MapComponent } from './map/map.component';
 import { BcCardComponent } from './bc-card/bc-card.component';
 import { BannerHomeComponent } from './banner-home/banner-home.component';
+import { ModalDetailComponent } from './modal-detail/modal-detail.component';
 
 @NgModule({
     imports: [
@@ -29,7 +30,8 @@ import { BannerHomeComponent } from './banner-home/banner-home.component';
         BcSliderComponent,
         MapComponent,
         BcCardComponent,
-        BannerHomeComponent
+        BannerHomeComponent,
+        ModalDetailComponent
     ],
     exports: [
         SearchInputComponent,
