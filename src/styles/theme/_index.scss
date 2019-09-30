@@ -171,6 +171,31 @@ hr {
     padding: 14px;
 }
 
+.list-prices-office {
+	display: flex;
+	flex-direction: row;
+	margin: 10px 0;
+	justify-content: space-around;
+
+	li {
+		padding: 4px;
+	}
+
+	.price-office {
+        color: colors('black-7');
+        font-size: 1.3rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .type-office {
+        color: colors('black-5');
+        font-size: 0.9rem;
+        line-height: 1;
+        text-align: center;
+    }
+}
+
 .show-map-container {
     display: flex;
     flex-direction: row;

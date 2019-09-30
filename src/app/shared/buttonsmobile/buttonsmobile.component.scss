@@ -2,29 +2,29 @@
 @import 'index';
 
 .buttons-mobile-container {
-	bottom: 20px;
-	position: fixed;
-	width: 100%;
+    bottom: 20px;
+    position: fixed;
+    width: 100%;
 
-	.buttons-floating-cont {
-		background: colors('primary');
-		border-radius: 25px;
-		display: flex;
-		justify-content: space-around;
-		margin: 0 auto;
-		padding: 12px 20px;
-		width: 90%;
+    .buttons-floating-cont {
+        background: colors('primary');
+        border-radius: 25px;
+        display: flex;
+        justify-content: space-around;
+        margin: 0 auto;
+        padding: 12px 20px;
+        width: 90%;
 
-		.btn-mobile-floating {
-			border-right: 1px solid colors('white');
-			color: colors('white');
-			font-size: 1.3rem;
-			font-weight: 300;
-			width: 50%;
+        .btn-mobile-floating {
+            border-right: 1px solid colors('white');
+            color: colors('white');
+            font-size: 1.3rem;
+            font-weight: 300;
+            width: 50%;
 
-			&:last-child {
-				border: 0;
-			}
-		}
-	}
+            &:last-child {
+                border: 0;
+            }
+        }
+    }
 }

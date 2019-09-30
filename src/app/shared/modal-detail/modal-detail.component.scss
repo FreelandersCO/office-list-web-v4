@@ -1,0 +1,63 @@
+@import 'index';
+
+.modal-info-container {
+	height: 100%;
+	background: colors('black-8');
+	padding: 40px;
+	top: -85px;
+	width: 100vw;
+
+	.close-modal {
+		text-align: right;
+
+		.close-button-modal {
+			font-size: 2.2rem;
+		}
+	}
+
+	.card-modal-info {
+		margin: 0 auto;
+		padding: 20px;
+		width: 90%;
+
+		.img-card-office {
+			margin: 10px 0;
+		}
+
+		.body-modal-info {
+			display: flex;
+			flex-direction: column;
+
+			.prices-office,
+			.description-office,
+			.view-more {
+				margin-bottom: 10px;
+			}
+
+			.description-office {
+				height: 200px;
+				overflow: auto;
+				padding-right: 4px;
+			}
+
+			.view-more {
+				text-align: center;
+
+				.button-default {
+					margin: 0;
+				}
+			}
+		}
+
+		.title-description {
+			font-size: 1.2rem;
+			font-weight: 700;
+			margin-bottom: 6px;
+			
+		}
+
+		.list-prices-office  {
+			margin: 0;
+		}
+	}
+}

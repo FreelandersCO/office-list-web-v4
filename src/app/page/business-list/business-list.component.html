@@ -112,5 +112,7 @@
     <article class="result-map-container" *ngIf="mapActive">
         <office-list-map [bussinesCenter]="bussinesCenter"></office-list-map>
     </article>
-</section>
-<office-list-modal-detail></office-list-modal-detail>
+    <div class="call-info-modal-container" *ngIf="detailOfficeInfo" @ngIfAnimation >
+            <office-list-modal-detail></office-list-modal-detail>
+    </div>
+</section>>
