@@ -7,12 +7,14 @@ import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ButtonsmobileComponent } from './buttonsmobile/buttonsmobile.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        ButtonsmobileComponent
     ],
     imports: [
         BrowserModule,
