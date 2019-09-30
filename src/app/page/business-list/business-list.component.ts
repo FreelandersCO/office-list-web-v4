@@ -10,6 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BusinessListComponent implements OnInit {
     bussinesCenter;
+    cardActive = true;
+    mapActive = false;
+    filterActive = false;
     areas;
     originalData;
     bussinesCenterCount;
@@ -57,6 +60,18 @@ export class BusinessListComponent implements OnInit {
                 return (txt.length <= max) ? txt : txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
             });
         }).join(' ');
+    }
+
+    toogleCard() {
+        this.cardActive = !this.cardActive;
+    }
+
+    toogleMap() {
+        this.mapActive = !this.mapActive;
+    }
+
+    toogleFilter() {
+        this.filterActive = !this.filterActive;
     }
 
 }

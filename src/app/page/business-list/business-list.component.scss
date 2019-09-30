@@ -1,10 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
 @import 'index';
-@import 'base/reset';
-@import 'base/animations';
-@import 'base/global';
-@import 'theme/index';
-@import 'abstracts/variables';
 
 .info-city-list-container {
     margin: 0;
@@ -19,7 +13,7 @@
         padding: 0;
         width: 100%;
     }
-	
+
     .btn-icon-filter {
         color: colors('black-6');
         font-size: 2rem;
@@ -27,9 +21,12 @@
 
         &:hover,
         &:active,
-        &:visited {
+        &:visited,
+        &.active {
             color: colors('primary');
         }
+
+
     }
 }
 
@@ -41,7 +38,7 @@
 .office-list-card {
     display: flex;
     position: relative;
-	
+
     &.card-style {
         flex-direction: column;
         padding: 0 20px;
@@ -75,7 +72,7 @@
             top: 180px;
         }
     }
-	
+
     &.list-style {
         flex-direction: column;
         padding: 20px 0;
@@ -136,7 +133,7 @@
         left: 0;
         overflow: hidden;
         position: absolute;
-		
+
         .button-icon {
             background: colors('white-7');
             border-radius: 100%;

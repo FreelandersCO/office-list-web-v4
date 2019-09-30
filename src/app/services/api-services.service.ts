@@ -23,9 +23,9 @@ export class ApiServicesService {
 
     // tslint:disable-next-line: ban-types
     getBussinesList(country, state, city, zipCode): Observable<Object> {
-        const limit = '2';
+        const limit = '6';
         // tslint:disable-next-line: no-magic-numbers
-        const exclude =  '500, 1254';
+        const exclude =  '';
         const  headers = new  HttpHeaders({
             'Content-Type': 'application/json',
             'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'

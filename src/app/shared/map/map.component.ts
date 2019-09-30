@@ -14,7 +14,7 @@ export class MapComponent implements OnInit, OnChanges {
     markersList;
     constructor(private api: ApiServicesService, private route: ActivatedRoute) { }
     // google maps zoom level
-    zoom = 10;
+    zoom = 12;
     // initial center position for the map
     lat;
     lng;

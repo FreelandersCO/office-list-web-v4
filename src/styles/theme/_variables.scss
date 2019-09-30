@@ -23,3 +23,11 @@ $colors: (
     'primary': #3BA42F,
     'primary-9': rgba(59, 164, 47, 0.9),
 );
+
+@function colors($color) {
+    @if not map-has-key($colors, $color) {
+        @warn 'No color found for `#{$color}`.';
+    }
+
+    @return map-get($colors, $color);
+}
