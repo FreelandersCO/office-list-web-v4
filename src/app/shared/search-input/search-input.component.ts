@@ -49,6 +49,7 @@ export class SearchInputComponent implements AfterViewInit, OnInit {
     onChangeSearch(val) {
         const long = val.length;
         console.log(long);
+        // tslint:disable-next-line: no-magic-numbers
         if (long >= 3) {
             this.auto.open();
         } else {
