@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger,state,style,animate,transition,query,animateChild } from '@angular/animations';
 
 import { ApiServicesService } from '@service/api-services.service';
 import { ActivatedRoute } from '@angular/router';
@@ -6,7 +7,32 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
     selector: 'office-list-business-list',
     templateUrl: './business-list.component.html',
-    styleUrls: ['./business-list.component.scss']
+	styleUrls: ['./business-list.component.scss'],
+	animations: [
+		trigger('ngIfAnimation', [
+		  transition(':enter, :leave', [
+			query('@*', animateChild())
+		  ])
+		]),
+		trigger('easeInOut', [
+		  transition('void => *', [
+			  style({
+				opacity: 0
+			  }),
+			  animate("500ms ease-in", style({
+				opacity: 1
+			  }))
+		  ]),
+		  transition('* => void', [
+			  style({
+				opacity: 1
+			  }),
+			  animate("500ms ease-in", style({
+				opacity: 0	
+			  }))
+			])
+		  ])
+	  ]
 })
 export class BusinessListComponent implements OnInit {
     bussinesCenter;
@@ -14,7 +40,10 @@ export class BusinessListComponent implements OnInit {
     originalData;
     bussinesCenterCount;
     city;
-    state;
+	state;
+	
+	public detailOfficeInfo:boolean = false;
+	public officeInfo:any = 'Show';
 
     constructor(private api: ApiServicesService, private route: ActivatedRoute) { }
 
@@ -35,7 +64,16 @@ export class BusinessListComponent implements OnInit {
                 }, []);
             });
         });
-    }
+	}
+	
+	showModalDetail() {
+		this.detailOfficeInfo = !this.detailOfficeInfo;
+	
+		if(this.detailOfficeInfo)  
+		  this.officeInfo = "Show";
+		else
+		  this.officeInfo = "Hide";
+	}
 
     filterArea(area) {
         if (area !== '') {

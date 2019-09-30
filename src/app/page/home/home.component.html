@@ -182,16 +182,16 @@
 			<p class="text-big-quote">
 				We'll search for you and deliver results to your inbox.
 			</p>
-			<button class="button-default secondary">
+			<button class="button-default secondary" (click)="toggleFormPressed()">
 				Search for me
 			</button>
 		</div>
 	</article>
-	<article class="form-pressed-container" style="display: none;">
-		<p class="text-big-quote">
+	<article class="form-pressed-container" *ngIf="formPressedShow" @ngIfAnimation>
+		<p class="text-big-quote" @easeInOut>
 			Our team is always willing to help! Please complete the following contact form and one of our account managers will reply within one business day.
 		</p>
-		<div class="form-pressed-button">
+		<div class="form-pressed-button" @easeInOut>
 			<form action="">
 				<div class="group-form">
 					<i class="zwicon-user"></i>

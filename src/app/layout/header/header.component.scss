@@ -2,10 +2,10 @@
 
 header {
     background: linear-gradient(to bottom, #484741, colors('black'));
-	color: colors('white');
-	position: fixed;
-	top: 0;
-	width: 100%;
+    color: colors('white');
+    position: sticky;
+    top: 0;
+    width: 100%;
     z-index: 1;
 
     .menu-container {
