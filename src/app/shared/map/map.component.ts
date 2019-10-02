@@ -9,8 +9,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class MapComponent implements OnInit, OnChanges {
-	// tslint:disable-next-line: ban-types
-	@Input() bussinesCenter: Object;
 	markersList;
 	constructor(private api: ApiServicesService, private route: ActivatedRoute) { }
 	// google maps zoom level

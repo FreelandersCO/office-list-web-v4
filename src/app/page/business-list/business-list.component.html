@@ -34,7 +34,7 @@
 					<i class="zwicon-list-bullet"></i>
 				</button>
 				<button class="btn-icon-filter" (click)="toogleFilter();" [ngClass]="{
-                    'active': mapActive
+                    'active': filterActive
                   }">
 					<i class="zwicon-filter"></i>
 				</button>
@@ -63,7 +63,7 @@
                   }">
 					<figure class="img-card-office">
 						<img src="assets/images/img-office-exmp.jpg" alt="">
-						<button class="button-icon" id="btn-list-search">
+						<button class="button-icon" id="btn-list-search" (click)="showModalDetail()">
 							<i class="zwicon-search"></i>
 						</button>
 					</figure>
@@ -110,9 +110,12 @@
 	</article>
 	<!--Map-->
 	<article class="result-map-container" *ngIf="mapActive">
+		<button class="btn-close" (click)="toogleMap();">
+			<i class="zwicon-close"></i>
+		</button>
 		<office-list-map [bussinesCenter]="bussinesCenter"></office-list-map>
 	</article>
-	<div class="call-info-modal-container" *ngIf="detailOfficeInfo" @ngIfAnimation>
+	<div class="call-info-modal-container" *ngIf="detailOfficeInfo" (click)="showModalDetail()" @ngIfAnimation>
 		<office-list-modal-detail></office-list-modal-detail>
 	</div>
-</section>>
+</section>

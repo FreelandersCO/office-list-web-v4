@@ -9,7 +9,6 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
 import { SearchInputComponent } from './search-input/search-input.component';
 import { BcSliderComponent } from './bc-slider/bc-slider.component';
 import { MapComponent } from './map/map.component';
-import { BcCardComponent } from './bc-card/bc-card.component';
 import { BannerHomeComponent } from './banner-home/banner-home.component';
 import { ModalDetailComponent } from './modal-detail/modal-detail.component';
 
@@ -29,7 +28,6 @@ import { ModalDetailComponent } from './modal-detail/modal-detail.component';
 		SearchInputComponent,
 		BcSliderComponent,
 		MapComponent,
-		BcCardComponent,
 		BannerHomeComponent,
 		ModalDetailComponent
 	],
@@ -37,7 +35,6 @@ import { ModalDetailComponent } from './modal-detail/modal-detail.component';
 		SearchInputComponent,
 		BcSliderComponent,
 		MapComponent,
-		BcCardComponent,
 		BannerHomeComponent,
 		ModalDetailComponent
 	]

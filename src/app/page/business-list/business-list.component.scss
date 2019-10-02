@@ -2,7 +2,7 @@
 
 .result-list-container {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     margin: 0 0 20px;
     padding: 0;
 }
@@ -30,6 +30,10 @@
 .category-filter-container {
     box-shadow: none;
     margin-top: 10px;
+}
+
+.office-card-container {
+	margin: 20px;
 }
 
 .office-list-card {
@@ -172,8 +176,20 @@
 }
 
 .result-map-container {
-    height: 250px;
-    margin-bottom: 20px;
+    position: fixed;
+    top: 104px;
+    width: 98vw;
+	height: calc(90vh - 104px);
+
+	.btn-close {
+		position: absolute;
+		font-weight: bolder;
+		width: 35px;
+		height: 35px;
+		font-size: 35px;
+		color:colors('primary');
+		z-index: 3;
+	}
 }
 
 .call-info-modal-container {

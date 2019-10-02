@@ -71,11 +71,7 @@ export class BusinessListComponent implements OnInit {
 
 	showModalDetail() {
 		this.detailOfficeInfo = !this.detailOfficeInfo;
-
-		if (this.detailOfficeInfo)
-			this.officeInfo = "Show";
-		else
-			this.officeInfo = "Hide";
+		this.officeInfo = (this.detailOfficeInfo) ? 'Show' : 'Hide';
 	}
 
 	filterArea(area) {
