@@ -21,15 +21,15 @@ import { ButtonsmobileComponent } from './shared/buttonsmobile/buttonsmobile.com
 	],
 	imports: [
 		BrowserAnimationsModule,
-		BrowserModule,
-		HttpClientModule,
-		AppRoutingModule,
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
 		SharedModule
-	],
-	providers: [],
-	bootstrap: [AppComponent],
-	schemas: [
-		CUSTOM_ELEMENTS_SCHEMA
-	]
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+    ]
 })
 export class AppModule { }

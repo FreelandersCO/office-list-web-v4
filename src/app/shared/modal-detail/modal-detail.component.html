@@ -1,7 +1,7 @@
-<div class="modal-info-container" @easeInOut>
+<div class="modal-info-container"  *ngIf="modalDetailInfo">
 	<div class="card-modal-info card-white">
 		<div class="close-modal">
-			<button class="close-button-modal">
+			<button class="close-button-modal" (click)="onCloseClick()">
 				<i class="zwicon-close"></i>
 			</button>
 		</div>

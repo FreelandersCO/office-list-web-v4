@@ -8,9 +8,10 @@
 }
 
 .filter-container {
-    margin: 20px 0 0;
-    padding: 0;
-    width: 100%;
+	margin: 20px 0 0;
+	padding: 0;
+	position: relative;
+	width: 100%;
 }
 
 .btn-icon-filter {
@@ -27,6 +28,14 @@
     }
 }
 
+.button-show-price {
+	color: colors('primary');
+	font-size: 1.4rem;
+	text-align: left;
+	position: relative;
+	width: 100%;
+}
+
 .category-filter-container {
     box-shadow: none;
     margin-top: 10px;
@@ -38,7 +47,17 @@
 
 .office-list-card {
     display: flex;
-    position: relative;
+	position: relative;
+
+	.icon-star-office {
+		background: url('assets/images/icons/icon-started.svg');
+		background-size: cover;
+		height: 34px;
+		position: absolute;
+		top:-6px;
+		width: 16px;
+		z-index: 1;
+	}
 
     &.card-style {
         flex-direction: column;
@@ -64,7 +83,7 @@
 
         .like-container {
             right: 12px;
-            top: 180px;
+			top: 180px;
         }
     }
 
@@ -84,7 +103,11 @@
                 object-fit: cover;
                 object-position: center;
             }
-        }
+		}
+
+		.list-prices-office {
+			flex-direction: column;
+		}
 
         .title-name-office {
             font-size: 1.2rem;
@@ -120,7 +143,16 @@
 
     .price-container {
         border-color: colors('black-2');
-        border-style: solid;
+		border-style: solid;
+
+		.zwicon-chevron-down {
+			color: colors('black-6');
+			font-size: 2rem;
+			line-height: 0;
+			position: absolute;
+			right: 0;
+			top: 14px;
+		}
     }
 
     .img-card-office {
@@ -165,14 +197,7 @@
         .button-default {
             margin: 0 0 4px;
         }
-    }
-
-    .like-container {
-        background: colors('primary');
-        height: 20px;
-        position: absolute;
-        width: 20px;
-    }
+	}
 }
 
 .result-map-container {
@@ -193,9 +218,91 @@
 }
 
 .call-info-modal-container {
-    height: 100%;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 20;
+}
+
+@include from-breakpoint('mobile-xl') {
+	.office-list-card {
+		.button-default {
+			width: 50%;
+		}
+	}
+}
+
+@include from-breakpoint('tablet') {
+	.cards-result-office {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.office-list-card {
+		&.card-style {
+			flex-grow: 1;
+			margin-right: 20px;
+
+			&:nth-child(2n) {
+				margin-right: 0px;
+			}
+		}
+
+		.button-default {
+			width: 80%;
+		}
+
+	}
+
+	.area-filter-contaier,
+	.distance-filter-contaier,
+	.calendar-filter-contaier {
+		left: 15%;
+		width: 70%;
+	}
+}
+
+@include from-breakpoint('desktop-s') {
+	.result-list-container {
+		flex-direction: row;
+		margin: 0 auto 20px;
+	}
+
+	.result-container {
+		margin-left: 20px;
+		width: 56%;
+	}
+
+	.result-map-container {
+		height: 600px;
+		position: fixed;
+		right: 10px;
+		top: 20%;
+		width: 40%;
+		z-index: 5;
+	}
+
+	.buttons-filters,
+	.category-filter-container {
+		justify-content: flex-start;
+
+		.show-map-container {
+			margin-right: 40%;
+		}
+	}
+
+	.office-list-card {
+		.button-default {
+			width: 90%;
+		}
+	}
+
+}
+
+@include from-breakpoint('desktop') {
+
+}
+
+@include from-breakpoint('desktop-l') {
+
 }
