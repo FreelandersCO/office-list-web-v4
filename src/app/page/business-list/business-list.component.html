@@ -10,7 +10,7 @@
 		</div>
 	</article>
 	<!--Filtro-->
-	<article class="filter-container">
+	<article class="filter-container" @ngIfAnimation>
 		<div class="buttons-filters">
 			<div class="show-map-container">
 				<p class="text-show-map">Show map</p>
@@ -20,20 +20,46 @@
 				</label>
 			</div>
 			<div class="button-icon-filter">
-				<button class="btn-icon-filter">
+				<button class="btn-icon-filter" (click)="showFilters()">
 					<i class="zwicon-filter"></i>
 				</button>
 			</div>
 		</div>
-		<div class="category-filter-container">
-			<button class="btn-icon-filter">
+		<div class="category-filter-container" *ngIf="allFilters">
+			<button class="btn-icon-filter" (click)="showFilterArea()">
 				<i class="zwicon-expand-alt"></i>
 			</button>
-			<button class="btn-icon-filter">
+			<button class="btn-icon-filter" (click)="showFilterDistance()">
 				<i class="zwicon-expand"></i>
 			</button>
-			<button class="btn-icon-filter">
+			<button class="btn-icon-filter" (click)="showFilterCalendar()">
 				<i class="zwicon-calendar-month"></i>
+			</button>
+		</div>
+		<div class="area-filter-contaier" *ngIf="filterArea"  @easeIn>
+			<button class="close-filter-button" style="display:none;">
+				<i class="zwicon-close"></i>
+			</button>
+		</div>
+		<div class="distance-filter-contaier" *ngIf="filterDistance"  @easeIn> 
+			<button class="close-filter-button">
+				<i class="zwicon-close"></i>
+			</button>
+			<div class="slidecontainer">
+				<input type="range" min="1" max="100" value="0" class="slider-distance" id="rangeDistance">
+				<p class="distance-label">1M</p>
+				<p class="distance-label text-rigth">1OOM</p>
+			</div>
+			<p class="distance-number-filter">
+				100
+			</p>
+			<p class="distance-title">
+				Miles
+			</p>
+		</div>
+		<div class="calendar-filter-contaier" *ngIf="filterCalendar"  @easeIn>
+			<button class="close-filter-button">
+				<i class="zwicon-close"></i>
 			</button>
 		</div>
 	</article>
@@ -41,8 +67,9 @@
 <section class="result-list-container">
 	<!--List-->
 	<article class="result-container">
-		<div class="office-card-container">
+		<div class="office-card-container cards-result-office">
 			<div class="office-list-card card-white card-style">
+				<i class="icon-star-office"></i>
 				<figure class="img-card-office">
 					<img src="assets/images/img-office-exmp.jpg" alt="">
 					<button class="button-icon" id="btn-list-search" (click)="showModalDetail()">
@@ -59,12 +86,14 @@
 						786-707-4264
 					</p>
 				</div>
-				<div class="price-container">
-					<h3 class="title-price">
-						Starting at :
-					</h3>
-					<i class="zwicon-chevron-down"></i>
-					<ul class="list-prices-office" style="display:none;">
+				<div class="price-container" @ngIfAnimation>
+					<button class="button-show-price" (click)="showPriceListOffice()">
+						<h3 class="title-price">
+									Starting at :
+						</h3>
+						<i class="zwicon-chevron-down"></i>
+					</button>
+					<ul class="list-prices-office" *ngIf="priceListOffice" @easeInOut>
 						<li>
 							<p class="price-office">$800</p>
 							<p class="type-office">Private office</p>
@@ -90,8 +119,8 @@
 					</p>
 				</div>
 				<div class="like-container">
-					<button class="btn-like">
-						<i class="zwicon-heart"></i>
+					<button class="button-icon-like">
+						<office-list-svglikeheart></office-list-svglikeheart>
 					</button>
 				</div>
 			</div>
@@ -121,11 +150,14 @@
 						</button>
 					</div>
 					<div class="like-container">
-						<button class="btn-like">
-							<i class="zwicon-heart"></i>
+						<button class="button-icon-like">
+							<office-list-svglikeheart></office-list-svglikeheart>
 						</button>
 					</div>
-				</div>
+			</div>
+		</div>
+
+		<div class="office-card-container lists-result-office">
 			<div class="office-list-card card-white list-style">
 				<figure class="img-card-office">
 					<img src="assets/images/img-office-exmp.jpg" alt="">
@@ -143,9 +175,14 @@
 						786-707-4264
 					</p>
 				</div>
-				<div class="price-container">
-					<h3 class="title-price">Starting at :</h3>
-					<ul class="list-prices-office" style="display:none;">
+				<div class="price-container" @ngIfAnimation>
+					<button class="button-show-price" (click)="showPriceListOffice()">
+						<h3 class="title-price">
+									Starting at :
+						</h3>
+						<i class="zwicon-chevron-down"></i>
+					</button>
+					<ul class="list-prices-office" *ngIf="priceListOffice" @easeInOut>
 						<li>
 							<p class="price-office">$800</p>
 							<p class="type-office">Private office</p>
@@ -172,18 +209,19 @@
 					</p>
 				</div>
 				<div class="like-container">
-					<button class="btn-like">
-						<i class="zwicon-heart"></i>
+					<button class="button-icon-like">
+						<office-list-svglikeheart></office-list-svglikeheart>
 					</button>
 				</div>
 			</div>
 		</div>
 	</article>
-	<!--Map-->
-	<article class="result-map-container">
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6492932316305!2d-74.12091288552311!3d4.656476796617514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b88cca17aeb%3A0x3fcd5936262db86b!2sCarlos%20Lleras%20Restrepo%2C%20Mz%20C!5e0!3m2!1ses-419!2sco!4v1569459372289!5m2!1ses-419!2sco" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-	</article>
-	<div class="call-info-modal-container" *ngIf="detailOfficeInfo" @ngIfAnimation >
-		<office-list-modal-detail></office-list-modal-detail>
-	</div>
 </section>
+<div class="call-info-modal-container" *ngIf="detailOfficeInfo">
+	<office-list-modal-detail></office-list-modal-detail>
+</div>
+
+<!--Map-->
+<div class="result-map-container">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6492932316305!2d-74.12091288552311!3d4.656476796617514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b88cca17aeb%3A0x3fcd5936262db86b!2sCarlos%20Lleras%20Restrepo%2C%20Mz%20C!5e0!3m2!1ses-419!2sco!4v1569459372289!5m2!1ses-419!2sco" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+</div>

@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-detail.component.scss']
 })
 export class ModalDetailComponent implements OnInit {
+	public modalDetailInfo: boolean;
 
-  constructor() { }
+  constructor() { 
+	  this.modalDetailInfo = true;
+  }
+
+  public onCloseClick() {
+	this.modalDetailInfo = false;
+  }
 
   ngOnInit() {
   }
+
+
 
 }

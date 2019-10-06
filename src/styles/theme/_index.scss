@@ -29,6 +29,25 @@
     }
 }
 
+.like-container {
+	height: 20px;
+	position: absolute;
+	width: 20px;
+
+	.button-icon-like {
+
+		.icon-heart-like {
+			fill: none;
+			stroke: colors('black-6');
+
+			&.like-it {
+				fill: colors('primary');
+				stroke: none;	
+			}
+		}
+	}
+}
+
 .title-home {
     color: colors('black');
     font-size: 3rem;
@@ -60,6 +79,10 @@ hr {
     text-align: center;
     margin: 20px auto;
     width: 200px;
+}
+
+.text-rigth {
+	text-align: right;
 }
 
 .card-white {
@@ -170,6 +193,94 @@ hr {
     justify-content: space-between;
     padding: 14px;
 }
+
+.area-filter-contaier,
+.distance-filter-contaier,
+.calendar-filter-contaier {
+	background: colors('white');
+	box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.1);
+	left: 4%;
+	padding: 12px 12px 20px;
+	position: absolute;
+	top: 150px;
+	width: 90%;
+	z-index: 1;
+
+	.close-filter-button {
+		color: colors('black-7');
+		font-size: 2rem;
+		float: right;
+		margin-bottom: 12px;
+	}
+
+	.distance-number-filter,
+	.distance-title {
+		text-align: center;
+	}
+
+	.distance-number-filter {
+		color: colors('primary');
+		font-size: 2.4rem;
+		font-weight: 700;
+		margin-top: 12px;
+	}
+
+	.distance-title {
+		font-size: 0.9rem;
+		line-height: 0;
+		margin-bottom: 30px;
+	}
+
+	.slidecontainer {
+		margin: 0 auto;
+		position: relative;
+		width: 90%;
+
+		.distance-label {
+			color: colors('black-6');
+			font-size: 0.9rem;
+			float: left;
+			margin-top: 4px;
+			width: 50%;
+		}
+
+		.slider-distance {
+			background: colors('black-4');
+			border-radius: 25px;
+			height: 6px;
+			outline: none; 
+			opacity: 0.6; 
+			transition: opacity .2s;
+			width: 100%;
+
+			&:hover {
+				opacity: 1;
+			}
+
+		&::-webkit-slider-thumb {
+			appearance: none;
+			background: colors('primary');
+			border: 2px solid colors('white');
+			border-radius: 100%; 
+			box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2);
+			cursor: pointer; 
+			height: 20px;
+			width: 20px; 
+		}
+
+		&::-moz-range-thumb {
+			background: colors('primary');
+			border: 2px solid colors('white');
+			border-radius: 100%;
+			box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2);
+			cursor: pointer;
+			height: 20px;
+			width: 20px;
+		}
+		}
+	}
+}
+
 
 .list-prices-office {
 	display: flex;

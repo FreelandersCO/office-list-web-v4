@@ -8,6 +8,8 @@ import { BcSliderComponent } from './bc-slider/bc-slider.component';
 import { MapComponent } from './map/map.component';
 import { BcCardComponent } from './bc-card/bc-card.component';
 import { ModalDetailComponent } from './modal-detail/modal-detail.component';
+import { SvglikeheartComponent } from './svglikeheart/svglikeheart.component'
+
 
 @NgModule({
     imports: [
@@ -24,14 +26,16 @@ import { ModalDetailComponent } from './modal-detail/modal-detail.component';
         BcSliderComponent,
         MapComponent,
         BcCardComponent,
-        ModalDetailComponent
+		ModalDetailComponent,
+		SvglikeheartComponent
     ],
     exports: [
         SearchInputComponent,
         BcSliderComponent,
         MapComponent,
 		BcCardComponent,
-		ModalDetailComponent
+		ModalDetailComponent,
+		SvglikeheartComponent
     ]
 })
 export class SharedModule { }

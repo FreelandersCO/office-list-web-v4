@@ -3,8 +3,7 @@
 .modal-info-container {
 	height: 100%;
 	background: colors('black-8');
-	padding: 40px;
-	top: -85px;
+	padding: 20px;
 	width: 100vw;
 
 	.close-modal {
@@ -18,7 +17,7 @@
 	.card-modal-info {
 		margin: 0 auto;
 		padding: 20px;
-		width: 90%;
+		width: 100%;
 
 		.img-card-office {
 			margin: 10px 0;
@@ -35,7 +34,7 @@
 			}
 
 			.description-office {
-				height: 200px;
+				height: 110px;
 				overflow: auto;
 				padding-right: 4px;
 			}

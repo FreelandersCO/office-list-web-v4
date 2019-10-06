@@ -24,7 +24,8 @@ import { ButtonsmobileComponent } from './shared/buttonsmobile/buttonsmobile.com
         BrowserModule,
         HttpClientModule,
         AppRoutingModule,
-        SharedModule
+		SharedModule
+		
     ],
     providers: [],
     bootstrap: [AppComponent],
