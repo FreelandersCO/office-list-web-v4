@@ -1,12 +1,15 @@
 // Default breakpoints
-$breakpoints: (mobile-xl: 569px,
+$breakpoints: (
+	mobile-xl: 569px,
     tablet: 768px,
     desktop-s: 960px,
     desktop: 1024px,
-    desktop-l: 1440px);
+    desktop-l: 1366px
+);
 
 //Z-index
-$zindex: ('base': 1,
+$zindex: (
+	'base': 1,
     'menu': 2,
 );
 

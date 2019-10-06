@@ -3,6 +3,7 @@ import { trigger, state, style, animate, transition, query, animateChild } from 
 
 import { ApiServicesService } from '@service/api-services.service';
 import { ActivatedRoute } from '@angular/router';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 @Component({
 	selector: 'office-list-business-list',
@@ -15,21 +16,25 @@ import { ActivatedRoute } from '@angular/router';
 			])
 		]),
 		trigger('easeInOut', [
-			transition('void => *', [
-				style({
-					opacity: 0
-				}),
-				animate("500ms ease-in", style({
-					opacity: 1
-				}))
-			]),
-			transition('* => void', [
-				style({
-					opacity: 1
-				}),
-				animate("500ms ease-in", style({
-					opacity: 0
-				}))
+		  transition('void => *', [
+			  style({
+				height: 0,
+				opacity: 0
+			  }),
+			  animate('500ms ease-in', style({
+				height: 100,
+				opacity: 1
+			  }))
+		  ]),
+		  transition('* => void', [
+			  style({
+				height: 100,
+				opacity: 1
+			  }),
+			  animate('500ms ease-in', style({
+				height: 0,
+				opacity: 0
+			  }))
 			])
 		])
 	]
@@ -45,8 +50,18 @@ export class BusinessListComponent implements OnInit {
 	city;
 	state;
 
-	public detailOfficeInfo: boolean = false;
+	public detailOfficeInfo = false;
 	public officeInfo: any = 'Show';
+	public priceListOffice = false;
+	public pricesListShow: any = 'Show';
+	public filterArea = false;
+	public areaFilterShow: any = 'Show';
+	public filterDistance = false;
+	public distanceFilterShow: any = 'Show';
+	public filterCalendar = false;
+	public calendarFilterShow: any = 'Show';
+	public allFilters = false;
+	public allTheFiltersShow: any = 'Show';
 
 	constructor(private api: ApiServicesService, private route: ActivatedRoute) { }
 
@@ -74,27 +89,30 @@ export class BusinessListComponent implements OnInit {
 		this.officeInfo = (this.detailOfficeInfo) ? 'Show' : 'Hide';
 	}
 
-	filterArea(area) {
-		if (area !== '') {
-			this.bussinesCenter = this.originalData.filter((item) => {
-				return item.area_name === area;
-			});
-		} else {
-			this.bussinesCenter = this.originalData;
-		}
-
-		this.bussinesCenterCount = Object.keys(this.bussinesCenter).length;
+	showPriceListOffice() {
+		this.priceListOffice = !this.priceListOffice;
+		this.pricesListShow = this.priceListOffice ? 'Hide' : 'Show';
 	}
 
-	capitalizeWords(str) {
-		const max = 2;
-
-		return str.split('-').map((val) => {
-			return val.replace(/\w\S*/g, (txt) => {
-				return (txt.length <= max) ? txt : txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-			});
-		}).join(' ');
+	showFilters() {
+        this.allFilters = !this.allFilters;
+        this.allTheFiltersShow = this.allFilters ? 'Hide' : 'Show';
 	}
+
+    showFilterArea() {
+        this.filterArea = !this.filterArea;
+        this.areaFilterShow  = this.filterArea ? 'Hide' : 'Show';
+	}
+
+	showFilterDistance() {
+        this.filterDistance = !this.filterDistance;
+        this.distanceFilterShow = this.filterDistance ? 'Hide' : 'Show';
+	}
+
+	showFilterCalendar() {
+        this.filterCalendar = !this.filterCalendar;
+        this.calendarFilterShow = this.filterCalendar ? 'Hide' : 'Show';
+    }
 
 	toogleCard() {
 		this.cardActive = !this.cardActive;
@@ -106,6 +124,15 @@ export class BusinessListComponent implements OnInit {
 
 	toogleFilter() {
 		this.filterActive = !this.filterActive;
+	}
+	capitalizeWords(str) {
+		const max = 2;
+
+		return str.split('-').map((val) => {
+			return val.replace(/\w\S*/g, (txt) => {
+				return (txt.length <= max) ? txt : txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+			});
+		}).join(' ');
 	}
 
 }
