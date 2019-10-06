@@ -26,6 +26,7 @@
 		"@angular/platform-browser-dynamic": "^8.2.8",
 		"@angular/router": "^8.2.8",
 		"@google/markerclustererplus": "^2.1.11",
+		"@ng-toolkit/universal": "^1.1.21",
 		"angular-ng-autocomplete": "^1.1.14",
 		"js-marker-clusterer": "^1.0.0",
 		"ngx-webstorage-service": "^4.1.0",
