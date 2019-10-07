@@ -1,42 +1,18 @@
 <header>
-	<nav class="page-comtainer menu-container">
+    <nav class="page-comtainer menu-container" @ngIfAnimation>
 		<div class="logo-container">
 			<img src="assets/images/logo-officelist-dark.svg" alt="">
 		</div>
 		<div class="items-menu">
-			<button class="button-icon" id="btn-nav-search">
+			<button class="button-icon" (click)="showOptionsNav()" id="btn-nav-search">
 				<i class="zwicon-search"></i>
 			</button>
-			<button class="button-icon" id="btn-nav-user">
+			<button class="button-icon" (click)="showOptionsNav()" id="btn-nav-user">
 				<i class="zwicon-user-circle"></i>
 			</button>
-			<button class="button-icon">
+			<button class="button-icon" (click)="showOptionsNav()" id="btn-nav-mobile">
 				<i class="zwicon-hamburger-menu"></i>
 			</button>
-		</div>
-
-		<div style="display:none;" class="search-container">
-			<input type="text" placeholder="Where? Type city or zip/post code">
-			<button class="search-button">
-				<i></i>
-			</button>
-		</div>
-		<div style="display:none;" class="login-container">
-			<i></i>
-			<form action="">
-				<div class="group-form">
-					<label for="name" class="text-label">
-						Name
-					</label>
-					<input type="text" name="name" id="">
-				</div>
-				<div class="group-form">
-					<label for="name" class="text-label">
-						Name
-					</label>
-					<input type="text" name="name" id="">
-				</div>
-			</form>
 		</div>
 	</nav>
 	<div class="callus-container">
@@ -46,4 +22,37 @@
 			<span>1-866-354-5478</span>
 		</p>
 	</div>
+	<div class="options-nav-container" *ngIf="optionsNav" @easeIn>
+			<div class="button-close-container" @easeIn>
+				<button class="button-icon">
+					<i class="zwicon-close" (click)="showOptionsNav()"></i>
+				</button>
+			</div>
+			<div class="search-nav-container" @easeIn>
+				<div class="group-form">
+					<input type="text" name="email" id="" class="input-default white" placeholder="Where? Type city or zip/post code">
+					<button class="button-icon">
+						<i class="zwicon-search"></i>
+					</button>
+				</div>
+			</div>
+			<div class="login-form-container" @easeIn>
+				<i class="zwicon-user-circle"></i>
+				<form action="">
+					<div class="group-form">
+						<input type="text" name="email" id="" class="input-default" placeholder="Email">
+					</div>
+					<div class="group-form">
+						<input type="text" name="email" id="" class="input-default" placeholder="Password">
+					</div>
+				</form>
+				<button class="button-default primary ">
+					Login
+				</button>
+				<p class="text-form-login">Don't have an account?</p>
+				<p class="text-form-login">
+					<a href="">Create an account</a>
+				</p>
+			</div>
+		</div>
 </header>

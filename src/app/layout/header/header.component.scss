@@ -6,11 +6,13 @@ header {
     position: sticky;
     top: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 100;
 
     .menu-container {
-        display: flex;
-        padding: 20px 20px 18px;
+		display: flex;
+		margin: 0 auto;
+		padding: 20px 20px 18px;
+		max-width: 1366px;
 
         .logo-container {
             width: 60%;
@@ -54,4 +56,127 @@ header {
             }
         }
     }
+}
+
+.options-nav-container {
+	background: colors('black');
+	padding: 20px 0;
+	position: absolute;
+	max-width: 360px;
+	width: 100%;
+
+	.button-close-container {
+		text-align: right;
+		padding: 0 20px;
+
+		.button-icon {
+			color: colors('white-6');
+			font-size: 2rem;
+			line-height: 0;
+		}
+	}
+
+	.search-nav-container {
+		border-bottom: 1px solid colors('white-3');
+		padding: 10px 20px 20px;
+
+		.group-form {
+			padding: 0;
+
+			.button-icon {
+				color: colors('primary');
+				position: absolute;
+				right: 12px;
+				top: 12px;
+
+				i {
+					color: colors('primary');
+				}
+			}
+		}
+	}
+
+	.login-form-container {
+		padding: 20px;
+		text-align: center;
+
+		.zwicon-user-circle {
+			color: colors('primary');
+			font-size: 4rem;
+		}
+
+		.text-form-login {
+			color: colors('white');
+		}
+	}
+}
+
+@include from-breakpoint('mobile-xl') {
+	header {
+		.menu-container {
+			.logo-container,
+			.items-menu {
+				width: 50%;
+			}
+		}
+	}
+
+}
+
+@include from-breakpoint('tablet') {
+	header {
+		.menu-container {
+			.logo-container{
+				width: 30%;
+			}
+
+			.items-menu {
+				display: flex;
+				justify-content: flex-end;
+				width: 70%;
+			}
+
+			#btn-nav-search {
+				color: colors('primary');
+				margin-right: 10px;
+			}
+
+			#btn-nav-search,
+			#btn-nav-user {
+				display: block;
+			}
+
+			#btn-nav-mobile {
+				display: none;
+			}
+		}
+	}
+
+	.options-nav-container {
+		right: 0;
+	} 
+}
+
+@include from-breakpoint('desktop-s') {
+	header {
+		.menu-container {
+			.logo-container{
+				width: 20%;
+			}
+
+			.items-menu {
+				width: 80%;
+			}
+		}
+	}
+}
+
+@include from-breakpoint('desktop') {
+	
+}
+
+@include from-breakpoint('desktop-xl') {
+	.options-nav-container {
+		right: 10%;
+	} 
 }
