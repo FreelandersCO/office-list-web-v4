@@ -79,5 +79,61 @@ footer {
                 text-align: right;
             }
         }
-    }
+	}
+	.lists-container,
+	.copyright-container {
+		margin: 0 auto;
+		max-width: 1366px;
+		width: 100%;
+	}
+}
+@include from-breakpoint('mobile-xl') {
+	
+}
+
+@include from-breakpoint('tablet') {
+	footer{
+		.lists-container {
+			display: flex;
+			flex-wrap: wrap;
+
+			.list-items-footer,
+			.contact-container {
+				flex-grow: 1;
+				width: 30%;
+			}
+
+			.contact-container {
+				width: 40%;
+			}
+		}
+
+		.social-container {
+			padding: 0;
+		}
+
+		.newsletter-container {
+			padding: 10px 0 10px;
+		}
+	}
+}
+
+@include from-breakpoint('desktop-s') {
+
+}
+
+@include from-breakpoint('desktop') {
+	footer{
+		.lists-container {
+
+			.list-items-footer,
+			.contact-container {
+				width: 30%;
+			}
+		}
+	}
+}
+
+@include from-breakpoint('desktop-l') {
+	
 }
