@@ -12,6 +12,7 @@ import { MapComponent } from './map/map.component';
 import { BannerHomeComponent } from './banner-home/banner-home.component';
 import { ModalDetailComponent } from './modal-detail/modal-detail.component';
 import { SvglikeheartComponent } from './svglikeheart/svglikeheart.component';
+import { CallUsComponent } from './call-us/call-us.component';
 
 @NgModule({
 	imports: [
@@ -31,7 +32,8 @@ import { SvglikeheartComponent } from './svglikeheart/svglikeheart.component';
 		MapComponent,
 		BannerHomeComponent,
 		ModalDetailComponent,
-		SvglikeheartComponent
+		SvglikeheartComponent,
+		CallUsComponent
 	],
 	exports: [
 		SearchInputComponent,
