@@ -10,8 +10,7 @@
 		"test": "ng test",
 		"lint": "ng lint",
 		"lint:styles": "stylelint \"src/**/*.scss\" --fix",
-		"e2e": "ng e2e",
-		"prepush": "git status --porcelain | grep . && echo you have unstaged files please commit them or stash them && exit -1 || npm run lint && npm run lint:styles"
+		"e2e": "ng e2e"
 	},
 	"private": true,
 	"dependencies": {

@@ -15,6 +15,7 @@ export class MapComponent implements OnInit, OnChanges {
 	constructor(private api: ApiServicesService, private route: ActivatedRoute) { }
 	// google maps zoom level
 	zoom = 12;
+	fullScreen = false;
 	// initial center position for the map
 	lat;
 	lng;
@@ -24,6 +25,9 @@ export class MapComponent implements OnInit, OnChanges {
 		this.route.params.subscribe(params => {
 			this.api.getCoordinates(params['country'], params['state'], params['city']).subscribe(result =>
 				this.setInitialPoint(result)
+			);
+			this.api.getMapBC(params['country'], params['state'], params['city']).subscribe(result =>
+				this.setBcs(result)
 			);
 		});
 	}
@@ -38,5 +42,9 @@ export class MapComponent implements OnInit, OnChanges {
 	setInitialPoint(point) {
 		this.lat = parseFloat(point.latitude);
 		this.lng = parseFloat(point.longitude);
+	}
+
+	setBcs(bussinesCenters) {
+		this.markersList = bussinesCenters;
 	}
 }

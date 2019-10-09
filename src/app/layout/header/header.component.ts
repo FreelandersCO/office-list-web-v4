@@ -8,7 +8,7 @@ import { trigger,state,style,animate,transition,query,animateChild } from '@angu
 	animations: [
 		trigger('ngIfAnimation', [
 		  transition(':enter, :leave', [
-			query('@*', animateChild())
+			query('@*', animateChild(), { optional: true })
 		  ])
 		]),
 		trigger('easeIn', [

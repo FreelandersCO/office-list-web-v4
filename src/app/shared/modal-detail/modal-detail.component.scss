@@ -1,62 +1,61 @@
 @import 'index';
 
 .modal-info-container {
-	height: 100%;
-	background: colors('black-8');
-	padding: 20px;
-	width: 100vw;
+    background: colors('black-8');
+    padding: 1rem;
+    height: 100%;
 
-	.close-modal {
-		text-align: right;
+    .card-modal-info {
+        margin: 0 auto;
+        padding: 20px;
+        width: 100%;
 
-		.close-button-modal {
-			font-size: 2.2rem;
-		}
-	}
+        .img-card-office {
+            margin: 10px 0;
+        }
 
-	.card-modal-info {
-		margin: 0 auto;
-		padding: 20px;
-		width: 100%;
+        .body-modal-info {
+            display: flex;
+            flex-direction: column;
 
-		.img-card-office {
-			margin: 10px 0;
-		}
+            .prices-office,
+            .description-office,
+            .view-more {
+                margin-bottom: 10px;
+            }
 
-		.body-modal-info {
-			display: flex;
-			flex-direction: column;
+            .description-office {
+                height: 110px;
+                overflow: auto;
+                padding-right: 4px;
+            }
 
-			.prices-office,
-			.description-office,
-			.view-more {
-				margin-bottom: 10px;
-			}
+            .view-more {
+                text-align: center;
 
-			.description-office {
-				height: 110px;
-				overflow: auto;
-				padding-right: 4px;
-			}
+                .button-default {
+                    margin: 0;
+                }
+            }
+        }
 
-			.view-more {
-				text-align: center;
+        .title-description {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
 
-				.button-default {
-					margin: 0;
-				}
-			}
-		}
+        }
 
-		.title-description {
-			font-size: 1.2rem;
-			font-weight: 700;
-			margin-bottom: 6px;
+        .list-prices-office {
+            margin: 0;
+        }
+    }
+}
 
-		}
-
-		.list-prices-office  {
-			margin: 0;
+@include from-breakpoint('tablet') {
+	.modal-info-container {
+		.card-modal-info {
+			width: 50%;
 		}
 	}
 }

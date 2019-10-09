@@ -26,5 +26,9 @@
                 border: 0;
             }
         }
-    }
+	}
+
+	@include from-breakpoint('tablet') {
+		display: none;
+	}
 }

@@ -1,5 +1,5 @@
 export const environment = {
 	production: false,
 	// apiUrl: 'https://next.json-generator.com/api/json/get' //Mock
-	apiUrl: 'http://localhost:3333'
+	apiUrl: 'http://3.19.14.135:8085'
 };

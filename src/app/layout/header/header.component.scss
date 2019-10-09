@@ -6,7 +6,7 @@ header {
     position: sticky;
     top: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 3;
 
     .menu-container {
 		display: flex;
@@ -154,7 +154,7 @@ header {
 
 	.options-nav-container {
 		right: 0;
-	} 
+	}
 }
 
 @include from-breakpoint('desktop-s') {
@@ -172,11 +172,11 @@ header {
 }
 
 @include from-breakpoint('desktop') {
-	
+
 }
 
 @include from-breakpoint('desktop-xl') {
 	.options-nav-container {
 		right: 10%;
-	} 
+	}
 }

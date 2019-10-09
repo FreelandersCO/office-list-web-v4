@@ -50,6 +50,15 @@ export class ApiServicesService {
 				catchError(this.handleError)
 			);
 	}
+
+	// tslint:disable-next-line: ban-types
+	getMapBC(country, state, city): Observable<Object> {
+		return this.http.get(`${this.apiURL}/BusinessCenter/MapInfo/${country}/${state}/${city}`)
+			.pipe(
+				retry(1),
+				catchError(this.handleError)
+			);
+	}
 	// tslint:disable-next-line: ban-types
 	getCityList(): Observable<Object> {
 		return this.http.get(`${this.apiURL}/AutoComplete/City/`)

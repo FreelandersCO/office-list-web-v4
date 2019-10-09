@@ -5,7 +5,16 @@
     background-image: url('assets/images/bg-dottedmap.png');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+	background-size: cover;
+	margin-top: 0;
+    padding-top: 0;
+}
+
+.title-home {
+    color: colors('black');
+    font-size: 3rem;
+    font-weight: 300;
+    text-align: center;
 }
 
 .cities-container,

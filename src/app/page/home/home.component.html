@@ -9,48 +9,15 @@
 		</h2>
 		<hr>
 		<div class="cities-container">
-			<div class="city-container card-white">
-				<div class="img-city-container">
-					<img src="assets/images/cities/joseph-barrientos-Ji_G7Bu1MoM-unsplash.jpg" alt="">
-				</div>
-				<p class="title-city">New York</p>
-				<p class="number-offices">168 Office locations</p>
-			</div>
-			<div class="city-container card-white">
-				<div class="img-city-container">
-					<img src="assets/images/cities/ronny-sison-tU9n3Y0KCMk-unsplash.jpg" alt="">
-				</div>
-				<p class="title-city">New York</p>
-				<p class="number-offices">168 Office locations</p>
-			</div>
-			<div class="city-container card-white">
-				<div class="img-city-container">
-					<img src="assets/images/cities/joseph-barrientos-Ji_G7Bu1MoM-unsplash.jpg" alt="">
-				</div>
-				<p class="title-city">New York</p>
-				<p class="number-offices">168 Office locations</p>
-			</div>
-			<div class="city-container card-white">
-				<div class="img-city-container">
-					<img src="assets/images/cities/ronny-sison-tU9n3Y0KCMk-unsplash.jpg" alt="">
-				</div>
-				<p class="title-city">New York</p>
-				<p class="number-offices">168 Office locations</p>
-			</div>
-			<div class="city-container card-white">
-				<div class="img-city-container">
-					<img src="assets/images/cities/joseph-barrientos-Ji_G7Bu1MoM-unsplash.jpg" alt="">
-				</div>
-				<p class="title-city">New York</p>
-				<p class="number-offices">168 Office locations</p>
-			</div>
-			<div class="city-container card-white">
-				<div class="img-city-container">
-					<img src="assets/images/cities/ronny-sison-tU9n3Y0KCMk-unsplash.jpg" alt="">
-				</div>
-				<p class="title-city">New York</p>
-				<p class="number-offices">168 Office locations</p>
-			</div>
+			<ng-container *ngFor="let city of populareCities">
+				<button class="city-container card-white" routerLink="{{city.url}}">
+					<div class="img-city-container" *ngIf="city.img">
+						<img src="assets/images/cities/{{city.img}}" alt="">
+					</div>
+					<p class="title-city">{{city.name}}</p>
+					<p class="number-offices">{{city.numBc}} Office locations</p>
+				</button>
+			</ng-container>
 		</div>
 	</article>
 </section>

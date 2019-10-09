@@ -10,7 +10,7 @@ import { SharedModule } from '@app/shared/shared.module';
 	imports: [
 		CommonModule,
 		BusinessListRoutingModule,
-		SharedModule,
+		SharedModule
 	]
 })
 export class BusinessListModule { }
