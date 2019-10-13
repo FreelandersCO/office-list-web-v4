@@ -25,16 +25,23 @@
             }
 
             .description-office {
-                height: 110px;
-                overflow: auto;
-                padding-right: 4px;
+
+				.text-description {
+					height: 250px;
+					margin: 10px 0 20px;
+					overflow: scroll;
+					padding-right: 8px;
+				}
             }
 
             .view-more {
-                text-align: center;
+				display: flex;
+				flex-direction: column;
+				text-align: center;
 
                 .button-default {
-                    margin: 0;
+					margin: 0 0 20px;
+					width: 100%;
                 }
             }
         }
@@ -52,10 +59,51 @@
     }
 }
 
+.list-prices-office {
+	display: flex;
+	flex-direction: row;
+	margin: 4px 0 10px;
+	justify-content: space-around;
+	flex-wrap: wrap;
+
+	li {
+		padding: 4px;
+	}
+
+	.price-office {
+		color: colors('black-7');
+		font-size: 1.2rem;
+		font-weight: 700;
+		text-align: center;
+	}
+
+	.type-office {
+		color: colors('black-5');
+		font-size: 0.8rem;
+		line-height: 1;
+		text-align: center;
+	}
+}
+
 @include from-breakpoint('tablet') {
 	.modal-info-container {
 		.card-modal-info {
 			width: 50%;
+		}
+	}
+}
+
+@include from-breakpoint('desktop-s') {
+	.modal-info-container {
+		.card-modal-info {
+            .view-more {
+				flex-direction: row;
+
+                .button-default {
+					margin: 0 20px;
+					width: 50%;
+                }
+            }
 		}
 	}
 }

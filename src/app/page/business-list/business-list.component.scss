@@ -126,7 +126,9 @@
     }
 
     .btn-icon {
-        font-size: 2rem;
+		color: colors('black-5');
+		font-size: 2rem;
+		
     }
 }
 
@@ -139,7 +141,13 @@
     &:active,
     &:visited {
         color: colors('primary');
-    }
+	}
+	
+	.text-button-filter {
+		font-size: 0.8rem;
+		font-weight: 300;
+		text-align: center;
+	}
 }
 
 .button-show-price {
@@ -152,7 +160,8 @@
 
 .category-filter-container {
     box-shadow: none;
-    margin-top: 10px;
+	margin-top: 10px;
+	justify-content: space-around;
 }
 
 .office-list-card {
@@ -170,13 +179,15 @@
     }
 
     &.card-style {
-        flex-direction: column;
+		flex-direction: column;
+		flex-grow: 1;
         padding: 0rem;
         width: 100%;
 
         .img-card-office {
-			width: 100%;
+			border-radius: 10px 10px 0 0;
 			min-height: 176px;
+			width: 100%;
 
 			img {
 				height: 177px;
@@ -192,7 +203,7 @@
         .price-container {
             border-width: 1px 0;
             margin: 12px 0;
-            padding: 4px 6px;
+            padding: 4px 6px 0;
         }
 
         .btn-container {
@@ -271,7 +282,7 @@
     .list-prices-office {
         display: flex;
         flex-direction: row;
-        margin: 10px 0;
+        margin: 4px 0 10px;
         justify-content: space-around;
         flex-wrap: wrap;
 
@@ -281,14 +292,14 @@
 
         .price-office {
             color: colors('black-7');
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             text-align: center;
         }
 
         .type-office {
             color: colors('black-5');
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             line-height: 1;
             text-align: center;
         }
@@ -358,16 +369,19 @@
 	top: 104px;
 
 	.close-map {
-		background: rgba(255, 255, 255, 0.7);
-		border-radius: 100%;
 		position: absolute;
 		z-index: 9;
 		right: .5rem;
 	}
 
 	.close-button-map {
+		background: colors('primary');
+		border-radius: 100%;
+		box-shadow: 0px 0px 6px 4px rgba(0, 0, 0, 0.2);
+		color: colors('white');
 		font-size: 2rem;
-		color: colors('primary');
+		line-height: 0;
+		margin: 20px;
 	}
 }
 
@@ -375,8 +389,8 @@
     top: 0;
     width: 100%;
 	z-index: 20;
-	height: 100vh;
-	position: fixed;
+	height: 100%;
+	position: absolute;
 
 	.close-modal {
 		position: absolute;
@@ -412,7 +426,13 @@
 
     .office-list-card {
         &.card-style {
-            width: 32%;
+			margin-right: 20px;
+			width: 46%;
+			
+			&:nth-child(2n) {
+				margin: 0;
+			}
+
 			.title-name-office {
 				height: 52px;
 			}
@@ -500,7 +520,7 @@
         height: 500px;
 		position: sticky;
 		z-index: 1;
-        width: 40%;
+        width: 60%;
         padding-right: .5rem;
     }
 
@@ -532,5 +552,13 @@
                 margin: 0 auto;
             }
         }
-    }
+	}
+	
+	.buttons-filters {
+		padding: 0.5rem 6rem;
+	}
+
+	.category-filter-container {
+		padding: 14px;
+	}
 }

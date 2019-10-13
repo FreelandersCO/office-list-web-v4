@@ -6,11 +6,11 @@ a {
 
 .button-default {
     border-radius: 25px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 300;
     margin: 20px auto;
     padding: 10px 12px;
-    width: 80%;
+    width: 90%;
 
     &.primary {
         background-color: colors('primary');
@@ -30,6 +30,18 @@ a {
             background-color: colors('primary');
             color: colors('white');
         }
+	}
+	
+	&.secondary-line {
+		background-color: colors('white');
+		border: 1px solid colors('primary');
+        color: colors('primary');
+
+        &:hover {
+            background-color: colors('white');
+			border: 0px ;
+			color: colors('primary');
+        }
     }
 }
 
@@ -48,7 +60,7 @@ a {
 
 h3 {
     color: colors('primary');
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 hr {

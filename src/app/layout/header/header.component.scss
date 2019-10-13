@@ -27,13 +27,14 @@ header {
             color: colors('white');
             font-size: 2rem;
             line-height: 1rem;
-            margin-top: -5px;
-        }
+			margin-top: -5px;
+		}
+		
+		#btn-nav-search {
+			color: colors('primary');
+			margin-right: 4px;
+		}
 
-        #btn-nav-search,
-        #btn-nav-user {
-            display: none;
-        }
     }
 
     .callus-container {
@@ -139,15 +140,6 @@ header {
 			#btn-nav-search {
 				color: colors('primary');
 				margin-right: 10px;
-			}
-
-			#btn-nav-search,
-			#btn-nav-user {
-				display: block;
-			}
-
-			#btn-nav-mobile {
-				display: none;
 			}
 		}
 	}

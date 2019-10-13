@@ -39,13 +39,15 @@
 		<div class="category-filter-container" *ngIf="allFilters">
 			<button class="btn-icon-filter" (click)="showFilterArea()">
 				<i class="zwicon-expand-alt"></i>
+				<p class="text-button-filter">Area</p>
 			</button>
 			<button class="btn-icon-filter" (click)="showFilterDistance()">
 				<i class="zwicon-expand"></i>
+				<p class="text-button-filter">Distance</p>
 			</button>
-			<button class="btn-icon-filter" (click)="showFilterCalendar()">
+			<!--button class="btn-icon-filter" (click)="showFilterCalendar()">
 				<i class="zwicon-calendar-month"></i>
-			</button>
+			</button-->
 		</div>
 		<div class="area-filter-contaier" *ngIf="filterArea">
 			<button class="close-filter-button" style="display:none;">
@@ -102,7 +104,6 @@
 							<h3 class="title-price">
 								Starting at :
 							</h3>
-							<i class="zwicon-chevron-down"></i>
 						</button>
 						<ul class="list-prices-office">
 							<li>
