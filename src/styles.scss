@@ -23,6 +23,14 @@ article {
     width: 90%;
 }
 
+input,
+textarea {
+	&:hover,
+	&:focus {
+		outline: 0;
+	}
+}
+
 .page-container {
     padding: 0.01em 16px;
     width: 100%;

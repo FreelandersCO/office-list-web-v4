@@ -28,8 +28,10 @@
 		"@ng-toolkit/universal": "^1.1.21",
 		"angular-ng-autocomplete": "^1.1.14",
 		"js-marker-clusterer": "^1.0.0",
+		"ngx-useful-swiper": "^8.0.1",
 		"ngx-webstorage-service": "^4.1.0",
 		"rxjs": "^6.5.3",
+		"swiper": "^5.0.4",
 		"tslib": "^1.10.0",
 		"zone.js": "^0.10.2"
 	},
@@ -41,6 +43,7 @@
 		"@types/jasmine": "^3.4.1",
 		"@types/jasminewd2": "^2.0.7",
 		"@types/node": "^12.7.8",
+		"@types/swiper": "^4.4.5",
 		"codelyzer": "^5.1.2",
 		"husky": "^3.0.7",
 		"jasmine-core": "^3.5.0",

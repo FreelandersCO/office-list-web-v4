@@ -13,6 +13,8 @@ import { BannerHomeComponent } from './banner-home/banner-home.component';
 import { ModalDetailComponent } from './modal-detail/modal-detail.component';
 import { SvglikeheartComponent } from './svglikeheart/svglikeheart.component';
 import { CallUsComponent } from './call-us/call-us.component';
+import { GalleryDetailOfficeComponent } from './gallery-detail-office/gallery-detail-office.component';
+import { FormInquireNowComponent } from './form-inquire-now/form-inquire-now.component';
 
 @NgModule({
 	imports: [
@@ -33,7 +35,9 @@ import { CallUsComponent } from './call-us/call-us.component';
 		BannerHomeComponent,
 		ModalDetailComponent,
 		SvglikeheartComponent,
-		CallUsComponent
+		CallUsComponent,
+		GalleryDetailOfficeComponent,
+		FormInquireNowComponent
 	],
 	exports: [
 		SearchInputComponent,
@@ -41,7 +45,9 @@ import { CallUsComponent } from './call-us/call-us.component';
 		MapComponent,
 		BannerHomeComponent,
 		ModalDetailComponent,
-		SvglikeheartComponent
+		SvglikeheartComponent,
+		FormInquireNowComponent,
+		GalleryDetailOfficeComponent
 	]
 })
 export class SharedModule { }

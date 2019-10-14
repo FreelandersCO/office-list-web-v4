@@ -2,6 +2,24 @@
 
 a {
 	color: colors('primary');
+} 
+
+button {
+	position: relative;
+	
+	&:hover,
+	&:focus,
+	&:visited {
+		outline: 0;
+	}
+}
+
+.title-home {
+    color: colors('black');
+    font-size: 2.2rem;
+	font-weight: 300;
+	line-height: 2.4rem;
+    text-align: center;
 }
 
 .button-default {
@@ -45,6 +63,16 @@ a {
     }
 }
 
+.button-close-icon {
+	color: colors('primary');
+	font-size: 1.8rem;
+	font-weight: 700;
+	line-height: 0;
+	margin-bottom: 6px;
+	text-align: right;
+	width: 100%;
+}
+
 .title-pages {
     color: colors('primary');
     font-size: 2.4rem;
@@ -60,7 +88,8 @@ a {
 
 h3 {
     color: colors('primary');
-    font-size: 1.2rem;
+	font-size: 1.2rem;
+	line-height: 1.2rem;
 }
 
 hr {
@@ -91,7 +120,7 @@ hr {
 
 /* Form */
 .group-form {
-    padding: 16px 0 0;
+    padding: 14px 0 0;
     position: relative;
 
     i {
@@ -102,23 +131,28 @@ hr {
 
     .label-default {
         color: colors('black-3');
-        font-size: 1.2rem;
+		font-size: 1rem;
+		font-weight: 300;
         left: 18px;
         position: absolute;
         transition: all 0.6s;
-        transform: translate3d(6%, 68%, 0);
+        transform: translate3d(0%, 76%, 0);
         z-index: 1;
     }
 
     .input-default {
-        background-color: colors('white-8');
+        background-color: colors('black-1');
         border: 0;
         border-radius: 25px;
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 300;
         margin-top: 6px;
         padding: 10px 18px;
-        width: 100%;
+		width: 100%;
+		
+		&.textarea-input {
+			border-radius: 6px;
+		}
 
 		&.white {
 			background-color: colors('white');
@@ -128,9 +162,10 @@ hr {
 
         &:focus + .label-default,
         &:valid + .label-default {
-            font-size: 100%;
+			color: colors('primary');
+            font-size: 70%;
             top: 0;
-            transform: translate3d(8px, 114%, 0);
+            transform: translate3d(0, 42%, 0);
 
         }
     }
