@@ -94,7 +94,7 @@
 }
 
 .princing-type {
-	padding: 18px 18px 20px; 
+	padding: 18px 18px 20px;
 	position: relative;
 }
 
@@ -102,8 +102,8 @@
 	border-bottom: 0.6px solid colors('black-2');
 	display: flex;
 	margin-bottom: 10px;
-	padding-bottom: 10px; 
-	
+	padding-bottom: 10px;
+
 	div {
 		width: 50%;
 	}
@@ -140,7 +140,7 @@
 	.bestfor-container {
 		width: 50%;
 	}
-	
+
 	.items-description {
 		color: colors('black-5');
 
@@ -246,7 +246,7 @@
             top: .5rem;
         }
 	}
-	
+
 	.price-container {
         border-color: colors('black-2');
         border-style: solid;
@@ -286,7 +286,7 @@
             text-align: center;
         }
 	}
-	
+
 	.img-card-office {
         overflow: hidden;
         position: relative;
@@ -344,6 +344,10 @@ swiper {
 	overflow: hidden;
 }
 
+.swiper-pagination-bullet-active {
+	background-color: colors('primary');
+}
+
 .nearby-swiper {
 	height: auto;
 }
@@ -361,7 +365,8 @@ swiper {
 	position: fixed;
     top: 46px;
 	width: 90%;
-    z-index: 190;
+	z-index: 190;
+	display: none;
 }
 
 @include from-breakpoint('mobile-xl') {
@@ -389,12 +394,12 @@ swiper {
 			font-size: 1.6rem;
 		}
 	}
-	
+
 	.icons-amenities {
 		div {
 			width: 23%;
 		}
-	} 
+	}
 }
 
 @include from-breakpoint('desktop') {
@@ -410,9 +415,9 @@ swiper {
 	}
 
 	.title-detail {
-		margin-bottom: 10px;	
+		margin-bottom: 10px;
 	}
-	
+
 	.container-princing-types {
 		.cont-type-pricing {
 			width: 30%;
@@ -427,7 +432,7 @@ swiper {
 		.title-amenitie {
 			font-size: 1rem;
 		}
-	} 
+	}
 
 	.office-list-card {
 		margin-right: 20px !important;
@@ -439,6 +444,7 @@ swiper {
 		right: 5%;
 		top: 14%;
 		width: 26%;
+		display: block;
 	}
 
 	.cont-swiper-nearby {
@@ -464,5 +470,5 @@ swiper {
 }
 
 @include from-breakpoint('desktop-l') {
-	
+
 }

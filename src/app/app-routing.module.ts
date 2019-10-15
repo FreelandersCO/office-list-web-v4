@@ -14,7 +14,6 @@ const routes: Routes = [
 		path: 'detail-office',
 		loadChildren: () => import('./page/detail-office/detail-office.module').then(m => m.DetailOfficeModule)
 	}
-	
 ];
 
 @NgModule({

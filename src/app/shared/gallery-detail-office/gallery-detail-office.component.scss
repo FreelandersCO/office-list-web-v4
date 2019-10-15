@@ -1,6 +1,25 @@
 @import 'index';
 
-p {
+.details-galery {
 	background: colors('primary');
-	height: 350px;
+	height: 25vh;
+	display: flex;
+	margin: 0;
+	padding: 0;
+
+	div {
+		width: 50%;
+	}
+
+	img {
+		height: 25vh;
+	}
+
+	@include from-breakpoint('desktop-s') {
+		height: 35vh;
+
+		img {
+			height: 35vh;
+		}
+	}
 }

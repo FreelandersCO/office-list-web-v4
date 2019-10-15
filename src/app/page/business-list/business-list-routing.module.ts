@@ -18,5 +18,3 @@ const routes: Routes = [
 	exports: [RouterModule]
 })
 export class BusinessListRoutingModule { }
-
-// :country/:state/:city

@@ -128,7 +128,7 @@
     .btn-icon {
 		color: colors('black-5');
 		font-size: 2rem;
-		
+
     }
 }
 
@@ -195,6 +195,7 @@
         }
 
         .info-office-container {
+			cursor: pointer;
             width: 100%;
 			padding: .5rem;
 			position: relative;
@@ -428,7 +429,7 @@
         &.card-style {
 			margin-right: 20px;
 			width: 46%;
-			
+
 			&:nth-child(2n) {
 				margin: 0;
 			}
@@ -517,11 +518,15 @@
     }
 
     .result-map-container {
-        height: 500px;
+        height: 90vh;
 		position: sticky;
 		z-index: 1;
         width: 60%;
-        padding-right: .5rem;
+		padding-right: .5rem;
+
+		.close-map {
+			display: none;
+		}
     }
 
     .buttons-filters {
@@ -553,7 +558,7 @@
             }
         }
 	}
-	
+
 	.buttons-filters {
 		padding: 0.5rem 6rem;
 	}
