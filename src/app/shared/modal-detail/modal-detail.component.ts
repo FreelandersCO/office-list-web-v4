@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
 	selector: 'office-list-modal-detail',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./modal-detail.component.scss']
 })
 export class ModalDetailComponent implements OnInit {
+	@Input() business;
 	public modalDetailInfo: boolean;
 
 	constructor() {

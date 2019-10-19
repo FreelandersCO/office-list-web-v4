@@ -28,6 +28,7 @@
 						],
 						"styles": [
 							"src/styles.scss",
+							"src/styles/icons.scss",
 							"./node_modules/swiper/css/swiper.css"
 						],
 						"stylePreprocessorOptions": {
@@ -91,15 +92,15 @@
 									"with": "src/environments/environment.qa.ts"
 								}
 							],
-							"optimization": true,
+							"optimization": false,
 							"outputHashing": "all",
-							"sourceMap": false,
-							"extractCss": true,
+							"sourceMap": true,
+							"extractCss": false,
 							"namedChunks": false,
-							"aot": true,
-							"extractLicenses": true,
+							"aot": false,
+							"extractLicenses": false,
 							"vendorChunk": false,
-							"buildOptimizer": true
+							"buildOptimizer": false
 						}
 					}
 				},

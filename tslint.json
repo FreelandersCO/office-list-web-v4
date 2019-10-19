@@ -151,7 +151,6 @@
 			"ignore-for-loop"
 		],
 		"no-any": true,
-		"no-magic-numbers": true,
 		"only-arrow-functions": [
 			true,
 			"allow-declarations",

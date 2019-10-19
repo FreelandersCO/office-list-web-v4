@@ -12,7 +12,7 @@
 			<ng-container *ngFor="let city of populareCities">
 				<button class="city-container card-white" routerLink="{{city.url}}">
 					<div class="img-city-container" *ngIf="city.img">
-						<img src="assets/images/cities/{{city.img}}" alt="">
+						<img appLazyLoad [src]="city.img" alt="">
 					</div>
 					<p class="title-city">{{city.name}}</p>
 					<p class="number-offices">{{city.numBc}} Office locations</p>

@@ -44,31 +44,31 @@ export class HomeComponent implements OnInit {
 			name: 'New York',
 			url: 'office-space-for-rent/us/new-york/new-york',
 			numBc: 286,
-			img: 'joseph-barrientos-Ji_G7Bu1MoM-unsplash.jpg'
+			img: 'assets/images/cities/joseph-barrientos-Ji_G7Bu1MoM-unsplash.jpg'
 		},
 		{
 			name: 'Los Angeles',
 			url: 'office-space-for-rent/us/california/los-angeles',
 			numBc: 177,
-			img: 'ronny-sison-tU9n3Y0KCMk-unsplash.jpg'
+			img: 'assets/images/cities/ronny-sison-tU9n3Y0KCMk-unsplash.jpg'
 		},
 		{
 			name: 'Atlanta',
 			url: 'office-space-for-rent/us/georgia/atlanta',
 			numBc: 89,
-			img: 'joseph-barrientos-Ji_G7Bu1MoM-unsplash.jpg'
+			img: 'assets/images/cities/joseph-barrientos-Ji_G7Bu1MoM-unsplash.jpg'
 		},
 		{
 			name: 'Chicago',
 			url: 'office-space-for-rent/us/illinois/chicago',
 			numBc: 109,
-			img: 'ronny-sison-tU9n3Y0KCMk-unsplash.jpg'
+			img: 'assets/images/cities/ronny-sison-tU9n3Y0KCMk-unsplash.jpg'
 		},
 		{
 			name: 'Miami',
 			url: 'office-space-for-rent/us/florida/miami',
 			numBc: 101,
-			img: 'ronny-sison-tU9n3Y0KCMk-unsplash.jpg'
+			img: 'assets/images/cities/ronny-sison-tU9n3Y0KCMk-unsplash.jpg'
 		},
 		{
 			name: 'San Francisco',

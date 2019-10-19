@@ -41,7 +41,14 @@ export class ApiServicesService {
 				catchError(this.handleError)
 			);
 	}
-
+	// tslint:disable-next-line: ban-types
+	getBussinesDetails(id): Observable<Object> {
+		return this.http.get(`${this.apiURL}/BusinessCenter/Details/${id}`)
+			.pipe(
+				retry(1),
+				catchError(this.handleError)
+			);
+	}
 	// tslint:disable-next-line: ban-types
 	getCoordinates(country, state, city): Observable<Object> {
 		return this.http.get(`${this.apiURL}/BusinessCenter/Coordinates/${country}/${state}/${city}`)
@@ -67,6 +74,7 @@ export class ApiServicesService {
 				catchError(this.handleError)
 			);
 	}
+
 	// Error handling
 	handleError(error) {
 		let errorMessage = '';

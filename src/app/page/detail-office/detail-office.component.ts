@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import { SwiperOptions } from 'swiper';
+import { ActivatedRoute } from '@angular/router';
+
+import { ApiServicesService } from '@app/services/api-services.service';
 
 @Component({
 	selector: 'office-list-detail-office',
@@ -12,9 +15,16 @@ export class DetailOfficeComponent implements OnInit {
 		pagination: { el: '.swiper-pagination', clickable: true },
 		spaceBetween: 30
 	};
-	constructor() { }
+	bussinesCenter;
+
+	constructor(private api: ApiServicesService, private route: ActivatedRoute) { }
 
 	ngOnInit() {
+		this.route.params.subscribe(params => {
+			const explote = params['bc_url'].split('-');
+			const bcId = explote[explote.length - 1];
+			this.api.getBussinesDetails(bcId).subscribe(result => this.bussinesCenter = result);
+		});
 	}
 
 }
