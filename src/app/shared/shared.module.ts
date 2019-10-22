@@ -15,6 +15,9 @@ import { SvglikeheartComponent } from './svglikeheart/svglikeheart.component';
 import { CallUsComponent } from './call-us/call-us.component';
 import { GalleryDetailOfficeComponent } from './gallery-detail-office/gallery-detail-office.component';
 import { FormInquireNowComponent } from './form-inquire-now/form-inquire-now.component';
+import { ModalLoginSearchComponent } from './modal-login-search/modal-login-search.component';
+import { ModalSingupComponent } from './modal-singup/modal-singup.component';
+import { ModalPressedFormComponent } from './modal-pressed-form/modal-pressed-form.component';
 
 @NgModule({
 	imports: [
@@ -37,7 +40,10 @@ import { FormInquireNowComponent } from './form-inquire-now/form-inquire-now.com
 		SvglikeheartComponent,
 		CallUsComponent,
 		GalleryDetailOfficeComponent,
-		FormInquireNowComponent
+		FormInquireNowComponent,
+		ModalLoginSearchComponent,
+		ModalSingupComponent,
+		ModalPressedFormComponent
 	],
 	exports: [
 		SearchInputComponent,
@@ -47,7 +53,10 @@ import { FormInquireNowComponent } from './form-inquire-now/form-inquire-now.com
 		ModalDetailComponent,
 		SvglikeheartComponent,
 		FormInquireNowComponent,
-		GalleryDetailOfficeComponent
+		GalleryDetailOfficeComponent,
+		ModalLoginSearchComponent,
+		ModalSingupComponent,
+		ModalPressedFormComponent
 	]
 })
 export class SharedModule { }
