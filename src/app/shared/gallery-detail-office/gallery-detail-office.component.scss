@@ -15,6 +15,13 @@
 	img {
 		height: 100%;
 	}
+	.container-images {
+		width: 100%;
+		display: flex;
+		div {
+			width: 50%;
+		}
+	}
 
 	@include from-breakpoint('desktop-s') {
 		height: 100%;
@@ -28,7 +35,7 @@
 		bottom: 0px;
 		display: flex;
 		position: absolute;
-		right: 10px;
+		left: 1rem;
 		width: 80%;
 
 		.button-icon {
@@ -47,7 +54,7 @@
 	.details-galery {
 		.container-buttons {
 			width: 50%;
-		}	
+		}
 	}
 }
 
@@ -55,7 +62,7 @@
 	.details-galery {
 		.container-buttons {
 			width: 40%;
-		}	
+		}
 	}
 }
 
@@ -63,7 +70,7 @@
 	.details-galery {
 		.container-buttons {
 			width: 20%;
-		}	
+		}
 	}
 }
 

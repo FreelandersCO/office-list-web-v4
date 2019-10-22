@@ -1,62 +1,67 @@
 @import 'index';
 
 .component-form-inquire {
-	padding: 10px 20px 20px;
-	position: relative;
+    padding: 10px 20px 20px;
+    position: relative;
 }
+
 .head-form-inquire {
-	border-bottom: 1px solid colors('black-1');
-	margin-bottom: 10px;
-	padding-bottom: 10px;
+    border-bottom: 1px solid colors('black-1');
+    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 .image-am-office {
-	border: 4px solid colors('primary');
-	border-radius: 100%;
-	height: 90px;
-	left: 10px;
-	overflow: hidden;
-	position: absolute;
-	top: -32px;
-	width: 90px;
+    border: 4px solid colors('primary');
+    border-radius: 100%;
+    height: 90px;
+    left: 10px;
+    overflow: hidden;
+    position: absolute;
+    top: -32px;
+    width: 90px;
 }
 
 .button-close-icon {
-	position: absolute;
-	right: 6px;
-	top: 6px;
+    position: absolute;
+    right: 6px;
+    top: 6px;
 }
 
 .profile-am-office {
-	font-size: 0.8rem;
+    font-size: 0.8rem;
 }
 
 .name-am-office,
 .profile-am-office,
 .info-am-office {
-	margin-left: 92px;
-	margin-bottom: 4px;
+    margin-left: 92px;
+    margin-bottom: 4px;
 }
 
-.info-am-office  {
-	color: colors('black-5');
+.info-am-office {
+    color: colors('black-5');
 
-	.zwicon-phone {
-		margin-right: 4px;
-	}
+    .zwicon-phone {
+        margin-right: 4px;
+    }
 }
 
 .title-form-inquire {
-	font-size: 1.1rem;
-	margin-bottom: 10px;
-	text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .container-inquire-buttons {
-	.button-default {
-		margin-bottom: 0;
-		margin-top: 10px;
-		width: 100%;
-	}
+    .button-default {
+        width: 45%;
+        margin: 1rem 0.5rem;
+    }
 }
 
+@include from-breakpoint('tablet') {
+    .zwicon-close {
+        display: none;
+    }
+}

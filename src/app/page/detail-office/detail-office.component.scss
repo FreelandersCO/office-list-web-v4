@@ -2,7 +2,6 @@
 
 .container-gallery-detail {
 	height: 360px;
-	background-color: red;
 	margin: 0;
 	padding: 0;
 }
@@ -10,14 +9,7 @@
 .details-office-container {
 	display: flex;
 	flex-wrap: wrap;
-	padding: 0 20px;
-
-	article {
-		flex-grow: 1;
-		margin: 0 auto;
-		width: 90%;
-	}
-
+	padding: 0 1rem;
 }
 
 .container-breadcrumbs {
@@ -30,6 +22,7 @@
 
 .text-default {
 	font-size: 1rem;
+	height: 34px;
 }
 
 .title-name-office {
@@ -357,7 +350,8 @@
 }
 
 swiper {
-	width: 100%;
+	width: 90%;
+	margin: 0 auto;
 }
 
 .swiper-container {
@@ -384,7 +378,6 @@ swiper {
     right: 5%;
 	position: sticky;
 	width: 90%;
-	z-index: 190;
 	display: none;
 }
 
@@ -422,28 +415,33 @@ swiper {
 }
 
 @include from-breakpoint('desktop-s') {
+	swiper {
+		width: 100%;
+	}
 	.nearby-locations-container {
 		.office-list-card {
-			width: 300px !important;
+			width: 285px !important;
 		}
+	}
+
+	.nearby-locations-container {
+		width: 100%;
+		padding: 0 2rem;
 	}
 }
 
 @include from-breakpoint('desktop') {
 	.details-office-container {
 		.container-details {
-			margin-left: 4%;
-			width: 45%;
+			width: 60%;
 		}
 		.container-side-form {
 			padding-left: 20px;
-			padding-right: 4%;
-			width: 20%;
+			width: 40%;
 		}
 	}
 	.cont-title-section,
-	.detail-container,
-	.nearby-locations-container {
+	.detail-container {
 		margin: 0 0 20px 4%;
 		width: 60%;
 	}
@@ -463,6 +461,10 @@ swiper {
 	}
 
 	.icons-amenities {
+		li {
+			width: 33%;
+		}
+
 		div {
 			width: 20%;
 		}
@@ -478,9 +480,9 @@ swiper {
 	}
 
 	.container-form-inquire {
+		top: 145px;
 		display: inline-block;
 		position: sticky;
-		bottom: 12px;
 		width: 100%;
 	}
 

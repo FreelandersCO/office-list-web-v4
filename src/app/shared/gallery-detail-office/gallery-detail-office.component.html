@@ -1,13 +1,17 @@
-<article class="details-galery">
-	<div><img src="assets/images/img-office-detail-1.jpg"></div>
-	<div><img src="assets/images/img-office-detail-2.jpg"></div>
+<div class="details-galery">
+	<div class="container-images">
+		<div *ngFor="let image of _images; let i = index;" class="image-{{i}}">
+			<img appLazyLoad [src]="image.image_path">
+		</div>
+	</div>
+	<!--div><img src="assets/images/img-office-detail-2.jpg"></div-->
 
 	<div class="container-buttons">
 		<button class="button-default secondary">
-			Ver fotos
+			View photos
 		</button>
 		<button class="button-default primary button-icon">
 			<i class="zwicon-heart"></i>
 		</button>
 	</div>
-</article>
+</div>
