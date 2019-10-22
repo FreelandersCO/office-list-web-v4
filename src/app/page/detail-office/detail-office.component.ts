@@ -13,7 +13,7 @@ export class DetailOfficeComponent implements OnInit {
 	office = 'private';
 	config: SwiperOptions = {
 		pagination: { el: '.swiper-pagination', clickable: true },
-		spaceBetween: 30
+		spaceBetween: 50
 	};
 	bussinesCenter;
 

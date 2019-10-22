@@ -1,8 +1,10 @@
 <div class="details-galery">
 	<div class="container-images">
-		<div *ngFor="let image of _images; let i = index;" class="image-{{i}}">
-			<img appLazyLoad [src]="image.image_path">
-		</div>
+		<ng-template ngFor let-image [ngForOf]="_images">
+			<div  class="container-image" [ngStyle]="{'background-image': 'url(' + image.image_path + ')'}">
+
+			</div>
+		</ng-template>
 	</div>
 	<!--div><img src="assets/images/img-office-detail-2.jpg"></div-->
 

@@ -89,7 +89,7 @@
 					</button>
 				</figure>
 				<div class="info-office-container">
-					<p class="text-default">{{bc.descriptive_title}}</p>
+					<p class="text-default" routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">{{bc.descriptive_title}}</p>
 					<h3 class="title-name-office"
 						routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
 						{{ bc.cross_streets }}
@@ -108,7 +108,7 @@
 							</h3>
 						</button>
 						<ul class="list-prices-office">
-							<li *ngFor="let office of bc.offices">
+							<li *ngFor="let office of bc.offices.splice(0,3)">
 								<p class="price-office">${{office.off_pricing}}</p>
 								<p class="type-office" [innerHTML]="office.off_type"></p>
 							</li>
