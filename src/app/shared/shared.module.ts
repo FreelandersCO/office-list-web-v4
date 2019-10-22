@@ -15,6 +15,7 @@ import { SvglikeheartComponent } from './svglikeheart/svglikeheart.component';
 import { CallUsComponent } from './call-us/call-us.component';
 import { GalleryDetailOfficeComponent } from './gallery-detail-office/gallery-detail-office.component';
 import { FormInquireNowComponent } from './form-inquire-now/form-inquire-now.component';
+import { MapDetailComponent } from './map-detail/map-detail.component';
 
 @NgModule({
 	imports: [
@@ -37,7 +38,8 @@ import { FormInquireNowComponent } from './form-inquire-now/form-inquire-now.com
 		SvglikeheartComponent,
 		CallUsComponent,
 		GalleryDetailOfficeComponent,
-		FormInquireNowComponent
+		FormInquireNowComponent,
+		MapDetailComponent
 	],
 	exports: [
 		SearchInputComponent,
@@ -47,7 +49,8 @@ import { FormInquireNowComponent } from './form-inquire-now/form-inquire-now.com
 		ModalDetailComponent,
 		SvglikeheartComponent,
 		FormInquireNowComponent,
-		GalleryDetailOfficeComponent
+		GalleryDetailOfficeComponent,
+		MapDetailComponent
 	]
 })
 export class SharedModule { }

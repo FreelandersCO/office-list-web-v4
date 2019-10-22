@@ -28,7 +28,8 @@
 						],
 						"styles": [
 							"src/styles.scss",
-							"src/styles/icons.scss",
+							"src/styles/icons/amenities.scss",
+							"src/styles/icons/zwicons.scss",
 							"./node_modules/swiper/css/swiper.css"
 						],
 						"stylePreprocessorOptions": {

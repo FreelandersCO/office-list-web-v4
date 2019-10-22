@@ -7,15 +7,15 @@ import { SharedModule } from '@app/shared/shared.module';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 
 @NgModule({
-  declarations: [DetailOfficeComponent],
-  imports: [
-    CommonModule,
-	DetailOfficeRoutingModule,
-	SharedModule,
-	NgxUsefulSwiperModule
-  ],
-  schemas: [
-	  CUSTOM_ELEMENTS_SCHEMA
-  ]
+	declarations: [DetailOfficeComponent],
+	imports: [
+		CommonModule,
+		DetailOfficeRoutingModule,
+		SharedModule,
+		NgxUsefulSwiperModule
+	],
+	schemas: [
+		CUSTOM_ELEMENTS_SCHEMA
+	]
 })
 export class DetailOfficeModule { }

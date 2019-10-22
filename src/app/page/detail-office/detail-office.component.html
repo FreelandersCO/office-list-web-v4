@@ -3,16 +3,16 @@
 </section>
 <section class="details-office-container">
 	<article class="cont-title-section">
-		<p class="text-default">Office</p>
-		<h1 class="title-name-office detail-office">Preston Rd & Weldon Howell Pkwy Howell Pkwy</h1>
-		<p class="name-city">Miami, FL 33131</p>
-		<span class="badge-city">Downtown/Brickell</span>
+		<p class="text-default">{{bussinesCenter?.descriptive_title}}</p>
+		<h1 class="title-name-office detail-office">{{bussinesCenter?.cross_streets}}</h1>
+		<p class="name-city">{{bussinesCenter?.city}}, {{bussinesCenter?.state}} {{bussinesCenter?.zipcode}}</p>
+		<span class="badge-city">{{bussinesCenter?.area_name}}</span>
 		<hr class="line-detail">
 	</article>
 	<article class="detail-container">
 		<h4 class="title-detail">Pricing</h4>
 		<div class="container-princing-types">
-			<div class="card-white cont-type-pricing active">
+			<div class="card-white cont-type-pricing">
 				<figure class="image-type">
 					<img src="assets/images/img-private-office.jpg" alt="">
 				</figure>
@@ -124,132 +124,27 @@
 	<article class="detail-container">
 		<h4 class="title-detail">Description</h4>
 		<p class="description-office-text">
-			Miami state-of-the-art shared workspace for entrepreneurs, creative professionals, and small businesses. Our
-			flexible workspace options are listed below: SEAT (from $249/month) Upgrade from your home office - or local
-			Starbucks - without breaking the bank. Just grab any available SEAT at our communal worktables and get down
-			to business. Includes high-speed connections, and access to a host of amenities such as meeting rooms,
-			lockers, color printers, and more. From $199/month. STATION (from $449/month): Get your own spacious desk
-			with large window in an open plan environment. Available for both individuals and small teams. Includes
-			access to all of our amenities. STUDIO ($649/month): Enjoy a little more privacy and storage in our stylish
-			and super-functional glass studios from Herman Miller. Includes access to all of our amenities. SUITE (from
-			$1199/month): Get your own private office. Literally. Four walls, nice views, and some pretty sweet
-			furnishings too. Available in different sizes and layouts for 1 - 4 people. Includes access to all of our
-			amenities.
+			{{bussinesCenter?.short_intro}}
 		</p>
 	</article>
 	<article class="detail-container">
 		<h4 class="title-detail">Amenities</h4>
-		<swiper class="amenities-swiper" [config]="config">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide icons-amenities">
-					<div>
-						<figure class="container-icon">
-							<i class="zwicon-stand-up"></i>
-						</figure>
-						<p class="title-amenitie">
-							Lighting Fast Internet / WiFi
-						</p>
-					</div>
-					<div>
-						<figure class="container-icon">
-							<i class="zwicon-information-architecture"></i>
-						</figure>
-						<p class="title-amenitie">
-							Mail & Package Handling
-						</p>
-					</div>
-					<div>
-						<figure class="container-icon">
-							<i class="zwicon-receipt"></i>
-						</figure>
-						<p class="title-amenitie">
-							Daily Cleaning Services
-						</p>
-					</div>
-					<div>
-						<figure class="container-icon">
-							<i class="zwicon-stand-up"></i>
-						</figure>
-						<p class="title-amenitie">
-							Lighting Fast Internet / WiFi
-						</p>
-					</div>
-					<div>
-						<figure class="container-icon">
-							<i class="zwicon-information-architecture"></i>
-						</figure>
-						<p class="title-amenitie">
-							Mail & Package Handling
-						</p>
-					</div>
-					<div>
-						<figure class="container-icon">
-							<i class="zwicon-receipt"></i>
-						</figure>
-						<p class="title-amenitie">
-							Daily Cleaning Services
-						</p>
-					</div>
-				</div>
-				<div class="swiper-slide icons-amenities">
-					<div>
-						<figure class="container-icon">
-							<i class="zwicon-stand-up"></i>
-						</figure>
-						<p class="title-amenitie">
-							Lighting Fast Internet / WiFi
-						</p>
-					</div>
-					<div>
-						<figure class="container-icon">
-							<i class="zwicon-information-architecture"></i>
-						</figure>
-						<p class="title-amenitie">
-							Mail & Package Handling
-						</p>
-					</div>
-					<div>
-						<figure class="container-icon">
-							<i class="zwicon-receipt"></i>
-						</figure>
-						<p class="title-amenitie">
-							Daily Cleaning Services
-						</p>
-					</div>
-					<div>
-						<figure class="container-icon">
-							<i class="zwicon-stand-up"></i>
-						</figure>
-						<p class="title-amenitie">
-							Lighting Fast Internet / WiFi
-						</p>
-					</div>
-					<div>
-						<figure class="container-icon">
-							<i class="zwicon-information-architecture"></i>
-						</figure>
-						<p class="title-amenitie">
-							Mail & Package Handling
-						</p>
-					</div>
-					<div>
-						<figure class="container-icon">
-							<i class="zwicon-receipt"></i>
-						</figure>
-						<p class="title-amenitie">
-							Daily Cleaning Services
-						</p>
-					</div>
-				</div>
+
+		<div class="icons-amenities">
+			<div *ngFor="let amenitie of bussinesCenter?.amenities">
+				<figure class="container-icon">
+					<i class="amenitie-icon {{amenitie.icon}}"></i>
+				</figure>
+				<p class="title-amenitie">
+					{{amenitie.name}}
+				</p>
 			</div>
-			<div class="swiper-pagination"></div>
-		</swiper>
+		</div>
+
 	</article>
 	<article class="detail-container">
 		<h4 class="title-detail">Map</h4>
-		<div class="container-map-detail">
-			<iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=miami&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-		</div>
+		<office-list-map-detail [lat]="bussinesCenter?.latitude" [lng]="bussinesCenter?.longitude"></office-list-map-detail>
 	</article>
 </section>
 <section class="nearby-locations-container">
@@ -260,22 +155,22 @@
 	<article class="cont-swiper-nearby">
 		<swiper class="nearby-swiper" [config]="config">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide office-list-card card-white">
+				<div class="swiper-slide office-list-card card-white" *ngFor="let bc of bussinesCenter?.nearby">
 					<figure class="img-card-office">
 						<i class="icon-star-office"></i>
-						<img src="assets/images/img-office-exmp.jpg" alt="">
+						<img appLazyLoad [src]="bc.principalImage" alt="">
 						<button class="button-icon" id="btn-list-search" (click)="showModalDetail()">
 							<i class="zwicon-plus"></i>
 						</button>
 					</figure>
 					<div class="info-office-container">
-						<p class="text-default">Office</p>
-						<h3 class="title-name-office">Preston Rd & Weldon Howell Pkwy Howell Pkwy</h3>
-						<p class="name-city">Miami, FL 33131</p>
-						<span class="badge-city">Downtown/Brickell</span>
+						<p class="text-default">{{bc.descriptive_title}}</p>
+						<h3 class="title-name-office">{{bc.cross_streets}}</h3>
+						<p class="name-city">{{bc.city}}, {{bc.zip_code}}</p>
+						<span class="badge-city">{{bc.area_name}}</span>
 						<p class="phone-number">
 							<i class="zwicon-phone"></i>
-							2345678923492304
+							{{bc.phone}}
 						</p>
 
 						<div class="price-container">
@@ -285,17 +180,9 @@
 								</h3>
 							</button>
 							<ul class="list-prices-office">
-								<li>
-									<p class="price-office">$800</p>
-									<p class="type-office">Private office</p>
-								</li>
-								<li>
-									<p class="price-office">$800</p>
-									<p class="type-office">Coworking</p>
-								</li>
-								<li>
-									<p class="price-office">$1234</p>
-									<p class="type-office">Virtual office</p>
+								<li *ngFor="let office of bc.offices">
+									<p class="price-office">${{office.off_pricing}}</p>
+									<p class="type-office">{{office.off_type}}</p>
 								</li>
 							</ul>
 						</div>
@@ -303,235 +190,6 @@
 							<button class="button-default primary">
 								Get quote
 							</button>
-							<p class="text-default">
-								<em>
-									Call for pricing
-								</em>
-							</p>
-						</div>
-						<div class="like-container">
-							<button class="button-icon-like">
-								<office-list-svglikeheart></office-list-svglikeheart>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide office-list-card card-white">
-					<figure class="img-card-office">
-						<i class="icon-star-office"></i>
-						<img src="assets/images/img-office-exmp.jpg" alt="">
-						<button class="button-icon" id="btn-list-search" (click)="showModalDetail()">
-							<i class="zwicon-plus"></i>
-						</button>
-					</figure>
-					<div class="info-office-container">
-						<p class="text-default">Office</p>
-						<h3 class="title-name-office">Preston Rd & Weldon Howell Pkwy Howell Pkwy</h3>
-						<p class="name-city">Miami, FL 33131</p>
-						<span class="badge-city">Downtown/Brickell</span>
-						<p class="phone-number">
-							<i class="zwicon-phone"></i>
-							2345678923492304
-						</p>
-
-						<div class="price-container">
-							<button class="button-show-price">
-								<h3 class="title-price">
-									Starting at :
-								</h3>
-							</button>
-							<ul class="list-prices-office">
-								<li>
-									<p class="price-office">$800</p>
-									<p class="type-office">Private office</p>
-								</li>
-								<li>
-									<p class="price-office">$800</p>
-									<p class="type-office">Coworking</p>
-								</li>
-								<li>
-									<p class="price-office">$1234</p>
-									<p class="type-office">Virtual office</p>
-								</li>
-							</ul>
-						</div>
-						<div class="btn-container">
-							<button class="button-default primary">
-								Get quote
-							</button>
-							<p class="text-default">
-								<em>
-									Call for pricing
-								</em>
-							</p>
-						</div>
-						<div class="like-container">
-							<button class="button-icon-like">
-								<office-list-svglikeheart></office-list-svglikeheart>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide office-list-card card-white">
-					<figure class="img-card-office">
-						<i class="icon-star-office"></i>
-						<img src="assets/images/img-office-exmp.jpg" alt="">
-						<button class="button-icon" id="btn-list-search" (click)="showModalDetail()">
-							<i class="zwicon-plus"></i>
-						</button>
-					</figure>
-					<div class="info-office-container">
-						<p class="text-default">Office</p>
-						<h3 class="title-name-office">Preston Rd & Weldon Howell Pkwy Howell Pkwy</h3>
-						<p class="name-city">Miami, FL 33131</p>
-						<span class="badge-city">Downtown/Brickell</span>
-						<p class="phone-number">
-							<i class="zwicon-phone"></i>
-							2345678923492304
-						</p>
-
-						<div class="price-container">
-							<button class="button-show-price">
-								<h3 class="title-price">
-									Starting at :
-								</h3>
-							</button>
-							<ul class="list-prices-office">
-								<li>
-									<p class="price-office">$800</p>
-									<p class="type-office">Private office</p>
-								</li>
-								<li>
-									<p class="price-office">$800</p>
-									<p class="type-office">Coworking</p>
-								</li>
-								<li>
-									<p class="price-office">$1234</p>
-									<p class="type-office">Virtual office</p>
-								</li>
-							</ul>
-						</div>
-						<div class="btn-container">
-							<button class="button-default primary">
-								Get quote
-							</button>
-							<p class="text-default">
-								<em>
-									Call for pricing
-								</em>
-							</p>
-						</div>
-						<div class="like-container">
-							<button class="button-icon-like">
-								<office-list-svglikeheart></office-list-svglikeheart>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide office-list-card card-white">
-					<figure class="img-card-office">
-						<i class="icon-star-office"></i>
-						<img src="assets/images/img-office-exmp.jpg" alt="">
-						<button class="button-icon" id="btn-list-search" (click)="showModalDetail()">
-							<i class="zwicon-plus"></i>
-						</button>
-					</figure>
-					<div class="info-office-container">
-						<p class="text-default">Office</p>
-						<h3 class="title-name-office">Preston Rd & Weldon Howell Pkwy Howell Pkwy</h3>
-						<p class="name-city">Miami, FL 33131</p>
-						<span class="badge-city">Downtown/Brickell</span>
-						<p class="phone-number">
-							<i class="zwicon-phone"></i>
-							2345678923492304
-						</p>
-
-						<div class="price-container">
-							<button class="button-show-price">
-								<h3 class="title-price">
-									Starting at :
-								</h3>
-							</button>
-							<ul class="list-prices-office">
-								<li>
-									<p class="price-office">$800</p>
-									<p class="type-office">Private office</p>
-								</li>
-								<li>
-									<p class="price-office">$800</p>
-									<p class="type-office">Coworking</p>
-								</li>
-								<li>
-									<p class="price-office">$1234</p>
-									<p class="type-office">Virtual office</p>
-								</li>
-							</ul>
-						</div>
-						<div class="btn-container">
-							<button class="button-default primary">
-								Get quote
-							</button>
-							<p class="text-default">
-								<em>
-									Call for pricing
-								</em>
-							</p>
-						</div>
-						<div class="like-container">
-							<button class="button-icon-like">
-								<office-list-svglikeheart></office-list-svglikeheart>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide office-list-card card-white">
-					<figure class="img-card-office">
-						<i class="icon-star-office"></i>
-						<img src="assets/images/img-office-exmp.jpg" alt="">
-						<button class="button-icon" id="btn-list-search" (click)="showModalDetail()">
-							<i class="zwicon-plus"></i>
-						</button>
-					</figure>
-					<div class="info-office-container">
-						<p class="text-default">Office</p>
-						<h3 class="title-name-office">Preston Rd & Weldon Howell Pkwy Howell Pkwy</h3>
-						<p class="name-city">Miami, FL 33131</p>
-						<span class="badge-city">Downtown/Brickell</span>
-						<p class="phone-number">
-							<i class="zwicon-phone"></i>
-							2345678923492304
-						</p>
-
-						<div class="price-container">
-							<button class="button-show-price">
-								<h3 class="title-price">
-									Starting at :
-								</h3>
-							</button>
-							<ul class="list-prices-office">
-								<li>
-									<p class="price-office">$800</p>
-									<p class="type-office">Private office</p>
-								</li>
-								<li>
-									<p class="price-office">$800</p>
-									<p class="type-office">Coworking</p>
-								</li>
-								<li>
-									<p class="price-office">$1234</p>
-									<p class="type-office">Virtual office</p>
-								</li>
-							</ul>
-						</div>
-						<div class="btn-container">
-							<button class="button-default primary">
-								Get quote
-							</button>
-							<p class="text-default">
-								<em>
-									Call for pricing
-								</em>
-							</p>
 						</div>
 						<div class="like-container">
 							<button class="button-icon-like">
@@ -543,7 +201,6 @@
 			</div>
 			<div class="swiper-pagination"></div>
 		</swiper>
-
 	</article>
 </section>
 <div class="container-form-inquire">
