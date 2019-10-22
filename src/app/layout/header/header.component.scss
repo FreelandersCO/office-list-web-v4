@@ -20,7 +20,7 @@ header {
 
         .items-menu {
             text-align: right;
-            width: 40%;
+            width: 20%;
         }
 
         .button-icon {
@@ -28,6 +28,15 @@ header {
             font-size: 2rem;
             line-height: 1rem;
 			margin-top: -5px;
+
+			&.mobile {
+				display: block;
+				margin-right: 12% !important;
+			}
+
+			&.desktop {
+				display: none;
+			}
 		}
 		
 		#btn-nav-search {
@@ -38,7 +47,8 @@ header {
     }
 
     .callus-container {
-        background: colors('white');
+		background: colors('white');
+		border-bottom: 4px solid colors('primary');
         color: colors('black');
         font-size: 1.2rem;
         padding: 8px;
@@ -141,6 +151,16 @@ header {
 				color: colors('primary');
 				margin-right: 10px;
 			}
+
+			.button-icon {
+				&.mobile {
+					margin-right: 30% !important;
+				}
+	
+				&.desktop {
+					display: none;
+				}
+			}
 		}
 	}
 
@@ -158,6 +178,16 @@ header {
 
 			.items-menu {
 				width: 80%;
+			}
+
+			.button-icon {
+				&.mobile {
+					display: none;
+				}
+	
+				&.desktop {
+					display: block;
+				}
 			}
 		}
 	}

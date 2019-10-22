@@ -1,8 +1,31 @@
 @import 'index';
 
 .container-gallery-detail {
+	height: 360px;
+	background-color: red;
 	margin: 0;
 	padding: 0;
+}
+
+.details-office-container {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 20px;
+
+	article {
+		flex-grow: 1;
+		margin: 0 auto;
+		width: 90%;
+	}
+
+}
+
+.container-breadcrumbs {
+	margin-bottom: 10px;
+	.linktoback {
+		cursor: pointer;
+		font-weight: 300;
+	}
 }
 
 .text-default {
@@ -25,7 +48,7 @@
 	margin-bottom: 20px;
 }
 
-.detail-container {
+.detail-container-info {
 	margin-bottom: 20px;
 }
 
@@ -169,7 +192,7 @@
 	flex-wrap: wrap;
 	justify-content: space-between;
 
-	div {
+	li {
 		flex-grow: 1;
 		margin-bottom: 1rem;
 		text-align: center;
@@ -300,7 +323,8 @@
     }
 
     .text-default {
-        font-size: 0.9rem;
+		font-size: 0.9rem;
+		margin-bottom: 6px;
 
         em {
             color: colors('black-6');
@@ -357,9 +381,8 @@ swiper {
 }
 
 .container-form-inquire {
-    left: 5%;
-	position: fixed;
-    top: 46px;
+    right: 5%;
+	position: sticky;
 	width: 90%;
 	z-index: 190;
 	display: none;
@@ -398,7 +421,26 @@ swiper {
 	}
 }
 
+@include from-breakpoint('desktop-s') {
+	.nearby-locations-container {
+		.office-list-card {
+			width: 300px !important;
+		}
+	}
+}
+
 @include from-breakpoint('desktop') {
+	.details-office-container {
+		.container-details {
+			margin-left: 4%;
+			width: 45%;
+		}
+		.container-side-form {
+			padding-left: 20px;
+			padding-right: 4%;
+			width: 20%;
+		}
+	}
 	.cont-title-section,
 	.detail-container,
 	.nearby-locations-container {
@@ -432,15 +474,14 @@ swiper {
 
 	.office-list-card {
 		margin-right: 20px !important;
-		width: 250px !important;
+		width: 280px !important;
 	}
 
 	.container-form-inquire {
-		left: initial;
-		right: 5%;
-		top: 14%;
-		width: 26%;
-		display: block;
+		display: inline-block;
+		position: sticky;
+		bottom: 12px;
+		width: 100%;
 	}
 
 	.cont-swiper-nearby {
@@ -465,6 +506,3 @@ swiper {
 
 }
 
-@include from-breakpoint('desktop-l') {
-
-}
