@@ -19,6 +19,7 @@ import { MapDetailComponent } from './map-detail/map-detail.component';
 import { ModalLoginSearchComponent } from './modal-login-search/modal-login-search.component';
 import { ModalSingupComponent } from './modal-singup/modal-singup.component';
 import { ModalPressedFormComponent } from './modal-pressed-form/modal-pressed-form.component';
+import { ModalScheduledTourComponent } from './modal-scheduled-tour/modal-scheduled-tour.component';
 
 @NgModule({
 	imports: [
@@ -45,7 +46,8 @@ import { ModalPressedFormComponent } from './modal-pressed-form/modal-pressed-fo
 		MapDetailComponent,
 		ModalLoginSearchComponent,
 		ModalSingupComponent,
-		ModalPressedFormComponent
+		ModalPressedFormComponent,
+		ModalScheduledTourComponent
 	],
 	exports: [
 		SearchInputComponent,
@@ -59,7 +61,8 @@ import { ModalPressedFormComponent } from './modal-pressed-form/modal-pressed-fo
 		MapDetailComponent,
 		ModalLoginSearchComponent,
 		ModalSingupComponent,
-		ModalPressedFormComponent
+		ModalPressedFormComponent,
+		ModalScheduledTourComponent
 	]
 })
 export class SharedModule { }

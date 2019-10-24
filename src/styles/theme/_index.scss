@@ -56,7 +56,8 @@ button {
         color: colors('primary');
 
         &:hover {
-            background-color: colors('white');
+			background-color: colors('white');
+			border: 1px solid colors('white');
 			border: 0px ;
 			color: colors('primary');
         }
@@ -136,7 +137,7 @@ hr {
         left: 18px;
         position: absolute;
         transition: all 0.6s;
-        transform: translate3d(0%, 76%, 0);
+        transform: translate3d(0%, 100%, 0);
         z-index: 1;
     }
 
@@ -145,9 +146,10 @@ hr {
         border: 0;
         border-radius: 25px;
         font-size: 0.9rem;
-        font-weight: 300;
+		font-weight: 300;
+		height: 40px;
         margin-top: 6px;
-        padding: 10px 18px;
+		padding: 10px 18px;
 		width: 100%;
 
 		&.textarea-input {
@@ -167,7 +169,41 @@ hr {
             top: 0;
             transform: translate3d(0, 42%, 0);
 
-        }
+		}
+	}
+
+	select {
+		appearance: none;
+		height: 40px;
+	}
+
+	&.selectt {
+		.zwicon-chevron-down {
+			color: colors('primary');
+			position: absolute;
+			right: 8px;
+			font-size: 2.6rem;
+			top: 20px;
+		}
+	}
+
+	&.date-tour {
+		.label-default {
+			appearance: none;
+			transform: translate3d(48%, 77%, 0);
+		}
+
+		.input-default {
+			padding-left: 42px;
+		}
+		
+		.zwicon-calendar-month {
+			color: colors('primary');
+			left: 14px;
+			position: absolute;
+			top: 28px;
+		}
+		
 	}
 	
 	.btn-icon-input {
@@ -218,6 +254,18 @@ hr {
     }
 }
 
+.container-info-date {
+	.container-button-modal {
+		.button-default {
+			margin-bottom: 0;
+		}
+	}
+
+	.gray-line {
+		margin-top: 20px;
+	}
+}
+
 .badge-city {
     border-radius: 4px;
     background: colors('black-2');
@@ -237,7 +285,7 @@ hr {
 }
 
 .container-modal-default {
-	background: colors('white-4');
+	background: colors('white-8');
 	height: 100%;
 	position: relative;
 	width: 100%;
@@ -290,7 +338,8 @@ hr {
 	}
 
 	.zwicon-user-circle,
-	.zwicon-chat {
+	.zwicon-chat,
+	.zwicon-calendar {
 		color: colors('primary');
 		font-size: 3.6rem;
 	}
@@ -311,14 +360,20 @@ hr {
 	}
 
 	.title-modal {
-		font-size: 1.2rem;
+		font-size: 1.3rem;
 		margin-bottom: 6px;
 	}
 
 	.intro-modal {
 		color: colors('black-5');
-		font-size: 0.8rem;
-		margin-bottom: 6px;
+		font-size: 1.1rem;
+		margin: 8px 0;
+	}
+
+	.text-date-tour {
+		color: colors('primary');
+		font-size: 1.4rem;
+		font-weight: 700;	
 	}
 }
 

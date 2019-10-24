@@ -15,7 +15,8 @@
 
 office-list-modal-login-search,
 office-list-modal-singup,
-office-list-modal-pressed-form {
+office-list-modal-pressed-form,
+office-list-modal-scheduled-tour {
     height: 100%;
 	position: absolute;
     top: 0;
@@ -58,12 +59,29 @@ office-list-modal-pressed-form {
 						flex-grow: 1;
 						margin-left: 10px;
 						margin-right: 10px;
+						width: 40%;
 					}
+				}
+
+				.text-end-forms {
+					font-size: 1rem;
 				}
 
 				.container-button-modal {
 					margin: auto;
 					width: 50%;
+				}
+
+				.container-info-date {
+					.container-button-modal {
+						display: flex;
+						width: 90%;	
+
+						.button-default {
+							margin: 20px 20px 10px 0;
+							width: 50%;
+						}
+					}
 				}
 			}
 		}
