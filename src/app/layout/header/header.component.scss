@@ -9,11 +9,11 @@ header {
     z-index: 3;
 
     .menu-container {
-		display: flex;
-		margin: 0 auto;
-		padding: 20px 20px 18px;
-		position: relative;	
-		max-width: 1366px;
+        display: flex;
+        margin: 0 auto;
+        padding: 20px 20px 18px;
+        position: relative;
+        max-width: 1366px;
 
         .logo-container {
             width: 60%;
@@ -28,42 +28,42 @@ header {
             color: colors('white');
             font-size: 2rem;
             line-height: 1rem;
-			margin-top: -5px;
+            margin-top: -5px;
 
-			&.mobile {
-				display: block;
-				margin-right: 12% !important;
-			}
+            &.mobile {
+                display: block;
+                margin-right: 12% !important;
+            }
 
-			&.desktop {
-				display: none;
-			}
+            &.desktop {
+                display: none;
+            }
 
-			.budget-number {
-				background: colors('primary');
-				border-radius: 100%;
-				font-size: 1rem;
-				font-weight: 300;
-				height: 20px;
-				position: absolute;
-				padding: 2px;
-				text-align: center;
-				top: 0;
-				right: -10px;
-				width: 20px;
-			}
-		}
-		
-		#btn-nav-search {
-			color: colors('primary');
-			margin-right: 4px;
-		}
+            .budget-number {
+                background: colors('primary');
+                border-radius: 100%;
+                font-size: 1rem;
+                font-weight: 300;
+                height: 20px;
+                position: absolute;
+                padding: 2px;
+                text-align: center;
+                top: 0;
+                right: -10px;
+                width: 20px;
+            }
+        }
+
+        #btn-nav-search {
+            color: colors('primary');
+            margin-right: 4px;
+        }
 
     }
 
     .callus-container {
-		background: colors('white');
-		border-bottom: 4px solid colors('primary');
+        background: colors('white');
+        border-bottom: 4px solid colors('primary');
         color: colors('black');
         font-size: 1.2rem;
         padding: 8px;
@@ -85,7 +85,7 @@ header {
 }
 
 .options-nav-container {
-	background: colors('black');
+    background: colors('black');
     display: flex;
     position: absolute;
     max-width: 360px;
@@ -95,134 +95,138 @@ header {
     width: 360px;
     top: 65px;
 
-	.button-close-container {
-		text-align: right;
-		padding: 0 20px 0 0;
+    .button-close-container {
+        text-align: right;
+        padding: 0 20px 0 0;
 
-		.button-icon {
-			color: colors('white-6');
-			font-size: 2rem;
-			line-height: 0;
-		}
-	}
+        .button-icon {
+            color: colors('white-6');
+            font-size: 2rem;
+            line-height: 0;
+        }
+    }
 
-	.search-nav-container {
-		width: 100%;
-		.group-form {
-			padding: 0;
+    .search-nav-container {
+        width: 100%;
 
-			.input-default {
-				margin-top: 0;
-			}
+        .group-form {
+            padding: 0;
 
-			.button-icon {
-				color: colors('primary');
-				position: absolute;
-				right: 12px;
-				top: 12px;
+            .input-default {
+                margin-top: 0;
+            }
 
-				i {
-					color: colors('primary');
-				}
-			}
-		}
-	}
+            .button-icon {
+                color: colors('primary');
+                position: absolute;
+                right: 12px;
+                top: 12px;
 
-	.login-form-container {
-		padding: 20px;
-		text-align: center;
+                i {
+                    color: colors('primary');
+                }
+            }
+        }
 
-		.zwicon-user-circle {
-			color: colors('primary');
-			font-size: 4rem;
-		}
+        office-list-search-input {
+            .button-icon-home {
+                display: none;
+            }
+        }
+    }
 
-		.text-form-login {
-			color: colors('white');
-		}
-	}
+    .login-form-container {
+        padding: 20px;
+        text-align: center;
+
+        .zwicon-user-circle {
+            color: colors('primary');
+            font-size: 4rem;
+        }
+
+        .text-form-login {
+            color: colors('white');
+        }
+    }
 }
 
 @include from-breakpoint('mobile-xl') {
-	header {
-		.menu-container {
-			.logo-container,
-			.items-menu {
-				width: 50%;
-			}
-		}
-	}
+    header {
+        .menu-container {
+
+            .logo-container,
+            .items-menu {
+                width: 50%;
+            }
+        }
+    }
 
 }
 
 @include from-breakpoint('tablet') {
-	header {
-		.menu-container {
-			.logo-container{
-				width: 30%;
-			}
+    header {
+        .menu-container {
+            .logo-container {
+                width: 30%;
+            }
 
-			.items-menu {
-				display: flex;
-				justify-content: flex-end;
-				width: 70%;
-			}
+            .items-menu {
+                display: flex;
+                justify-content: flex-end;
+                width: 70%;
+            }
 
-			#btn-nav-search {
-				color: colors('primary');
-				margin-right: 10px;
-			}
+            #btn-nav-search {
+                color: colors('primary');
+                margin-right: 10px;
+            }
 
-			.button-icon {
-				&.mobile {
-					margin-right: 2% !important;
-				}
-	
-				&.desktop {
-					display: none;
-				}
-			}
-		}
-	}
+            .button-icon {
+                &.mobile {
+                    margin-right: 2% !important;
+                }
 
-	.options-nav-container {
-		background: transparent;
-		left: auto;
-		min-width: 360px;
-		right: 110px;
-		padding: 0;
-		top: 14px;
-	}
+                &.desktop {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .options-nav-container {
+        background: transparent;
+        left: auto;
+        min-width: 360px;
+        right: 110px;
+        padding: 0;
+        top: 14px;
+    }
 }
 
 @include from-breakpoint('desktop-s') {
-	header {
-		.menu-container {
-			.logo-container{
-				width: 20%;
-			}
+    header {
+        .menu-container {
+            .logo-container {
+                width: 20%;
+            }
 
-			.items-menu {
-				width: 80%;
-			}
+            .items-menu {
+                width: 80%;
+            }
 
-			.button-icon {
-				&.mobile {
-					display: none;
-				}
-	
-				&.desktop {
-					display: block;
-				}
-			}
-		}
-	}
+            .button-icon {
+                &.mobile {
+                    display: none;
+                }
+
+                &.desktop {
+                    display: block;
+                }
+            }
+        }
+    }
 }
 
-@include from-breakpoint('desktop') {
+@include from-breakpoint('desktop') {}
 
-}
-
-@include from-breakpoint('desktop-xl') {
-	
-}
+@include from-breakpoint('desktop-xl') {}

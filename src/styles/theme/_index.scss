@@ -198,16 +198,16 @@ hr {
 		.input-default {
 			padding-left: 42px;
 		}
-		
+
 		.zwicon-calendar-month {
 			color: colors('primary');
 			left: 14px;
 			position: absolute;
 			top: 28px;
 		}
-		
+
 	}
-	
+
 	.btn-icon-input {
 		font-size: 1.2rem;
 		line-height: 0;
@@ -289,8 +289,9 @@ hr {
 .container-modal-default {
 	background: colors('white-8');
 	height: 100%;
-	position: relative;
+	position: fixed;
 	width: 100%;
+	top: 0;
 }
 
 .modal-default-site {
@@ -307,12 +308,12 @@ hr {
 
 .header-modal {
 	text-align: right;
-	
+
 	.btn-icon-transparent {
 		color: colors('primary');
 		font-size: 2rem;
 		font-weight: 700;
-		line-height: 0;	
+		line-height: 0;
 	}
 }
 
@@ -353,7 +354,7 @@ hr {
 		text-align: center;
 		width: 60%;
 	}
-	
+
 	.text-end-forms-terms {
 		color: colors('black-6');
 		font-size: 0.6rem;
@@ -375,7 +376,7 @@ hr {
 	.text-date-tour {
 		color: colors('primary');
 		font-size: 1.4rem;
-		font-weight: 700;	
+		font-weight: 700;
 	}
 }
 

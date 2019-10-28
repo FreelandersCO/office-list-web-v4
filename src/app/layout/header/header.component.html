@@ -17,12 +17,7 @@
 		</div>
 		<div class="options-nav-container" *ngIf="optionsNav" @easeIn>
 			<div class="search-nav-container" @easeIn>
-				<div class="group-form">
-					<input type="text" name="email" id="" class="input-default white" placeholder="Where? Type city or zip/post code">
-					<button class="button-icon">
-						<i class="zwicon-search"></i>
-					</button>
-				</div>
+				<office-list-search-input></office-list-search-input>
 			</div>
 		</div>
 	</nav>
