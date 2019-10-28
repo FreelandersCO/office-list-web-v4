@@ -13,7 +13,7 @@
 }
 
 .container-breadcrumbs {
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	.linktoback {
 		cursor: pointer;
 		font-weight: 300;
@@ -206,6 +206,7 @@
 		margin: 0 auto 6px;
 		text-align: center;
 		padding: 26px 0;
+		position: relative;
 		width: 100px;
 
 		i {
@@ -386,10 +387,6 @@ swiper {
 	display: none;
 }
 
-@include from-breakpoint('mobile-xl') {
-
-}
-
 @include from-breakpoint('tablet') {
 	.pricings-detail-container {
 		display: flex;
@@ -413,6 +410,36 @@ swiper {
 	}
 
 	.icons-amenities {
+
+		li {
+			width: 16%;
+		}
+
+		.title-amenitie {
+			font-weight: 700;
+			font-size: 0.8rem;
+			width: 60%;
+			margin: 0 auto;
+		}
+		
+		.container-icon {
+			height: 70px;
+			padding: 0;
+			width: 70px;
+		}
+
+	}
+
+	.amenitie-icon {
+		font-size: 2rem;
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		top: 50%;
+	}
+
+	.icons-amenities {
+
 		div {
 			width: 23%;
 		}
@@ -438,11 +465,11 @@ swiper {
 @include from-breakpoint('desktop') {
 	.details-office-container {
 		.container-details {
-			width: 60%;
+			width: 70%;
 		}
 		.container-side-form {
 			padding-left: 20px;
-			width: 40%;
+			width: 30%;
 		}
 	}
 	.cont-title-section,
@@ -466,10 +493,6 @@ swiper {
 	}
 
 	.icons-amenities {
-		li {
-			width: 33%;
-		}
-
 		div {
 			width: 20%;
 		}

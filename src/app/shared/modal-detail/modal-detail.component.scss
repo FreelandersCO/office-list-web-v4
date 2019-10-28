@@ -4,7 +4,9 @@
     background: colors('black-8');
     padding: 1rem;
 	height: 100%;
-	position: fixed;
+	position: sticky;
+	top: 0;
+	width: 100%;
 
     .card-modal-info {
         margin: 0 auto;
@@ -91,21 +93,22 @@
 	.modal-info-container {
 		.card-modal-info {
 			width: 50%;
-		}
-	}
-}
 
-@include from-breakpoint('desktop-s') {
-	.modal-info-container {
-		.card-modal-info {
-            .view-more {
-				flex-direction: row;
+			.body-modal-info {
+				.view-more {
+					flex-direction: row;
+		
+					.button-default {
+						margin-right: 20px;
+						width: 50%;
 
-                .button-default {
-					margin: 0 20px;
-					width: 50%;
-                }
-            }
+						&:last-child {
+							margin-right: 0;
+						}
+					}
+				}
+
+			} 
 		}
 	}
 }
