@@ -12,7 +12,18 @@
 			</button>
 			<button class="button-icon" (click)="showOptionsNav()" id="btn-nav-user">
 				<i class="zwicon-user-circle"></i>
+				<p class="budget-number">1</p>
 			</button>
+		</div>
+		<div class="options-nav-container" *ngIf="optionsNav" @easeIn>
+			<div class="search-nav-container" @easeIn>
+				<div class="group-form">
+					<input type="text" name="email" id="" class="input-default white" placeholder="Where? Type city or zip/post code">
+					<button class="button-icon">
+						<i class="zwicon-search"></i>
+					</button>
+				</div>
+			</div>
 		</div>
 	</nav>
 	<div class="callus-container">
@@ -22,37 +33,4 @@
 			<span>1-866-354-5478</span>
 		</p>
 	</div>
-	<div class="options-nav-container" *ngIf="optionsNav" @easeIn>
-			<div class="button-close-container" @easeIn>
-				<button class="button-icon">
-					<i class="zwicon-close" (click)="showOptionsNav()"></i>
-				</button>
-			</div>
-			<div class="search-nav-container" @easeIn>
-				<div class="group-form">
-					<input type="text" name="email" id="" class="input-default white" placeholder="Where? Type city or zip/post code">
-					<button class="button-icon">
-						<i class="zwicon-search"></i>
-					</button>
-				</div>
-			</div>
-			<div class="login-form-container" @easeIn>
-				<i class="zwicon-user-circle"></i>
-				<form action="">
-					<div class="group-form">
-						<input type="text" name="email" id="" class="input-default" placeholder="Email">
-					</div>
-					<div class="group-form">
-						<input type="text" name="email" id="" class="input-default" placeholder="Password">
-					</div>
-				</form>
-				<button class="button-default primary ">
-					Login
-				</button>
-				<p class="text-form-login">Don't have an account?</p>
-				<p class="text-form-login">
-					<a href="">Create an account</a>
-				</p>
-			</div>
-		</div>
 </header>
