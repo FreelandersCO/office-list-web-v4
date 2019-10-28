@@ -25,6 +25,11 @@
 					<label for="" class="label-default">Company*</label>
 				</div>
 				<div class="group-form">
+						<input type="email" class="input-default" required formControlName="email"
+						[ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+						<label for="" class="label-default">Email*</label>
+					</div>
+				<div class="group-form">
 					<input type="text" class="input-default" required formControlName="phoneNumber"
 						[ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }">
 					<label for="" class="label-default">Phone number*</label>
