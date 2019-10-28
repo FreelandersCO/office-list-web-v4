@@ -74,7 +74,13 @@ export class ApiServicesService {
 				catchError(this.handleError)
 			);
 	}
-
+	setRegistry(data) {
+		return this.http.post(`${this.apiURL}/User/Register/`, data)
+			.pipe(
+				retry(1),
+				catchError(this.handleError)
+			);
+	}
 	// Error handling
 	handleError(error) {
 		let errorMessage = '';
