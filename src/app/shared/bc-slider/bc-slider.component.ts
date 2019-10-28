@@ -13,7 +13,8 @@ import {
 	styleUrls: ['./bc-slider.component.scss']
 })
 export class BcSliderComponent {
-	/*@ViewChild('slider', { static: false }) slidesContainer: ElementRef<HTMLDivElement>;
+	@Input() images;
+	@ViewChild('slider', { static: false }) slidesContainer: ElementRef<HTMLDivElement>;
 	@ViewChildren('item') items: QueryList<ElementRef<HTMLDivElement>>;
 
 	private slidesIndex = 0;
@@ -37,6 +38,5 @@ export class BcSliderComponent {
 		if (this.slidesIndex < this.items.length - 1) {
 			this.slidesIndex++;
 		}
-	}*/
-
+	}
 }

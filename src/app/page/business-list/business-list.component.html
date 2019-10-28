@@ -84,7 +84,7 @@
 				<figure class="img-card-office">
 					<i class="icon-star-office" *ngIf="bc.premium === 1"></i>
 					<img appLazyLoad [src]="bc.principalImage" alt="">
-					<button class="button-icon" id="btn-list-search" (click)="showModalDetail(bc)">
+					<button class="button-icon" id="btn-list-search" (click)="showModalDetail(bc.buscenter_id)">
 						<i class="zwicon-plus"></i>
 					</button>
 				</figure>
@@ -100,7 +100,7 @@
 						<i class="zwicon-phone"></i>
 						{{bc.phone}}
 					</p>
-					<div class="price-container" *ngIf="bc.offices.length>0">
+					<div class="price-container">
 						<button class="button-show-price"
 							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
 							<h3 class="title-price">
@@ -108,9 +108,9 @@
 							</h3>
 						</button>
 						<ul class="list-prices-office">
-							<li *ngFor="let office of bc.offices.splice(0,3)">
+							<li *ngFor="let office of bc.offices">
 								<p class="price-office">${{office.off_pricing}}</p>
-								<p class="type-office" [innerHTML]="office.off_type"></p>
+								<p class="type-office">{{office.off_name}}</p>
 							</li>
 						</ul>
 					</div>
@@ -155,5 +155,5 @@
 			<i class="zwicon-close"></i>
 		</button>
 	</div>
-	<office-list-modal-detail [business]="selectedBusiness"></office-list-modal-detail>
+	<office-list-modal-detail [businessId]="selectedBusiness"></office-list-modal-detail>
 </div>

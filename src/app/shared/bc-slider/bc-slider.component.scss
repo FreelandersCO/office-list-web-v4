@@ -1,5 +1,9 @@
 @import 'index';
 
+.bc-slider-container {
+	position: relative;
+}
+
 .bc-card-slider {
     display: flex;
     height: 100%;
@@ -17,69 +21,36 @@
         width: 100%;
 
         img {
-            height: 100%;
+            max-height: 300px;
+			width: auto;
+			margin: 0 auto;
         }
     }
 }
 
 .bc-card-slider-btns {
-    height: 100%;
-    position: absolute;
-    top: 0;
-    width: 100%;
+	position: absolute;
+	top: calc(50% - 18px);
+	width: 100%;
 
-    .arrow-left,
-    .arrow-right {
-        height: 100%;
-        position: absolute;
-        width: 35px;
+	button {
+		line-height: 0;
+		background: rgba(0, 0, 0, 0.5);
+		height: 40px;
+		width: 40px;
+		border-radius: 100%;
+		font-size: 1.8rem;
+		color: colors('white');
+		padding: 2px;
+	}
 
-        i {
-            font-size: 35px;
-        }
-    }
+	.arrow-right {
+		float: right;
+		right: 0.5rem;
+	}
 
-    .arrow-right {
-        right: 0;
-    }
-
-    @include from-breakpoint('tablet') {
-        .arrow-left {
-            color: colors('white');
-            cursor: pointer;
-            opacity: 0.5;
-            position: absolute;
-
-            &:hover {
-                background:
-                    linear-gradient(270deg,
-                        rgba(0, 0, 0, 0.1) 0%,
-                        rgba(0, 0, 0, 0.05) 50%,
-                        rgba(0, 0, 0, 0) 100%);
-            }
-        }
-
-        .arrow-right {
-            color: colors('white');
-            cursor: pointer;
-            opacity: 0.5;
-            position: absolute;
-
-            &:hover {
-                background:
-                    linear-gradient(90deg,
-                        rgba(0, 0, 0, 0.1) 0%,
-                        rgba(0, 0, 0, 0.05) 50%,
-                        rgba(0, 0, 0, 0) 100%);
-            }
-        }
-
-        &:hover {
-
-            .arrow-left,
-            .arrow-right {
-                opacity: 1;
-            }
-        }
-    }
+	.arrow-left {
+		float: left;
+		left: 0.5rem;
+	}
 }
