@@ -10,7 +10,7 @@
 			<button class="button-icon desktop" (click)="showOptionsNav()" id="btn-nav-search">
 				<i class="zwicon-search"></i>
 			</button>
-			<button class="button-icon" (click)="showOptionsNav()" id="btn-nav-user">
+			<button class="button-icon" (click)="toogleSignUp()" id="btn-nav-user">
 				<i class="zwicon-user-circle"></i>
 				<p class="budget-number">1</p>
 			</button>
@@ -34,3 +34,4 @@
 		</p>
 	</div>
 </header>
+<office-list-modal-singup *ngIf="showSignUp"></office-list-modal-singup>

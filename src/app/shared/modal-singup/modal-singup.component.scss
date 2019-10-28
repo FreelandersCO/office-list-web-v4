@@ -1,0 +1,8 @@
+@import 'index';
+
+.group-form .input-default {
+	&.is-invalid {
+		border: 1px red solid;
+	}
+}
+

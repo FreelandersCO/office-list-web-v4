@@ -20,6 +20,7 @@ import { ModalLoginSearchComponent } from './modal-login-search/modal-login-sear
 import { ModalSingupComponent } from './modal-singup/modal-singup.component';
 import { ModalPressedFormComponent } from './modal-pressed-form/modal-pressed-form.component';
 import { ModalScheduledTourComponent } from './modal-scheduled-tour/modal-scheduled-tour.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 	imports: [
@@ -31,7 +32,9 @@ import { ModalScheduledTourComponent } from './modal-scheduled-tour/modal-schedu
 		}),
 		AgmJsMarkerClustererModule,
 		AutocompleteLibModule,
-		StorageServiceModule
+		StorageServiceModule,
+		FormsModule,
+		ReactiveFormsModule
 	],
 	declarations: [
 		SearchInputComponent,

@@ -1,43 +1,49 @@
 <div class="container-modal-default">
-		<div class="modal-default-site big-modal">
-			<div class="header-modal">
-				<button class="btn-icon-transparent">
-					<i class="zwicon-close"></i>
-				</button>
-			</div>
-			<div class="body-modal">
-				<i class="zwicon-user-circle"></i>
-				<p class="intro-modal">Sign up for free to save your favorites and get full contact details and specials</p>
-				<form action="login">
-					<div class="group-form">
-						<input type="text" class="input-default" required>
-						<label for="" class="label-default">Where*</label>
-					</div>
-					<div class="group-form">
-						<input type="text" class="input-default" required>
-						<label for="" class="label-default">Full name*</label>
-					</div>
-					<div class="group-form">
-						<input type="text" class="input-default" required>
-						<label for="" class="label-default">Company*</label>
-					</div>
-					<div class="group-form">
-						<input type="text" class="input-default" required>
-						<label for="" class="label-default">Phone number*</label>
-					</div>
-					<div class="group-form">
-						<textarea type="text" class="input-default textarea-input" required></textarea>
-						<label for="" class="label-default">Comments</label>
-					</div>
-					<p class="text-end-forms-terms">You can provide more details on your search to help us better guide you.</p>
-				</form>
-				<div class="container-button-modal">
-					<button class="button-default primary">Save your favorites</button>
+	<div class="modal-default-site big-modal">
+		<div class="header-modal">
+			<button class="btn-icon-transparent">
+				<i class="zwicon-close"></i>
+			</button>
+		</div>
+		<div class="body-modal">
+			<i class="zwicon-user-circle"></i>
+			<p class="intro-modal">Sign up for free to save your favorites and get full contact details and specials</p>
+			<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+				<div class="group-form">
+					<input type="text" class="input-default" required formControlName="where"
+						[ngClass]="{ 'is-invalid': submitted && f.where.errors }">
+					<label for="" class="label-default">Where*</label>
 				</div>
-				<hr class="gray-line">
-				<p class="text-end-forms">Returning to OfficeList? 
-					<a href="">Log in</a>
+				<div class="group-form">
+					<input type="text" class="input-default" required formControlName="fullName"
+						[ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
+					<label for="" class="label-default">Full name*</label>
+				</div>
+				<div class="group-form">
+					<input type="text" class="input-default" required formControlName="company"
+						[ngClass]="{ 'is-invalid': submitted && f.company.errors }">
+					<label for="" class="label-default">Company*</label>
+				</div>
+				<div class="group-form">
+					<input type="text" class="input-default" required formControlName="phoneNumber"
+						[ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }">
+					<label for="" class="label-default">Phone number*</label>
+				</div>
+				<div class="group-form">
+					<textarea class="input-default textarea-input" formControlName="comments"
+						[ngClass]="{ 'is-invalid': submitted && f.comments.errors }"></textarea>
+					<label for="" class="label-default">Comments</label>
+				</div>
+				<p class="text-end-forms-terms">You can provide more details on your search to help us better guide you.
 				</p>
-			</div>
+				<div class="container-button-modal">
+					<button class="button-default primary" type="submit">Save your favorites</button>
+				</div>
+			</form>
+			<hr class="gray-line">
+			<p class="text-end-forms">Returning to OfficeList?
+				<a href="">Log in</a>
+			</p>
 		</div>
 	</div>
+</div>

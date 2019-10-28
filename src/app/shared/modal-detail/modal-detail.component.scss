@@ -4,7 +4,7 @@
     background: colors('black-8');
     padding: 1rem;
 	height: 100%;
-	position: sticky;
+	position: fixed;
 	top: 0;
 	width: 100%;
 
@@ -86,6 +86,10 @@
 		font-size: 1.2rem;
 		font-weight: 700;
 		text-align: center;
+
+		.title-descrption {
+			padding: 5px 0;
+		}
 	}
 
 	.type-office {
