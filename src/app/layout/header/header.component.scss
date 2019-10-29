@@ -58,7 +58,6 @@ header {
             color: colors('primary');
             margin-right: 4px;
         }
-
     }
 
     .callus-container {
@@ -153,15 +152,12 @@ header {
 @include from-breakpoint('mobile-xl') {
     header {
         .menu-container {
-
             .logo-container,
             .items-menu {
-				width: 50%;
-
+                width: 50%;
             }
         }
     }
-
 }
 
 @include from-breakpoint('tablet') {
@@ -208,7 +204,7 @@ header {
     header {
         .menu-container {
             .logo-container {
-				cursor: pointer;
+                cursor: pointer;
                 width: 20%;
             }
 
@@ -228,7 +224,3 @@ header {
         }
     }
 }
-
-@include from-breakpoint('desktop') {}
-
-@include from-breakpoint('desktop-xl') {}

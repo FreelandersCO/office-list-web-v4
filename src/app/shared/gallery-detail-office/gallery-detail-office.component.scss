@@ -36,7 +36,7 @@
     }
 
     .container-buttons {
-        bottom: 0px;
+        bottom: 0;
         display: flex;
         position: absolute;
         left: 1rem;
@@ -86,7 +86,6 @@
         }
     }
 }
-
 
 @include from-breakpoint('desktop-l') {
     .details-galery {

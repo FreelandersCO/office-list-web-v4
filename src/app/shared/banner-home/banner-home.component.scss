@@ -1,74 +1,72 @@
 @import 'index';
 
 .detail-banner-home {
-	max-width: 700px;
+    max-width: 700px;
 }
 
 .banner-home-container {
-	background-image: url('assets/images/img-bg-header-home.png');
-	margin: 0;
-	padding: 0;
-	height: 360px;
-	background-position: center;
-	background-size: 100% 100%;
+    background-image: url('assets/images/img-bg-header-home.png');
+    margin: 0;
+    padding: 0;
+    height: 360px;
+    background-position: center;
+    background-size: 100% 100%;
 }
 
 .banner-home-title {
-	color: colors('white');
+    color: colors('white');
     font-size: 1.4rem;
-	font-weight: bold;
-	margin: 0 auto;
-	padding: 4rem 0 1rem;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 4rem 0 1rem;
     text-align: center;
-	
 }
 
 .banner-home-description {
-	color: colors('white');
-	font-size: 1rem;
+    color: colors('white');
+    font-size: 1rem;
     font-weight: 300;
-	line-height: 1.2rem;
-	margin: 0 auto;
+    line-height: 1.2rem;
+    margin: 0 auto;
     text-align: center;
 }
 
 .banner-home-input {
-	padding: 1rem 0;
+    padding: 1rem 0;
     margin: 0 auto;
-	max-width: 30rem;
-	width: 100%;
+    max-width: 30rem;
+    width: 100%;
 }
 
 office-list-search-input {
-	display: flex;
-	width: 100%;
+    display: flex;
+    width: 100%;
 }
 
-
 @include from-breakpoint('mobile-xl') {
-	.banner-home-title {
-		font-size: 1.8rem;
-		padding-top: 2rem;
-	}
+    .banner-home-title {
+        font-size: 1.8rem;
+        padding-top: 2rem;
+    }
 
-	.banner-home-description {
-		font-size: 1.6rem;
-		line-height: 1.6rem;
-		margin-bottom: 20px;
-	}
+    .banner-home-description {
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        margin-bottom: 20px;
+    }
 }
 
 @include from-breakpoint('desktop') {
-	.banner-home-container {
-		height: 390px;
-	}
+    .banner-home-container {
+        height: 390px;
+    }
 
-	.banner-home-title {
-		padding-top: 3rem;
-	}
+    .banner-home-title {
+        padding-top: 3rem;
+    }
 
-	.banner-home-title,
-	.banner-home-description {
-		width: 70%;
-	}
+    .banner-home-title,
+    .banner-home-description {
+        width: 70%;
+    }
 }

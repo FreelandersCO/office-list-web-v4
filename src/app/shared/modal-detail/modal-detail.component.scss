@@ -3,10 +3,10 @@
 .modal-info-container {
     background: colors('black-8');
     padding: 1rem;
-	height: 100%;
-	position: fixed;
-	top: 0;
-	width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
 
     .card-modal-info {
         margin: 0 auto;
@@ -14,14 +14,14 @@
         width: 100%;
 
         .img-card-office {
-			margin: 10px 0;
+            margin: 10px 0;
 
-			img {
-				width: 100%;
-				max-width: 400px;
-				height: auto;
-				margin: 0 auto;
-			}
+            img {
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+                margin: 0 auto;
+            }
         }
 
         .body-modal-info {
@@ -35,24 +35,23 @@
             }
 
             .description-office {
-
-				.text-description {
-					max-height: 250px;
-					margin: 10px 0 20px;
-					overflow-y: auto;
-					padding-right: 8px;
-					text-align: justify;
-				}
+                .text-description {
+                    max-height: 250px;
+                    margin: 10px 0 20px;
+                    overflow-y: auto;
+                    padding-right: 8px;
+                    text-align: justify;
+                }
             }
 
             .view-more {
-				display: flex;
-				flex-direction: row;
-				text-align: center;
+                display: flex;
+                flex-direction: row;
+                text-align: center;
 
                 .button-default {
-					margin: 0 5px;
-					width: 50%;
+                    margin: 0 5px;
+                    width: 50%;
                 }
             }
         }
@@ -61,7 +60,6 @@
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 6px;
-
         }
 
         .list-prices-office {
@@ -71,55 +69,53 @@
 }
 
 .list-prices-office {
-	display: flex;
-	flex-direction: row;
-	margin: 4px 0 10px;
-	justify-content: space-around;
-	flex-wrap: wrap;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 4px 0 10px;
+    justify-content: space-around;
 
-	li {
-		padding: 4px;
-	}
+    li {
+        padding: 4px;
+    }
 
-	.price-office {
-		color: colors('black-7');
-		font-size: 1.2rem;
-		font-weight: 700;
-		text-align: center;
+    .price-office {
+        color: colors('black-7');
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-align: center;
 
-		.title-descrption {
-			padding: 5px 0;
-		}
-	}
+        .title-descrption {
+            padding: 5px 0;
+        }
+    }
 
-	.type-office {
-		color: colors('black-5');
-		font-size: 0.8rem;
-		line-height: 1;
-		text-align: center;
-	}
+    .type-office {
+        color: colors('black-5');
+        font-size: 0.8rem;
+        line-height: 1;
+        text-align: center;
+    }
 }
 
 @include from-breakpoint('tablet') {
-	.modal-info-container {
-		.card-modal-info {
-			width: 50%;
+    .modal-info-container {
+        .card-modal-info {
+            width: 50%;
 
-			.body-modal-info {
-				.view-more {
-					flex-direction: row;
+            .body-modal-info {
+                .view-more {
+                    flex-direction: row;
 
-					.button-default {
-						margin-right: 20px;
-						width: 50%;
+                    .button-default {
+                        margin-right: 20px;
+                        width: 50%;
 
-						&:last-child {
-							margin-right: 0;
-						}
-					}
-				}
-
-			}
-		}
-	}
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

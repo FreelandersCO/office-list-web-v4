@@ -9,7 +9,7 @@
 		"build": "ng build",
 		"build:prod": "ng build --prod",
 		"test": "ng test",
-		"lint": "ng lint",
+		"lint": " npx tslint src/**/*.ts --fix && ng lint",
 		"lint:styles": "stylelint \"src/**/*.scss\" --fix",
 		"e2e": "ng e2e"
 	},

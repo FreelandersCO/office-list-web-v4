@@ -20,44 +20,34 @@
 
 @mixin keyframes($animation-name) {
     @-webkit-keyframes #{
- $animation-name
-}
+        $animation-name
+        } {
+        @content;
+    }
 
-    {
-    @content;
-}
+    @-moz-keyframes #{
+        $animation-name
+        } {
+        @content;
+    }
 
-@-moz-keyframes #{
- $animation-name
-}
+    @-ms-keyframes #{
+        $animation-name
+        } {
+        @content;
+    }
 
-    {
-    @content;
-}
+    @-o-keyframes #{
+        $animation-name
+        } {
+        @content;
+    }
 
-@-ms-keyframes #{
- $animation-name
-}
-
-    {
-    @content;
-}
-
-@-o-keyframes #{
- $animation-name
-}
-
-    {
-    @content;
-}
-
-@keyframes #{
- $animation-name
-}
-
-    {
-    @content;
-}
+    @keyframes #{
+        $animation-name
+        } {
+        @content;
+    }
 }
 
 @mixin background-gradient($angle, $start-color, $end-color, $orientation) {
@@ -94,17 +84,17 @@
         $bp: nth($list, 1);
 
         @media screen and (min-width: #{
- $bp
+            $bp
         }
 
     ) {
+            @content;
+        }
+    }
+
+    @else {
         @content;
     }
-}
-
-@else {
-    @content;
-}
 }
 
 @mixin font($font-size, $line-height, $font-weight: 400) {

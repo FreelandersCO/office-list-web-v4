@@ -9,8 +9,9 @@
 * {
     font-family: $font-family;
 }
+
 :root {
-	--swiper-pagination-color: #3BA42F;
+    --swiper-pagination-color: #3BA42F;
 }
 
 office-list-modal-login-search,
@@ -18,107 +19,105 @@ office-list-modal-singup,
 office-list-modal-pressed-form,
 office-list-modal-scheduled-tour {
     height: 100%;
-	position: absolute;
+    position: absolute;
     top: 0;
     width: 100%;
     z-index: 1000;
 }
 
 @include from-breakpoint ('mobile-xl') {
-	.modal-default-site  {
-		left: 10%;
-		width: 80%;
-	}
+    .modal-default-site {
+        left: 10%;
+        width: 80%;
+    }
 }
 
-
 @include from-breakpoint ('tablet') {
-	.modal-default-site  {
-		left: 25%;
-		width: 50%;
-	}
+    .modal-default-site {
+        left: 25%;
+        width: 50%;
+    }
 }
 
 @include from-breakpoint ('desktop') {
-	.modal-default-site  {
-		left: 35%;
-		top: 20%;
-		width: 30%;
+    .modal-default-site {
+        left: 35%;
+        top: 20%;
+        width: 30%;
 
-		&.big-modal {
-			top: 90px;
-			left: 25%;
-			width: 50%;	
+        &.big-modal {
+            top: 90px;
+            left: 25%;
+            width: 50%;
 
-			.body-modal {
-				form {
-					display: flex;
-					flex-wrap: wrap;
-					
-					.group-form {
-						flex-grow: 1;
-						margin-left: 10px;
-						margin-right: 10px;
-						width: 40%;
-					}
-				}
+            .body-modal {
+                form {
+                    display: flex;
+                    flex-wrap: wrap;
 
-				.gray-line {
-					width: 50%;
-					margin: 14px auto;
-				}
+                    .group-form {
+                        flex-grow: 1;
+                        margin-left: 10px;
+                        margin-right: 10px;
+                        width: 40%;
+                    }
+                }
 
-				.text-end-forms {
-					font-size: 1rem;
-					margin-bottom: 103repx;
-				}
+                .gray-line {
+                    width: 50%;
+                    margin: 14px auto;
+                }
 
-				.container-button-modal {
-					margin: auto;
-					width: 50%;
-				}
+                .text-end-forms {
+                    font-size: 1rem;
+                    margin-bottom: 103px;
+                }
 
-				.container-info-date {
-					.container-button-modal {
-						display: flex;
-						width: 90%;	
+                .container-button-modal {
+                    margin: auto;
+                    width: 50%;
+                }
 
-						.button-default {
-							margin: 20px 20px 10px 0;
-							width: 50%;
-						}
-					}
-				}
-			}
-		}
-	}
+                .container-info-date {
+                    .container-button-modal {
+                        display: flex;
+                        width: 90%;
+
+                        .button-default {
+                            margin: 20px 20px 10px 0;
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @include from-breakpoint ('desktop-l') {
-	.modal-default-site  {
-		left: 38%;
-		width: 24%;
+    .modal-default-site {
+        left: 38%;
+        width: 24%;
 
-		&.big-modal {
-			top: 90px;
-			left: 30%;
-			width: 40%;
+        &.big-modal {
+            top: 90px;
+            left: 30%;
+            width: 40%;
 
-			.container-button-modal {
-				margin: auto;
-				width: 60%;
-			}
-		}
-	}
+            .container-button-modal {
+                margin: auto;
+                width: 60%;
+            }
+        }
+    }
 }
 
 @include from-breakpoint ('desktop-xl') {
-	.modal-default-site  {
-		&.big-modal {
-			top: 90px;
-			left: 35%;
-			width: 30%;
-		}
-	}
+    .modal-default-site {
+        &.big-modal {
+            top: 90px;
+            left: 35%;
+            width: 30%;
+        }
+    }
 }
-

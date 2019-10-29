@@ -1,20 +1,19 @@
 @import 'index';
 
 .autocomplete {
-	position: relative;
-	z-index: 2;
-	width: 84%;
+    position: relative;
+    z-index: 2;
+    width: 84%;
 
     .ng-autocomplete {
-
         .autocomplete-container {
             border-radius: 50px;
 
             .input-container {
                 input {
-					border-radius: 50px;
-					font-size: 0.7rem;
-					font-weight: 300;
+                    border-radius: 50px;
+                    font-size: 0.7rem;
+                    font-weight: 300;
                 }
 
                 .x {
@@ -27,53 +26,47 @@
                 margin-top: 10px;
             }
         }
-	}
+    }
 	
-	.button-icon-input {
-		position: absolute;
-		right: 20px;
-		top: 8px;
+    .button-icon-input {
+        position: absolute;
+        right: 20px;
+        top: 8px;
 
-		.zwicon-search {
-			color: colors('primary');
-			font-size: 1.4rem;
-		}
-	}
+        .zwicon-search {
+            color: colors('primary');
+            font-size: 1.4rem;
+        }
+    }
 }
 
 .button-icon-home {
-	background: colors('primary');
-	border-radius: 100%;
-	color: colors('white');
-	font-size: 1.6rem;
-	height: 40px;
-	line-height: 0;
-	margin-left: 6px;
-	width: 40px;
+    background: colors('primary');
+    border-radius: 100%;
+    color: colors('white');
+    font-size: 1.6rem;
+    height: 40px;
+    line-height: 0;
+    margin-left: 6px;
+    width: 40px;
 }
 
 @include from-breakpoint('mobile-xl') {
-	.autocomplete {
-	
-		.ng-autocomplete {
-	
-			.autocomplete-container {
-	
-				.input-container {
-					input {
-						font-size: 1rem;
-					}
-				}
-			}
-		}
-		
-	}
-
+    .autocomplete {
+        .ng-autocomplete {
+            .autocomplete-container {
+                .input-container {
+                    input {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @include from-breakpoint('desktop') {
-	.autocomplete {
-		width: 90%;
-	}
-
+    .autocomplete {
+        width: 90%;
+    }
 }

@@ -2,12 +2,12 @@
 @import 'index';
 
 .icon-heart-like {
-	fill: none;
-	stroke: colors('black-6');
+    fill: none;
+    stroke: colors('black-6');
 
-	&.like-it,
-	&:hover {
-		fill: colors('primary');
-		stroke: none;
-	}
+    &.like-it,
+    &:hover {
+        fill: colors('primary');
+        stroke: none;
+    }
 }
