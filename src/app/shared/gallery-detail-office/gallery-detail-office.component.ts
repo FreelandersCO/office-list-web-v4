@@ -7,14 +7,20 @@ import { Component, Input, OnChanges, SimpleChanges, SimpleChange } from '@angul
 })
 export class GalleryDetailOfficeComponent implements OnChanges {
 	@Input() images;
+	@Input() bcId;
 	_images;
+	_bcId;
 	openModalGallery = false;
 	constructor() { }
 
 	ngOnChanges(changes: SimpleChanges) {
 		const images: SimpleChange = changes.images;
+		const bcId: SimpleChange = changes.bcId;
 		if (images.currentValue !== null) {
 			this._images = images.currentValue.splice(0, 2);
+		}
+		if (bcId.currentValue !== null) {
+			this._bcId = bcId.currentValue;
 		}
 	}
 

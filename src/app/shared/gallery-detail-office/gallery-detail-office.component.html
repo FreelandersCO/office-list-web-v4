@@ -11,9 +11,7 @@
 		<button class="button-default secondary-line" (click)="toogleModalGallery()">
 			View photos
 		</button>
-		<button class="button-default primary button-icon">
-			<i class="zwicon-heart"></i>
-		</button>
+		<office-list-favorites-heart [bcId]="_bcId" [bg]="true"></office-list-favorites-heart>
 	</div>
 </div>
 
@@ -26,6 +24,6 @@
 				<i class="zwicon-close"></i>
 			</button>
 		</div>
-		<office-list-bc-slider [images]="_images" [fullImage]="true"></office-list-bc-slider>
+		<office-list-bc-slider [images]="images" [fullImage]="true"></office-list-bc-slider>
 	</div>
 </div>

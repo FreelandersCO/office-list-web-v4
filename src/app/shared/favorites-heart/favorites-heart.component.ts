@@ -9,6 +9,7 @@ import { EventEmitterService } from '@app/services/event-emitter.service';
 })
 export class FavoritesHeartComponent implements OnChanges {
 	@Input() bcId;
+	@Input() bg = false;
 	bcFavorites;
 	added;
 	_bcId;

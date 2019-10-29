@@ -11,7 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ButtonsmobileComponent } from './shared/buttonsmobile/buttonsmobile.component';
 
 @NgModule({
-
 	imports: [
 		BrowserAnimationsModule,
 		BrowserModule,

@@ -19,7 +19,7 @@ export class ModalSingupComponent implements OnInit {
 			fullName: ['', Validators.required],
 			company: ['', Validators.required],
 			email: ['', [Validators.required, Validators.email]],
-			phoneNumber: ['', [Validators.required]],
+			phone: ['', [Validators.required]],
 			comments: ['', [Validators.required, Validators.minLength(6)]]
 		});
 	}

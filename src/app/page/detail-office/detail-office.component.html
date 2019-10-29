@@ -1,5 +1,5 @@
 <section class="container-gallery-detail">
-	<office-list-gallery-detail-office [images]="bussinesCenter?.images"></office-list-gallery-detail-office>
+	<office-list-gallery-detail-office [images]="bussinesCenter?.images" [bcId]="bussinesCenter?.buscenter_id"></office-list-gallery-detail-office>
 </section>
 <section class="details-office-container">
 	<div class="container-details">
@@ -86,9 +86,7 @@
 							</ul>
 						</div>
 					</div>
-					<button class="button-like-type">
-						<i class="zwicon-heart"></i>
-					</button>
+					<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true"></office-list-favorites-heart>
 				</div>
 				<!--Co Working-->
 				<ng-container *ngIf="showCoWorking && activeCoWorking">
@@ -197,11 +195,8 @@
 							</ul>
 						</div>
 					</div>
-					<button class="button-like-type">
-						<i class="zwicon-heart"></i>
-					</button>
+					<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true"></office-list-favorites-heart>
 				</div>
-
 			</div>
 		</div>
 		<div class="detail-container-info">
@@ -214,7 +209,7 @@
 			<h4 class="title-detail">Amenities</h4>
 			<ul class="icons-amenities">
 				<li *ngFor="let amenitie of bussinesCenter?.amenities">
-					<figure class="container-icon">
+					<figure class="container-icon"  tooltip tooltip-top tooltip-content="This tooltip is at the top">
 						<i class="amenitie-icon {{amenitie.icon}}"></i>
 					</figure>
 					<p class="title-amenitie">
@@ -252,15 +247,15 @@
 						</button>
 					</figure>
 					<div class="info-office-container">
-						<p class="text-default">{{bc.descriptive_title}}</p>
-						<h3 class="title-name-office">{{bc.cross_streets}}</h3>
+						<p class="text-default" routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">{{bc.descriptive_title}}</p>
+						<h3 class="title-name-office" routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">{{bc.cross_streets}}</h3>
 						<p class="name-city">{{bc.city}}, {{bc.zip_code}}</p>
 						<span class="badge-city">{{bc.area_name}}</span>
 						<p class="phone-number">
 							<i class="zwicon-phone"></i>
 							{{bc.phone}}
 						</p>
-						<div class="price-container">
+						<div class="price-container" routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
 							<button class="button-show-price">
 								<h3 class="title-price">
 									Starting at :
