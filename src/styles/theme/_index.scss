@@ -31,11 +31,13 @@ button {
     width: 100%;
 
     &.primary {
-        background-color: colors('primary');
+		background-color: colors('primary');
+		border: 1px solid colors('primary');
         color: colors('white');
 
         &:hover {
             background-color: colors('white');
+			border: 1px solid colors('primary');
             color: colors('primary');
         }
     }
@@ -58,7 +60,6 @@ button {
         &:hover {
             background-color: colors('white');
             border: 1px solid colors('white');
-            border: 0;
             color: colors('primary');
         }
     }

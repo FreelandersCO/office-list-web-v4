@@ -59,7 +59,6 @@ export class HeaderComponent implements OnInit {
 				this.toogleLogin();
 			});
 			this.eventEmitterService.favoriteAdded.subscribe((name: string) => {
-				console.log('Favorite');
 				this.getBussinesFavorites();
 			});
 		}

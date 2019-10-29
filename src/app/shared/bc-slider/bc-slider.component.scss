@@ -24,9 +24,14 @@
             max-height: 300px;
             width: auto;
             margin: 0 auto;
+
+            &.fullImage {
+                max-height: unset;
+            }
         }
     }
 }
+
 
 .bc-card-slider-btns {
     position: absolute;

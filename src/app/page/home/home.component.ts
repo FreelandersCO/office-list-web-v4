@@ -43,37 +43,37 @@ export class HomeComponent implements OnInit {
 			name: 'New York',
 			url: 'office-space-for-rent/us/new-york/new-york',
 			numBc: 286,
-			img: 'assets/images/cities/joseph-barrientos-Ji_G7Bu1MoM-unsplash.jpg'
+			img: 'assets/images/cities/home/nyc.jpg'
 		},
 		{
 			name: 'Los Angeles',
 			url: 'office-space-for-rent/us/california/los-angeles',
 			numBc: 177,
-			img: 'assets/images/cities/ronny-sison-tU9n3Y0KCMk-unsplash.jpg'
+			img: 'assets/images/cities/home/la.jpg'
 		},
 		{
 			name: 'Atlanta',
 			url: 'office-space-for-rent/us/georgia/atlanta',
 			numBc: 89,
-			img: 'assets/images/cities/joseph-barrientos-Ji_G7Bu1MoM-unsplash.jpg'
+			img: 'assets/images/cities/home/atlanta.jpg'
 		},
 		{
 			name: 'Chicago',
 			url: 'office-space-for-rent/us/illinois/chicago',
 			numBc: 109,
-			img: 'assets/images/cities/ronny-sison-tU9n3Y0KCMk-unsplash.jpg'
+			img: 'assets/images/cities/home/chicago.jpg'
 		},
 		{
 			name: 'Miami',
 			url: 'office-space-for-rent/us/florida/miami',
 			numBc: 101,
-			img: 'assets/images/cities/ronny-sison-tU9n3Y0KCMk-unsplash.jpg'
+			img: 'assets/images/cities/home/miami.jpg'
 		},
 		{
 			name: 'San Francisco',
 			url: 'office-space-for-rent/us/california/san-francisco',
 			numBc: 96,
-			img: ''
+			img: 'assets/images/cities/home/SanFrancisco.jpg'
 		},
 		{
 			name: 'Dallas',

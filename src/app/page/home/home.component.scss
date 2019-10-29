@@ -74,15 +74,15 @@
         width: 100%;
 
         &.privatte-office {
-            background-image: url('../../../assets/images/img-private-office.jpg');
+            background-image: url('assets/images/img-private-office.jpg');
         }
 
         &.coworking {
-            background-image: url('../../../assets/images/img-coworking.jpg');
+            background-image: url('assets/images/img-coworking.jpg');
         }
 
         &.virtual-office {
-            background-image: url('../../../assets/images/img-virtual-office.jpg');
+            background-image: url('assets/images/img-virtual-office.jpg');
         }
 
         .name-type-office {
@@ -170,13 +170,14 @@
 }
 
 .testimonials-container {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../../assets/images/img-bg-testimonials.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/images/img-bg-testimonials.jpg');
     margin-bottom: 0;
 }
 
 @include from-breakpoint('mobile-xl') {
     .item-doit-container {
-        flex-direction: initial wrap;
+		flex-wrap: wrap;
+		flex-direction: initial;
 
         .itemhw-container {
             flex-grow: 1;

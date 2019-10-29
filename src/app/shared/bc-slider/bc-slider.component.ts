@@ -14,6 +14,7 @@ import {
 })
 export class BcSliderComponent {
 	@Input() images;
+	@Input() fullImage = false;
 	@ViewChild('slider', { static: false }) slidesContainer: ElementRef<HTMLDivElement>;
 	@ViewChildren('item') items: QueryList<ElementRef<HTMLDivElement>>;
 

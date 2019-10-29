@@ -294,7 +294,8 @@
 
         .title-name-office,
         .name-city {
-            font-size: 1rem;
+			font-size: 1rem;
+			cursor: pointer;
         }
 
         .price-container {
@@ -376,7 +377,8 @@
 
     .text-default {
         font-size: 0.9rem;
-        padding-right: 28px;
+		padding-right: 28px;
+		cursor: pointer;
 
         em {
             color: colors('black-6');
