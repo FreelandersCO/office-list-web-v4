@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { AgmCoreModule } from '@agm/core';
-
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 
@@ -19,8 +20,8 @@ import { ModalLoginSearchComponent } from './modal-login-search/modal-login-sear
 import { ModalSingupComponent } from './modal-singup/modal-singup.component';
 import { ModalPressedFormComponent } from './modal-pressed-form/modal-pressed-form.component';
 import { ModalScheduledTourComponent } from './modal-scheduled-tour/modal-scheduled-tour.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FavoritesHeartComponent } from './favorites-heart/favorites-heart.component';
+import { NormalizaeString } from './utils/normalize-string.pipe';
 
 @NgModule({
 	imports: [
@@ -37,6 +38,7 @@ import { FavoritesHeartComponent } from './favorites-heart/favorites-heart.compo
 		ReactiveFormsModule
 	],
 	declarations: [
+		NormalizaeString,
 		SearchInputComponent,
 		BcSliderComponent,
 		MapComponent,
@@ -54,6 +56,7 @@ import { FavoritesHeartComponent } from './favorites-heart/favorites-heart.compo
 		FavoritesHeartComponent
 	],
 	exports: [
+		NormalizaeString,
 		SearchInputComponent,
 		BcSliderComponent,
 		MapComponent,

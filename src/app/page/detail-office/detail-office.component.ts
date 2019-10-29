@@ -21,6 +21,7 @@ export class DetailOfficeComponent implements OnInit {
 	virtualOffice;
 	hotDesk;
 	dedicated;
+	selectedBusiness;
 	showPrivateOffice = false;
 	showCoWorking = false;
 	showVirtualOffice = false;
@@ -29,6 +30,7 @@ export class DetailOfficeComponent implements OnInit {
 	activePrivate = false;
 	activeCoWorking = false;
 	activeVirtual = false;
+	detailOfficeInfo = false;
 	constructor(private api: ApiServicesService, private route: ActivatedRoute) { }
 
 	ngOnInit() {
@@ -78,20 +80,21 @@ export class DetailOfficeComponent implements OnInit {
 
 	openPrivate() {
 		this.activePrivate = true;
-		this.activeCoWorking = false;
-		this.activeVirtual = false;
+		this.activeCoWorking = this.activeVirtual = false;
 	}
 
 	openCoWorking() {
 		this.activeCoWorking = true;
-		this.activePrivate = false;
-		this.activeVirtual = false;
-
+		this.activePrivate = this.activeVirtual = false;
 	}
 
 	openVirtual() {
-		this.activePrivate = false;
-		this.activeCoWorking = false;
+		this.activePrivate = this.activeCoWorking = false;
 		this.activeVirtual = true;
+	}
+
+	showModalDetail(bcId) {
+		this.selectedBusiness = bcId;
+		this.detailOfficeInfo = !this.detailOfficeInfo;
 	}
 }

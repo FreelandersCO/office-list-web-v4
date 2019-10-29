@@ -247,7 +247,7 @@
 					<figure class="img-card-office">
 						<i class="icon-star-office"></i>
 						<img appLazyLoad [src]="bc.principalImage" alt="">
-						<button class="button-icon" id="btn-list-search" (click)="showModalDetail()">
+						<button class="button-icon" id="btn-list-search" (click)="showModalDetail(bc.buscenter_id)">
 							<i class="zwicon-plus"></i>
 						</button>
 					</figure>
@@ -290,3 +290,12 @@
 		</swiper>
 	</div>
 </section>
+<div class="call-info-modal-container" *ngIf="detailOfficeInfo">
+		<div class="close-modal">
+			<button class="close-button-modal" (click)="showModalDetail()">
+				<i class="zwicon-close"></i>
+			</button>
+		</div>
+		<office-list-modal-detail [businessId]="selectedBusiness"></office-list-modal-detail>
+	</div>
+

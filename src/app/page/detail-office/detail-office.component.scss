@@ -51,7 +51,7 @@
     flex-wrap: wrap;
 
     .cont-type-pricing {
-		cursor: pointer;
+        cursor: pointer;
         margin-bottom: 12px;
         margin-left: 14px;
         flex-grow: 1;
@@ -324,6 +324,7 @@
     .text-default {
         font-size: 0.9rem;
         margin-bottom: 6px;
+        height: 34px;
 
         em {
             color: colors('black-6');
@@ -387,6 +388,25 @@ swiper {
     display: none;
 }
 
+.call-info-modal-container {
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    height: 100%;
+    position: absolute;
+
+    .close-modal {
+        position: fixed;
+        z-index: 9;
+        right: 1rem;
+        top: 1rem;
+
+        .close-button-modal {
+            font-size: 2.2rem;
+        }
+    }
+}
+
 @include from-breakpoint('tablet') {
     .pricings-detail-container {
         display: flex;
@@ -439,6 +459,12 @@ swiper {
     .icons-amenities {
         div {
             width: 23%;
+        }
+	}
+
+	.call-info-modal-container {
+        .close-modal {
+            right: 26%;
         }
     }
 }
