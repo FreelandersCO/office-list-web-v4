@@ -65,11 +65,12 @@ export class HeaderComponent implements OnInit {
 		}
 		this.getBussinesFavorites();
 	}
+
 	async getBussinesFavorites() {
 		this.bcFavorites = await this.localStorageService.getItem('bc_favorites');
 		this.favoritesCount = this.bcFavorites.length;
-		console.log('favoritesCount',this.favoritesCount);
 	}
+
 	openMenu() {
 		this.status = !this.status;
 	}

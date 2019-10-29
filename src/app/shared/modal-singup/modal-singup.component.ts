@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiServicesService } from '@app/services/api-services.service';
 import { EventEmitterService } from '@app/services/event-emitter.service';
 
-
 @Component({
 	selector: 'office-list-modal-singup',
 	templateUrl: './modal-singup.component.html',

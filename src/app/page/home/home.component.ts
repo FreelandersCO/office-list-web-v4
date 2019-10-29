@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, animate, transition, query, animateChild } from '@angular/animations';
-
+import { trigger, style, animate, transition, query, animateChild } from '@angular/animations';
 
 @Component({
 	selector: 'office-list-home',
@@ -140,4 +139,5 @@ export class HomeComponent implements OnInit {
 		this.formPressedShow = !this.formPressedShow;
 		this.pressedShow = this.formPressedShow ? 'Hide' : 'Show';
 	}
+// tslint:disable-next-line: max-file-line-count
 }
