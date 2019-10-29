@@ -11,7 +11,6 @@ import { BcSliderComponent } from './bc-slider/bc-slider.component';
 import { MapComponent } from './map/map.component';
 import { BannerHomeComponent } from './banner-home/banner-home.component';
 import { ModalDetailComponent } from './modal-detail/modal-detail.component';
-import { SvglikeheartComponent } from './svglikeheart/svglikeheart.component';
 import { CallUsComponent } from './call-us/call-us.component';
 import { GalleryDetailOfficeComponent } from './gallery-detail-office/gallery-detail-office.component';
 import { FormInquireNowComponent } from './form-inquire-now/form-inquire-now.component';
@@ -21,6 +20,7 @@ import { ModalSingupComponent } from './modal-singup/modal-singup.component';
 import { ModalPressedFormComponent } from './modal-pressed-form/modal-pressed-form.component';
 import { ModalScheduledTourComponent } from './modal-scheduled-tour/modal-scheduled-tour.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FavoritesHeartComponent } from './favorites-heart/favorites-heart.component';
 
 @NgModule({
 	imports: [
@@ -42,7 +42,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 		MapComponent,
 		BannerHomeComponent,
 		ModalDetailComponent,
-		SvglikeheartComponent,
+		FavoritesHeartComponent,
 		CallUsComponent,
 		GalleryDetailOfficeComponent,
 		FormInquireNowComponent,
@@ -50,7 +50,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 		ModalLoginSearchComponent,
 		ModalSingupComponent,
 		ModalPressedFormComponent,
-		ModalScheduledTourComponent
+		ModalScheduledTourComponent,
+		FavoritesHeartComponent
 	],
 	exports: [
 		SearchInputComponent,
@@ -58,7 +59,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 		MapComponent,
 		BannerHomeComponent,
 		ModalDetailComponent,
-		SvglikeheartComponent,
+		FavoritesHeartComponent,
 		FormInquireNowComponent,
 		GalleryDetailOfficeComponent,
 		MapDetailComponent,

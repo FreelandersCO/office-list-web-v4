@@ -1,7 +1,7 @@
 <div class="container-modal-default">
 	<div class="modal-default-site big-modal">
 		<div class="header-modal">
-			<button class="btn-icon-transparent">
+			<button class="btn-icon-transparent" (click)="closeSingUp()">
 				<i class="zwicon-close"></i>
 			</button>
 		</div>
@@ -47,7 +47,7 @@
 			</form>
 			<hr class="gray-line">
 			<p class="text-end-forms">Returning to OfficeList?
-				<a href="">Log in</a>
+				<button (click)="callLogin()">Log in</button>
 			</p>
 		</div>
 	</div>

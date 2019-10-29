@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SvglikeheartComponent } from './svglikeheart.component';
+import { FavoritesHeartComponent } from './favorites-heart.component';
 
-describe('SvglikeheartComponent', () => {
-  let component: SvglikeheartComponent;
-  let fixture: ComponentFixture<SvglikeheartComponent>;
+describe('FavoritesHeartComponent', () => {
+  let component: FavoritesHeartComponent;
+  let fixture: ComponentFixture<FavoritesHeartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SvglikeheartComponent ]
+      declarations: [ FavoritesHeartComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SvglikeheartComponent);
+    fixture = TestBed.createComponent(FavoritesHeartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

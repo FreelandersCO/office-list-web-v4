@@ -3,16 +3,16 @@
 		<button class="button-icon mobile" (click)="showOptionsNav()" id="btn-nav-search">
 			<i class="zwicon-search"></i>
 		</button>
-		<div class="logo-container">
+		<div class="logo-container" routerLink="/">
 			<img src="assets/images/logo-officelist-dark.svg" alt="">
 		</div>
 		<div class="items-menu">
 			<button class="button-icon desktop" (click)="showOptionsNav()" id="btn-nav-search">
 				<i class="zwicon-search"></i>
 			</button>
-			<button class="button-icon" (click)="toogleSignUp()" id="btn-nav-user">
+			<button class="button-icon" (click)="toogleSignUp()" id="btn-nav-user" >
 				<i class="zwicon-user-circle"></i>
-				<p class="budget-number">1</p>
+				<p class="budget-number" *ngIf="favoritesCount>0">{{favoritesCount}}</p>
 			</button>
 		</div>
 		<div class="options-nav-container" *ngIf="optionsNav" @easeIn>
@@ -30,3 +30,4 @@
 	</div>
 </header>
 <office-list-modal-singup *ngIf="showSignUp"></office-list-modal-singup>
+<office-list-modal-login-search *ngIf="showLogin"></office-list-modal-login-search>

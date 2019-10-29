@@ -156,7 +156,8 @@ header {
 
             .logo-container,
             .items-menu {
-                width: 50%;
+				width: 50%;
+
             }
         }
     }
@@ -207,6 +208,7 @@ header {
     header {
         .menu-container {
             .logo-container {
+				cursor: pointer;
                 width: 20%;
             }
 

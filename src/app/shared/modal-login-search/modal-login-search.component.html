@@ -1,7 +1,7 @@
 <div class="container-modal-default">
 	<div class="modal-default-site">
 		<div class="header-modal">
-			<button class="btn-icon-transparent">
+			<button class="btn-icon-transparent" (click)="closeLogin()">
 				<i class="zwicon-close"></i>
 			</button>
 		</div>
@@ -35,11 +35,11 @@
 				<button class="button-default primary">Login</button>
 			</div>
 			<p class="text-end-forms">Don't have an account?
-				<a href="">Create an account</a>
+					<button (click)="callSingUp()">Create an account</button>
 			</p>
 			<hr class="gray-line">
 			<p class="text-end-forms">Office operator
-					<a href="">Log in</a>
+				 <a href="https://bcadmin.officelist.com/">Log in</a>
 				</p>
 		</div>
 	</div>

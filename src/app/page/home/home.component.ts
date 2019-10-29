@@ -140,5 +140,4 @@ export class HomeComponent implements OnInit {
 		this.formPressedShow = !this.formPressedShow;
 		this.pressedShow = this.formPressedShow ? 'Hide' : 'Show';
 	}
-
 }

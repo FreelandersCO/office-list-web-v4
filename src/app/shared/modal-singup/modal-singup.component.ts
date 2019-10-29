@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiServicesService } from '@app/services/api-services.service';
+import { EventEmitterService } from '@app/services/event-emitter.service';
+
 
 @Component({
 	selector: 'office-list-modal-singup',
@@ -10,7 +12,7 @@ import { ApiServicesService } from '@app/services/api-services.service';
 export class ModalSingupComponent implements OnInit {
 	registerForm: FormGroup;
 	submitted = false;
-	constructor(private api: ApiServicesService, private formBuilder: FormBuilder) { }
+	constructor(private api: ApiServicesService, private formBuilder: FormBuilder, private eventEmitter: EventEmitterService) { }
 
 	ngOnInit() {
 		this.registerForm = this.formBuilder.group({
@@ -39,5 +41,13 @@ export class ModalSingupComponent implements OnInit {
 	onReset() {
 		this.submitted = false;
 		this.registerForm.reset();
+	}
+
+	closeSingUp() {
+		this.eventEmitter.toogleSingUpEmitter();
+	}
+
+	callLogin() {
+		this.eventEmitter.toogleLoginEmitter();
 	}
 }
