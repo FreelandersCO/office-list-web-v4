@@ -1,0 +1,30 @@
+.container-info-pages {
+	article {
+		width: 70%;
+	}
+
+	p {
+		text-align: justify;
+	}
+
+	.description-office-text {
+		list-style: decimal;
+
+		li {
+			margin-bottom: 6px;
+		}
+	}
+
+	.title-home {
+		margin-top: 30px;
+	}
+	.title-detail {
+		margin-bottom: 4px;
+		margin-top: 20px;
+	}
+
+	.line-end {
+		margin-bottom: 40px;
+	}
+	
+}
