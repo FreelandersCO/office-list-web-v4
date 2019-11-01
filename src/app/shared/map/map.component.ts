@@ -2,6 +2,8 @@ import { Component, OnInit, Input, SimpleChanges, SimpleChange, OnChanges } from
 import { ApiServicesService } from '@service/api-services.service';
 import { ActivatedRoute } from '@angular/router';
 
+import { StyleData } from './map.style.json';
+
 @Component({
 	selector: 'office-list-map',
 	templateUrl: './map.component.html',
@@ -9,17 +11,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class MapComponent implements OnInit, OnChanges {
-	// tslint:disable-next-line: ban-types
-	@Input() bussinesCenter: Object;
-	markersList;
-	constructor(private api: ApiServicesService, private route: ActivatedRoute) { }
-	// google maps zoom level
-	zoom = 12;
-	fullScreen = false;
-	// initial center position for the map
-	lat;
-	lng;
-	coordinates;
+    // tslint:disable-next-line: ban-types
+    @Input() bussinesCenter: Object;
+    style = StyleData;
+    markersList;
+    constructor(private api: ApiServicesService, private route: ActivatedRoute) { }
+    // google maps zoom level
+    zoom = 10;
+    // initial center position for the map
+    lat;
+    lng;
+    coordinates;
 
 	ngOnInit() {
 		this.route.params.subscribe(params => {
