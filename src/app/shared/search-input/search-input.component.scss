@@ -4,30 +4,35 @@
     position: relative;
     z-index: 2;
     width: 84%;
+    background-color: white;
 
-    .ng-autocomplete {
-        .autocomplete-container {
-            border-radius: 50px;
+    .example-full-width {
+        width: 100%;
+    }
 
-            .input-container {
-                input {
-                    border-radius: 50px;
-                    font-size: 0.7rem;
-                    font-weight: 300;
-                }
+    .field-container {
+        width: 100%;
+        border-radius: 50px;
 
-                .x {
-                    display: none;
-                }
+        .input-container {
+            input {
+                border-radius: 50px;
+                font-size: 0.7rem;
+                font-weight: 300;
             }
 
-            .suggestions-container {
-                border-radius: 8px;
-                margin-top: 10px;
+            .x {
+                display: none;
             }
         }
+
+        .suggestions-container {
+            border-radius: 8px;
+            margin-top: 10px;
+        }
     }
-	
+
+
     .button-icon-input {
         position: absolute;
         right: 20px;
