@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { AgmCoreModule } from '@agm/core';
-import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 
 import { SearchInputComponent } from './search-input/search-input.component';
@@ -32,7 +31,6 @@ import { NormalizaeString } from './utils/normalize-string.pipe';
 			apiKey: 'AIzaSyCop_zSgXsfr2eS48LTbflHNRx5N3Un3co'
 		}),
 		AgmJsMarkerClustererModule,
-		AutocompleteLibModule,
 		StorageServiceModule,
 		FormsModule,
 		ReactiveFormsModule

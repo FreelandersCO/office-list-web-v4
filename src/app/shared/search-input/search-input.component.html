@@ -1,17 +1,18 @@
 <div class="autocomplete">
-	<ng-autocomplete #auto [data]="data" [searchKeyword]="keyword" placeHolder="Where? Type city or zip/post code"
+	<!--ng-autocomplete #auto [data]="data" [searchKeyword]="keyword" placeHolder="Where? Type city or zip/post code"
 		[isLoading]="loading" [disabled]="disable" (selected)='selectEvent($event)'
 		(inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
 		[minQueryLength]="3" [notFoundTemplate]="notFoundTemplate">
-	</ng-autocomplete>
+	</ng-autocomplete-->
+	HOLA SOY UN AUTOCOOMPLETE
 
-	<ng-template #itemTemplate let-item>
+	<!--ng-template #itemTemplate let-item>
 		<a [innerHTML]="item.name"></a>
 	</ng-template>
 
 	<ng-template #notFoundTemplate let-notFound>
 		<div [innerHTML]="notFound"></div>
-	</ng-template>
+	</ng-template-->
 	<button class="button-icon-input">
 		<i class="zwicon-search"></i>
 	</button>
