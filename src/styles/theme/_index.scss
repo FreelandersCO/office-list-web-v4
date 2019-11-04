@@ -354,7 +354,12 @@ hr {
         font-size: 0.8rem;
         margin: 0 auto;
         text-align: center;
-        width: 60%;
+		width: 60%;
+
+		button {
+			color: colors('primary');
+			font-size: 1rem;
+		}
     }
 
     .text-end-forms-terms {

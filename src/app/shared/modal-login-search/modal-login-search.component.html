@@ -18,22 +18,25 @@
 			<i class="zwicon-user-circle"></i>
 			<h2 class="title-modal">Welcome back</h2>
 			<p class="intro-modal">Please login in to view your saved offices</p>
-			<form action="login">
+			<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 				<div class="group-form">
-					<input type="text" class="input-default" required>
+					<input type="email" class="input-default" required formControlName="email"
+					[ngClass]="{ 'is-invalid': submitted && f.email.errors }">
 					<label for="" class="label-default">Email</label>
 				</div>
 				<div class="group-form">
-					<input type="password" class="input-default" required>
+					<input type="password" class="input-default" required formControlName="password"
+					[ngClass]="{ 'is-invalid': submitted && f.password.errors }">
 					<label for="" class="label-default">Password</label>
 					<button class="btn-icon-input">
 						<i class="zwicon-eye"></i>
 					</button>
 				</div>
+				<div class="container-button-modal">
+					<button class="button-default primary" type="submit">Login</button>
+				</div>
 			</form>
-			<div class="container-button-modal">
-				<button class="button-default primary">Login</button>
-			</div>
+
 			<p class="text-end-forms">Don't have an account?
 					<button (click)="callSingUp()">Create an account</button>
 			</p>
