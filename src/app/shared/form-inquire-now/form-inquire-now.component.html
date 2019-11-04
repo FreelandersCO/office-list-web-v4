@@ -12,43 +12,41 @@
 	</div>
 	<div class="body-form-inquire">
 		<h4 class="title-form-inquire">Inquire about this office space</h4>
-		<form action="">
+		<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 			<div class="group-form">
-				<input type="tel" required name="fullName" class="input-default" id="">
-				<label for="phone" class="label-default white">
-					Full Name
-				</label>
+				<input type="text" class="input-default" required formControlName="where"
+					[ngClass]="{ 'is-invalid': submitted && f.where.errors }">
+				<label for="" class="label-default">Where*</label>
 			</div>
 			<div class="group-form">
-				<input type="tel" required name="email" class="input-default" id="">
-				<label for="phone" class="label-default white">
-					Email
-				</label>
+				<input type="text" class="input-default" required formControlName="fullName"
+					[ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
+				<label for="" class="label-default">Full name*</label>
 			</div>
 			<div class="group-form">
-				<input type="tel" required name="company" class="input-default" id="">
-				<label for="phone" class="label-default white">
-					Company Name
-				</label>
+				<input type="text" class="input-default" required formControlName="company"
+					[ngClass]="{ 'is-invalid': submitted && f.company.errors }">
+				<label for="" class="label-default">Company*</label>
 			</div>
 			<div class="group-form">
-				<input type="tel" required name="where" class="input-default" id="">
-				<label for="phone" class="label-default white">
-					Where
-				</label>
+				<input type="email" class="input-default" required formControlName="email"
+					[ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+				<label for="" class="label-default">Email*</label>
 			</div>
 			<div class="group-form">
-				<textarea type="text" required name="coments" rows="3" cols="40" class="input-default textarea-input"
-					id=""></textarea>
-				<label for="coments" class="label-default white">
-					Coments
-				</label>
+				<input type="text" class="input-default" required formControlName="phone"
+					[ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+				<label for="" class="label-default">Phone number*</label>
+			</div>
+			<div class="group-form">
+				<textarea class="input-default textarea-input" formControlName="comments"
+					[ngClass]="{ 'is-invalid': submitted && f.comments.errors }"></textarea>
+				<label for="" class="label-default">Comments</label>
 			</div>
 			<div class="container-inquire-buttons">
 				<button class="button-default secondary-line">Request tour</button>
 				<button class="button-default primary" type="submit">Inquire</button>
 			</div>
 		</form>
-
 	</div>
 </div>

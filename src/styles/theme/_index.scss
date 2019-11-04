@@ -1,24 +1,24 @@
 @import 'variables';
 
 a {
-	color: colors('primary');
+    color: colors('primary');
 }
 
 button {
-	position: relative;
+    position: relative;
 
-	&:hover,
-	&:focus,
-	&:visited {
-		outline: 0;
-	}
+    &:hover,
+    &:focus,
+    &:visited {
+        outline: 0;
+    }
 }
 
 .title-home {
     color: colors('black');
     font-size: 2.2rem;
-	font-weight: 300;
-	line-height: 2.4rem;
+    font-weight: 300;
+    line-height: 2.4rem;
     text-align: center;
 }
 
@@ -32,10 +32,12 @@ button {
 
     &.primary {
         background-color: colors('primary');
+        border: 1px solid colors('primary');
         color: colors('white');
 
         &:hover {
             background-color: colors('white');
+            border: 1px solid colors('primary');
             color: colors('primary');
         }
     }
@@ -48,30 +50,29 @@ button {
             background-color: colors('primary');
             color: colors('white');
         }
-	}
+    }
 
-	&.secondary-line {
-		background-color: colors('white');
-		border: 1px solid colors('primary');
+    &.secondary-line {
+        background-color: colors('white');
+        border: 1px solid colors('primary');
         color: colors('primary');
 
         &:hover {
-			background-color: colors('white');
-			border: 1px solid colors('white');
-			border: 0px ;
-			color: colors('primary');
+            background-color: colors('white');
+            border: 1px solid colors('white');
+            color: colors('primary');
         }
     }
 }
 
 .button-close-icon {
-	color: colors('primary');
-	font-size: 1.8rem;
-	font-weight: 700;
-	line-height: 0;
-	margin-bottom: 6px;
-	text-align: right;
-	width: 100%;
+    color: colors('primary');
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 0;
+    margin-bottom: 6px;
+    text-align: right;
+    width: 100%;
 }
 
 .title-pages {
@@ -89,8 +90,8 @@ button {
 
 h3 {
     color: colors('primary');
-	font-size: 1.2rem;
-	line-height: 1.2rem;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
 }
 
 hr {
@@ -102,7 +103,7 @@ hr {
 }
 
 .text-rigth {
-	text-align: right;
+    text-align: right;
 }
 
 .card-white {
@@ -132,8 +133,8 @@ hr {
 
     .label-default {
         color: colors('black-3');
-		font-size: 1rem;
-		font-weight: 300;
+        font-size: 1rem;
+        font-weight: 300;
         left: 18px;
         position: absolute;
         transition: all 0.6s;
@@ -146,81 +147,82 @@ hr {
         border: 0;
         border-radius: 25px;
         font-size: 0.9rem;
-		font-weight: 300;
-		height: 40px;
+        font-weight: 300;
+        height: 40px;
         margin-top: 6px;
-		padding: 10px 18px;
-		width: 100%;
+        padding: 10px 18px;
+        width: 100%;
 
-		&.textarea-input {
-			border-radius: 6px;
-			height: 70px;
-			margin-bottom: 8px;
-		}
+        &.textarea-input {
+            border-radius: 6px;
+            height: 70px;
+            margin-bottom: 8px;
+        }
 
-		&.white {
-			background-color: colors('white-2');
-			color: colors('white-8');
-			font-size: 0.9rem;
-		}
+        &.white {
+            background-color: colors('white-2');
+            color: colors('white-8');
+            font-size: 0.9rem;
+        }
 
-        &:focus + .label-default,
-        &:valid + .label-default {
-			color: colors('primary');
+        &.is-invalid {
+            border: 1px red solid;
+        }
+
+        &:focus+.label-default,
+        &:valid+.label-default {
+            color: colors('primary');
             font-size: 70%;
             top: 0;
             transform: translate3d(0, 42%, 0);
+        }
+    }
 
-		}
-	}
+    select {
+        appearance: none;
+        height: 40px;
+    }
 
-	select {
-		appearance: none;
-		height: 40px;
-	}
+    &.selectt {
+        .zwicon-chevron-down {
+            color: colors('primary');
+            position: absolute;
+            right: 8px;
+            font-size: 2.6rem;
+            top: 20px;
+        }
+    }
 
-	&.selectt {
-		.zwicon-chevron-down {
-			color: colors('primary');
-			position: absolute;
-			right: 8px;
-			font-size: 2.6rem;
-			top: 20px;
-		}
-	}
+    &.date-tour {
+        .label-default {
+            appearance: none;
+            transform: translate3d(48%, 77%, 0);
+        }
 
-	&.date-tour {
-		.label-default {
-			appearance: none;
-			transform: translate3d(48%, 77%, 0);
-		}
+        .input-default {
+            padding-left: 42px;
+        }
 
-		.input-default {
-			padding-left: 42px;
-		}
-		
-		.zwicon-calendar-month {
-			color: colors('primary');
-			left: 14px;
-			position: absolute;
-			top: 28px;
-		}
-		
-	}
-	
-	.btn-icon-input {
-		font-size: 1.2rem;
-		line-height: 0;
-		position: absolute;
-		right: 10px;
-		top: 40px;
+        .zwicon-calendar-month {
+            color: colors('primary');
+            left: 14px;
+            position: absolute;
+            top: 28px;
+        }
+    }
 
-		i {
-			color: colors('primary');
-			line-height: 0;
-		}
+    .btn-icon-input {
+        font-size: 1.2rem;
+        line-height: 0;
+        position: absolute;
+        right: 10px;
+        top: 40px;
 
-	}
+        i {
+            color: colors('primary');
+            line-height: 0;
+        }
+    }
 }
 
 .form-pressed-button {
@@ -257,15 +259,15 @@ hr {
 }
 
 .container-info-date {
-	.container-button-modal {
-		.button-default {
-			margin-bottom: 0;
-		}
-	}
+    .container-button-modal {
+        .button-default {
+            margin-bottom: 0;
+        }
+    }
 
-	.gray-line {
-		margin-top: 20px;
-	}
+    .gray-line {
+        margin-top: 20px;
+    }
 }
 
 .badge-city {
@@ -287,95 +289,159 @@ hr {
 }
 
 .container-modal-default {
-	background: colors('white-8');
-	height: 100%;
-	position: relative;
-	width: 100%;
+    background: colors('white-8');
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 .modal-default-site {
-	background: colors('white');
-	border-radius: 4px;
-	box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
-	left: 5%;
-	margin-bottom: 20px;
-	padding: 20px;
-	position: absolute;
+    background: colors('white');
+    border-radius: 4px;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
+    left: 5%;
+    margin-bottom: 20px;
+    padding: 20px;
+    position: absolute;
     top: 30px;
-	width: 90%;
+    width: 90%;
 }
 
 .header-modal {
-	text-align: right;
-	
-	.btn-icon-transparent {
-		color: colors('primary');
-		font-size: 2rem;
-		font-weight: 700;
-		line-height: 0;	
-	}
+    text-align: right;
+
+    .btn-icon-transparent {
+        color: colors('primary');
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 0;
+    }
 }
 
 .body-modal {
-	text-align: center;
+    text-align: center;
 
-	.container-search {
-		.group-form {
-			padding: 0;
+    .container-search {
+        .group-form {
+            padding: 0;
 
-			input {
-				margin: 0;
-			}
+            input {
+                margin: 0;
+            }
 
-			.btn-icon-input {
-				top: 20px;
-			}
-		}
-	}
+            .btn-icon-input {
+                top: 20px;
+            }
+        }
+    }
 
-	.gray-line {
-		border: 0.8px solid colors('black-2');
-		margin: 10px 0;
-		width: 100%;
-	}
+    .gray-line {
+        border: 0.8px solid colors('black-2');
+        margin: 10px 0;
+        width: 100%;
+    }
 
-	.zwicon-user-circle,
-	.zwicon-chat,
-	.zwicon-calendar {
-		color: colors('primary');
-		font-size: 3.6rem;
-	}
+    .zwicon-user-circle,
+    .zwicon-chat,
+    .zwicon-calendar {
+        color: colors('primary');
+        font-size: 3.6rem;
+    }
 
-	.text-end-forms {
-		color: colors('black-6');
-		font-size: 0.8rem;
-		margin: 0 auto;
-		text-align: center;
+    .text-end-forms {
+        color: colors('black-6');
+        font-size: 0.8rem;
+        margin: 0 auto;
+        text-align: center;
 		width: 60%;
-	}
-	
-	.text-end-forms-terms {
-		color: colors('black-6');
-		font-size: 0.6rem;
-		text-align: center;
-		width: 100%;
-	}
 
-	.title-modal {
-		font-size: 1.3rem;
-		margin-bottom: 6px;
-	}
+		button {
+			color: colors('primary');
+			font-size: 1rem;
+		}
+    }
 
-	.intro-modal {
-		color: colors('black-5');
-		font-size: 1.1rem;
-		margin: 8px 0;
-	}
+    .text-end-forms-terms {
+        color: colors('black-6');
+        font-size: 0.6rem;
+        text-align: center;
+        width: 100%;
+    }
 
-	.text-date-tour {
-		color: colors('primary');
-		font-size: 1.4rem;
-		font-weight: 700;	
-	}
+    .title-modal {
+        font-size: 1.3rem;
+        margin-bottom: 6px;
+    }
+
+    .intro-modal {
+        color: colors('black-5');
+        font-size: 1.1rem;
+        margin: 8px 0;
+    }
+
+    .text-date-tour {
+        color: colors('primary');
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
 }
 
+/* ToolTip */
+
+[tooltip] {
+    position: relative;
+}
+
+[tooltip]::before {
+    content: attr(tooltip-content);
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: calc(100% + 16px);
+    width: 200%;
+    padding: 8px 16px;
+    text-align: center;
+    text-transform: none;
+    font-size: 14px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transform: translate(20px, -50%);
+    transition: all .2s ease-in-out .5s;
+    z-index: 1;
+}
+
+[tooltip-bottom]::before {
+    top: calc(100% + 16px);
+    left: 50%;
+    right: initial;
+    transform: translate(-50%, -20px);
+}
+
+[tooltip-bottom]:hover::before {
+    transform: translate(-50%, 0)
+}
+
+[tooltip-right]::before {
+    top: 50%;
+    left: calc(100% + 16px);
+    right: initial;
+    transform: translate(-20px, -50%);
+}
+
+[tooltip-right]:hover::before {
+    transform: translate(0, -50%);
+}
+
+[tooltip-top]::before {
+    top: initial;
+    left: 50%;
+    right: initial;
+    bottom: calc(100% + 16px);
+    transform: translate(-50%, 20px);
+}
+
+[tooltip-top]:hover::before {
+    transform: translate(-50%, 0);
+}

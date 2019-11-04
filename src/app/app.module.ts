@@ -11,18 +11,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { ButtonsmobileComponent } from './shared/buttonsmobile/buttonsmobile.component';
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		HeaderComponent,
-		FooterComponent,
-		ButtonsmobileComponent
-	],
 	imports: [
 		BrowserAnimationsModule,
 		BrowserModule,
 		HttpClientModule,
 		AppRoutingModule,
 		SharedModule
+	],
+	declarations: [
+		AppComponent,
+		HeaderComponent,
+		FooterComponent,
+		ButtonsmobileComponent
 	],
 	providers: [],
 	bootstrap: [AppComponent],

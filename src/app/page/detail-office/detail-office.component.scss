@@ -1,252 +1,253 @@
 @import 'index';
 
 .container-gallery-detail {
-	height: 360px;
-	margin: 0;
-	padding: 0;
+    height: 360px;
+    margin: 0;
+    padding: 0;
 }
 
 .details-office-container {
-	display: flex;
-	flex-wrap: wrap;
-	padding: 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 1rem;
 }
 
 .container-breadcrumbs {
-	margin-bottom: 20px;
-	.linktoback {
-		cursor: pointer;
-		font-weight: 300;
-	}
+    margin-bottom: 20px;
+
+    .linktoback {
+        cursor: pointer;
+        font-weight: 300;
+    }
 }
 
 .text-default {
-	font-size: 1rem;
-	height: 34px;
+    font-size: 1rem;
+    height: auto;
 }
 
 .title-name-office {
-	color: colors('primary');
-	font-size: 1.4rem;
-	line-height: 1.4rem;
+    color: colors('primary');
+    font-size: 1.4rem;
+    line-height: 1.4rem;
 }
 
 .line-detail {
-	border: 0.6px solid colors('black-2');
-	width: 100%;
+    border: 0.6px solid colors('black-2');
+    width: 100%;
 }
 
 .title-detail {
-	font-size: 1.2rem;
-	margin-bottom: 20px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
 }
 
 .detail-container-info {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .container-princing-types {
-	display: flex;
-	flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 
-	.cont-type-pricing {
-		margin-bottom: 12px;
-		margin-left: 14px;
-		flex-grow: 1;
-		width: 40%;
+    .cont-type-pricing {
+        cursor: pointer;
+        margin-bottom: 12px;
+        margin-left: 14px;
+        flex-grow: 1;
+        width: 40%;
 
-		&:first-child {
-			margin-left: 0;
-		}
+        &:first-child {
+            margin-left: 0;
+        }
 
-		&.active {
-			border: 1px solid colors('primary');
-		}
-	}
+        &.active {
+            border: 1px solid colors('primary');
+        }
+    }
 }
 
 .image-type {
-	border-radius: 10px 10px 0 0;
-	height: 100px;
-	overflow: hidden;
+    border-radius: 10px 10px 0 0;
+    height: 100px;
+    overflow: hidden;
 
-	img {
-		height: 100%;
-		object-fit: cover;
-		object-position: center;
-	}
+    img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
 }
 
 .button-show-pricing {
-	color: colors('primary');
-	font-size: 1rem;
-	font-weight: 700;
-	margin: 10px 0;
-	padding: 0 10px;
-	text-align: left;
-	width: 100%;
+    color: colors('primary');
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 10px 0;
+    padding: 0 10px;
+    text-align: left;
+    width: 100%;
 
-	.zwicon-chevron-down {
-		color: colors('black-5');
-		font-size: 1.2rem;
-		font-weight: 700;
-		position: absolute;
-		right: 4px;
-		top: 0;
-	}
+    .zwicon-chevron-down {
+        color: colors('black-5');
+        font-size: 1.2rem;
+        font-weight: 700;
+        position: absolute;
+        right: 4px;
+        top: 0;
+    }
 }
 
 .title-starting {
-	float: left;
-	font-size: 0.8rem;
-	padding-left: 10px;
+    float: left;
+    font-size: 0.8rem;
+    padding-left: 10px;
 }
 
 .price-starting {
-	font-size: 0.8rem;
-	text-align: right;
-	color: colors('black-5');
-	padding-right: 10px;
+    font-size: 0.8rem;
+    text-align: right;
+    color: colors('black-5');
+    padding-right: 10px;
 }
 
 .princing-type {
-	padding: 18px 18px 20px;
-	position: relative;
+    padding: 18px 18px 20px;
+    position: relative;
 }
 
 .container-titles {
-	border-bottom: 0.6px solid colors('black-2');
-	display: flex;
-	margin-bottom: 10px;
-	padding-bottom: 10px;
+    border-bottom: 0.6px solid colors('black-2');
+    display: flex;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
 
-	div {
-		width: 50%;
-	}
+    div {
+        width: 50%;
+    }
 
-	.price-offices {
-		text-align: right;
-	}
+    .price-offices {
+        text-align: right;
+    }
 
-	.title-suboffice-type {
-		font-size: 0.8rem;
-	}
+    .title-suboffice-type {
+        font-size: 0.8rem;
+    }
 
-	.title-type-office {
-		color: colors('primary');
-	}
+    .title-type-office {
+        color: colors('primary');
+    }
 
-	.price-type {
-		font-weight: 700;
-	}
-
+    .price-type {
+        font-weight: 700;
+    }
 }
 
 .description-type {
-	font-size: 0.9rem;
-	margin-bottom: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
 }
 
 .container-description-items {
-	display: flex;
-	font-size: 0.9rem;
-	margin-bottom: 10px;
+    display: flex;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
 
-	.includes-container,
-	.bestfor-container {
-		width: 50%;
-	}
+    .includes-container,
+    .bestfor-container {
+        width: 50%;
+    }
 
-	.items-description {
-		color: colors('black-5');
+    .items-description {
+        color: colors('black-5');
 
-		li {
-			font-size: 0.8rem;
-			margin-bottom: 4px;
-		}
-	}
+        li {
+            font-size: 0.8rem;
+            margin-bottom: 4px;
+        }
+    }
 }
 
 .button-like-type {
-	background: colors('primary');
-	border-radius: 100%;
-	color: colors('white');
-	font-size: 1.4rem;
-	line-height: 0;
-	left: 50%;
-	height: 30px;
-	position: absolute;
-	transform: translate(-50%, 0%);
-	width: 30px;
+    background: colors('primary');
+    border-radius: 100%;
+    color: colors('white');
+    font-size: 1.4rem;
+    line-height: 0;
+    left: 50%;
+    height: 30px;
+    position: absolute;
+    transform: translate(-50%, 0%);
+    width: 30px;
 }
 
 .description-office-text {
-	text-align: justify;
-	line-height: 1.5rem;
+    text-align: justify;
+    line-height: 1.5rem;
 }
 
 .icons-amenities {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
-	li {
-		flex-grow: 1;
-		margin-bottom: 1rem;
-		text-align: center;
-		width: 50%;
-	}
+    li {
+        flex-grow: 1;
+        margin-bottom: 1rem;
+        text-align: center;
+        width: 50%;
+    }
 
-	.container-icon {
-		background: colors('white');
-		box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
-		border-radius: 100%;
-		color: colors('black-4');
-		height: 100px;
-		margin: 0 auto 6px;
-		text-align: center;
-		padding: 26px 0;
-		position: relative;
-		width: 100px;
+    .container-icon {
+        background: colors('white');
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 100%;
+        color: colors('black-4');
+        height: 100px;
+        margin: 0 auto 6px;
+        text-align: center;
+        padding: 26px 0;
+        position: relative;
+        width: 100px;
 
-		i {
-			font-size: 2.4rem;
-			font-weight: 300;
-		}
-	}
+        i {
+            font-size: 2.4rem;
+            font-weight: 300;
+        }
+    }
 
-	.title-amenitie {
-		font-weight: 700;
-		font-size: 1rem;
-	}
+    .title-amenitie {
+        font-weight: 700;
+        font-size: 1rem;
+    }
 }
 
 .nearby-locations-container {
-	margin: 0;
-	padding-top: 0;
+    margin: 0;
+    padding-top: 0;
 
-	.office-list-card {
-		box-shadow: 0 1px 10px 0 colors('black-1');
-		flex-direction: column;
-		flex-grow: 1;
-		margin-bottom: 36px;
-        padding: 0rem;
+    .office-list-card {
+        box-shadow: 0 1px 10px 0 colors('black-1');
+        flex-direction: column;
+        flex-grow: 1;
+        margin-bottom: 36px;
+        padding: 0;
         width: 100%;
 
         .img-card-office {
-			border-radius: 10px 10px 0 0;
-			min-height: 176px;
-			width: 100%;
+            border-radius: 10px 10px 0 0;
+            min-height: 176px;
+            width: 100%;
 
-			img {
-				height: 177px;
-			}
+            img {
+                height: 177px;
+            }
         }
 
         .info-office-container {
             width: 100%;
-			padding: .5rem;
-			position: relative;
+            padding: 0.5rem;
+            position: relative;
         }
 
         .price-container {
@@ -260,12 +261,12 @@
         }
 
         .like-container {
-            right: .5rem;
-            top: .5rem;
+            right: 0.5rem;
+            top: 0.5rem;
         }
-	}
+    }
 
-	.price-container {
+    .price-container {
         border-color: colors('black-2');
         border-style: solid;
 
@@ -281,10 +282,9 @@
 
     .list-prices-office {
         display: flex;
-        flex-direction: row;
+        flex-flow: row wrap;
         margin: 4px 0 10px;
         justify-content: space-around;
-        flex-wrap: wrap;
 
         li {
 			padding: 4px;
@@ -304,9 +304,9 @@
             line-height: 1;
             text-align: center;
         }
-	}
+    }
 
-	.img-card-office {
+    .img-card-office {
         overflow: hidden;
         position: relative;
 
@@ -323,8 +323,9 @@
     }
 
     .text-default {
-		font-size: 0.9rem;
-		margin-bottom: 6px;
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+        height: 34px;
 
         em {
             color: colors('black-6');
@@ -357,183 +358,206 @@
 }
 
 swiper {
-	width: 90%;
-	margin: 0 auto;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .swiper-container {
-	overflow: hidden;
+    overflow: hidden;
 }
 
 .swiper-pagination-bullet-active {
-	background-color: colors('primary');
+    background-color: colors('primary');
 }
 
 .nearby-swiper {
-	height: auto;
+    height: auto;
 }
 
 .amenities-swiper {
-	height: 270px;
+    height: 270px;
 }
 
 .swiper-pagination-bullet-active {
-	background: colors('black-7') !important;
+    background: colors('black-7') !important;
 }
 
 .container-form-inquire {
     right: 5%;
-	position: sticky;
-	width: 90%;
-	display: none;
+    position: sticky;
+    width: 90%;
+    display: none;
+}
+
+.call-info-modal-container {
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    height: 100%;
+    position: absolute;
+
+    .close-modal {
+        position: fixed;
+        z-index: 9;
+        right: 1rem;
+        top: 1rem;
+
+        .close-button-modal {
+            font-size: 2.2rem;
+        }
+    }
 }
 
 @include from-breakpoint('tablet') {
-	.pricings-detail-container {
-		display: flex;
-		flex-wrap: wrap;
+    .pricings-detail-container {
+        display: flex;
+        flex-wrap: wrap;
 
-		.princing-type {
-			flex-grow: 1;
-			margin-left: 20px;
-			width: 40%;
+        .princing-type {
+            flex-grow: 1;
+            margin-left: 20px;
+            width: 40%;
 
-			&:first-child {
-				margin-left: 0;
-			}
-		}
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+
+    .button-show-pricing {
+        .zwicon-chevron-down {
+            font-size: 1.6rem;
+        }
+    }
+
+    .icons-amenities {
+        li {
+            width: 16%;
+        }
+
+        .title-amenitie {
+            font-weight: 700;
+            font-size: 0.8rem;
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        .container-icon {
+            height: 70px;
+            padding: 0;
+            width: 70px;
+        }
+    }
+
+    .amenitie-icon {
+        font-size: 2rem;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 50%;
+    }
+
+    .icons-amenities {
+        div {
+            width: 23%;
+        }
 	}
 
-	.button-show-pricing {
-		.zwicon-chevron-down {
-			font-size: 1.6rem;
-		}
-	}
-
-	.icons-amenities {
-
-		li {
-			width: 16%;
-		}
-
-		.title-amenitie {
-			font-weight: 700;
-			font-size: 0.8rem;
-			width: 60%;
-			margin: 0 auto;
-		}
-		
-		.container-icon {
-			height: 70px;
-			padding: 0;
-			width: 70px;
-		}
-
-	}
-
-	.amenitie-icon {
-		font-size: 2rem;
-		position: absolute;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		top: 50%;
-	}
-
-	.icons-amenities {
-
-		div {
-			width: 23%;
-		}
-	}
+	.call-info-modal-container {
+        .close-modal {
+            right: 26%;
+        }
+    }
 }
 
 @include from-breakpoint('desktop-s') {
-	swiper {
-		width: 100%;
-	}
-	.nearby-locations-container {
-		.office-list-card {
-			width: 285px !important;
-		}
-	}
+    swiper {
+        width: 100%;
+    }
 
-	.nearby-locations-container {
-		width: 100%;
-		padding: 0 2rem;
-	}
+    .nearby-locations-container {
+        .office-list-card {
+            width: 285px !important;
+        }
+    }
+
+    .nearby-locations-container {
+        width: 100%;
+        padding: 0 2rem;
+    }
 }
 
 @include from-breakpoint('desktop') {
-	.details-office-container {
-		.container-details {
-			width: 70%;
-		}
-		.container-side-form {
-			padding-left: 20px;
-			width: 30%;
-		}
-	}
-	.cont-title-section,
-	.detail-container {
-		margin: 0 0 20px 4%;
-		width: 60%;
-	}
+    .details-office-container {
+        .container-details {
+            width: 70%;
+        }
 
-	.description-type {
-		font-size: 0.8rem;
-	}
+        .container-side-form {
+            padding-left: 20px;
+            width: 30%;
+        }
+    }
 
-	.title-detail {
-		margin-bottom: 10px;
-	}
+    .cont-title-section,
+    .detail-container {
+        margin: 0 0 20px 4%;
+        width: 60%;
+    }
 
-	.container-princing-types {
-		.cont-type-pricing {
-			width: 30%;
-		}
-	}
+    .description-type {
+        font-size: 0.8rem;
+    }
 
-	.icons-amenities {
-		div {
-			width: 20%;
-		}
+    .title-detail {
+        margin-bottom: 10px;
+    }
 
-		.title-amenitie {
-			font-size: 1rem;
-		}
-	}
+    .container-princing-types {
+        .cont-type-pricing {
+            width: 30%;
+        }
+    }
 
-	.office-list-card {
-		margin-right: 20px !important;
-		width: 280px !important;
-	}
+    .icons-amenities {
+        div {
+            width: 20%;
+        }
 
-	.container-form-inquire {
-		top: 145px;
-		display: inline-block;
-		position: sticky;
-		width: 100%;
-	}
+        .title-amenitie {
+            font-size: 1rem;
+        }
+    }
 
-	.cont-swiper-nearby {
-		margin: 0;
-		width: 100%;
-	}
+    .office-list-card {
+        margin-right: 20px !important;
+        width: 280px !important;
+    }
 
-	.title-name-office {
-		font-size: 1.2rem;
-		line-height: 1.2rem;
-		height: 42px;
+    .container-form-inquire {
+        top: 145px;
+        display: inline-block;
+        position: sticky;
+        width: 100%;
+    }
 
-		&.detail-office {
-			font-size: 1.4rem;
-			height: auto;
-		}
-	}
+    .cont-swiper-nearby {
+        margin: 0;
+        width: 100%;
+    }
 
-	.container-map-detail {
-		height: 320px;
-	}
+    .title-name-office {
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+        height: 42px;
 
+        &.detail-office {
+            font-size: 1.4rem;
+            height: auto;
+        }
+    }
+
+    .container-map-detail {
+        height: 320px;
+    }
 }
-

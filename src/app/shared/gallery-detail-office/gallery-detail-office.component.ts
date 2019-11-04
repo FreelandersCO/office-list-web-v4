@@ -1,21 +1,30 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 
 @Component({
 	selector: 'office-list-gallery-detail-office',
 	templateUrl: './gallery-detail-office.component.html',
 	styleUrls: ['./gallery-detail-office.component.scss']
 })
-export class GalleryDetailOfficeComponent implements OnChanges, OnInit {
+export class GalleryDetailOfficeComponent implements OnChanges {
 	@Input() images;
+	@Input() bcId;
 	_images;
+	_bcId;
+	openModalGallery = false;
 	constructor() { }
 
-	ngOnInit() {
-	}
 	ngOnChanges(changes: SimpleChanges) {
 		const images: SimpleChange = changes.images;
+		const bcId: SimpleChange = changes.bcId;
 		if (images.currentValue !== null) {
-			this._images = images.currentValue.splice(0,2);
+			this._images = images.currentValue.splice(0, 2);
 		}
+		if (bcId.currentValue !== null) {
+			this._bcId = bcId.currentValue;
+		}
+	}
+
+	toogleModalGallery() {
+		this.openModalGallery = !this.openModalGallery;
 	}
 }

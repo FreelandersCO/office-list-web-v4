@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { AgmCoreModule } from '@agm/core';
-
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 
@@ -11,7 +12,6 @@ import { BcSliderComponent } from './bc-slider/bc-slider.component';
 import { MapComponent } from './map/map.component';
 import { BannerHomeComponent } from './banner-home/banner-home.component';
 import { ModalDetailComponent } from './modal-detail/modal-detail.component';
-import { SvglikeheartComponent } from './svglikeheart/svglikeheart.component';
 import { CallUsComponent } from './call-us/call-us.component';
 import { GalleryDetailOfficeComponent } from './gallery-detail-office/gallery-detail-office.component';
 import { FormInquireNowComponent } from './form-inquire-now/form-inquire-now.component';
@@ -20,6 +20,8 @@ import { ModalLoginSearchComponent } from './modal-login-search/modal-login-sear
 import { ModalSingupComponent } from './modal-singup/modal-singup.component';
 import { ModalPressedFormComponent } from './modal-pressed-form/modal-pressed-form.component';
 import { ModalScheduledTourComponent } from './modal-scheduled-tour/modal-scheduled-tour.component';
+import { FavoritesHeartComponent } from './favorites-heart/favorites-heart.component';
+import { NormalizaeString } from './utils/normalize-string.pipe';
 
 @NgModule({
 	imports: [
@@ -31,15 +33,18 @@ import { ModalScheduledTourComponent } from './modal-scheduled-tour/modal-schedu
 		}),
 		AgmJsMarkerClustererModule,
 		AutocompleteLibModule,
-		StorageServiceModule
+		StorageServiceModule,
+		FormsModule,
+		ReactiveFormsModule
 	],
 	declarations: [
+		NormalizaeString,
 		SearchInputComponent,
 		BcSliderComponent,
 		MapComponent,
 		BannerHomeComponent,
 		ModalDetailComponent,
-		SvglikeheartComponent,
+		FavoritesHeartComponent,
 		CallUsComponent,
 		GalleryDetailOfficeComponent,
 		FormInquireNowComponent,
@@ -47,15 +52,17 @@ import { ModalScheduledTourComponent } from './modal-scheduled-tour/modal-schedu
 		ModalLoginSearchComponent,
 		ModalSingupComponent,
 		ModalPressedFormComponent,
-		ModalScheduledTourComponent
+		ModalScheduledTourComponent,
+		FavoritesHeartComponent
 	],
 	exports: [
+		NormalizaeString,
 		SearchInputComponent,
 		BcSliderComponent,
 		MapComponent,
 		BannerHomeComponent,
 		ModalDetailComponent,
-		SvglikeheartComponent,
+		FavoritesHeartComponent,
 		FormInquireNowComponent,
 		GalleryDetailOfficeComponent,
 		MapDetailComponent,

@@ -1,21 +1,20 @@
 // Default breakpoints
 $breakpoints: (
-	mobile-xl: 569px,
+    mobile-xl: 569px,
     tablet: 768px,
     desktop-s: 960px,
     desktop: 1024px,
-	desktop-l: 1366px,
-	desktop-xl: 1920px
+    desktop-l: 1366px,
+    desktop-xl: 1920px
 );
 
 //Z-index
 $zindex: (
-	'base': 1,
+    'base': 1,
     'menu': 2,
 );
 
 $page-max-width: 1366px;
 
 $font-family: 'Roboto',
-sans-serif;
-
+    sans-serif;

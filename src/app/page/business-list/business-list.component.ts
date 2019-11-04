@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta , Title } from '@angular/platform-browser';
 
 import { ApiServicesService } from '@service/api-services.service';
 import { ActivatedRoute } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { EventEmitterService } from '@app/services/event-emitter.service';
 
 @Component({
 	selector: 'office-list-business-list',
@@ -25,7 +27,14 @@ export class BusinessListComponent implements OnInit {
 	city;
 	state;
 
-	constructor(private api: ApiServicesService, private route: ActivatedRoute, private deviceService: DeviceDetectorService) {
+	constructor(
+		private api: ApiServicesService,
+		private route: ActivatedRoute,
+		private deviceService: DeviceDetectorService,
+		private eventEmitter: EventEmitterService,
+		private meta: Meta,
+		private titleService: Title
+	) {
 		this.detailOfficeInfo = this.allFilters = this.filterArea = this.filterDistance = false;
 	}
 
@@ -34,7 +43,10 @@ export class BusinessListComponent implements OnInit {
 		this.route.params.subscribe(params => {
 			this.city = this.capitalizeWords(params['city']);
 			this.state = this.capitalizeWords(params['state']);
-			this.api.getBussinesList(params['country'], params['state'], params['city'], params['zip_code'])
+			const title = `Office Space for Rent ${this.city} :: OfficeList.com`;
+			this.titleService.setTitle( title );
+			this.api.getBussinesList(params['country'],
+				params['state'], params['city'], params['zip_code'])
 				.subscribe(result => this.bussinesCenter = result);
 		});
 	}
@@ -70,5 +82,9 @@ export class BusinessListComponent implements OnInit {
 
 	showMap() {
 		this.mapShow = !this.mapShow;
+	}
+
+	callSingUp() {
+		this.eventEmitter.toogleSingUpEmitter();
 	}
 }

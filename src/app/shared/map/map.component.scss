@@ -3,10 +3,10 @@
 agm-map {
     height: calc(100vh - 104px);
 
-	@include from-breakpoint('tablet') {
-		height: 100vh;
+    @include from-breakpoint('tablet') {
+        height: 100vh;
+    }
 
-	}
     @include from-breakpoint('desktop-s') {
         height: 100%;
         position: sticky;
