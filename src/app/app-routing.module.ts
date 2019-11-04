@@ -39,10 +39,6 @@ const routes: Routes = [
 		loadChildren: () => import('./page/page-coworking/page-coworking.module').then(m => m.PageCoworkingModule)
 	},
 	{
-		path: 'virtual-office',
-		loadChildren: () => import('./page/page-virtual/page-virtual.module').then(m => m.PageVirtualModule)
-	},
-	{
 		path: 'privacy',
 		loadChildren: () => import('./page/page-privacy/page-privacy.module').then(m => m.PagePrivacyModule)
 	},
