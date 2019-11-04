@@ -25,6 +25,7 @@ import { ModalScheduledTourComponent } from './modal-scheduled-tour/modal-schedu
 import { FavoritesHeartComponent } from './favorites-heart/favorites-heart.component';
 import { NormalizaeString } from './utils/normalize-string.pipe';
 import { LazyLoadImagesModule } from './lazy-load-images/lazy-load-images.module';
+import { FormRegisterComponent } from './form-register/form-register.component';
 
 @NgModule({
 	imports: [
@@ -61,7 +62,8 @@ import { LazyLoadImagesModule } from './lazy-load-images/lazy-load-images.module
 		ModalSingupComponent,
 		ModalPressedFormComponent,
 		ModalScheduledTourComponent,
-		FavoritesHeartComponent
+		FavoritesHeartComponent,
+		FormRegisterComponent
 	],
 	exports: [
 		NormalizaeString,

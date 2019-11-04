@@ -1,0 +1,35 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+	<div class="group-form">
+		<input type="text" class="input-default" required formControlName="fullName"
+			[ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
+		<label for="" class="label-default">Full name*</label>
+	</div>
+	<div class="group-form">
+		<input type="text" class="input-default" required formControlName="company"
+			[ngClass]="{ 'is-invalid': submitted && f.company.errors }">
+		<label for="" class="label-default">Company*</label>
+	</div>
+	<div class="group-form">
+		<input type="email" class="input-default" required formControlName="email"
+			[ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+		<label for="" class="label-default">Email*</label>
+	</div>
+	<div class="group-form">
+		<input type="text" class="input-default" required formControlName="phone"
+			[ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+		<label for="" class="label-default">Phone number*</label>
+	</div>
+	<div class="group-form full-width">
+		<textarea class="input-default textarea-input" formControlName="comments"
+			[ngClass]="{ 'is-invalid': submitted && f.comments.errors }"
+			placeholder="Details on your search, such as: When do you want to move in? How many people/desks? Other specific requirements, budget, etc"></textarea>
+		<label for="" class="label-default">Comments</label>
+	</div>
+	<div class="container-button-modal" *ngIf="!inquired">
+		<button class="button-default primary" type="submit">Save your favorites</button>
+	</div>
+	<div class="container-inquire-buttons" *ngIf="inquired">
+		<button class="button-default secondary-line">Request tour</button>
+		<button class="button-default primary" type="submit">Inquire</button>
+	</div>
+</form>

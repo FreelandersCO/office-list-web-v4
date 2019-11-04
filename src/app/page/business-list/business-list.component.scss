@@ -161,14 +161,28 @@
 
     .button-icon-grid {
         float: right;
+        display: none;
+
+        .active {
+            color: colors('primary');
+        }
     }
 
     .button-icon-list {
         float: right;
+        display: none;
+
+        .active {
+            color: colors('primary');
+        }
     }
 
     .button-icon-filter {
         float: right;
+
+        .active {
+            color: colors('primary');
+        }
     }
 
     .btn-icon {
@@ -294,8 +308,8 @@
 
         .title-name-office,
         .name-city {
-			font-size: 1rem;
-			cursor: pointer;
+            font-size: 1rem;
+            cursor: pointer;
         }
 
         .price-container {
@@ -365,6 +379,7 @@
 
         .button-icon {
             background: colors('white-7');
+            box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.2);
             border-radius: 100%;
             font-size: 1rem;
             height: 30px;
@@ -372,13 +387,19 @@
             right: 12px;
             top: 12px;
             width: 30px;
+
+            .zwicon-plus {
+                top: 7px;
+                position: absolute;
+                left: 7px;
+            }
         }
     }
 
     .text-default {
         font-size: 0.9rem;
-		padding-right: 28px;
-		cursor: pointer;
+        padding-right: 28px;
+        cursor: pointer;
 
         em {
             color: colors('black-6');
@@ -469,6 +490,16 @@
 }
 
 @include from-breakpoint('tablet') {
+    .filter-container {
+        .button-icon-grid {
+            display: block;
+        }
+
+        .button-icon-list {
+            display: block;
+        }
+    }
+
     .result-container {
         padding: 0 1rem;
         justify-content: space-between;

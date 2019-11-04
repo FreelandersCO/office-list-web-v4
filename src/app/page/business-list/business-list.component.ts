@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta , Title } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 
 import { ApiServicesService } from '@service/api-services.service';
 import { ActivatedRoute } from '@angular/router';
@@ -13,13 +13,13 @@ import { EventEmitterService } from '@app/services/event-emitter.service';
 })
 export class BusinessListComponent implements OnInit {
 	public selectedBusiness;
-	public detailOfficeInfo;
-	public filterDistance;
-	public allFilters;
-	public filterArea;
+	public detailOfficeInfo = false;
+	public filterDistance = false;
+	public allFilters = false;
+	public filterArea = false;
 	public officeInfo;
 	public mapShow;
-	public listGrid = true;
+	public listGrid;
 	bussinesCenter;
 	areas;
 	originalData;
@@ -32,7 +32,6 @@ export class BusinessListComponent implements OnInit {
 		private route: ActivatedRoute,
 		private deviceService: DeviceDetectorService,
 		private eventEmitter: EventEmitterService,
-		private meta: Meta,
 		private titleService: Title
 	) {
 		this.detailOfficeInfo = this.allFilters = this.filterArea = this.filterDistance = false;
@@ -40,6 +39,7 @@ export class BusinessListComponent implements OnInit {
 
 	ngOnInit() {
 		this.mapShow = this.deviceService.isDesktop();
+		this.listGrid = !this.deviceService.isDesktop();
 		this.route.params.subscribe(params => {
 			this.city = this.capitalizeWords(params['city']);
 			this.state = this.capitalizeWords(params['state']);
@@ -70,9 +70,11 @@ export class BusinessListComponent implements OnInit {
 
 	showFilterArea() {
 		this.filterArea = !this.filterArea;
+		this.filterDistance = false;
 	}
 
 	showFilterDistance() {
+		this.filterArea = true;
 		this.filterDistance = !this.filterDistance;
 	}
 
