@@ -12,6 +12,7 @@ export class MapComponent implements OnInit, OnChanges {
 	// tslint:disable-next-line: ban-types
 	@Input() bussinesCenter: Object;
 	markersList;
+
 	constructor(private api: ApiServicesService, private route: ActivatedRoute) { }
 	// google maps zoom level
 	zoom = 11;
@@ -23,9 +24,6 @@ export class MapComponent implements OnInit, OnChanges {
 
 	ngOnInit() {
 		this.route.params.subscribe(params => {
-			/*this.api.getCoordinates(params['country'], params['state'], params['city']).subscribe(result =>
-				this.setInitialPoint(result)
-			);*/
 			this.api.getMapBC(params['country'], params['state'], params['city']).subscribe(result =>
 				this.setBcs(result)
 			);

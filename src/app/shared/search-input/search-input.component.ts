@@ -33,7 +33,7 @@ export class SearchInputComponent implements OnInit {
 		if (!elementList) {
 			this.api.getCityList().subscribe(result => {
 				this.optionsObj = result;
-				this.options = result;
+				this.options = this.optionsObj.map(item => item.name);
 				this.loading = false;
 				this.disable = false;
 				this.storage.set(this.STORAGE_KEY, result);
