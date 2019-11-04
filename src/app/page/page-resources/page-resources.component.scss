@@ -1,0 +1,66 @@
+.type-office-container {
+    display: flex;
+    flex-direction: column;
+
+    .type-office {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 312px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        padding: 10px;
+        position: relative;
+        width: 100%;
+
+        &.privatte-office {
+            background-image: url('assets/images/img-private-office.jpg');
+        }
+
+        &.coworking {
+            background-image: url('assets/images/img-coworking.jpg');
+        }
+
+        &.virtual-office {
+            background-image: url('assets/images/img-virtual-office.jpg');
+        }
+
+        .name-type-office {
+            background: linear-gradient(to bottom, colors('black-0'), colors('black'));
+            bottom: 0;
+            color: colors('white');
+            height: 80px;
+            left: 0;
+            padding: 10px;
+            position: absolute;
+            width: 100%;
+        }
+
+        .name-office {
+            font-size: 2.6rem;
+            font-weight: 700;
+        }
+
+        .detail-office-container {
+            background-color: colors('primary-9');
+            bottom: -312px;
+            color: colors('white');
+            height: 100%;
+            left: 0;
+            padding: 40px 20px 0;
+            position: absolute;
+            width: 100%;
+
+            .text-detail-info {
+                font-size: 1.2rem;
+                font-weight: 300;
+            }
+
+            .title-detail-office {
+                font-size: 1.1rem;
+                font-weight: 700;
+                margin: 10px 0;
+            }
+        }
+    }
+}

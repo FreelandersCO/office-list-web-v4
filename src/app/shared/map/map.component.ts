@@ -2,6 +2,8 @@ import { Component, OnInit, Input, SimpleChanges, SimpleChange, OnChanges } from
 import { ApiServicesService } from '@service/api-services.service';
 import { ActivatedRoute } from '@angular/router';
 
+//import { StyleData } from './map.style.json';
+
 @Component({
 	selector: 'office-list-map',
 	templateUrl: './map.component.html',
@@ -9,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class MapComponent implements OnInit, OnChanges {
+
 	// tslint:disable-next-line: ban-types
 	@Input() bussinesCenter: Object;
 	markersList;
