@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit {
 	public optionsNavShow = 'Show';
 	public showSignUp = false;
 	public showLogin = false;
+	public showTour = false;
 	bcFavorites;
 	favoritesCount;
 	constructor(private eventEmitterService: EventEmitterService, private localStorageService: LocalStorageService) { }
@@ -60,6 +61,9 @@ export class HeaderComponent implements OnInit {
 			});
 			this.eventEmitterService.favoriteAdded.subscribe((name: string) => {
 				this.getBussinesFavorites();
+			});
+			this.eventEmitterService.toogleTourHeader.subscribe((name: string) => {
+				this.toogleTour();
 			});
 		}
 		this.getBussinesFavorites();
@@ -85,5 +89,9 @@ export class HeaderComponent implements OnInit {
 	showOptionsNav() {
 		this.optionsNav = !this.optionsNav;
 		this.optionsNavShow = this.optionsNav ? 'Show' : 'Hide';
+	}
+
+	toogleTour() {
+		this.showTour = !this.showTour;
 	}
 }

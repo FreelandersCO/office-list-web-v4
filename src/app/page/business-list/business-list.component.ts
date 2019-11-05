@@ -49,6 +49,18 @@ export class BusinessListComponent implements OnInit {
 				params['state'], params['city'], params['zip_code'])
 				.subscribe(result => this.bussinesCenter = result);
 		});
+		if (this.eventEmitter.subsVar === undefined) {
+			this.eventEmitter.toogleDetails.subscribe((name: string) => {
+				this.detailOfficeInfo = !this.detailOfficeInfo;
+				this.callSingUp();
+			});
+
+			this.eventEmitter.toogleTour.subscribe((name: string) => {
+				this.detailOfficeInfo = !this.detailOfficeInfo;
+				this.callTour();
+			});
+
+		}
 	}
 
 	capitalizeWords(str) {
@@ -88,5 +100,9 @@ export class BusinessListComponent implements OnInit {
 
 	callSingUp() {
 		this.eventEmitter.toogleSingUpEmitter();
+	}
+
+	callTour() {
+		this.eventEmitter.toogleTourHeaderEmitter();
 	}
 }

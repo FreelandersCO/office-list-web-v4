@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 
 import { ApiServicesService } from '@app/services/api-services.service';
+import { EventEmitterService } from '@app/services/event-emitter.service';
 
 @Component({
 	selector: 'office-list-modal-detail',
@@ -11,14 +12,15 @@ export class ModalDetailComponent implements OnChanges, OnInit {
 	@Input() businessId;
 	business;
 
-	public modalDetailInfo: boolean;
+	modalDetailInfo: boolean;
 
-	constructor(private api: ApiServicesService) {
+	constructor(private api: ApiServicesService, private eventEmitter: EventEmitterService) {
 		this.modalDetailInfo = true;
 	}
 
 	ngOnInit() {
 	}
+
 	ngOnChanges(changes: SimpleChanges) {
 		const businessId: SimpleChange = changes.businessId;
 		if (businessId.currentValue != null) {
@@ -26,7 +28,17 @@ export class ModalDetailComponent implements OnChanges, OnInit {
 					.subscribe(result => this.business = result);
 		}
 	}
-	public onCloseClick() {
+	openSignUp() {
+		this.closeModal();
+		this.eventEmitter.detailsEmitter();
+	}
+
+	openTour() {
+		this.closeModal();
+		this.eventEmitter.toogleTourEmitter();
+	}
+
+	closeModal() {
 		this.modalDetailInfo = false;
 	}
 }

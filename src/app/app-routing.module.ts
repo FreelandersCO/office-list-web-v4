@@ -44,7 +44,7 @@ const routes: Routes = [
 	},
 	{
 		path: 'site-map',
-		loadChildren: () => import('./page/page-Sitemap/page-Sitemap.module').then(m => m.PageSitemapModule)
+		loadChildren: () => import('./page/page-sitemap/page-sitemap.module').then(m => m.PageSitemapModule)
 	},
 ];
 

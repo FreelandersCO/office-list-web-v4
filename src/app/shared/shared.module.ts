@@ -5,8 +5,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
-import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { AgmCoreModule } from '@agm/core';
+import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 
 import { SearchInputComponent } from './search-input/search-input.component';
@@ -26,6 +27,7 @@ import { FavoritesHeartComponent } from './favorites-heart/favorites-heart.compo
 import { NormalizaeString } from './utils/normalize-string.pipe';
 import { LazyLoadImagesModule } from './lazy-load-images/lazy-load-images.module';
 import { FormRegisterComponent } from './form-register/form-register.component';
+import { MapCardComponent } from './map-card/map-card.component';
 
 @NgModule({
 	imports: [
@@ -44,7 +46,8 @@ import { FormRegisterComponent } from './form-register/form-register.component';
 		ReactiveFormsModule,
 		MatAutocompleteModule,
 		MatFormFieldModule,
-		MatInputModule
+		MatInputModule,
+		AgmSnazzyInfoWindowModule
 	],
 	declarations: [
 		NormalizaeString,
@@ -63,7 +66,8 @@ import { FormRegisterComponent } from './form-register/form-register.component';
 		ModalPressedFormComponent,
 		ModalScheduledTourComponent,
 		FavoritesHeartComponent,
-		FormRegisterComponent
+		FormRegisterComponent,
+		MapCardComponent
 	],
 	exports: [
 		NormalizaeString,

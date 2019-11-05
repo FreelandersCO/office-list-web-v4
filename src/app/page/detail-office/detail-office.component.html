@@ -1,5 +1,6 @@
 <section class="container-gallery-detail">
-	<office-list-gallery-detail-office [images]="bussinesCenter?.images" [bcId]="bussinesCenter?.buscenter_id"></office-list-gallery-detail-office>
+	<office-list-gallery-detail-office [images]="bussinesCenter?.images" [bcId]="bussinesCenter?.buscenter_id">
+	</office-list-gallery-detail-office>
 </section>
 <section class="details-office-container">
 	<div class="container-details">
@@ -17,7 +18,8 @@
 		<div class="detail-container-info">
 			<h4 class="title-detail">Pricing</h4>
 			<div class="container-princing-types">
-				<div class="card-white cont-type-pricing" *ngIf="showPrivateOffice" [ngClass]="{'active': activePrivate}" (click)="openPrivate()">
+				<div class="card-white cont-type-pricing" *ngIf="showPrivateOffice"
+					[ngClass]="{'active': activePrivate}" (click)="openPrivate()">
 					<figure class="image-type">
 						<img src="assets/images/img-private-office.jpg" alt="">
 					</figure>
@@ -28,7 +30,8 @@
 					<p class="title-starting">Starting at :</p>
 					<p class="price-starting">${{privateOffice.off_pricing}}</p>
 				</div>
-				<div class="card-white cont-type-pricing" *ngIf="showCoWorking" [ngClass]="{'active': activeCoWorking}"  (click)="openCoWorking()">
+				<div class="card-white cont-type-pricing" *ngIf="showCoWorking" [ngClass]="{'active': activeCoWorking}"
+					(click)="openCoWorking()">
 					<figure class="image-type">
 						<img src="assets/images/img-coworking.jpg" alt="">
 					</figure>
@@ -39,7 +42,8 @@
 					<p class="title-starting">Starting at :</p>
 					<p class="price-starting">${{coWorking.off_pricing}}</p>
 				</div>
-				<div class="card-white cont-type-pricing" *ngIf="showVirtualOffice" [ngClass]="{'active': activeVirtual}"  (click)="openVirtual()">
+				<div class="card-white cont-type-pricing" *ngIf="showVirtualOffice"
+					[ngClass]="{'active': activeVirtual}" (click)="openVirtual()">
 					<figure class="image-type">
 						<img src="assets/images/img-virtual-office.jpg" alt="">
 					</figure>
@@ -86,7 +90,10 @@
 							</ul>
 						</div>
 					</div>
-					<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true"></office-list-favorites-heart>
+					<div class="button-like-type">
+						<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true">
+						</office-list-favorites-heart>
+					</div>
 				</div>
 				<!--Co Working-->
 				<ng-container *ngIf="showCoWorking && activeCoWorking">
@@ -121,9 +128,10 @@
 								</ul>
 							</div>
 						</div>
-						<button class="button-like-type">
-							<i class="zwicon-heart"></i>
-						</button>
+						<div class="button-like-type">
+							<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true">
+							</office-list-favorites-heart>
+						</div>
 					</div>
 					<div class="card-white princing-type" *ngIf="showDedicated">
 						<div class="container-titles">
@@ -137,7 +145,8 @@
 							</div>
 						</div>
 						<p class="description-type">
-							A desk of your own in a shared environment with a lockable file cabinet. Same desk every day so feel free to personalize it.
+							A desk of your own in a shared environment with a lockable file cabinet. Same desk every day
+							so feel free to personalize it.
 						</p>
 						<div class="container-description-items">
 							<div class="includes-container">
@@ -154,13 +163,15 @@
 									<li>- Startups</li>
 									<li>- Small teams</li>
 									<li>- Freelancers</li>
-									<li>- Collaborative teams for everyday workCompanies whose main objective is to network.</li>
+									<li>- Collaborative teams for everyday workCompanies whose main objective is to
+										network.</li>
 								</ul>
 							</div>
 						</div>
-						<button class="button-like-type">
-							<i class="zwicon-heart"></i>
-						</button>
+						<div class="button-like-type">
+							<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true">
+							</office-list-favorites-heart>
+						</div>
 					</div>
 				</ng-container>
 				<!--Vritual-->
@@ -195,7 +206,10 @@
 							</ul>
 						</div>
 					</div>
-					<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true"></office-list-favorites-heart>
+					<div class="button-like-type">
+						<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true">
+						</office-list-favorites-heart>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -205,13 +219,13 @@
 				{{bussinesCenter?.detailed_intro}}
 			</p>
 		</div>
-		<div class="detail-container-info" *ngIf="bussinesCenter?.amenities.length>0">
+		<div class="detail-container-info" *ngIf="bussinesCenter?.amenities.length > 0">
 			<h4 class="title-detail">Amenities</h4>
 			<ul class="icons-amenities">
 				<li *ngFor="let amenitie of bussinesCenter?.amenities">
-					<figure class="container-icon"  tooltip tooltip-top tooltip-content="This tooltip is at the top">
+					<button class="container-icon" matTooltip="{{amenitie.description}}">
 						<i class="amenitie-icon {{amenitie.icon}}"></i>
-					</figure>
+					</button>
 					<p class="title-amenitie">
 						{{amenitie.name}}
 					</p>
@@ -247,15 +261,20 @@
 						</button>
 					</figure>
 					<div class="info-office-container">
-						<p class="text-default" routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">{{bc.descriptive_title}}</p>
-						<h3 class="title-name-office" routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">{{bc.cross_streets}}</h3>
+						<p class="text-default"
+							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
+							{{bc.descriptive_title}}</p>
+						<h3 class="title-name-office"
+							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
+							{{bc.cross_streets}}</h3>
 						<p class="name-city">{{bc.city}}, {{bc.zip_code}}</p>
 						<span class="badge-city">{{bc.area_name}}</span>
 						<p class="phone-number">
 							<i class="zwicon-phone"></i>
 							{{bc.phone}}
 						</p>
-						<div class="price-container" routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
+						<div class="price-container"
+							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
 							<button class="button-show-price">
 								<h3 class="title-price">
 									Starting at :
@@ -286,11 +305,10 @@
 	</div>
 </section>
 <div class="call-info-modal-container" *ngIf="detailOfficeInfo">
-		<div class="close-modal">
-			<button class="close-button-modal" (click)="showModalDetail()">
-				<i class="zwicon-close"></i>
-			</button>
-		</div>
-		<office-list-modal-detail [businessId]="selectedBusiness"></office-list-modal-detail>
+	<div class="close-modal">
+		<button class="close-button-modal" (click)="showModalDetail()">
+			<i class="zwicon-close"></i>
+		</button>
 	</div>
-
+	<office-list-modal-detail [businessId]="selectedBusiness"></office-list-modal-detail>
+</div>

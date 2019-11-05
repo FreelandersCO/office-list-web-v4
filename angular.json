@@ -31,7 +31,8 @@
               "src/styles.scss",
               "src/styles/icons/amenities.scss",
               "src/styles/icons/zwicons.scss",
-              "./node_modules/swiper/css/swiper.css"
+              "./node_modules/swiper/css/swiper.css",
+			  "node_modules/snazzy-info-window/dist/snazzy-info-window.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [

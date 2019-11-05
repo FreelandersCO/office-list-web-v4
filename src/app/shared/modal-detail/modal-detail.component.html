@@ -2,10 +2,10 @@
 	<div class="card-modal-info card-white">
 		<p class="text-default ">{{business?.descriptive_title}}</p>
 		<h3 class="title-name-office">{{business?.cross_streets}}</h3>
-		<p class="name-city">{{business?.city}}, {{business?.state}} {{business?.zip_code}}</p>
+		<p class="name-city">{{business?.city}}, {{business?.state}} {{business?.zipcode}}</p>
 		<p class="phone-number">
 			<i class="zwicon-phone"></i>
-			{{business?.phone}}
+			{{business?.number_tel}}
 		</p>
 		<div class="body-modal-info">
 			<office-list-bc-slider [images]="business?.images"></office-list-bc-slider>
@@ -42,12 +42,8 @@
 				</p>
 			</div>
 			<div class="view-more">
-				<button class="button-default primary">
-					<i class="zwicon-phone"></i> Call us
-				</button>
-				<button class="button-default secondary-line">
-					<i class="zwicon-receipt"></i> Inquire
-				</button>
+				<button class="button-default secondary-line" (click)="openTour()"><i class="zwicon-earth-alt"></i> Request tour</button>
+				<button class="button-default primary" (click)="openSignUp()"><i class="zwicon-receipt"></i> Inquire</button>
 			</div>
 		</div>
 	</div>

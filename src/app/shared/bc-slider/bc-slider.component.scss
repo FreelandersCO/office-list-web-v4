@@ -21,7 +21,7 @@
         width: 100%;
 
         img {
-            max-height: 300px;
+            max-height: 200px;
             width: auto;
             margin: 0 auto;
 
@@ -57,4 +57,16 @@
         float: left;
         left: 0.5rem;
     }
+}
+
+@include from-breakpoint('mobile-xl') {
+	.bc-card-slider .bc-card-img img {
+		max-height: 250px;
+	}
+}
+
+@include from-breakpoint('tablet') {
+	.bc-card-slider .bc-card-img img {
+		max-height: 300px;
+	}
 }
