@@ -1,11 +1,58 @@
 <section class="container-gallery-detail">
-		<office-list-gallery-detail-office [images]="bussinesCenter?.images" [bcId]="bussinesCenter?.buscenter_id"></office-list-gallery-detail-office>
-	</section>
-	<section class="details-office-container">
-		<div class="container-details">
-			<div class="cont-title-sections	">
-				<div class="container-breadcrumbs">
-					<a class="linktoback" href="javascript: history.go(-1)"> &lt; Back to list </a>
+	<office-list-gallery-detail-office [images]="bussinesCenter?.images" [bcId]="bussinesCenter?.buscenter_id">
+	</office-list-gallery-detail-office>
+</section>
+<section class="details-office-container">
+	<div class="container-details">
+		<div class="cont-title-sections	">
+			<div class="container-breadcrumbs">
+				<a class="linktoback" href="javascript: history.go(-1)"> &lt; Back to list </a>
+			</div>
+			<p class="text-default">{{bussinesCenter?.descriptive_title}}</p>
+			<h1 class="title-name-office detail-office">{{bussinesCenter?.cross_streets}}</h1>
+			<p class="name-city">{{bussinesCenter?.city}}, {{bussinesCenter?.state}}
+				{{bussinesCenter?.zipcode}}</p>
+			<span class="badge-city">{{bussinesCenter?.area_name}}</span>
+			<hr class="line-detail">
+		</div>
+		<div class="detail-container-info">
+			<h4 class="title-detail">Pricing</h4>
+			<div class="container-princing-types">
+				<div class="card-white cont-type-pricing" *ngIf="showPrivateOffice"
+					[ngClass]="{'active': activePrivate}" (click)="openPrivate()">
+					<figure class="image-type">
+						<img src="assets/images/img-private-office.jpg" alt="">
+					</figure>
+					<button class="button-show-pricing">
+						Private Office
+						<i class="zwicon-chevron-down"></i>
+					</button>
+					<p class="title-starting">Starting at :</p>
+					<p class="price-starting">${{privateOffice.off_pricing}}</p>
+				</div>
+				<div class="card-white cont-type-pricing" *ngIf="showCoWorking" [ngClass]="{'active': activeCoWorking}"
+					(click)="openCoWorking()">
+					<figure class="image-type">
+						<img src="assets/images/img-coworking.jpg" alt="">
+					</figure>
+					<button class="button-show-pricing">
+						Coworking
+						<i class="zwicon-chevron-down"></i>
+					</button>
+					<p class="title-starting">Starting at :</p>
+					<p class="price-starting">${{coWorking.off_pricing}}</p>
+				</div>
+				<div class="card-white cont-type-pricing" *ngIf="showVirtualOffice"
+					[ngClass]="{'active': activeVirtual}" (click)="openVirtual()">
+					<figure class="image-type">
+						<img src="assets/images/img-virtual-office.jpg" alt="">
+					</figure>
+					<button class="button-show-pricing">
+						Virtual Office
+						<i class="zwicon-chevron-down"></i>
+					</button>
+					<p class="title-starting">Starting at :</p>
+					<p class="price-starting">${{virtualOffice.off_pricing}}</p>
 				</div>
 				<p class="text-default">{{bussinesCenter?.descriptive_title}}</p>
 				<h1 class="title-name-office detail-office">{{bussinesCenter?.cross_streets}}</h1>

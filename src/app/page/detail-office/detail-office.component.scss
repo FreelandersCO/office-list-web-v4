@@ -3,7 +3,6 @@
 @import '../business-list/business-list.component.scss';
 
 .container-gallery-detail {
-    height: 360px;
     margin: 0;
     padding: 0;
 }
@@ -181,10 +180,10 @@
     font-size: 1.4rem;
     line-height: 0;
     left: 50%;
-    height: 30px;
+    height: 35px;
     position: absolute;
     transform: translate(-50%, 0%);
-    width: 30px;
+    width: 35px;
 }
 
 .description-office-text {
@@ -293,8 +292,7 @@
         justify-content: space-around;
 
         li {
-			padding: 4px;
-			width: 50%;
+            padding: 4px;
         }
 
         .price-office {
@@ -417,7 +415,9 @@ swiper {
 @include from-breakpoint('tablet') {
     .pricings-detail-container {
         display: flex;
-        flex-wrap: wrap;
+		flex-wrap: wrap;
+		width: 80%;
+		margin: 0 auto;
 
         .princing-type {
             flex-grow: 1;
@@ -467,9 +467,9 @@ swiper {
         div {
             width: 23%;
         }
-	}
+    }
 
-	.call-info-modal-container {
+    .call-info-modal-container {
         .close-modal {
             right: 26%;
         }
@@ -494,6 +494,10 @@ swiper {
 }
 
 @include from-breakpoint('desktop') {
+	.pricings-detail-container {
+		width: 90%;
+	}
+
     .details-office-container {
         .container-details {
             width: 70%;
@@ -566,4 +570,12 @@ swiper {
     .container-map-detail {
         height: 320px;
     }
+}
+
+@include from-breakpoint('desktop-l') {
+
+	.pricings-detail-container {
+		width: 60%;
+	}
+
 }

@@ -176,8 +176,8 @@
 
 @include from-breakpoint('mobile-xl') {
     .item-doit-container {
-		flex-wrap: wrap;
-		flex-direction: initial;
+        flex-wrap: wrap;
+        flex-direction: initial;
 
         .itemhw-container {
             flex-grow: 1;

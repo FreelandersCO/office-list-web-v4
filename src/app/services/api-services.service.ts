@@ -49,14 +49,6 @@ export class ApiServicesService {
 				catchError(this.handleError)
 			);
 	}
-	// tslint:disable-next-line: ban-types
-	getCoordinates(country, state, city): Observable<Object> {
-		return this.http.get(`${this.apiURL}/BusinessCenter/Coordinates/${country}/${state}/${city}`)
-			.pipe(
-				retry(1),
-				catchError(this.handleError)
-			);
-	}
 
 	// tslint:disable-next-line: ban-types
 	getMapBC(country, state, city): Observable<Object> {
@@ -66,6 +58,7 @@ export class ApiServicesService {
 				catchError(this.handleError)
 			);
 	}
+
 	// tslint:disable-next-line: ban-types
 	getCityList(): Observable<Object> {
 		return this.http.get(`${this.apiURL}/AutoComplete/City/`)
@@ -74,6 +67,7 @@ export class ApiServicesService {
 				catchError(this.handleError)
 			);
 	}
+
 	setRegistry(data) {
 		return this.http.post(`${this.apiURL}/User/Register/`, data)
 			.pipe(

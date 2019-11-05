@@ -2,8 +2,6 @@ import { Component, OnInit, Input, SimpleChanges, SimpleChange, OnChanges } from
 import { ApiServicesService } from '@service/api-services.service';
 import { ActivatedRoute } from '@angular/router';
 
-//import { StyleData } from './map.style.json';
-
 @Component({
 	selector: 'office-list-map',
 	templateUrl: './map.component.html',
@@ -11,10 +9,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class MapComponent implements OnInit, OnChanges {
-
-	// tslint:disable-next-line: ban-types
-	@Input() bussinesCenter: Object;
+	@Input() bussinesCenter;
 	markersList;
+	selectBussines;
+
 	constructor(private api: ApiServicesService, private route: ActivatedRoute) { }
 	// google maps zoom level
 	zoom = 11;
@@ -26,9 +24,6 @@ export class MapComponent implements OnInit, OnChanges {
 
 	ngOnInit() {
 		this.route.params.subscribe(params => {
-			/*this.api.getCoordinates(params['country'], params['state'], params['city']).subscribe(result =>
-				this.setInitialPoint(result)
-			);*/
 			this.api.getMapBC(params['country'], params['state'], params['city']).subscribe(result =>
 				this.setBcs(result)
 			);
@@ -83,5 +78,8 @@ export class MapComponent implements OnInit, OnChanges {
 	setBcs(bussinesCenters) {
 		this.setInitialPoint(bussinesCenters);
 		this.markersList = bussinesCenters;
+	}
+	clickedMarker(bdId) {
+		this.api.getBussinesDetails(bdId).subscribe(res => this.selectBussines = res);
 	}
 }

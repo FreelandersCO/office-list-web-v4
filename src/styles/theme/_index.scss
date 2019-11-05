@@ -26,8 +26,8 @@ button {
     border-radius: 25px;
     font-size: 1.2rem;
     font-weight: 300;
-    margin: 20px auto;
-    padding: 10px 12px;
+    margin: 0.5rem auto;
+    padding: 0.5rem 12px;
     width: 100%;
 
     &.primary {
@@ -157,6 +157,7 @@ hr {
             border-radius: 6px;
             height: 70px;
             margin-bottom: 8px;
+            font-size: 0.8rem;
         }
 
         &.white {
@@ -169,8 +170,8 @@ hr {
             border: 1px red solid;
         }
 
-        &:focus+.label-default,
-        &:valid+.label-default {
+        &:focus + .label-default,
+        &:valid + .label-default {
             color: colors('primary');
             font-size: 70%;
             top: 0;
@@ -209,6 +210,10 @@ hr {
             position: absolute;
             top: 28px;
         }
+    }
+
+    &.full-width {
+        width: 100% !important;
     }
 
     .btn-icon-input {
@@ -304,7 +309,7 @@ hr {
     margin-bottom: 20px;
     padding: 20px;
     position: absolute;
-    top: 30px;
+    top: 2%;
     width: 90%;
 }
 
@@ -312,7 +317,7 @@ hr {
     text-align: right;
 
     .btn-icon-transparent {
-        color: colors('primary');
+        color: #CCC;
         font-size: 2rem;
         font-weight: 700;
         line-height: 0;
@@ -354,12 +359,12 @@ hr {
         font-size: 0.8rem;
         margin: 0 auto;
         text-align: center;
-		width: 60%;
+        width: 60%;
 
-		button {
-			color: colors('primary');
-			font-size: 1rem;
-		}
+        button {
+            color: colors('primary');
+            font-size: 1rem;
+        }
     }
 
     .text-end-forms-terms {
@@ -388,91 +393,32 @@ hr {
 }
 
 .container-info-pages {
-	article {
-		width: 90%;
-	}
+    article {
+        width: 90%;
+    }
 
-	p {
-		text-align: justify;
-	}
+    p {
+        text-align: justify;
+    }
 
-	.description-office-text {
-		list-style: decimal;
+    .description-office-text {
+        list-style: decimal;
 
-		li {
-			margin-bottom: 6px;
-		}
-	}
+        li {
+            margin-bottom: 6px;
+        }
+    }
 
-	.title-home {
-		margin-top: 40px;
-	}
-	.title-detail {
-		margin-bottom: 4px;
-		margin-top: 20px;
-	}
+    .title-home {
+        margin-top: 40px;
+    }
 
-	.line-end {
-		margin-bottom: 40px;
-	}
-	
-}
+    .title-detail {
+        margin-bottom: 4px;
+        margin-top: 20px;
+    }
 
-/* ToolTip */
-
-[tooltip] {
-    position: relative;
-}
-
-[tooltip]::before {
-    content: attr(tooltip-content);
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: calc(100% + 16px);
-    width: 200%;
-    padding: 8px 16px;
-    text-align: center;
-    text-transform: none;
-    font-size: 14px;
-    border-radius: 3px;
-    background: rgba(0, 0, 0, 0.7);
-    opacity: 0;
-    transform: translate(20px, -50%);
-    transition: all .2s ease-in-out .5s;
-    z-index: 1;
-}
-
-[tooltip-bottom]::before {
-    top: calc(100% + 16px);
-    left: 50%;
-    right: initial;
-    transform: translate(-50%, -20px);
-}
-
-[tooltip-bottom]:hover::before {
-    transform: translate(-50%, 0)
-}
-
-[tooltip-right]::before {
-    top: 50%;
-    left: calc(100% + 16px);
-    right: initial;
-    transform: translate(-20px, -50%);
-}
-
-[tooltip-right]:hover::before {
-    transform: translate(0, -50%);
-}
-
-[tooltip-top]::before {
-    top: initial;
-    left: 50%;
-    right: initial;
-    bottom: calc(100% + 16px);
-    transform: translate(-50%, 20px);
-}
-
-[tooltip-top]:hover::before {
-    transform: translate(-50%, 0);
+    .line-end {
+        margin-bottom: 40px;
+    }
 }

@@ -17,7 +17,7 @@ export class GalleryDetailOfficeComponent implements OnChanges {
 		const images: SimpleChange = changes.images;
 		const bcId: SimpleChange = changes.bcId;
 		if (images.currentValue !== null) {
-			this._images = images.currentValue.splice(0, 2);
+			this._images = images.currentValue;
 		}
 		if (bcId.currentValue !== null) {
 			this._bcId = bcId.currentValue;

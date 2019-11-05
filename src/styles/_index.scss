@@ -42,11 +42,11 @@ office-list-modal-scheduled-tour {
 @include from-breakpoint ('desktop') {
     .modal-default-site {
         left: 35%;
-        top: 20%;
+        top: 25%;
         width: 30%;
+        overflow: hidden;
 
         &.big-modal {
-            top: 90px;
             left: 25%;
             width: 50%;
 
@@ -70,7 +70,6 @@ office-list-modal-scheduled-tour {
 
                 .text-end-forms {
                     font-size: 1rem;
-                    margin-bottom: 103px;
                 }
 
                 .container-button-modal {
@@ -100,7 +99,6 @@ office-list-modal-scheduled-tour {
         width: 24%;
 
         &.big-modal {
-            top: 90px;
             left: 30%;
             width: 40%;
 
@@ -115,7 +113,7 @@ office-list-modal-scheduled-tour {
 @include from-breakpoint ('desktop-xl') {
     .modal-default-site {
         &.big-modal {
-            top: 90px;
+            top: 50px;
             left: 35%;
             width: 30%;
         }

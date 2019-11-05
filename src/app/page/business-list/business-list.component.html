@@ -20,19 +20,19 @@
 				</label>
 			</div>
 			<div class="button-icon-grid">
-				<button class="btn-icon" (click)="toogleGrid()">
+				<button class="btn-icon" (click)="toogleGrid()" [ngClass]="{'active': !listGrid}">
 					<i class="zwicon-grid"></i>
-					<p class="text-button-filter">View Grid</p>
+					<p class="text-button-filter">Grid View</p>
 				</button>
 			</div>
 			<div class="button-icon-list">
-				<button class="btn-icon" (click)="toogleGrid()">
+				<button class="btn-icon" (click)="toogleGrid()" [ngClass]="{'active': listGrid}">
 					<i class="zwicon-list-bullet"></i>
-					<p class="text-button-filter">View List</p>
+					<p class="text-button-filter">List View</p>
 				</button>
 			</div>
 			<div class="button-icon-filter">
-				<button class="btn-icon" (click)="showFilters()">
+				<button class="btn-icon" (click)="showFilters()" [ngClass]="{'active': allFilters}">
 					<i class="zwicon-filter"></i>
 					<p class="text-button-filter">Filters</p>
 				</button>
@@ -41,7 +41,7 @@
 		<div class="category-filter-container" *ngIf="allFilters">
 			<button class="btn-icon-filter" (click)="showFilterArea()">
 				<i class="zwicon-expand-alt"></i>
-				<p class="text-button-filter">Area</p>
+				<p class="text-button-filter">Neighborhoods</p>
 			</button>
 			<button class="btn-icon-filter" (click)="showFilterDistance()">
 				<i class="zwicon-expand"></i>

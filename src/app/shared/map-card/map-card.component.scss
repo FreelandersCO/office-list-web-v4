@@ -1,0 +1,31 @@
+@import 'index';
+
+.list-prices-office {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 4px 0 10px;
+    justify-content: space-around;
+
+    li {
+        padding: 4px;
+    }
+
+    .price-office {
+        color: colors('black-7');
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-align: center;
+
+        .title-descrption {
+            padding: 5px 0;
+        }
+    }
+
+    .type-office {
+        color: colors('black-5');
+        font-size: 0.8rem;
+        line-height: 1;
+        text-align: center;
+    }
+}
+

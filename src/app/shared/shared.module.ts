@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
-import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { AgmCoreModule } from '@agm/core';
-import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 
 import { SearchInputComponent } from './search-input/search-input.component';
@@ -22,6 +25,9 @@ import { ModalPressedFormComponent } from './modal-pressed-form/modal-pressed-fo
 import { ModalScheduledTourComponent } from './modal-scheduled-tour/modal-scheduled-tour.component';
 import { FavoritesHeartComponent } from './favorites-heart/favorites-heart.component';
 import { NormalizaeString } from './utils/normalize-string.pipe';
+import { LazyLoadImagesModule } from './lazy-load-images/lazy-load-images.module';
+import { FormRegisterComponent } from './form-register/form-register.component';
+import { MapCardComponent } from './map-card/map-card.component';
 
 @NgModule({
 	imports: [
@@ -32,10 +38,16 @@ import { NormalizaeString } from './utils/normalize-string.pipe';
 			apiKey: 'AIzaSyCop_zSgXsfr2eS48LTbflHNRx5N3Un3co'
 		}),
 		AgmJsMarkerClustererModule,
-		AutocompleteLibModule,
 		StorageServiceModule,
 		FormsModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		LazyLoadImagesModule,
+		FormsModule,
+		ReactiveFormsModule,
+		MatAutocompleteModule,
+		MatFormFieldModule,
+		MatInputModule,
+		AgmSnazzyInfoWindowModule
 	],
 	declarations: [
 		NormalizaeString,
@@ -53,7 +65,9 @@ import { NormalizaeString } from './utils/normalize-string.pipe';
 		ModalSingupComponent,
 		ModalPressedFormComponent,
 		ModalScheduledTourComponent,
-		FavoritesHeartComponent
+		FavoritesHeartComponent,
+		FormRegisterComponent,
+		MapCardComponent
 	],
 	exports: [
 		NormalizaeString,

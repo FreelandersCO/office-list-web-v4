@@ -1,4 +1,6 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+
 import { SwiperOptions } from 'swiper';
 import { ActivatedRoute } from '@angular/router';
 
@@ -31,7 +33,7 @@ export class DetailOfficeComponent implements OnInit {
 	activeCoWorking = false;
 	activeVirtual = false;
 	detailOfficeInfo = false;
-	constructor(private api: ApiServicesService, private route: ActivatedRoute) { }
+	constructor(private api: ApiServicesService, private route: ActivatedRoute, private titleService: Title) { }
 
 	ngOnInit() {
 		this.route.params.subscribe(params => {
@@ -39,6 +41,7 @@ export class DetailOfficeComponent implements OnInit {
 			const bcId = explote[explote.length - 1];
 			this.api.getBussinesDetails(bcId).subscribe(result => {
 				this.bussinesCenter = result;
+				this.titleService.setTitle('Offices in ' + this.bussinesCenter.cross_streets);
 				this.processOffice(result);
 			});
 		});
