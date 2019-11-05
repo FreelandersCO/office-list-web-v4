@@ -1,4 +1,6 @@
 @import 'index';
+@import '../mylist/mylist.component.scss';
+@import '../business-list/business-list.component.scss';
 
 .container-gallery-detail {
     height: 360px;
@@ -19,6 +21,10 @@
         cursor: pointer;
         font-weight: 300;
     }
+}
+
+.container-details {
+	width: 100%;
 }
 
 .text-default {

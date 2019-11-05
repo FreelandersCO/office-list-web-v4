@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
+
 import { MylistRoutingModule } from './mylist-routing.module';
 import { MylistComponent } from './mylist.component';
 
@@ -9,7 +11,8 @@ import { MylistComponent } from './mylist.component';
   declarations: [MylistComponent],
   imports: [
     CommonModule,
-    MylistRoutingModule
+	MylistRoutingModule,
+	NgxUsefulSwiperModule
   ]
 })
 export class MylistModule { }

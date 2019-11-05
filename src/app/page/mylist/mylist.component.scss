@@ -1,0 +1,32 @@
+@import 'index';
+
+.title-favorites {
+	font-size: 2rem;
+}
+
+.container-details {
+	margin-top: 6px;
+}
+
+.info-manager {
+	.title-detail {
+		font-size: 1rem;
+		margin-bottom: 4px;
+	}
+
+	.text-info-manager {
+		color: colors('black-4');
+		font-size: 1rem;
+		i {
+			font-size: 1rem;
+		}
+	}
+}
+
+.price-container {
+	&.info-manager{
+		padding: 4px !important;
+		min-height: auto !important;
+	}
+}
+

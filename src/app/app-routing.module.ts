@@ -41,11 +41,7 @@ const routes: Routes = [
 	{
 		path: 'privacy',
 		loadChildren: () => import('./page/page-privacy/page-privacy.module').then(m => m.PagePrivacyModule)
-	},
-	{
-		path: 'site-map',
-		loadChildren: () => import('./page/page-Sitemap/page-Sitemap.module').then(m => m.PageSitemapModule)
-	},
+	}
 ];
 
 @NgModule({
