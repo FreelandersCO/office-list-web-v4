@@ -1,4 +1,4 @@
-@import 'index';
+@import '../../../styles/index';
 
 .description-office-text {
     margin-bottom: 20px;
@@ -17,7 +17,7 @@
     flex-wrap: wrap;
     margin: 0 auto;
     width: 100%;
-	
+
     .container-info-year,
     .container-year {
         padding: 8px;
@@ -67,7 +67,7 @@
 @include from-breakpoint('desktop-s') {
     .line-time-cont {
         width: 50%;
-		
+
         .container-info-year,
         .container-year {
             padding: 20px;

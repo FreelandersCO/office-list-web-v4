@@ -69,11 +69,6 @@
 				Miles
 			</p>
 		</div>
-		<div class="calendar-filter-contaier" *ngIf="filterCalendar">
-			<button class="close-filter-button">
-				<i class="zwicon-close"></i>
-			</button>
-		</div>
 	</article>
 </section>
 <section class="result-list-container">
@@ -151,7 +146,7 @@
 
 <div class="call-info-modal-container" *ngIf="detailOfficeInfo">
 	<div class="close-modal">
-		<button class="close-button-modal" (click)="showModalDetail()">
+		<button class="close-button-modal" (click)="showModalDetail(null)">
 			<i class="zwicon-close"></i>
 		</button>
 	</div>

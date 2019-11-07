@@ -13,7 +13,7 @@ import { ButtonsmobileComponent } from './shared/buttonsmobile/buttonsmobile.com
 @NgModule({
 	imports: [
 		BrowserAnimationsModule,
-		BrowserModule,
+		BrowserModule.withServerTransition({ appId: 'serverApp' }),
 		HttpClientModule,
 		AppRoutingModule,
 		SharedModule
