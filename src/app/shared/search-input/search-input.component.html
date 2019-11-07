@@ -1,35 +1,28 @@
 <div class="autocomplete">
-	<!--ng-autocomplete #auto [data]="data" [searchKeyword]="keyword" placeHolder="Where? Type city or zip/post code"
+	<ng-autocomplete #auto [data]="options" [searchKeyword]="keyword" placeHolder="Where? Type city or zip/post code"
 		[isLoading]="loading" [disabled]="disable" (selected)='selectEvent($event)'
 		(inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
 		[minQueryLength]="3" [notFoundTemplate]="notFoundTemplate">
-	</ng-autocomplete-->
-	<!--ng-template #itemTemplate let-item>
+	</ng-autocomplete>
+	<ng-template #itemTemplate let-item>
 		<a [innerHTML]="item.name"></a>
 	</ng-template>
 
 	<ng-template #notFoundTemplate let-notFound>
-		<div [innerHTML]="notFound"></div>
-	</ng-template-->
+		<div> Please check your spelling or try another term </div>
+	</ng-template>
 
-	<!--mat-form-field class="field-container">
-		<input type="text" matInput [formControl]="searchControl" [matAutocomplete]="auto">
-	</mat-form-field>
-
-	<mat-autocomplete #auto="matAutocomplete">
-		<mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">{{option.name}}</mat-option>
-	</mat-autocomplete>
 	<button class="button-icon-input">
 		<i class="zwicon-search"></i>
-	</button-->
-	<mat-form-field class="example-full-width">
+	</button>
+	<!--mat-form-field class="example-full-width">
 		<input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="searchControl" [matAutocomplete]="auto">
 		<mat-autocomplete #auto="matAutocomplete" (optionSelected)='selectEvent($event.option.value)'>
 		  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
 			{{option}}
 		  </mat-option>
 		</mat-autocomplete>
-	  </mat-form-field>
+	  </mat-form-field-->
 </div>
 <!--button class="button-icon-home">
 	<i class="zwicon-my-location"></i>
