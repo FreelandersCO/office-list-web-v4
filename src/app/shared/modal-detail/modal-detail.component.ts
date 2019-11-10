@@ -41,4 +41,5 @@ export class ModalDetailComponent implements OnChanges, OnInit {
 	closeModal() {
 		this.modalDetailInfo = false;
 	}
+
 }

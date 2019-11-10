@@ -1,4 +1,4 @@
-<div class="map-card-container">
+<div class="map-card-container card-white">
 	<p class="text-default ">{{business?.descriptive_title}}</p>
 	<h3 class="title-name-office">{{business?.cross_streets}}</h3>
 	<p class="name-city">{{business?.city}}, {{business?.state}} {{business?.zipcode}}</p>
@@ -31,6 +31,12 @@
 
 				</ng-container>
 			</ul>
+
+		</div>
+		<div class="btn-container">
+			<button class="button-default primary" (click)="callSingUp()">
+				Get quote
+			</button>
 		</div>
 	</div>
 </div>

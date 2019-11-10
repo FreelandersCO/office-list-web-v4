@@ -1,7 +1,7 @@
 @import '../../../styles/index';
 @import '../mylist/mylist.component.scss';
 @import '../business-list/business-list.component.scss';
-
+@import '../../shared/bc-slider/bc-slider.component.scss';
 
 .container-gallery-detail {
     margin: 0;
@@ -553,7 +553,7 @@ swiper {
     }
 
     .cont-swiper-nearby {
-        margin: 0;
+        margin: 0 0 40px;
         width: 100%;
     }
 

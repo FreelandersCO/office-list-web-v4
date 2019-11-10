@@ -547,9 +547,29 @@
 
     .call-info-modal-container {
         .close-modal {
-            right: 26%;
+            right: 12%;
         }
     }
+}
+
+@include from-breakpoint('desktop') {
+	.call-info-modal-container {
+        .close-modal {
+            right: 28%;
+        }
+	}
+	
+	.pricings-detail-container {
+		&.only-price-container {
+			width: 40%;
+		}
+	}
+
+	.container-princing-types {
+		&.only-type-container {
+			width: 40%;
+		}
+	}
 }
 
 @include from-breakpoint('desktop-s') {
