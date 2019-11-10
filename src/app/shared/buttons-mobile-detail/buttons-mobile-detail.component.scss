@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../../../styles/index';
+
+.buttons-mobile-container {
+    bottom: 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+
+    .buttons-floating-cont {
+        background: colors('primary');
+        border-radius: 25px;
+        box-shadow: 0 6px 10px 3px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: space-around;
+        margin: 0 auto;
+        padding: 12px 20px;
+        width: 90%;
+
+        .btn-mobile-floating {
+            border-right: 1px solid colors('white');
+            color: colors('white');
+            font-size: 1.3rem;
+            font-weight: 300;
+            width: 50%;
+
+            &:last-child {
+                border: 0;
+            }
+        }
+    }
+
+    @include from-breakpoint('tablet') {
+        display: none;
+    }
+}

@@ -29,6 +29,7 @@ import { NormalizaeString } from './utils/normalize-string.pipe';
 import { LazyLoadImagesModule } from './lazy-load-images/lazy-load-images.module';
 import { FormRegisterComponent } from './form-register/form-register.component';
 import { MapCardComponent } from './map-card/map-card.component';
+import { ButtonsMobileDetailComponent } from './buttons-mobile-detail/buttons-mobile-detail.component';
 
 @NgModule({
 	imports: [
@@ -69,7 +70,8 @@ import { MapCardComponent } from './map-card/map-card.component';
 		ModalScheduledTourComponent,
 		FavoritesHeartComponent,
 		FormRegisterComponent,
-		MapCardComponent
+		MapCardComponent,
+		ButtonsMobileDetailComponent
 	],
 	exports: [
 		NormalizaeString,
@@ -85,7 +87,8 @@ import { MapCardComponent } from './map-card/map-card.component';
 		ModalLoginSearchComponent,
 		ModalSingupComponent,
 		ModalPressedFormComponent,
-		ModalScheduledTourComponent
+		ModalScheduledTourComponent,
+		ButtonsMobileDetailComponent
 	]
 })
 export class SharedModule { }

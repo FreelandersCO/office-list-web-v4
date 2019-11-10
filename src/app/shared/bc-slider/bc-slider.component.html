@@ -1,5 +1,5 @@
-<div class="bc-slider-container">
-	<aside class="bc-card-slider" #slider>
+<div class="bc-slider-container view-photos-detail">
+	<aside class="bc-card-slider " #slider>
 		<ng-container *ngFor="let img of images">
 			<div class="bc-card-img" #item>
 				<img appLazyLoad [src]="img.image_path" [ngClass]="{'fullImage': fullImage}">

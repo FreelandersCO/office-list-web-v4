@@ -557,7 +557,19 @@
         .close-modal {
             right: 28%;
         }
-    }
+	}
+	
+	.pricings-detail-container {
+		&.only-price-container {
+			width: 40%;
+		}
+	}
+
+	.container-princing-types {
+		&.only-type-container {
+			width: 40%;
+		}
+	}
 }
 
 @include from-breakpoint('desktop-s') {
