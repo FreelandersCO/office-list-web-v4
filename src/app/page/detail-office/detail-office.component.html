@@ -223,7 +223,7 @@
 			<h4 class="title-detail">Amenities</h4>
 			<ul class="icons-amenities">
 				<li *ngFor="let amenitie of bussinesCenter?.amenities">
-					<button class="container-icon" matTooltip="{{amenitie.description}}">
+					<button class="container-icon" matTooltip="{{amenitie.description}}" matTooltipClass="tooltip">
 						<i class="amenitie-icon {{amenitie.icon}}"></i>
 					</button>
 					<p class="title-amenitie">
