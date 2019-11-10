@@ -1,45 +1,52 @@
 <div class="modal-info-container" *ngIf="modalDetailInfo">
 	<div class="card-modal-info card-white">
-		<p class="text-default ">{{business?.descriptive_title}}</p>
-		<h3 class="title-name-office">{{business?.cross_streets}}</h3>
-		<p class="name-city">{{business?.city}}, {{business?.state}} {{business?.zipcode}}</p>
-		<p class="phone-number">
-			<i class="zwicon-phone"></i>
-			{{business?.number_tel}}
-		</p>
+		<div class="header-modal">
+			<button class="btn-icon-transparent" (click)="closeModal(null)">
+				<i class="zwicon-close"></i>
+			</button>
+			<p class="text-default ">{{business?.descriptive_title}}</p>
+			<h3 class="title-name-office">{{business?.cross_streets}}</h3>
+			<p class="name-city">{{business?.city}}, {{business?.state}} {{business?.zipcode}}</p>
+			<p class="phone-number">
+				<i class="zwicon-phone"></i>
+				{{business?.number_tel}}
+			</p>
+		</div>
 		<div class="body-modal-info">
 			<office-list-bc-slider [images]="business?.images"></office-list-bc-slider>
-			<div class="prices-office">
-				<h3 class="title-descrption">
-					Starting at :
-				</h3>
-				<ul class="list-prices-office">
-					<ng-container *ngFor="let office of business?.offices">
-						<ng-container [ngSwitch]="office.type_office_id">
-							<li *ngSwitchCase="1">
-								<p class="price-office">${{office.off_pricing}}</p>
-								<p class="type-office">Private</p>
-							</li>
-							<li *ngSwitchCase="3">
-								<p class="price-office">${{office.off_pricing}}</p>
-								<p class="type-office">CoWorking</p>
-							</li>
-							<li *ngSwitchCase="4">
-								<p class="price-office">${{office.off_pricing}}</p>
-								<p class="type-office">Virtual Office</p>
-							</li>
+			<div class="container-detail-info-modal">
+				<div class="prices-office">
+					<h3 class="title-descrption"> 
+						Starting at :
+					</h3>
+					<ul class="list-prices-office">
+						<ng-container *ngFor="let office of business?.offices">
+							<ng-container [ngSwitch]="office.type_office_id">
+								<li *ngSwitchCase="1">
+									<p class="price-office">${{office.off_pricing}}</p>
+									<p class="type-office">Private</p>
+								</li>
+								<li *ngSwitchCase="3">
+									<p class="price-office">${{office.off_pricing}}</p>
+									<p class="type-office">CoWorking</p>
+								</li>
+								<li *ngSwitchCase="4">
+									<p class="price-office">${{office.off_pricing}}</p>
+									<p class="type-office">Virtual Office</p>
+								</li>
+							</ng-container>
+	
 						</ng-container>
-
-					</ng-container>
-				</ul>
-			</div>
-			<div class="description-office">
-				<h3 class="title-description">
-					Description
-				</h3>
-				<p class="text-description">
-					{{business?.detailed_intro}}
-				</p>
+					</ul>
+				</div>
+				<div class="description-office">
+					<h3 class="title-description">
+						Description
+					</h3>
+					<p class="text-description">
+						{{business?.detailed_intro}}
+					</p>
+				</div>
 			</div>
 			<div class="view-more">
 				<button class="button-default secondary-line" (click)="openTour()"><i class="zwicon-earth-alt"></i> Request tour</button>

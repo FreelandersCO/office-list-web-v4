@@ -82,7 +82,7 @@ export class HomeComponent implements OnInit {
 			img: ''
 		},
 		{
-			name: 'Huston',
+			name: 'Houston',
 			url: 'office-space-for-rent/us/texas/houston',
 			numBc: 73,
 			img: ''

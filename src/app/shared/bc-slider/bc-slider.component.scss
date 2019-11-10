@@ -1,7 +1,9 @@
 @import '../../../styles/index';
 
 .bc-slider-container {
-    position: relative;
+	height: 190px;
+	position: relative;
+	margin: 10px 0;
 }
 
 .bc-card-slider {
@@ -50,7 +52,7 @@
 
     .arrow-right {
         float: right;
-        right: 0.5rem;
+        right: 0;
     }
 
     .arrow-left {

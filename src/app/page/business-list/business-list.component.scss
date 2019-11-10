@@ -547,7 +547,15 @@
 
     .call-info-modal-container {
         .close-modal {
-            right: 26%;
+            right: 12%;
+        }
+    }
+}
+
+@include from-breakpoint('desktop') {
+	.call-info-modal-container {
+        .close-modal {
+            right: 28%;
         }
     }
 }

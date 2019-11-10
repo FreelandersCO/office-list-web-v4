@@ -65,7 +65,8 @@
     .type-office {
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
+		background-size: cover;
+		cursor: pointer;
         height: 312px;
         margin-bottom: 20px;
         overflow: hidden;
@@ -107,12 +108,13 @@
             color: colors('white');
             height: 100%;
             left: 0;
-            padding: 40px 20px 0;
-            position: absolute;
+			padding: 40px 20px 0;
+			position: absolute;
+			transition: all 0.4s;
             width: 100%;
 
             .text-detail-info {
-                font-size: 1.2rem;
+                font-size: 1rem;
                 font-weight: 300;
             }
 
@@ -121,7 +123,13 @@
                 font-weight: 700;
                 margin: 10px 0;
             }
-        }
+		}
+		
+		&:hover {
+			.detail-office-container {
+				bottom: 0px;	
+			}
+		}
     }
 }
 
@@ -139,8 +147,9 @@
         }
 
         .title-howw {
-            font-size: 2.2rem;
-            font-weight: 700;
+            font-size: 2rem;
+			font-weight: 700;
+			line-height: 2rem;
             margin: 20px 0;
         }
 
@@ -162,7 +171,7 @@
         text-align: center;
     }
 }
-
+ 
 .img-trust-container {
     flex-grow: 1;
     margin-right: 20px;
@@ -217,10 +226,6 @@
 
             .detail-office-container {
                 padding: 20px;
-
-                .text-detail-info {
-                    display: 1.1rem;
-                }
             }
         }
     }
@@ -269,10 +274,6 @@
             flex-grow: 1;
             padding: 0 10px;
             width: 20%;
-
-            .icon-howw {
-                width: 30%;
-            }
 
             .title-howw {
                 font-size: 1.6rem;
