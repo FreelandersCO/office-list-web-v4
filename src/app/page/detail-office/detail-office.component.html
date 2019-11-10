@@ -54,66 +54,99 @@
 					<p class="title-starting">Starting at :</p>
 					<p class="price-starting">${{virtualOffice.off_pricing}}</p>
 				</div>
-				<p class="text-default">{{bussinesCenter?.descriptive_title}}</p>
-				<h1 class="title-name-office detail-office">{{bussinesCenter?.cross_streets}}</h1>
-				<p class="name-city">{{bussinesCenter?.city}}, {{bussinesCenter?.state}}
-					{{bussinesCenter?.zipcode}}</p>
-				<span class="badge-city">{{bussinesCenter?.area_name}}</span>
-				<hr class="line-detail">
 			</div>
-			<div class="detail-container-info">
-				<h4 class="title-detail">Pricing</h4>
-				<div class="container-princing-types">
-					<div class="card-white cont-type-pricing" *ngIf="showPrivateOffice" [ngClass]="{'active': activePrivate}" (click)="openPrivate()">
-						<figure class="image-type">
-							<img src="assets/images/img-private-office.jpg" alt="">
-						</figure>
-						<button class="button-show-pricing">
-							Private Office
-							<i class="zwicon-chevron-down"></i>
-						</button>
-						<p class="title-starting">Starting at :</p>
-						<p class="price-starting">${{privateOffice.off_pricing}}</p>
+			<div class="pricings-detail-container">
+				<!--Private-->
+				<div class="card-white princing-type" *ngIf="showPrivateOffice && activePrivate">
+					<div class="container-titles">
+						<div class="title-name">
+							<p class="title-suboffice-type">Private Office</p>
+							<h5 class="title-type-office">Executive Offices</h5>
+						</div>
+						<div class="price-offices">
+							<p class="title-suboffice-type">Starting at</p>
+							<p class="price-type">${{privateOffice.off_pricing}}</p>
+						</div>
 					</div>
-					<div class="card-white cont-type-pricing" *ngIf="showCoWorking" [ngClass]="{'active': activeCoWorking}"  (click)="openCoWorking()">
-						<figure class="image-type">
-							<img src="assets/images/img-coworking.jpg" alt="">
-						</figure>
-						<button class="button-show-pricing">
-							Coworking
-							<i class="zwicon-chevron-down"></i>
-						</button>
-						<p class="title-starting">Starting at :</p>
-						<p class="price-starting">${{coWorking.off_pricing}}</p>
+					<p class="description-type">
+						Enclosed, -lockable offices, providing privacy for teams and individuals. Furnished,
+						fully-serviced spaces.
+					</p>
+					<div class="container-description-items">
+						<div class="includes-container">
+							<p class="title-items">Includes</p>
+							<ul class="items-description">
+								<li>- 6 Hours of conference room</li>
+								<li>- Printing</li>
+								<li>- 24/7 Access</li>
+							</ul>
+						</div>
+						<div class="bestfor-container">
+							<p class="title-items">Best for</p>
+							<ul class="items-description">
+								<li>- Large companies</li>
+								<li>- Established businesses</li>
+								<li>- People that need privacy for their tasks</li>
+							</ul>
+						</div>
 					</div>
-					<div class="card-white cont-type-pricing" *ngIf="showVirtualOffice" [ngClass]="{'active': activeVirtual}"  (click)="openVirtual()">
-						<figure class="image-type">
-							<img src="assets/images/img-virtual-office.jpg" alt="">
-						</figure>
-						<button class="button-show-pricing">
-							Virtual Office
-							<i class="zwicon-chevron-down"></i>
-						</button>
-						<p class="title-starting">Starting at :</p>
-						<p class="price-starting">${{virtualOffice.off_pricing}}</p>
+					<div class="button-like-type">
+						<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true">
+						</office-list-favorites-heart>
 					</div>
 				</div>
-				<div class="pricings-detail-container">
-					<!--Private-->
-					<div class="card-white princing-type" *ngIf="showPrivateOffice && activePrivate">
+				<!--Co Working-->
+				<ng-container *ngIf="showCoWorking && activeCoWorking">
+					<div class="card-white princing-type" *ngIf="showHotDesk">
 						<div class="container-titles">
 							<div class="title-name">
-								<p class="title-suboffice-type">Private Office</p>
-								<h5 class="title-type-office">Executive Offices</h5>
+								<p class="title-suboffice-type">Coworking</p>
+								<h5 class="title-type-office">Hot desk</h5>
 							</div>
 							<div class="price-offices">
 								<p class="title-suboffice-type">Starting at</p>
-								<p class="price-type">${{privateOffice.off_pricing}}</p>
+								<p class="price-type">${{hotDesk.off_pricing}}</p>
 							</div>
 						</div>
 						<p class="description-type">
-							Enclosed, -lockable offices, providing privacy for teams and individuals. Furnished,
-							fully-serviced spaces.
+							A guaranteed desk in a coworking area. When you arrive, just pick a desk and get to work.
+						</p>
+						<div class="container-description-items">
+							<div class="includes-container">
+								<p class="title-items">Includes</p>
+								<ul class="items-description">
+									<li>- 4 Hours of conference room</li>
+									<li>- 24/7 Access</li>
+								</ul>
+							</div>
+							<div class="bestfor-container">
+								<p class="title-items">Best for</p>
+								<ul class="items-description">
+									<li>- Part time workers</li>
+									<li>- Remote workforce</li>
+									<li>- Freelancers</li>
+								</ul>
+							</div>
+						</div>
+						<div class="button-like-type">
+							<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true">
+							</office-list-favorites-heart>
+						</div>
+					</div>
+					<div class="card-white princing-type" *ngIf="showDedicated">
+						<div class="container-titles">
+							<div class="title-name">
+								<p class="title-suboffice-type">Coworking</p>
+								<h5 class="title-type-office">Dedicated desk</h5>
+							</div>
+							<div class="price-offices">
+								<p class="title-suboffice-type">Starting at</p>
+								<p class="price-type">${{dedicated.off_pricing}}</p>
+							</div>
+						</div>
+						<p class="description-type">
+							A desk of your own in a shared environment with a lockable file cabinet. Same desk every day
+							so feel free to personalize it.
 						</p>
 						<div class="container-description-items">
 							<div class="includes-container">
@@ -127,216 +160,145 @@
 							<div class="bestfor-container">
 								<p class="title-items">Best for</p>
 								<ul class="items-description">
-									<li>- Large companies</li>
-									<li>- Established businesses</li>
-									<li>- People that need privacy for their tasks</li>
+									<li>- Startups</li>
+									<li>- Small teams</li>
+									<li>- Freelancers</li>
+									<li>- Collaborative teams for everyday workCompanies whose main objective is to
+										network.</li>
 								</ul>
 							</div>
 						</div>
-						<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true"></office-list-favorites-heart>
+						<div class="button-like-type">
+							<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true">
+							</office-list-favorites-heart>
+						</div>
 					</div>
-					<!--Co Working-->
-					<ng-container *ngIf="showCoWorking && activeCoWorking">
-						<div class="card-white princing-type" *ngIf="showHotDesk">
-							<div class="container-titles">
-								<div class="title-name">
-									<p class="title-suboffice-type">Coworking</p>
-									<h5 class="title-type-office">Hot desk</h5>
-								</div>
-								<div class="price-offices">
-									<p class="title-suboffice-type">Starting at</p>
-									<p class="price-type">${{hotDesk.off_pricing}}</p>
-								</div>
-							</div>
-							<p class="description-type">
-								A guaranteed desk in a coworking area. When you arrive, just pick a desk and get to work.
-							</p>
-							<div class="container-description-items">
-								<div class="includes-container">
-									<p class="title-items">Includes</p>
-									<ul class="items-description">
-										<li>- 4 Hours of conference room</li>
-										<li>- 24/7 Access</li>
-									</ul>
-								</div>
-								<div class="bestfor-container">
-									<p class="title-items">Best for</p>
-									<ul class="items-description">
-										<li>- Part time workers</li>
-										<li>- Remote workforce</li>
-										<li>- Freelancers</li>
-									</ul>
-								</div>
-							</div>
-							<button class="button-like-type">
-								<i class="zwicon-heart"></i>
-							</button>
+				</ng-container>
+				<!--Vritual-->
+				<div class="card-white princing-type" *ngIf="showVirtualOffice && activeVirtual">
+					<div class="container-titles">
+						<div class="title-name">
+							<p class="title-suboffice-type">Virtual Office</p>
+							<h5 class="title-type-office">Membership</h5>
 						</div>
-						<div class="card-white princing-type" *ngIf="showDedicated">
-							<div class="container-titles">
-								<div class="title-name">
-									<p class="title-suboffice-type">Coworking</p>
-									<h5 class="title-type-office">Dedicated desk</h5>
-								</div>
-								<div class="price-offices">
-									<p class="title-suboffice-type">Starting at</p>
-									<p class="price-type">${{dedicated.off_pricing}}</p>
-								</div>
-							</div>
-							<p class="description-type">
-								A desk of your own in a shared environment with a lockable file cabinet. Same desk every day so feel free to personalize it.
-							</p>
-							<div class="container-description-items">
-								<div class="includes-container">
-									<p class="title-items">Includes</p>
-									<ul class="items-description">
-										<li>- 6 Hours of conference room</li>
-										<li>- Printing</li>
-										<li>- 24/7 Access</li>
-									</ul>
-								</div>
-								<div class="bestfor-container">
-									<p class="title-items">Best for</p>
-									<ul class="items-description">
-										<li>- Startups</li>
-										<li>- Small teams</li>
-										<li>- Freelancers</li>
-										<li>- Collaborative teams for everyday workCompanies whose main objective is to network.</li>
-									</ul>
-								</div>
-							</div>
-							<button class="button-like-type">
-								<i class="zwicon-heart"></i>
-							</button>
+						<div class="price-offices">
+							<p class="title-suboffice-type">Starting at</p>
+							<p class="price-type">${{virtualOffice.off_pricing}}</p>
 						</div>
-					</ng-container>
-					<!--Vritual-->
-					<div class="card-white princing-type" *ngIf="showVirtualOffice && activeVirtual">
-						<div class="container-titles">
-							<div class="title-name">
-								<p class="title-suboffice-type">Virtual Office</p>
-								<h5 class="title-type-office">Membership</h5>
-							</div>
-							<div class="price-offices">
-								<p class="title-suboffice-type">Starting at</p>
-								<p class="price-type">${{virtualOffice.off_pricing}}</p>
-							</div>
+					</div>
+					<p class="description-type">
+						Access to a community of peers, a professional address, hours of conference room, and services.
+					</p>
+					<div class="container-description-items">
+						<div class="includes-container">
+							<p class="title-items">Includes</p>
+							<ul class="items-description">
+								<li>- Regular Business</li>
+								<li>- Hours</li>
+							</ul>
 						</div>
-						<p class="description-type">
-							Access to a community of peers, a professional address, hours of conference room, and services.
-						</p>
-						<div class="container-description-items">
-							<div class="includes-container">
-								<p class="title-items">Includes</p>
-								<ul class="items-description">
-									<li>- Regular Business</li>
-									<li>- Hours</li>
-								</ul>
-							</div>
-							<div class="bestfor-container">
-								<p class="title-items">Best for</p>
-								<ul class="items-description">
-									<li>- Home workers</li>
-									<li>- Out of towners</li>
-									<li>- Entrepreneurs who don’t need full-time office</li>
-								</ul>
-							</div>
+						<div class="bestfor-container">
+							<p class="title-items">Best for</p>
+							<ul class="items-description">
+								<li>- Home workers</li>
+								<li>- Out of towners</li>
+								<li>- Entrepreneurs who don’t need full-time office</li>
+							</ul>
 						</div>
-						<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true"></office-list-favorites-heart>
+					</div>
+					<div class="button-like-type">
+						<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true">
+						</office-list-favorites-heart>
 					</div>
 				</div>
 			</div>
-			<div class="detail-container-info">
-				<h4 class="title-detail">Description</h4>
-				<p class="description-office-text">
-					{{bussinesCenter?.detailed_intro}}
-				</p>
-			</div>
-			<div class="detail-container-info" *ngIf="bussinesCenter?.amenities.length>0">
-				<h4 class="title-detail">Amenities</h4>
-				<ul class="icons-amenities">
-					<li *ngFor="let amenitie of bussinesCenter?.amenities">
-						<figure class="container-icon"  tooltip tooltip-top tooltip-content="This tooltip is at the top">
-							<i class="amenitie-icon {{amenitie.icon}}"></i>
-						</figure>
-						<p class="title-amenitie">
-							{{amenitie.name}}
+		</div>
+		<div class="detail-container-info">
+			<h4 class="title-detail">Description</h4>
+			<p class="description-office-text">
+				{{bussinesCenter?.detailed_intro}}
+			</p>
+		</div>
+		<div class="detail-container-info" *ngIf="bussinesCenter?.amenities.length > 0">
+			<h4 class="title-detail">Amenities</h4>
+			<ul class="icons-amenities">
+				<li *ngFor="let amenitie of bussinesCenter?.amenities">
+					<button class="container-icon" matTooltip="{{amenitie.description}}">
+						<i class="amenitie-icon {{amenitie.icon}}"></i>
+					</button>
+					<p class="title-amenitie">
+						{{amenitie.name}}
+					</p>
+				</li>
+			</ul>
+		</div>
+		<div class="detail-container-info">
+			<h4 class="title-detail">Map</h4>
+			<office-list-map-detail [lat]="bussinesCenter?.latitude" [lng]="bussinesCenter?.longitude">
+			</office-list-map-detail>
+		</div>
+	</div>
+	<div class="container-side-form">
+		<div class="container-form-inquire">
+			<office-list-form-inquire-now></office-list-form-inquire-now>
+		</div>
+	</div>
+</section>
+<section class="nearby-locations-container">
+	<h2 class="title-home">
+		Nearby Locations
+	</h2>
+	<hr>
+	<div class="cont-swiper-nearby">
+		<swiper class="nearby-swiper" [config]="config">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide office-list-card card-white" *ngFor="let bc of bussinesCenter?.nearby">
+					<figure class="img-card-office">
+						<i class="icon-star-office"></i>
+						<img appLazyLoad [src]="bc.principalImage" alt="">
+						<button class="button-icon" id="btn-list-search" (click)="showModalDetail(bc.buscenter_id)">
+							<i class="zwicon-plus"></i>
+						</button>
+					</figure>
+					<div class="info-office-container">
+						<p class="text-default"
+							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
+							{{bc.descriptive_title}}</p>
+						<h3 class="title-name-office"
+							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
+							{{bc.cross_streets}}</h3>
+						<p class="name-city">{{bc.city}}, {{bc.zip_code}}</p>
+						<span class="badge-city">{{bc.area_name}}</span>
+						<p class="phone-number">
+							<i class="zwicon-phone"></i>
+							{{bc.phone}}
 						</p>
-					</li>
-				</ul>
-			</div>
-			<div class="detail-container-info">
-				<h4 class="title-detail">Map</h4>
-				<office-list-map-detail [lat]="bussinesCenter?.latitude" [lng]="bussinesCenter?.longitude">
-				</office-list-map-detail>
-			</div>
-		</div>
-		<div class="container-side-form">
-			<div class="container-form-inquire">
-				<office-list-form-inquire-now></office-list-form-inquire-now>
-			</div>
-		</div>
-	</section>
-	<section class="nearby-locations-container">
-		<h2 class="title-home">
-			Nearby Locations
-		</h2>
-		<hr>
-		<div class="cont-swiper-nearby">
-			<swiper class="nearby-swiper" [config]="config">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide office-list-card card-white" *ngFor="let bc of bussinesCenter?.nearby">
-						<figure class="img-card-office">
-							<i class="icon-star-office"></i>
-							<img appLazyLoad [src]="bc.principalImage" alt="">
-							<button class="button-icon" id="btn-list-search" (click)="showModalDetail(bc.buscenter_id)">
-								<i class="zwicon-plus"></i>
+						<div class="price-container"
+							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
+							<button class="button-show-price">
+								<h3 class="title-price">
+									Starting at :
+								</h3>
 							</button>
-						</figure>
-						<div class="info-office-container">
-							<p class="text-default" routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">{{bc.descriptive_title}}</p>
-							<h3 class="title-name-office" routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">{{bc.cross_streets}}</h3>
-							<p class="name-city">{{bc.city}}, {{bc.zip_code}}</p>
-							<span class="badge-city">{{bc.area_name}}</span>
-							<p class="phone-number">
-								<i class="zwicon-phone"></i>
-								{{bc.phone}}
-							</p>
-							<div class="price-container" routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
-								<button class="button-show-price">
-									<h3 class="title-price">
-										Starting at :
-									</h3>
-								</button>
-								<ul class="list-prices-office">
-									<li *ngFor="let office of bc.offices">
-										<p class="price-office">${{office.off_pricing}}</p>
-										<p class="type-office">{{office.off_name}}</p>
-									</li>
-								</ul>
-							</div>
-							<div class="btn-container">
-								<button class="button-default primary">
-									Get quote
-								</button>
-							</div>
-							<div class="like-container">
-								<button class="button-icon-like">
-									<office-list-favorites-heart [bcId]="bc.buscenter_id"></office-list-favorites-heart>
-								</button>
-							</div>
+							<ul class="list-prices-office">
+								<li *ngFor="let office of bc.offices">
+									<p class="price-office">${{office.off_pricing}}</p>
+									<p class="type-office">{{office.off_name}}</p>
+								</li>
+							</ul>
+						</div>
+						<div class="btn-container">
+							<button class="button-default primary">
+								Get quote
+							</button>
+						</div>
+						<div class="like-container">
+							<button class="button-icon-like">
+								<office-list-favorites-heart [bcId]="bc.buscenter_id"></office-list-favorites-heart>
+							</button>
 						</div>
 					</div>
 				</div>
-				<div class="swiper-pagination"></div>
-			</swiper>
-		</div>
-	</section>
-	<div class="call-info-modal-container" *ngIf="detailOfficeInfo">
-			<div class="close-modal">
-				<button class="close-button-modal" (click)="showModalDetail()">
-					<i class="zwicon-close"></i>
-				</button>
 			</div>
 			<div class="swiper-pagination"></div>
 		</swiper>
