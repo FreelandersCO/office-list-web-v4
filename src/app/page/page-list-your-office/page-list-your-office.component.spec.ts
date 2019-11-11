@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageCoworkingComponent } from './page-coworking.component';
+import { PageListYourOfficeComponent } from './page-list-your-office.component';
 
-describe('PageCoworkingComponent', () => {
-  let component: PageCoworkingComponent;
-  let fixture: ComponentFixture<PageCoworkingComponent>;
+describe('PageListYourOfficeComponent', () => {
+  let component: PageListYourOfficeComponent;
+  let fixture: ComponentFixture<PageListYourOfficeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageCoworkingComponent ]
+      declarations: [ PageListYourOfficeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageCoworkingComponent);
+    fixture = TestBed.createComponent(PageListYourOfficeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

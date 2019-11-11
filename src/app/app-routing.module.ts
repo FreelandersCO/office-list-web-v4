@@ -31,16 +31,12 @@ const routes: Routes = [
 		loadChildren: () => import('./page/page-resources/page-resources.module').then(m => m.PageResourcesModule)
 	},
 	{
-		path: 'private-office',
-		loadChildren: () => import('./page/page-private/page-private.module').then(m => m.PagePrivateModule)
-	},
-	{
-		path: 'coworking-office',
-		loadChildren: () => import('./page/page-coworking/page-coworking.module').then(m => m.PageCoworkingModule)
-	},
-	{
 		path: 'privacy',
 		loadChildren: () => import('./page/page-privacy/page-privacy.module').then(m => m.PagePrivacyModule)
+	},
+	{
+		path: 'list-your-office',
+		loadChildren: () => import('./page/page-list-your-office/page-list-your-office.module').then(m => m.PageListYourOfficeModule)
 	}
 ];
 
