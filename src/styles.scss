@@ -3,13 +3,25 @@
 @import 'base/reset';
 @import 'base/animations';
 @import 'base/global';
-@import 'theme/index';
 @import 'abstracts/variables';
+
+* {
+    font-family: $font-family;
+}
+
+:root {
+    --swiper-pagination-color: #3BA42F;
+}
+html,
+body {
+    height: 100%;
+}
 
 body {
     background: #F8F8F8;
     font-weight: 300;
-    position: relative;
+	position: relative;
+	margin: 0;
 }
 
 section {
@@ -25,6 +37,7 @@ article {
 
 input,
 textarea {
+
     &:hover,
     &:focus {
         outline: 0;
@@ -37,10 +50,6 @@ textarea {
     min-width: 320px;
     max-width: $page-max-width;
     margin: 0 auto;
-}
-
-.mat-tooltip.tooltip {
-	font-size: 0.8rem !important;
 }
 
 .icon {
@@ -64,10 +73,517 @@ textarea {
     }
 }
 
-.group-form {
-    position: relative;
+/* Text */
+
+a {
+    color: colors('primary');
 }
 
-html,
-body { height: 100%; }
-body { margin: 0; font-family: Roboto, 'Helvetica Neue', sans-serif; }
+.text-intro {
+    font-size: 1.3rem;
+}
+
+h3 {
+    color: colors('primary');
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+}
+
+hr {
+    border: 2px solid colors('primary');
+    border-radius: 5px;
+    text-align: center;
+    margin: 20px auto;
+    width: 200px;
+}
+
+.text-rigth {
+    text-align: right;
+}
+
+.badge-city {
+    border-radius: 4px;
+    background: colors('black-2');
+    color: colors('black-6');
+    font-size: 0.8rem;
+    padding: 3px 12px;
+}
+
+.title-home {
+    color: colors('black');
+    font-size: 2.2rem;
+    font-weight: 300;
+    line-height: 2.4rem;
+    text-align: center;
+}
+
+/* Buttons */
+button {
+    position: relative;
+
+    &:hover,
+    &:focus,
+    &:visited {
+        outline: 0;
+    }
+}
+
+.button-default {
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin: 0.5rem auto;
+    padding: 0.5rem 12px;
+    width: 100%;
+
+    &.primary {
+        background-color: colors('primary');
+        border: 1px solid colors('primary');
+        color: colors('white');
+
+        &:hover {
+            background-color: colors('white');
+            border: 1px solid colors('primary');
+            color: colors('primary');
+        }
+    }
+
+    &.secondary {
+        background-color: colors('white');
+        color: colors('primary');
+
+        &:hover {
+            background-color: colors('primary');
+            color: colors('white');
+        }
+    }
+
+    &.secondary-line {
+        background-color: colors('white');
+        border: 1px solid colors('primary');
+        color: colors('primary');
+
+        &:hover {
+            background-color: colors('white');
+            border: 1px solid colors('white');
+            color: colors('primary');
+        }
+    }
+}
+
+.button-close-icon {
+    color: colors('primary');
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 0;
+    margin-bottom: 6px;
+    text-align: right;
+    width: 100%;
+}
+
+.card-white {
+    background: colors('white');
+    border-radius: 10px;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+/* Form */
+.group-form {
+    padding: 14px 0 0;
+    position: relative;
+
+    i {
+        color: colors('white');
+        float: left;
+        font-size: 1.6rem;
+    }
+
+    .label-default {
+        color: colors('black-3');
+        font-size: 1rem;
+        font-weight: 300;
+        left: 18px;
+        position: absolute;
+        transition: all 0.6s;
+        transform: translate3d(0%, 100%, 0);
+        z-index: 1;
+    }
+
+    .input-default {
+        background-color: colors('black-1');
+        border: 0;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 300;
+        height: 40px;
+        margin-top: 6px;
+        padding: 10px 18px;
+        width: 100%;
+
+        &.textarea-input {
+            border-radius: 6px;
+            height: 70px;
+            margin-bottom: 8px;
+            font-size: 0.8rem;
+        }
+
+        &.white {
+            background-color: colors('white-2');
+            color: colors('white-8');
+            font-size: 0.9rem;
+        }
+
+        &.is-invalid {
+            border: 1px red solid;
+        }
+
+        &:focus + .label-default,
+        &:valid + .label-default {
+            color: colors('primary');
+            font-size: 70%;
+            top: 0;
+            transform: translate3d(0, 42%, 0);
+        }
+    }
+
+    select {
+        appearance: none;
+        height: 40px;
+    }
+
+    &.selectt {
+        .zwicon-chevron-down {
+            color: colors('primary');
+            position: absolute;
+            right: 8px;
+            font-size: 2.6rem;
+            top: 20px;
+        }
+    }
+
+    &.date-tour {
+        .label-default {
+            appearance: none;
+            transform: translate3d(48%, 77%, 0);
+        }
+
+        .input-default {
+            padding-left: 42px;
+        }
+
+        .zwicon-calendar-month {
+            color: colors('primary');
+            left: 14px;
+            position: absolute;
+            top: 28px;
+        }
+    }
+
+    &.full-width {
+        width: 100% !important;
+    }
+
+    .btn-icon-input {
+        font-size: 1.2rem;
+        line-height: 0;
+        position: absolute;
+        right: 10px;
+        top: 40px;
+
+        i {
+            color: colors('primary');
+            line-height: 0;
+        }
+    }
+}
+
+.container-info-date {
+    .container-button-modal {
+        .button-default {
+            margin-bottom: 0;
+        }
+    }
+
+    .gray-line {
+        margin-top: 20px;
+    }
+}
+
+/* End Forms*/
+/* Modals */
+office-list-modal-login-search,
+office-list-modal-singup,
+office-list-modal-pressed-form,
+office-list-modal-scheduled-tour {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.container-modal-default {
+    background: colors('white-8');
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.modal-default-site {
+    background: colors('white');
+    border-radius: 4px;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
+    left: 5%;
+    margin-bottom: 20px;
+    padding: 20px;
+    position: absolute;
+    top: 2%;
+    width: 90%;
+}
+
+.header-modal {
+    text-align: right;
+
+    .btn-icon-transparent {
+        color: #CCC;
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 0;
+    }
+}
+
+.body-modal {
+    text-align: center;
+
+    .container-search {
+        .group-form {
+            padding: 0;
+
+            input {
+                margin: 0;
+            }
+
+            .btn-icon-input {
+                top: 20px;
+            }
+        }
+    }
+
+    .gray-line {
+        border: 0.8px solid colors('black-2');
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .zwicon-user-circle,
+    .zwicon-chat,
+    .zwicon-calendar {
+        color: colors('primary');
+        font-size: 3.6rem;
+    }
+
+    .text-end-forms {
+        color: colors('black-6');
+        font-size: 0.8rem;
+        margin: 0 auto;
+        text-align: center;
+        width: 60%;
+
+        button {
+            color: colors('primary');
+            font-size: 1rem;
+        }
+    }
+
+    .text-end-forms-terms {
+        color: colors('black-6');
+        font-size: 0.6rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .title-modal {
+        font-size: 1.3rem;
+        margin-bottom: 6px;
+    }
+
+    .intro-modal {
+        color: colors('black-5');
+        font-size: 1.1rem;
+        margin: 8px 0;
+    }
+
+    .text-date-tour {
+        color: colors('primary');
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+}
+/* End Modals */
+/* Pages */
+.container-info-pages {
+    article {
+        width: 90%;
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    .description-office-text {
+        list-style: decimal;
+
+        li {
+            margin-bottom: 6px;
+        }
+    }
+
+    .title-home {
+        margin-top: 40px;
+    }
+
+    .title-detail {
+        margin-bottom: 4px;
+        margin-top: 20px;
+    }
+
+    .line-end {
+        margin-bottom: 40px;
+    }
+}
+
+/** Components **/
+
+.mat-tooltip.tooltip {
+    font-size: 0.8rem !important;
+}
+
+/** CARD Map **/
+.si-wrapper-top {
+	width: 356px;
+	height: 526px;
+
+	.si-content-wrapper {
+		padding: 0;
+
+		.si-close-button {
+			font-family: Roboto, 'Helvetica Neue', sans-serif;
+			opacity: 1;
+			z-index: 1;
+			background: rgba(255, 255, 255, 0.7);
+			box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.2);
+			border-radius: 100%;
+			font-size: 1rem;
+			width: 30px;
+			height: 30px;
+			right: 12px;
+			top: 12px;
+		}
+
+		.si-content {
+			overflow: hidden;
+			width: 356px;
+			height: 510px;
+			z-index: 10;
+		}
+	}
+}
+
+@include from-breakpoint ('mobile-xl') {
+    .modal-default-site {
+        left: 10%;
+        width: 80%;
+    }
+}
+
+@include from-breakpoint ('tablet') {
+    .modal-default-site {
+        left: 25%;
+        width: 50%;
+    }
+}
+
+@include from-breakpoint ('desktop') {
+    .modal-default-site {
+        left: 35%;
+        top: 25%;
+        width: 30%;
+        overflow: hidden;
+
+        &.big-modal {
+            left: 25%;
+			width: 50%;
+			top: 10%;
+
+            .body-modal {
+                form {
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    .group-form {
+                        flex-grow: 1;
+                        margin-left: 10px;
+                        margin-right: 10px;
+                        width: 40%;
+                    }
+                }
+
+                .gray-line {
+                    width: 50%;
+                    margin: 14px auto;
+                }
+
+                .text-end-forms {
+                    font-size: 1rem;
+                }
+
+                .container-button-modal {
+                    margin: auto;
+                    width: 50%;
+                }
+
+                .container-info-date {
+                    .container-button-modal {
+                        display: flex;
+                        width: 90%;
+
+                        .button-default {
+                            margin: 20px 20px 10px 0;
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include from-breakpoint ('desktop-l') {
+    .modal-default-site {
+        left: 38%;
+        width: 24%;
+
+        &.big-modal {
+            left: 30%;
+            width: 40%;
+
+            .container-button-modal {
+                margin: auto;
+                width: 60%;
+            }
+        }
+    }
+}
+
+@include from-breakpoint ('desktop-xl') {
+    .modal-default-site {
+        &.big-modal {
+            top: 50px;
+            left: 35%;
+            width: 30%;
+        }
+    }
+}

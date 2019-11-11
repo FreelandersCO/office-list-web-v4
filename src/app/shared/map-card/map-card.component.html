@@ -1,13 +1,15 @@
-<div class="map-card-container card-white">
-	<p class="text-default ">{{business?.descriptive_title}}</p>
-	<h3 class="title-name-office">{{business?.cross_streets}}</h3>
-	<p class="name-city">{{business?.city}}, {{business?.state}} {{business?.zipcode}}</p>
-	<p class="phone-number">
-		<i class="zwicon-phone"></i>
-		{{business?.number_tel}}
-	</p>
-	<div class="body-modal-info">
-		<office-list-bc-slider [images]="business?.images"></office-list-bc-slider>
+<div class="map-card-container">
+
+	<office-list-bc-slider [images]="business?.images" [map]="true"></office-list-bc-slider>
+
+	<div class="body-map-info">
+		<p class="text-default ">{{business?.descriptive_title}}</p>
+		<h3 class="title-name-office">{{business?.cross_streets}}</h3>
+		<p class="name-city">{{business?.city}}, {{business?.state}} {{business?.zipcode}}</p>
+		<p class="phone-number">
+			<i class="zwicon-phone"></i>
+			{{business?.number_tel}}
+		</p>
 		<div class="prices-office">
 			<h3 class="title-descrption">
 				Starting at :

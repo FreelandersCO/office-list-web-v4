@@ -1,3 +1,7 @@
+<ngx-spinner bdOpacity=0.5 bdColor="#ffffff" size="large" color="rgba(0,255,90,0.86)"
+	[fullScreen]="true">
+	<p> Loading... </p>
+</ngx-spinner>
 <section class="container-gallery-detail">
 	<office-list-gallery-detail-office [images]="bussinesCenter?.images" [bcId]="bussinesCenter?.buscenter_id">
 	</office-list-gallery-detail-office>
@@ -254,7 +258,6 @@
 			<div class="swiper-wrapper">
 				<div class="swiper-slide office-list-card card-white" *ngFor="let bc of bussinesCenter?.nearby">
 					<figure class="img-card-office">
-						<i class="icon-star-office"></i>
 						<img appLazyLoad [src]="bc.principalImage" alt="">
 						<button class="button-icon" id="btn-list-search" (click)="showModalDetail(bc.buscenter_id)">
 							<i class="zwicon-plus"></i>
@@ -274,7 +277,8 @@
 							{{bc.phone}}
 						</p>
 						<div class="price-container"
-							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
+							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}"
+							*ngIf="bc.offices">
 							<button class="button-show-price">
 								<h3 class="title-price">
 									Starting at :
@@ -287,6 +291,13 @@
 								</li>
 							</ul>
 						</div>
+						<div class="price-container call-pricing" *ngIf="!bc.offices">
+							<button class="button-show-price"
+								routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
+								<h3 class="title-price">
+									Call For Pricing
+								</h3>
+							</button></div>
 						<div class="btn-container">
 							<button class="button-default primary">
 								Get quote
@@ -305,11 +316,11 @@
 	</div>
 </section>
 <div class="call-info-modal-container" *ngIf="detailOfficeInfo">
-		<div class="header-modal">
-			<button class="btn-icon-transparent" (click)="showModalDetail(null)">
-				<i class="zwicon-close"></i>
-			</button>
-		</div>
+	<div class="header-modal">
+		<button class="btn-icon-transparent" (click)="showModalDetail(null)">
+			<i class="zwicon-close"></i>
+		</button>
+	</div>
 	<office-list-modal-detail [businessId]="selectedBusiness"></office-list-modal-detail>
 </div>
 <office-list-buttons-mobile-detail></office-list-buttons-mobile-detail>

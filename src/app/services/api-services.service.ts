@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 // tslint:disable-next-line: import-blacklist
 import { Observable, throwError } from 'rxjs';
-import { retry, catchError, zip } from 'rxjs/operators';
+import { retry, catchError } from 'rxjs/operators';
+import { Cacheable } from 'ngx-cacheable';
 
 import { environment } from '@env/environment';
 
@@ -21,7 +22,7 @@ export class ApiServicesService {
 
 	constructor(private http: HttpClient) { }
 
-	// tslint:disable-next-line: ban-types
+	@Cacheable()
 	getBussinesList(country, state, city, zipCode): Observable<Object> {
 		const limit = '6';
 		// tslint:disable-next-line: no-magic-numbers
@@ -41,7 +42,8 @@ export class ApiServicesService {
 				catchError(this.handleError)
 			);
 	}
-	// tslint:disable-next-line: ban-types
+
+	@Cacheable()
 	getBussinesDetails(id): Observable<Object> {
 		return this.http.get(`${this.apiURL}/BusinessCenter/Details/${id}`)
 			.pipe(
@@ -50,6 +52,7 @@ export class ApiServicesService {
 			);
 	}
 
+	@Cacheable()
 	// tslint:disable-next-line: ban-types
 	getMapBC(country, state, city): Observable<Object> {
 		return this.http.get(`${this.apiURL}/BusinessCenter/MapInfo/${country}/${state}/${city}`)
@@ -59,7 +62,7 @@ export class ApiServicesService {
 			);
 	}
 
-	// tslint:disable-next-line: ban-types
+	@Cacheable()
 	getCityList(): Observable<Object> {
 		return this.http.get(`${this.apiURL}/AutoComplete/City/`)
 			.pipe(

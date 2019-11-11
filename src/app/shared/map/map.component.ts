@@ -12,6 +12,7 @@ export class MapComponent implements OnInit, OnChanges {
 	@Input() bussinesCenter;
 	markersList;
 	selectBussines;
+	openMarket = false;
 
 	constructor(private api: ApiServicesService, private route: ActivatedRoute) { }
 	// google maps zoom level
@@ -80,6 +81,11 @@ export class MapComponent implements OnInit, OnChanges {
 		this.markersList = bussinesCenters;
 	}
 	clickedMarker(bdId) {
+		this.openMarket = true;
 		this.api.getBussinesDetails(bdId).subscribe(res => this.selectBussines = res);
+	}
+	closeMarker() {
+		this.openMarket = false;
+		this.selectBussines = null;
 	}
 }

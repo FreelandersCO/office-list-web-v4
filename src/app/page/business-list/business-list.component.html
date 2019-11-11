@@ -1,12 +1,15 @@
+<ngx-spinner bdOpacity=0.5 bdColor="#ffffff" size="large" color="rgba(0,255,90,0.86)"
+	[fullScreen]="true">
+	<p> Loading... </p>
+</ngx-spinner>
 <section class="info-city-list-container">
-	<article class="container-header-mobile">
+	<article class="container-header-mobile" [style.background-image]="'url(' + principalBanner?.image + ')'">
 		<div class="title-info-city">
 			<h1 class="title-pages">
-				Office space for rent in {{city}}, {{state}}
+				{{principalBanner?.title}}
 			</h1>
 			<p class="text-intro">
-				There are currently 100 locations in {{city}}. Select the flexible office solutions you are interested
-				in by marking them as “favorites”.
+				{{principalBanner?.intro}}
 			</p>
 		</div>
 	</article>
@@ -14,36 +17,37 @@
 	<article class="filter-container">
 		<div class="buttons-filters">
 			<div class="show-map-container">
-				<p class="text-show-map">Show map</p>
+				<p class="text-show-map" *ngIf="mapShow">Hide map</p>
+				<p class="text-show-map" *ngIf="!mapShow">Show map</p>
 				<label class="switch-show-map">
-					<span class="slider-show-map" [ngClass]="{'active': mapShow}" (click)="showMap()"></span>
+					<span class="slider-show-map" [ngClass]="{'active': mapShow}" (click)="showMap()" aria-label="Toogle Map"></span>
 				</label>
 			</div>
 			<div class="button-icon-grid">
-				<button class="btn-icon" (click)="toogleGrid()" [ngClass]="{'active': !listGrid}">
+				<button class="btn-icon" (click)="hideGrid()" [ngClass]="{'active': !listGrid}" aria-label="On Grid View">
 					<i class="zwicon-grid"></i>
 					<p class="text-button-filter">Grid View</p>
 				</button>
 			</div>
 			<div class="button-icon-list">
-				<button class="btn-icon" (click)="toogleGrid()" [ngClass]="{'active': listGrid}">
+				<button class="btn-icon" (click)="showGrid()" [ngClass]="{'active': listGrid}" aria-label="On List View">
 					<i class="zwicon-list-bullet"></i>
 					<p class="text-button-filter">List View</p>
 				</button>
 			</div>
 			<div class="button-icon-filter">
-				<button class="btn-icon" (click)="showFilters()" [ngClass]="{'active': allFilters}">
+				<button class="btn-icon" (click)="showFilters()" [ngClass]="{'active': allFilters}" aria-label="Show Filters">
 					<i class="zwicon-filter"></i>
 					<p class="text-button-filter">Filters</p>
 				</button>
 			</div>
 		</div>
 		<div class="category-filter-container" *ngIf="allFilters">
-			<button class="btn-icon-filter" (click)="showFilterArea()">
+			<button class="btn-icon-filter" (click)="showFilterArea()" aria-label="Filter Neighborhoods">
 				<i class="zwicon-expand-alt"></i>
 				<p class="text-button-filter">Neighborhoods</p>
 			</button>
-			<button class="btn-icon-filter" (click)="showFilterDistance()">
+			<button class="btn-icon-filter" (click)="showFilterDistance()" aria-label="Filter Distance">
 				<i class="zwicon-expand"></i>
 				<p class="text-button-filter">Distance</p>
 			</button>
@@ -79,12 +83,14 @@
 				<figure class="img-card-office">
 					<i class="icon-star-office" *ngIf="bc.premium === 1"></i>
 					<img appLazyLoad [src]="bc.principalImage" alt="">
-					<button class="button-icon" id="btn-list-search" (click)="showModalDetail(bc.buscenter_id)">
+					<button class="button-icon" id="btn-list-search" (click)="showModalDetail(bc.buscenter_id)" aria-label="Open details">
 						<i class="zwicon-plus"></i>
 					</button>
 				</figure>
 				<div class="info-office-container">
-					<p class="text-default" routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">{{bc.descriptive_title}}</p>
+					<p class="text-default"
+						routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
+						{{bc.descriptive_title}}</p>
 					<h3 class="title-name-office"
 						routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
 						{{ bc.cross_streets }}
@@ -96,8 +102,9 @@
 						{{bc.phone}}
 					</p>
 					<div class="price-container"
-						routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
-						<button class="button-show-price">
+						routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}"
+						*ngIf="bc.offices">
+						<button class="button-show-price" aria-label="Go to details">
 							<h3 class="title-price">
 								Starting at :
 							</h3>
@@ -109,8 +116,9 @@
 							</li>
 						</ul>
 					</div>
-					<div class="price-container call-pricing" *ngIf="bc.offices.length===0">
+					<div class="price-container call-pricing" *ngIf="!bc.offices">
 						<button class="button-show-price"
+							aria-label="Go to details"
 							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
 							<h3 class="title-price">
 								Call For Pricing
@@ -118,25 +126,23 @@
 						</button>
 					</div>
 					<div class="btn-container">
-						<button class="button-default primary" (click)="callSingUp()">
+						<button class="button-default primary" (click)="callSingUp()" aria-label="Go to details">
 							Get quote
 						</button>
 					</div>
 					<div class="like-container">
-						<button class="button-icon-like">
+						<button class="button-icon-like" aria-label="Like button">
 							<office-list-favorites-heart [bcId]="bc.buscenter_id"></office-list-favorites-heart>
 						</button>
 					</div>
 				</div>
-
 			</div>
 		</ng-container>
-
 	</article>
 	<!--Map-->
 	<div class="result-map-container" *ngIf="mapShow">
 		<div class="close-map">
-			<button class="close-button-map" (click)="showMap()">
+			<button class="close-button-map" (click)="showMap()" aria-label="Close Map">
 				<i class="zwicon-close"></i>
 			</button>
 		</div>

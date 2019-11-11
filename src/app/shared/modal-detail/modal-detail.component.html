@@ -1,7 +1,7 @@
 <div class="modal-info-container" *ngIf="modalDetailInfo">
 	<div class="card-modal-info card-white">
 		<div class="header-modal">
-			<button class="btn-icon-transparent" (click)="closeModal(null)">
+			<button class="btn-icon-transparent" (click)="closeModal()">
 				<i class="zwicon-close"></i>
 			</button>
 			<p class="text-default ">{{business?.descriptive_title}}</p>
@@ -18,7 +18,7 @@
 			</div>
 			<div class="container-detail-info-modal">
 				<div class="prices-office">
-					<h3 class="title-descrption"> 
+					<h3 class="title-descrption">
 						Starting at :
 					</h3>
 					<ul class="list-prices-office">
@@ -37,7 +37,7 @@
 									<p class="type-office">Virtual Office</p>
 								</li>
 							</ng-container>
-	
+
 						</ng-container>
 					</ul>
 				</div>

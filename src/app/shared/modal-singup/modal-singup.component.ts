@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiServicesService } from '@app/services/api-services.service';
 import { EventEmitterService } from '@app/services/event-emitter.service';
@@ -9,6 +9,7 @@ import { EventEmitterService } from '@app/services/event-emitter.service';
 	styleUrls: ['./modal-singup.component.scss']
 })
 export class ModalSingupComponent implements OnInit {
+	@Input() favoritesCount;
 	registerForm: FormGroup;
 	submitted = false;
 	constructor(private api: ApiServicesService, private formBuilder: FormBuilder, private eventEmitter: EventEmitterService) { }

@@ -1,37 +1,42 @@
 @import '../../../styles/index';
+
 .card-white {
-	padding: 20px;
-	width: 340px;
+    padding: 20px;
+    width: 340px;
+}
+
+.body-map-info {
+	padding: 1rem;
 }
 
 .text-default {
-	color: colors('black-7');
-	font-weight: 300;
-	font-size: 0.9rem;
-	padding-right: 28px;
-	cursor: pointer;
+    color: colors('black-7');
+    font-weight: 300;
+    font-size: 0.9rem;
+    padding-right: 28px;
+    cursor: pointer;
 
-	em {
-		color: colors('black-6');
-	}
+    em {
+        color: colors('black-6');
+    }
 }
 
 .name-city {
-	color: colors('black-7');
-	font-weight: 300;
-	margin-bottom: 10px;
+    color: colors('black-7');
+    font-weight: 300;
+    margin-bottom: 10px;
 }
 
 .phone-number {
-	color: colors('black-7');
-	font-size: 1.4rem;
-	margin-top: 8px;
+    color: colors('black-7');
+    font-size: 1.4rem;
+    margin-top: 8px;
 }
 
 .like-container {
-	height: 20px;
-	position: absolute;
-	width: 20px;
+    height: 20px;
+    position: absolute;
+    width: 20px;
 }
 
 .list-prices-office {
@@ -62,4 +67,3 @@
         text-align: center;
     }
 }
-

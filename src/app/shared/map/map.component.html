@@ -6,7 +6,7 @@
 			<agm-marker *ngFor="let bc of markersList; let i = index" [latitude]="bc.latitude"
 				[longitude]="bc.longitude" [markerDraggable]="false" [iconUrl]="'assets/images/map-marker.png'"
 				(markerClick)="clickedMarker(bc.buscenter_id)">
-				<agm-snazzy-info-window [maxWidth]="550" [maxHeight]="550" [closeWhenOthersOpen]="true" [borderRadius]="8" [panOnOpen]="true">
+				<agm-snazzy-info-window [maxWidth]="550" [maxHeight]="550" [closeWhenOthersOpen]="true" [borderRadius]="8" [panOnOpen]="true" (afterClose)="closeMarker()">
 					<ng-template>
 						<office-list-map-card [businessInfo]="selectBussines"></office-list-map-card>
 					</ng-template>

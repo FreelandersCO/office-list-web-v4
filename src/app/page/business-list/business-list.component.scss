@@ -1,5 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
 @import '../../../styles/index';
+
+.container-header-mobile {
+    //	background-image: none !important;
+}
+
+.title-pages {
+    color: colors('primary');
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
 .result-list-container {
     display: flex;
@@ -102,7 +114,18 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.show-map-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.text-show-map {
+    color: colors('black-4');
+    margin: 8px;
+    width: 75px;
 }
 
 .switch-show-map {
@@ -264,7 +287,7 @@
 
             &.call-pricing {
                 position: relative;
-                min-height: 40px;
+                height: 40px;
 
                 .button-show-price {
                     text-align: center;
@@ -553,23 +576,23 @@
 }
 
 @include from-breakpoint('desktop') {
-	.call-info-modal-container {
+    .call-info-modal-container {
         .close-modal {
             right: 28%;
         }
-	}
-	
-	.pricings-detail-container {
-		&.only-price-container {
-			width: 40%;
-		}
-	}
+    }
 
-	.container-princing-types {
-		&.only-type-container {
-			width: 40%;
-		}
-	}
+    .pricings-detail-container {
+        &.only-price-container {
+            width: 40%;
+        }
+    }
+
+    .container-princing-types {
+        &.only-type-container {
+            width: 40%;
+        }
+    }
 }
 
 @include from-breakpoint('desktop-s') {
@@ -579,7 +602,6 @@
     }
 
     .container-header-mobile {
-        background: url('assets/images/img-city-exmp.jpg');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -625,10 +647,10 @@
     }
 
     .result-map-container {
-        height: 95vh;
+        height: 99vh;
         position: sticky;
-		z-index: 1;
-		top: 0.1rem;
+        z-index: 1;
+        top: 0.1rem;
         width: 60%;
         padding-right: 0.5rem;
 
@@ -657,6 +679,7 @@
 @include from-breakpoint('desktop-l') {
     .container-header-mobile {
         .title-info-city {
+
             .title-pages,
             .text-intro {
                 margin: 0 auto;

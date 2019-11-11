@@ -1,8 +1,8 @@
 @import '../../../styles/index';
 
 .cont-slider-preview {
-	height: 190px;
-	margin: 10px 0;
+    height: 190px;
+    margin: 10px 0;
 }
 
 .modal-info-container {
@@ -15,46 +15,46 @@
 
     .card-modal-info {
         margin: 0 auto;
-        padding: 20px; 
+        padding: 20px;
         width: 100%;
 
-		p,
-		h3 {
-			padding: 0 0 0.2rem;
-		}
+        p,
+        h3 {
+            padding: 0 0 0.2rem;
+        }
 
-		.text-default,
-		.title-name-office,
-		.name-city,
-		.phone-number {
-			text-align-last: left;
-		}
+        .text-default,
+        .title-name-office,
+        .name-city,
+        .phone-number {
+            text-align-last: left;
+        }
 
-		.phone-number {
-			color: colors('primary');
-			font-weight: 700;
-		}
+        .phone-number {
+            color: colors('primary');
+            font-weight: 700;
+        }
 
         .body-modal-info {
             display: flex;
             flex-direction: column;
 
-			.container-detail-info-modal {
-				display: flex;
-				flex-wrap: wrap;
+            .container-detail-info-modal {
+                display: flex;
+                flex-wrap: wrap;
 
-				.prices-office,
-            	.description-office {
-					flex-grow: 1;
-					width: 100%;
-				}
-			}
+                .prices-office,
+                .description-office {
+                    flex-grow: 1;
+                    width: 100%;
+                }
+            }
 
             .prices-office,
             .description-office,
             .view-more {
                 margin-bottom: 10px;
-			}
+            }
 			
             .description-office {
                 .text-description {
@@ -126,9 +126,9 @@
 
             .body-modal-info {
                 .view-more {
-					flex-direction: row;
-					margin: 0 auto;
-					width: 50%;
+                    flex-direction: row;
+                    margin: 0 auto;
+                    width: 50%;
 
                     .button-default {
                         margin-right: 20px;
@@ -138,30 +138,29 @@
                             margin-right: 0;
                         }
                     }
-				}
+                }
 				
-				.container-detail-info-modal {
-				
-					.prices-office,
-					.description-office {
-						width: 50%;
-					}
-				}
+                .container-detail-info-modal {
+                    .prices-office,
+                    .description-office {
+                        width: 50%;
+                    }
+                }
             }
         }
     }
 }
 
 @include from-breakpoint('desktop') {
-	.modal-info-container {
-		.card-modal-info {
-			width: 50%;
+    .modal-info-container {
+        .card-modal-info {
+            width: 50%;
 
-			.body-modal-info {
-				.view-more {
-					width: 70%;
-				}
-			}
-		}
-	}
+            .body-modal-info {
+                .view-more {
+                    width: 70%;
+                }
+            }
+        }
+    }
 }

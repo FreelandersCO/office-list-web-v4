@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 import { SwiperOptions } from 'swiper';
 import { ActivatedRoute } from '@angular/router';
 
@@ -33,9 +33,14 @@ export class DetailOfficeComponent implements OnInit {
 	activeCoWorking = false;
 	activeVirtual = false;
 	detailOfficeInfo = false;
-	constructor(private api: ApiServicesService, private route: ActivatedRoute, private titleService: Title) { }
+	constructor(
+		private api: ApiServicesService,
+		private route: ActivatedRoute,
+		private titleService: Title,
+		private spinner: NgxSpinnerService) { }
 
 	ngOnInit() {
+		this.spinner.show();
 		this.route.params.subscribe(params => {
 			const explote = params['bc_url'].split('-');
 			const bcId = explote[explote.length - 1];
@@ -79,21 +84,23 @@ export class DetailOfficeComponent implements OnInit {
 			this.virtualOffice = findVirtual;
 			this.showVirtualOffice = true;
 		}
+
+		this.spinner.hide();
 	}
 
 	openPrivate() {
-		this.activePrivate = true;
+		this.activePrivate = !this.activePrivate;
 		this.activeCoWorking = this.activeVirtual = false;
 	}
 
 	openCoWorking() {
-		this.activeCoWorking = true;
+		this.activeCoWorking = !this.activeCoWorking ;
 		this.activePrivate = this.activeVirtual = false;
 	}
 
 	openVirtual() {
+		this.activeVirtual = !this.activeVirtual;
 		this.activePrivate = this.activeCoWorking = false;
-		this.activeVirtual = true;
 	}
 
 	showModalDetail(bcId) {

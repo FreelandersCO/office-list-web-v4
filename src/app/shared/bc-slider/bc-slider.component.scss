@@ -1,8 +1,7 @@
 @import '../../../styles/index';
 
 .bc-slider-container {
-	/*height: 190px; */
-	position: relative;
+    position: relative;
 }
 
 .bc-card-slider {
@@ -28,7 +27,11 @@
 
             &.fullImage {
                 max-height: unset;
-            }
+			}
+			&.mapImage {
+				max-height: 266px;
+				margin: 0;
+			}
         }
     }
 }
@@ -60,10 +63,3 @@
     }
 }
 
-@include from-breakpoint('mobile-xl') {
-	
-}
-
-@include from-breakpoint('tablet') {
-
-}

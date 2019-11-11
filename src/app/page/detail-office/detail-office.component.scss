@@ -24,7 +24,7 @@
 }
 
 .container-details {
-	width: 100%;
+    width: 100%;
 }
 
 .text-default {
@@ -55,6 +55,9 @@
 .container-princing-types {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 
     .cont-type-pricing {
         cursor: pointer;
@@ -259,7 +262,18 @@
         .price-container {
             border-width: 1px 0;
             margin: 12px 0;
-            padding: 4px 6px 0;
+			padding: 4px 6px 0;
+
+			&.call-pricing {
+				height: 83px;
+				position: relative;
+
+				.button-show-price {
+                    text-align: center;
+                    position: absolute;
+                    top: calc(50% - (19px / 2));
+                }
+			}
         }
 
         .btn-container {
@@ -416,18 +430,16 @@ swiper {
 @include from-breakpoint('tablet') {
     .pricings-detail-container {
         display: flex;
-		flex-wrap: wrap;
-		width: 80%;
-		margin: 0 auto;
+        flex-wrap: wrap;
+        width: 80%;
+        margin: 0 auto;
 
         .princing-type {
             flex-grow: 1;
             margin-left: 20px;
             width: 40%;
-
-            &:first-child {
-                margin-left: 0;
-            }
+            max-width: 340px;
+			margin: 0 auto;
         }
     }
 
@@ -495,9 +507,9 @@ swiper {
 }
 
 @include from-breakpoint('desktop') {
-	.pricings-detail-container {
-		width: 90%;
-	}
+    .pricings-detail-container {
+        width: 90%;
+    }
 
     .details-office-container {
         .container-details {
@@ -526,7 +538,8 @@ swiper {
 
     .container-princing-types {
         .cont-type-pricing {
-            width: 30%;
+            float: left;
+            width: 222px;
         }
     }
 
@@ -574,9 +587,7 @@ swiper {
 }
 
 @include from-breakpoint('desktop-l') {
-
-	.pricings-detail-container {
-		width: 60%;
-	}
-
+    .pricings-detail-container {
+        width: 60%;
+    }
 }

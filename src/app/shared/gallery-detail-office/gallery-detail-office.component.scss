@@ -18,49 +18,49 @@
 
     .container-images {
         /* Prevent vertical gaps */
-		line-height: 0;
-		column-gap: 0px;
-		column-count: 1;
-		width: 100%;;
+        line-height: 0;
+        column-gap: 0;
+        column-count: 1;
+        width: 100%;
 
-		@include from-breakpoint('tablet') {
-			column-count: 2;
-		}
+        @include from-breakpoint('tablet') {
+            column-count: 2;
+        }
 
-		@include from-breakpoint('desktop') {
-			column-count: 3;
-		}
+        @include from-breakpoint('desktop') {
+            column-count: 3;
+        }
 
-		@include from-breakpoint('desktop-l') {
-			column-count: 4;
-		}
+        @include from-breakpoint('desktop-l') {
+            column-count: 4;
+        }
 
         img {
-			width: 100%;
-			height: auto;
-			display: none;
+            width: 100%;
+            height: auto;
+            display: none;
 
-			&:nth-child(1){
-				display: block;
-			}
+            &:nth-child(1) {
+                display: block;
+            }
 
-			@include from-breakpoint('tablet') {
-				&:nth-child(2){
-					display: block;
-				}
-			}
+            @include from-breakpoint('tablet') {
+                &:nth-child(2) {
+                    display: block;
+                }
+            }
 
-			@include from-breakpoint('desktop') {
-				&:nth-child(3){
-					display: block;
-				}
-			}
+            @include from-breakpoint('desktop') {
+                &:nth-child(3) {
+                    display: block;
+                }
+            }
 
-			@include from-breakpoint('desktop-l') {
-				&:nth-child(4){
-					display: block;
-				}
-			}
+            @include from-breakpoint('desktop-l') {
+                &:nth-child(4) {
+                    display: block;
+                }
+            }
         }
     }
 
@@ -80,13 +80,13 @@
             padding: 0;
             text-align: center;
             width: 50px;
-		}
+        }
 
-		.like-container{
-			width: 45px;
-			height: 38px;
-			margin: 0.8rem 0 0 0.5rem;
-		}
+        .like-container {
+            width: 45px;
+            height: 38px;
+            margin: 0.8rem 0 0 0.5rem;
+        }
     }
 }
 
@@ -114,9 +114,9 @@
         width: 100%;
         margin: 0 auto;
         top: 0;
-		position: sticky;
-		max-width: 640px;
-	}
+        position: sticky;
+        max-width: 640px;
+    }
 }
 
 @include from-breakpoint('mobile-xl') {
