@@ -1,0 +1,24 @@
+@import '../../../styles/index';
+
+ .container-banner-pages {
+	 background-image: url('assets/images/image-back-pages.jpg');
+	 background-position: center;
+	 background-size: cover;
+	 height: 200px;
+	 margin: 0;
+ }
+
+ .container-info-pages {
+	 padding-top: 0;
+
+	 .title-home {
+		margin-top: 30px;
+	 }
+ }
+
+ 
+ @include from-breakpoint('tablet') {
+	.container-banner-pages {
+		height: 300px;
+	}
+ }

@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PageCoworkingComponent } from './page-coworking.component';
-
+import { PageListYourOfficeComponent } from './page-list-your-office.component';
 
 const routes: Routes = [
 	{
 		path: '',
-		component: PageCoworkingComponent,
+		component: PageListYourOfficeComponent,
 	}
 ];
 
@@ -14,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PageCoworkingRoutingModule { }
+export class PageListYourOfficeRoutingModule { }

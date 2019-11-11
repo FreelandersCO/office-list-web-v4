@@ -1,0 +1,494 @@
+ /* You can add global styles to this file, and also import other style files */
+@import '../../../styles/index';
+
+.popular-cities-container {
+    background-image: url('assets/images/bg-dottedmap.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -20px;
+    padding-top: 0;
+}
+
+.cities-container,
+.logo-company-container {
+    display: flex;
+    flex-wrap: wrap;
+} 
+
+.card-white {
+    flex-grow: 1;
+    margin-right: 10px;
+    width: 46%;
+
+    &:nth-child(2n) {
+        margin-right: 0;
+    }
+
+    .img-city-container {
+        border-radius: 10px 10px 0 0;
+        height: 130px;
+        overflow: hidden;
+
+        img {
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    .title-city {
+        color: colors('primary');
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-top: 10px;
+        padding: 0 12px;
+    }
+
+    .number-offices {
+        color: colors('black-4');
+        font-size: 0.8rem;
+        font-weight: 300;
+        padding: 0 12px;
+    }
+}
+
+.how-works-container {
+    margin: 0;
+    padding: 0;
+}
+
+.type-office-container {
+    display: flex;
+    flex-direction: column;
+
+    .type-office {
+        background-position: center;
+        background-repeat: no-repeat;
+		background-size: cover;
+		cursor: pointer;
+        height: 312px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        padding: 10px;
+        position: relative;
+        width: 100%;
+
+        &.privatte-office {
+            background-image: url('assets/images/img-private-office.jpg');
+        }
+
+        &.coworking {
+            background-image: url('assets/images/img-coworking.jpg');
+        }
+
+        &.virtual-office {
+            background-image: url('assets/images/img-virtual-office.jpg');
+        }
+
+        .name-type-office {
+            background: linear-gradient(to bottom, colors('black-0'), colors('black'));
+            bottom: 0;
+            color: colors('white');
+            height: 80px;
+            left: 0;
+            padding: 10px;
+            position: absolute;
+            width: 100%;
+        }
+
+        .name-office {
+            font-size: 2.6rem;
+            font-weight: 700;
+        }
+
+        .detail-office-container {
+            background-color: colors('primary-9');
+            bottom: -312px;
+            color: colors('white');
+            height: 100%;
+            left: 0;
+			padding: 40px 20px 0;
+			position: absolute;
+			transition: all 0.4s;
+            width: 100%;
+
+            .text-detail-info {
+                font-size: 1rem;
+                font-weight: 300;
+            }
+
+            .title-detail-office {
+                font-size: 1.1rem;
+                font-weight: 700;
+                margin: 10px 0;
+            }
+		}
+		
+		&:hover {
+			.detail-office-container {
+				bottom: 0px;	
+			}
+		}
+    }
+}
+
+.item-doit-container {
+    display: flex;
+    flex-direction: column;
+
+    .itemhw-container {
+        text-align: center;
+        margin-bottom: 20px;
+
+        .icon-howw {
+            margin: 20px auto;
+            width: 24%;
+        }
+
+        .title-howw {
+            font-size: 2rem;
+			font-weight: 700;
+			line-height: 2rem;
+            margin: 20px 0;
+        }
+
+        .text-howw {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.pressed-form-container {
+    background: colors('black-8');
+
+    .white-title {
+        color: colors('white');
+        margin-top: 20px;
+    }
+
+    .text-intro-form-button {
+        text-align: center;
+    }
+}
+ 
+.img-trust-container {
+    flex-grow: 1;
+    margin-right: 20px;
+    width: 30%;
+}
+
+.testimonials-container {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/images/img-bg-testimonials.jpg');
+    margin-bottom: 0;
+}
+
+.nearby-locations-container {
+    margin: 0;
+    padding-top: 0;
+
+    .office-list-card {
+        box-shadow: 0 1px 10px 0 colors('black-1');
+        flex-direction: column;
+        flex-grow: 1;
+        margin-bottom: 36px;
+        padding: 0;
+        width: 100%;
+
+        .img-card-office {
+            border-radius: 10px 10px 0 0;
+            min-height: 176px;
+            width: 100%;
+
+            img {
+                height: 177px;
+            }
+        }
+
+        .info-office-container {
+            width: 100%;
+            padding: 0.5rem;
+            position: relative;
+        }
+
+        .price-container {
+            border-width: 1px 0;
+            margin: 12px 0;
+            padding: 4px 6px 0;
+        }
+
+        .btn-container {
+            margin: 6px 0 1rem;
+        }
+
+        .like-container {
+            right: 0.5rem;
+            top: 0.5rem;
+        }
+    }
+
+    .price-container {
+        border-color: colors('black-2');
+        border-style: solid;
+
+        .zwicon-chevron-down {
+            color: colors('black-6');
+            font-size: 2rem;
+            line-height: 0;
+            position: absolute;
+            right: 0;
+            top: 14px;
+        }
+    }
+
+    .list-prices-office {
+        display: flex;
+        flex-flow: row wrap;
+        margin: 4px 0 10px;
+        justify-content: space-around;
+
+        li {
+            padding: 4px;
+        }
+
+        .price-office {
+            color: colors('black-7');
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .type-office {
+            color: colors('black-5');
+            font-size: 0.8rem;
+            line-height: 1;
+            text-align: center;
+        }
+    }
+
+    .img-card-office {
+        overflow: hidden;
+        position: relative;
+
+        .button-icon {
+            background: colors('white-7');
+            border-radius: 100%;
+            font-size: 1rem;
+            height: 30px;
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            width: 30px;
+        }
+    }
+
+    .text-default {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+        height: 34px;
+
+        em {
+            color: colors('black-6');
+        }
+    }
+
+    .name-city {
+        margin-bottom: 10px;
+    }
+
+    .phone-number {
+        color: colors('black-7');
+        font-size: 1rem;
+        margin-top: 8px;
+    }
+
+    .like-container {
+        height: 20px;
+        position: absolute;
+        width: 20px;
+    }
+
+    .btn-container {
+        text-align: center;
+
+        .button-default {
+            margin: 0 0 4px;
+        }
+    }
+}
+
+swiper {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.swiper-container {
+    overflow: hidden;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: colors('primary');
+}
+
+.nearby-swiper {
+    height: auto;
+}
+
+.amenities-swiper {
+    height: 270px;
+}
+
+.swiper-pagination-bullet-active {
+    background: colors('black-7') !important;
+}
+
+@include from-breakpoint('mobile-xl') {
+    .item-doit-container {
+        flex-wrap: wrap;
+        flex-direction: initial;
+
+        .itemhw-container {
+            flex-grow: 1;
+            width: 50%;
+        }
+    }
+}
+
+@include from-breakpoint('tablet') {
+    .card-white {
+        width: 26%;
+
+        &:nth-child(2n) {
+            margin-right: 10px;
+        }
+
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
+    }
+
+    .img-trust-container {
+        width: 18%;
+    }
+}
+
+@include from-breakpoint('desktop-s') {
+    .type-office-container {
+        flex-direction: row;
+
+        .type-office {
+            margin-right: 20px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            .detail-office-container {
+                padding: 20px;
+            }
+        }
+    }
+
+    .text-intro-form-button {
+        .button-default {
+            width: 30%;
+        }
+    }
+
+    .form-pressed-container {
+        margin: 0 auto;
+        width: 70%;
+
+        .form-pressed-button {
+            form {
+                display: flex;
+                flex-wrap: wrap;
+
+                .group-form {
+                    flex-grow: 1;
+                    margin: 0 10px;
+                    width: 40%;
+                }
+            }
+
+            .button-default {
+                width: 40%;
+            }
+        }
+	}
+	
+	swiper {
+        width: 100%;
+    }
+
+    .nearby-locations-container {
+        .office-list-card {
+            width: 285px !important;
+        }
+    }
+
+    .nearby-locations-container {
+        width: 100%;
+        padding: 0 2rem;
+    }
+}
+
+@include from-breakpoint('desktop') {
+    .card-white {
+        margin-right: 10px;
+        width: 14%;
+
+        &:nth-child(3n) {
+            margin-right: 10px;
+        }
+    }
+
+    .item-doit-container {
+        .itemhw-container {
+            flex-grow: 1;
+            padding: 0 10px;
+            width: 20%;
+
+            .title-howw {
+                font-size: 1.6rem;
+                line-height: 1.6rem;
+            }
+
+            .text-howw {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .img-trust-container {
+        width: 10%;
+    }
+
+    .testimonials-container {
+        article {
+            margin: 0 auto;
+            width: 70%;
+        }
+	}
+	
+	.cont-swiper-nearby {
+        margin: 0 0 40px;
+        width: 100%;
+    }
+}
+
+@include from-breakpoint('desktop-l') {
+    .card-white {
+        width: 14%;
+    }
+
+    .item-doit-container {
+        .itemhw-container {
+            padding-top: 40px;
+        }
+    }
+
+    .form-pressed-container {
+        width: 50%;
+    }
+}
