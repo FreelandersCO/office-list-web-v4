@@ -28,6 +28,7 @@ export class DetailOfficeComponent implements OnInit {
 	hotDesk;
 	dedicated;
 	selectedBusiness;
+	accountManager;
 	showPrivateOffice = false;
 	showCoWorking = false;
 	showVirtualOffice = false;
@@ -48,16 +49,20 @@ export class DetailOfficeComponent implements OnInit {
 		this.route.params.subscribe(params => {
 			const explote = params['bc_url'].split('-');
 			const bcId = explote[explote.length - 1];
-			this.api.getBussinesDetails(bcId).subscribe(result => {
-				this.bussinesCenter = result;
-				this.titleService.setTitle('Offices in ' + this.bussinesCenter.cross_streets);
-				this.processOffice(result);
-			});
+			this.api.getBussinesDetails(bcId).subscribe(result => this.procesData(result));
 		});
 	}
 
-	processOffice(bcInfo) {
-		const offices = bcInfo.offices;
+	procesData(result) {
+		this.bussinesCenter = result.businesCentersInfo;
+		this.accountManager = result.accountManager[0];
+		this.accountManager.phone = this.bussinesCenter.number_tel;
+		this.titleService.setTitle('Offices in ' + this.bussinesCenter.cross_streets);
+		this.processOffice();
+	}
+
+	processOffice() {
+		const offices = this.bussinesCenter.offices;
 		const findPrivate = offices.find(o => o.type_office_id === '1');
 		const findCoWorking = offices.find(o => o.type_office_id === '2' || o.type_office_id === '3');
 		const findHotDesk = offices.find(o => o.type_office_id === '3');

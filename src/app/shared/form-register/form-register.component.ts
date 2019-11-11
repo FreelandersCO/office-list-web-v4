@@ -10,6 +10,7 @@ import { EventEmitterService } from '@app/services/event-emitter.service';
 })
 export class FormRegisterComponent implements OnInit {
 	@Input() inquired = false;
+	@Input() amId;
 	registerForm: FormGroup;
 	submitted = false;
 
@@ -21,7 +22,8 @@ export class FormRegisterComponent implements OnInit {
 			company: ['', Validators.required],
 			email: ['', [Validators.required, Validators.email]],
 			phone: ['', [Validators.required]],
-			comments: ['']
+			comments: [''],
+			amId: [''],
 		});
 	}
 	// convenience getter for easy access to form fields
@@ -29,7 +31,8 @@ export class FormRegisterComponent implements OnInit {
 
 	onSubmit() {
 		this.submitted = true;
-
+		this.registerForm.value.amId = this.amId;
+		console.log(this.registerForm.value);
 		// stop here if form is invalid
 		if (this.registerForm.invalid) {
 			return;
