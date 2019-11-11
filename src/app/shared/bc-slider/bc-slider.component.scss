@@ -27,11 +27,12 @@
 
             &.fullImage {
                 max-height: unset;
-			}
-			&.mapImage {
-				max-height: 266px;
-				margin: 0;
-			}
+            }
+
+            &.mapImage {
+                max-height: 266px;
+                margin: 0;
+            }
         }
     }
 }
@@ -58,8 +59,7 @@
     }
 
     .arrow-left {
-		float: left;
-		margin: 0 0.5rem;
+        float: left;
+        margin: 0 0.5rem;
     }
 }
-

@@ -1,25 +1,25 @@
 @import '../../../styles/index';
 
 .container-info-pages {
-	padding-top: 0;
+    padding-top: 0;
 }
 
 .container-info-pages {
-	.title-home {
-		margin-top: 20px;
-	}
+    .title-home {
+        margin-top: 20px;
+    }
 }
 
 .type-office-container {
     display: flex;
-	flex-direction: column;
-	margin: 30px 0 0;
+    flex-direction: column;
+    margin: 30px 0 0;
 
     .type-office {
         background-position: center;
         background-repeat: no-repeat;
-		background-size: cover;
-		cursor: pointer;
+        background-size: cover;
+        cursor: pointer;
         height: 312px;
         margin-bottom: 20px;
         overflow: hidden;
@@ -61,9 +61,9 @@
             color: colors('white');
             height: 100%;
             left: 0;
-			padding: 40px 20px 0;
-			position: absolute;
-			transition: all 0.4s;
+            padding: 40px 20px 0;
+            position: absolute;
+            transition: all 0.4s;
             width: 100%;
 
             .text-detail-info {
@@ -76,98 +76,99 @@
                 font-weight: 700;
                 margin: 10px 0;
             }
-		}
+        }
 		
-		&:hover {
-			.detail-office-container {
-				bottom: 0px;	
-			}
-		}
+        &:hover {
+            .detail-office-container {
+                bottom: 0;
+            }
+        }
     }
 }
 
 .container-articles-useful {
-	margin: 20px 0;
+    margin: 20px 0;
 
-	.article-useful {
-		float: left;
-		width: 100%;
+    .article-useful {
+        float: left;
+        width: 100%;
 
-		.image-article-useful {
-			border-radius: 10px 10px 0 0;
-			height: 160px;
-			overflow: hidden;
-		}
+        .image-article-useful {
+            border-radius: 10px 10px 0 0;
+            height: 160px;
+            overflow: hidden;
+        }
 
-		.container-text-useful {
-			padding: 20px 20px 0;
-		}
+        .container-text-useful {
+            padding: 20px 20px 0;
+        }
 
-		.title-article {
-			border-bottom: 1px solid colors('black-2');
-			color: #3BA42F;
-			font-size: 1.4rem;
-			line-height: 1.4rem;
-			margin-bottom: 20px;
-			padding-bottom: 10px;
-		}
+        .title-article {
+            border-bottom: 1px solid colors('black-2');
+            color: #3BA42F;
+            font-size: 1.4rem;
+            line-height: 1.4rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
 
-		.button-default {
-			margin: 20px 0 0;
-		}
-	}	
+        .button-default {
+            margin: 20px 0 0;
+        }
+    }
 }
+
 .clear {
-	clear: both;
+    clear: both;
 }
 
 @include from-breakpoint('tablet') {
-	.container-articles-useful {
-		.article-useful {
-			margin: 0 20px 20px 0;
-			width: 48%;
+    .container-articles-useful {
+        .article-useful {
+            margin: 0 20px 20px 0;
+            width: 48%;
 
-			&:nth-of-type(2n) {
-				margin-right: 0;
-			}
-		}
-	}
+            &:nth-of-type(2n) {
+                margin-right: 0;
+            }
+        }
+    }
 }
 
 @include from-breakpoint('desktop-s') {
-	.type-office-container {
-		flex-direction: row;
+    .type-office-container {
+        flex-direction: row;
 
-		.type-office {
-			margin-right: 20px;
-			width: 33%;
+        .type-office {
+            margin-right: 20px;
+            width: 33%;
 
-			&:last-child {
-				margin-right: 0;
-			}
+            &:last-child {
+                margin-right: 0;
+            }
 
-			.name-office {
-				font-size: 2.4rem;
-			}
-		}
-	}
+            .name-office {
+                font-size: 2.4rem;
+            }
+        }
+    }
 }
 
 @include from-breakpoint('desktop-l') {
-	.container-articles-useful {
-		margin: 20px auto;
-		width: 1150px;
-		.article-useful {
-			width: 32%;
+    .container-articles-useful {
+        margin: 20px auto;
+        width: 1150px;
 
-			&:nth-of-type(2n) {
-				margin-right: 20px;
-			}
+        .article-useful {
+            width: 32%;
 
-			&:nth-of-type(3n) {
-				margin-right: 0;
-			}
+            &:nth-of-type(2n) {
+                margin-right: 20px;
+            }
 
-		}
-	}
+            &:nth-of-type(3n) {
+                margin-right: 0;
+            }
+        }
+    }
 }

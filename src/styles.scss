@@ -41,7 +41,6 @@ article {
 
 input,
 textarea {
-
     &:hover,
     &:focus {
         outline: 0;
@@ -145,7 +144,7 @@ button {
     width: 100%;
 
     &:before {
-        content: "";
+        content: '';
         position: absolute;
         z-index: -1;
         top: 0;
@@ -168,7 +167,6 @@ button {
         &:before {
             background: colors('white');
             border: 1px solid colors('white');
-
         }
 
         &:hover,
@@ -190,7 +188,6 @@ button {
         &:before {
             background: colors('primary');
             border: 1px solid colors('primary');
-
         }
 
         &:hover,
@@ -209,14 +206,12 @@ button {
         background-color: colors('white');
         border: 1px solid colors('primary');
         color: colors('primary');
-
         background-color: colors('white');
         color: colors('primary');
 
         &:before {
             background: colors('primary');
             border: 1px solid colors('primary');
-
         }
 
         &:hover,
@@ -253,11 +248,11 @@ button {
 /* Form */
 form {
     .general-error {
-		color: red;
-		font-size: 13px;
-		font-weight: bold;
-		text-align: center;
-	}
+        color: red;
+        font-size: 13px;
+        font-weight: bold;
+        text-align: center;
+    }
 
     .group-form {
         padding: 14px 0 0;
@@ -308,8 +303,8 @@ form {
                 border: 1px red solid;
             }
 
-            &:focus+.label-default,
-            &:valid+.label-default {
+            &:focus + .label-default,
+            &:valid + .label-default {
                 color: colors('primary');
                 font-size: 70%;
                 top: 0;
@@ -381,7 +376,8 @@ form {
     }
 }
 
-/* End Forms*/
+/* End Forms */
+
 /* Modals */
 office-list-modal-login-search,
 office-list-modal-singup,
@@ -494,6 +490,7 @@ office-list-modal-scheduled-tour {
 }
 
 /* End Modals */
+
 /* Pages */
 .container-info-pages {
     article {

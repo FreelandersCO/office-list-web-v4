@@ -262,18 +262,18 @@
         .price-container {
             border-width: 1px 0;
             margin: 12px 0;
-			padding: 4px 6px 0;
+            padding: 4px 6px 0;
 
-			&.call-pricing {
-				height: 83px;
-				position: relative;
+            &.call-pricing {
+                height: 83px;
+                position: relative;
 
-				.button-show-price {
+                .button-show-price {
                     text-align: center;
                     position: absolute;
                     top: calc(50% - (19px / 2));
                 }
-			}
+            }
         }
 
         .btn-container {
@@ -376,33 +376,31 @@
     }
 }
 
-/*Swipper**/
+/* Swipper  **/
 .cont-swiper-nearby {
-	swiper {
-		width: 90%;
-		height: auto;
+    swiper {
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+    }
 
-		margin: 0 auto;
-	}
+    .swiper-container {
+        overflow: hidden;
+    }
 
-	.swiper-container {
-		overflow: hidden;
-	}
+    .swiper-wrapper {
+        box-sizing: border-box;
+    }
 
-	.swiper-wrapper {
-		box-sizing: border-box;
-	}
+    .swiper-pagination-bullet-active {
+        background: colors('black-7') !important;
+    }
 
-	.swiper-pagination-bullet-active {
-		background: colors('black-7') !important;
-	}
-
-	.swiper-button-next,
-	.swiper-button-prev {
-		display: none;
-	}
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
+    }
 }
-
 
 .container-form-inquire {
     right: 5%;
@@ -442,7 +440,7 @@
             margin-left: 20px;
             width: 40%;
             max-width: 340px;
-			margin: 0 auto;
+            margin: 0 auto;
         }
     }
 
@@ -493,31 +491,28 @@
 }
 
 @include from-breakpoint('desktop-s') {
-
-
     .nearby-locations-container {
-		width: 100%;
-		padding: 0 2rem;
+        width: 100%;
+        padding: 0 2rem;
 
         .office-list-card {
             width: 304px !important;
-		}
+        }
 
-		.cont-swiper-nearby {
+        .cont-swiper-nearby {
+            .nearby-swiper {
+                width: 100%;
+            }
 
-			.nearby-swiper {
-				width: 100%;
-			}
+            .swiper-button-next,
+            .swiper-button-prev {
+                display: block;
+            }
 
-			.swiper-button-next,
-			.swiper-button-prev {
-				display: block;
-			}
-
-			.swiper-pagination {
-				display: none;
-			}
-		}
+            .swiper-pagination {
+                display: none;
+            }
+        }
     }
 }
 
@@ -554,7 +549,7 @@
     .container-princing-types {
         .cont-type-pricing {
             float: left;
-			max-width: 225px;
+            max-width: 225px;
         }
     }
 

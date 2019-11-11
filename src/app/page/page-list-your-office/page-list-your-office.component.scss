@@ -1,4 +1,4 @@
- /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
 @import '../../../styles/index';
 
 .popular-cities-container {
@@ -14,7 +14,7 @@
 .logo-company-container {
     display: flex;
     flex-wrap: wrap;
-} 
+}
 
 .card-white {
     flex-grow: 1;
@@ -65,8 +65,8 @@
     .type-office {
         background-position: center;
         background-repeat: no-repeat;
-		background-size: cover;
-		cursor: pointer;
+        background-size: cover;
+        cursor: pointer;
         height: 312px;
         margin-bottom: 20px;
         overflow: hidden;
@@ -108,9 +108,9 @@
             color: colors('white');
             height: 100%;
             left: 0;
-			padding: 40px 20px 0;
-			position: absolute;
-			transition: all 0.4s;
+            padding: 40px 20px 0;
+            position: absolute;
+            transition: all 0.4s;
             width: 100%;
 
             .text-detail-info {
@@ -123,13 +123,13 @@
                 font-weight: 700;
                 margin: 10px 0;
             }
-		}
+        }
 		
-		&:hover {
-			.detail-office-container {
-				bottom: 0px;	
-			}
-		}
+        &:hover {
+            .detail-office-container {
+                bottom: 0;
+            }
+        }
     }
 }
 
@@ -148,8 +148,8 @@
 
         .title-howw {
             font-size: 2rem;
-			font-weight: 700;
-			line-height: 2rem;
+            font-weight: 700;
+            line-height: 2rem;
             margin: 20px 0;
         }
 
@@ -415,9 +415,9 @@ swiper {
                 width: 40%;
             }
         }
-	}
+    }
 	
-	swiper {
+    swiper {
         width: 100%;
     }
 
@@ -469,9 +469,9 @@ swiper {
             margin: 0 auto;
             width: 70%;
         }
-	}
+    }
 	
-	.cont-swiper-nearby {
+    .cont-swiper-nearby {
         margin: 0 0 40px;
         width: 100%;
     }

@@ -20,7 +20,7 @@ export class BcSliderComponent {
 	@ViewChildren('item') items: QueryList<ElementRef<HTMLDivElement>>;
 	isFirst = true;
 	isLast = false;
-	private slidesIndex = 0;
+	slidesIndex = 0;
 
 	get currentItem(): ElementRef<HTMLDivElement> {
 		return this.items.find((item, index) => index === this.slidesIndex);
