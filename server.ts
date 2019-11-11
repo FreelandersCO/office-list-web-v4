@@ -59,6 +59,14 @@ app.get('*', (req, res) => {
 	res.render('index', { req });
 });
 
+app.get('/', (req, res) =>
+	res.sendFile(__dirname + '/public/sitemap.xml')
+);
+
+app.get('/', (req, res) =>
+	res.sendFile(__dirname + '/public/robots.txt')
+);
+
 // Start up the Node server
 app.listen(PORT, () => {
 	console.log(`Node Express server listening on http://localhost:${PORT}`);

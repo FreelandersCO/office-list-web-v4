@@ -12,6 +12,7 @@
 :root {
     --swiper-pagination-color: #3BA42F;
 }
+
 html,
 body {
     height: 100%;
@@ -20,8 +21,8 @@ body {
 body {
     background: #F8F8F8;
     font-weight: 300;
-	position: relative;
-	margin: 0;
+    position: relative;
+    margin: 0;
 }
 
 section {
@@ -134,17 +135,48 @@ button {
     font-weight: 300;
     margin: 0.5rem auto;
     padding: 0.5rem 12px;
+    position: relative;
+    transform: perspective(1px) translateZ(0);
+    transition-property: color;
+    transition-duration: 0.5s;
     width: 100%;
+
+    &:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        border-radius: 25px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        transition-property: transform;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-out;
+    }
 
     &.primary {
         background-color: colors('primary');
         border: 1px solid colors('primary');
         color: colors('white');
 
-        &:hover {
-            background-color: colors('white');
-            border: 1px solid colors('primary');
+        &:before {
+            background: colors('white');
+            border: 1px solid colors('white');
+
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
             color: colors('primary');
+
+            &:before {
+                transform: scaleX(1);
+                transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+            }
         }
     }
 
@@ -152,9 +184,21 @@ button {
         background-color: colors('white');
         color: colors('primary');
 
-        &:hover {
-            background-color: colors('primary');
+        &:before {
+            background: colors('primary');
+            border: 1px solid colors('primary');
+
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
             color: colors('white');
+
+            &:before {
+                transform: scaleX(1);
+                transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+            }
         }
     }
 
@@ -163,10 +207,24 @@ button {
         border: 1px solid colors('primary');
         color: colors('primary');
 
-        &:hover {
-            background-color: colors('white');
-            border: 1px solid colors('white');
-            color: colors('primary');
+        background-color: colors('white');
+        color: colors('primary');
+
+        &:before {
+            background: colors('primary');
+            border: 1px solid colors('primary');
+
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: colors('white');
+
+            &:before {
+                transform: scaleX(1);
+                transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+            }
         }
     }
 }
@@ -239,8 +297,8 @@ button {
             border: 1px red solid;
         }
 
-        &:focus + .label-default,
-        &:valid + .label-default {
+        &:focus+.label-default,
+        &:valid+.label-default {
             color: colors('primary');
             font-size: 70%;
             top: 0;
@@ -422,6 +480,7 @@ office-list-modal-scheduled-tour {
         font-weight: 700;
     }
 }
+
 /* End Modals */
 /* Pages */
 .container-info-pages {
@@ -463,33 +522,33 @@ office-list-modal-scheduled-tour {
 
 /** CARD Map **/
 .si-wrapper-top {
-	width: 356px;
-	height: 526px;
+    width: 356px;
+    height: 526px;
 
-	.si-content-wrapper {
-		padding: 0;
+    .si-content-wrapper {
+        padding: 0;
 
-		.si-close-button {
-			font-family: Roboto, 'Helvetica Neue', sans-serif;
-			opacity: 1;
-			z-index: 1;
-			background: rgba(255, 255, 255, 0.7);
-			box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.2);
-			border-radius: 100%;
-			font-size: 1rem;
-			width: 30px;
-			height: 30px;
-			right: 12px;
-			top: 12px;
-		}
+        .si-close-button {
+            font-family: Roboto, 'Helvetica Neue', sans-serif;
+            opacity: 1;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 100%;
+            font-size: 1rem;
+            width: 30px;
+            height: 30px;
+            right: 12px;
+            top: 12px;
+        }
 
-		.si-content {
-			overflow: hidden;
-			width: 356px;
-			height: 510px;
-			z-index: 10;
-		}
-	}
+        .si-content {
+            overflow: hidden;
+            width: 356px;
+            height: 510px;
+            z-index: 10;
+        }
+    }
 }
 
 @include from-breakpoint ('mobile-xl') {
@@ -515,8 +574,8 @@ office-list-modal-scheduled-tour {
 
         &.big-modal {
             left: 25%;
-			width: 50%;
-			top: 10%;
+            width: 50%;
+            top: 10%;
 
             .body-modal {
                 form {
