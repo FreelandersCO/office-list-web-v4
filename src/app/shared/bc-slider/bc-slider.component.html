@@ -8,11 +8,11 @@
 	</aside>
 	<div class="bc-card-slider-btns">
 
-		<button class="arrow-left" (click)="onClickLeft()">
-			<i class="zwicon-arrow-circle-left"></i>
+		<button class="arrow-left" (click)="onClickLeft()" *ngIf="slidesIndex > 0">
+			<i class="zwicon-chevron-left"></i>
 		</button>
-		<button class="arrow-right" (click)="onClickRight()">
-			<i class="zwicon-arrow-circle-right"></i>
+		<button class="arrow-right" (click)="onClickRight()"*ngIf="slidesIndex != images.length - 1">
+			<i class="zwicon-chevron-right"></i>
 		</button>
 	</div>
 </div>

@@ -9,7 +9,8 @@ import { EventEmitterService } from '@app/services/event-emitter.service';
 export class MapCardComponent implements OnChanges {
 	@Input() businessInfo;
 	business;
-	constructor(private eventEmitter: EventEmitterService) { }
+	constructor(
+		private eventEmitter: EventEmitterService) { }
 
 	ngOnChanges(changes: SimpleChanges) {
 		const businessInfo: SimpleChange = changes.businessInfo;

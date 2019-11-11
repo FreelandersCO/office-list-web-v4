@@ -18,7 +18,8 @@ export class BcSliderComponent {
 	@Input() map = false;
 	@ViewChild('slider', { static: false }) slidesContainer: ElementRef<HTMLDivElement>;
 	@ViewChildren('item') items: QueryList<ElementRef<HTMLDivElement>>;
-
+	isFirst = true;
+	isLast = false;
 	private slidesIndex = 0;
 
 	get currentItem(): ElementRef<HTMLDivElement> {

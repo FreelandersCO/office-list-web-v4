@@ -1,6 +1,7 @@
+
 <div class="map-card-container">
 
-	<office-list-bc-slider [images]="business?.images" [map]="true"></office-list-bc-slider>
+	<office-list-bc-slider *ngIf="business?.images" [images]="business?.images" [map]="true"></office-list-bc-slider>
 
 	<div class="body-map-info">
 		<p class="text-default ">{{business?.descriptive_title}}</p>
@@ -10,7 +11,7 @@
 			<i class="zwicon-phone"></i>
 			{{business?.number_tel}}
 		</p>
-		<div class="prices-office">
+		<div class="prices-office" *ngIf="business?.offices">
 			<h3 class="title-descrption">
 				Starting at :
 			</h3>

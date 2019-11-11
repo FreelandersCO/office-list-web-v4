@@ -15,7 +15,11 @@ export class DetailOfficeComponent implements OnInit {
 	office = 'private';
 	config: SwiperOptions = {
 		pagination: { el: '.swiper-pagination', clickable: true },
-		spaceBetween: 50
+		spaceBetween: 50,
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		}
 	};
 	bussinesCenter;
 	privateOffice;
@@ -94,7 +98,7 @@ export class DetailOfficeComponent implements OnInit {
 	}
 
 	openCoWorking() {
-		this.activeCoWorking = !this.activeCoWorking ;
+		this.activeCoWorking = !this.activeCoWorking;
 		this.activePrivate = this.activeVirtual = false;
 	}
 

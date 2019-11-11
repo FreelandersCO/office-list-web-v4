@@ -9,6 +9,7 @@
 				<agm-snazzy-info-window [maxWidth]="550" [maxHeight]="550" [closeWhenOthersOpen]="true" [borderRadius]="8" [panOnOpen]="true" (afterClose)="closeMarker()">
 					<ng-template>
 						<office-list-map-card [businessInfo]="selectBussines"></office-list-map-card>
+					<ngx-spinner name="loadingMap" color="rgba(59, 164, 47, 0.9)" [fullScreen]="false" type="ball-clip-rotate-multiple" size="medium"></ngx-spinner>
 					</ng-template>
 				</agm-snazzy-info-window>
 			</agm-marker>

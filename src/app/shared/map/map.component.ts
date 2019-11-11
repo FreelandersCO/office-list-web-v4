@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, SimpleChanges, SimpleChange, OnChanges } from '@angular/core';
 import { ApiServicesService } from '@service/api-services.service';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
 	selector: 'office-list-map',
@@ -14,7 +15,10 @@ export class MapComponent implements OnInit, OnChanges {
 	selectBussines;
 	openMarket = false;
 
-	constructor(private api: ApiServicesService, private route: ActivatedRoute) { }
+	constructor(
+		private api: ApiServicesService,
+		private route: ActivatedRoute,
+		private spinner: NgxSpinnerService) { }
 	// google maps zoom level
 	zoom = 11;
 	fullScreen = false;
@@ -82,7 +86,11 @@ export class MapComponent implements OnInit, OnChanges {
 	}
 	clickedMarker(bdId) {
 		this.openMarket = true;
-		this.api.getBussinesDetails(bdId).subscribe(res => this.selectBussines = res);
+		this.spinner.show('loadingMap');
+		this.api.getBussinesDetails(bdId).subscribe(res => {
+			this.selectBussines = res;
+			this.spinner.hide('loadingMap');
+		});
 	}
 	closeMarker() {
 		this.openMarket = false;

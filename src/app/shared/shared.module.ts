@@ -9,7 +9,10 @@ import { AgmCoreModule } from '@agm/core';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { StorageServiceModule } from 'ngx-webstorage-service';
-import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import { DeviceDetectorModule } from 'ngx-device-detector';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { SearchInputComponent } from './search-input/search-input.component';
 import { BcSliderComponent } from './bc-slider/bc-slider.component';
@@ -50,7 +53,9 @@ import { ButtonsMobileDetailComponent } from './buttons-mobile-detail/buttons-mo
 		MatFormFieldModule,
 		MatInputModule,
 		AgmSnazzyInfoWindowModule,
-		AutocompleteLibModule
+		AutocompleteLibModule,
+		DeviceDetectorModule.forRoot(),
+		NgxSpinnerModule
 	],
 	declarations: [
 		NormalizaeString,

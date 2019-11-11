@@ -1,4 +1,5 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+	<div class="general-error" *ngIf="submitted && (f.fullName.errors || f.company.errors || f.email.errors || f.phone.errors || comments.errors)">Please complete form to contact Listing Manager</div>
 	<div class="group-form">
 		<input type="text" class="input-default" required formControlName="fullName"
 			[ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">

@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'index';
+// abstracts
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
 @import 'base/reset';
 @import 'base/animations';
 @import 'base/global';
-@import 'abstracts/variables';
 
 * {
     font-family: $font-family;
@@ -11,6 +13,7 @@
 
 :root {
     --swiper-pagination-color: #3BA42F;
+    --swiper-theme-color: #3BA42F !important;
 }
 
 html,
@@ -248,111 +251,120 @@ button {
 }
 
 /* Form */
-.group-form {
-    padding: 14px 0 0;
-    position: relative;
+form {
+    .general-error {
+		color: red;
+		font-size: 13px;
+		font-weight: bold;
+		text-align: center;
+	}
 
-    i {
-        color: colors('white');
-        float: left;
-        font-size: 1.6rem;
-    }
+    .group-form {
+        padding: 14px 0 0;
+        position: relative;
 
-    .label-default {
-        color: colors('black-3');
-        font-size: 1rem;
-        font-weight: 300;
-        left: 18px;
-        position: absolute;
-        transition: all 0.6s;
-        transform: translate3d(0%, 100%, 0);
-        z-index: 1;
-    }
-
-    .input-default {
-        background-color: colors('black-1');
-        border: 0;
-        border-radius: 25px;
-        font-size: 0.9rem;
-        font-weight: 300;
-        height: 40px;
-        margin-top: 6px;
-        padding: 10px 18px;
-        width: 100%;
-
-        &.textarea-input {
-            border-radius: 6px;
-            height: 70px;
-            margin-bottom: 8px;
-            font-size: 0.8rem;
+        i {
+            color: colors('white');
+            float: left;
+            font-size: 1.6rem;
         }
 
-        &.white {
-            background-color: colors('white-2');
-            color: colors('white-8');
-            font-size: 0.9rem;
-        }
-
-        &.is-invalid {
-            border: 1px red solid;
-        }
-
-        &:focus+.label-default,
-        &:valid+.label-default {
-            color: colors('primary');
-            font-size: 70%;
-            top: 0;
-            transform: translate3d(0, 42%, 0);
-        }
-    }
-
-    select {
-        appearance: none;
-        height: 40px;
-    }
-
-    &.selectt {
-        .zwicon-chevron-down {
-            color: colors('primary');
-            position: absolute;
-            right: 8px;
-            font-size: 2.6rem;
-            top: 20px;
-        }
-    }
-
-    &.date-tour {
         .label-default {
-            appearance: none;
-            transform: translate3d(48%, 77%, 0);
+            color: colors('black-3');
+            font-size: 1rem;
+            font-weight: 300;
+            left: 18px;
+            position: absolute;
+            transition: all 0.6s;
+            transform: translate3d(0%, 100%, 0);
+            z-index: 1;
         }
 
         .input-default {
-            padding-left: 42px;
+            background-color: colors('black-1');
+            border: 0;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 300;
+            height: 40px;
+            margin-top: 6px;
+            padding: 10px 18px;
+            width: 100%;
+
+            &.textarea-input {
+                border-radius: 6px;
+                height: 70px;
+                margin-bottom: 8px;
+                font-size: 0.8rem;
+            }
+
+            &.white {
+                background-color: colors('white-2');
+                color: colors('white-8');
+                font-size: 0.9rem;
+            }
+
+            &.is-invalid {
+                border: 1px red solid;
+            }
+
+            &:focus+.label-default,
+            &:valid+.label-default {
+                color: colors('primary');
+                font-size: 70%;
+                top: 0;
+                transform: translate3d(0, 42%, 0);
+            }
         }
 
-        .zwicon-calendar-month {
-            color: colors('primary');
-            left: 14px;
-            position: absolute;
-            top: 28px;
+        select {
+            appearance: none;
+            height: 40px;
         }
-    }
 
-    &.full-width {
-        width: 100% !important;
-    }
+        &.selectt {
+            .zwicon-chevron-down {
+                color: colors('primary');
+                position: absolute;
+                right: 8px;
+                font-size: 2.6rem;
+                top: 20px;
+            }
+        }
 
-    .btn-icon-input {
-        font-size: 1.2rem;
-        line-height: 0;
-        position: absolute;
-        right: 10px;
-        top: 40px;
+        &.date-tour {
+            .label-default {
+                appearance: none;
+                transform: translate3d(48%, 77%, 0);
+            }
 
-        i {
-            color: colors('primary');
+            .input-default {
+                padding-left: 42px;
+            }
+
+            .zwicon-calendar-month {
+                color: colors('primary');
+                left: 14px;
+                position: absolute;
+                top: 28px;
+            }
+        }
+
+        &.full-width {
+            width: 100% !important;
+        }
+
+        .btn-icon-input {
+            font-size: 1.2rem;
             line-height: 0;
+            position: absolute;
+            right: 10px;
+            top: 40px;
+
+            i {
+                color: colors('primary');
+                line-height: 0;
+            }
         }
     }
 }
