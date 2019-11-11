@@ -36,7 +36,149 @@
 	</article>
 </section>
 <section class="container-ourteam">
-
+	<article class="container-team">
+		<h2 class="title-home white-title">
+			Our Team
+		</h2>
+		<hr>
+		<div class="container-bubbles-team">
+			<div class="bubble-team-person">
+				<figure class="container-picture-team">
+					<img src="assets/images/picture-staff-uddy.jpg" alt="">
+				</figure>
+				<button class="icon-button-plus" (click)="showModalInformationU()">
+					<i class="zwicon-plus"></i>
+				</button>
+				<div class="cont-detail-team" >
+					<h2 class="name-team"> Uddy Carmi</h2>
+					<p class="name-profile">Founder & CEO</p>
+					<p class="url-linkedin">
+						<i class="icon-linkedin-line"></i>
+						<a href="https://www.linkedin.com/in/uddy-carmi-6aa220/?locale=es_ES" target="_blank">www.linkedin.com</a>
+					</p>
+				</div>
+				<div class="cont-text-profile-person card-white" *ngIf="detailInfoTeam">
+						<button class="close-button" (click)="closeModal(null)">
+						<i class="zwicon-close"></i>
+					</button>
+					<h2 class="name-team"> Uddy Carmi</h2>
+					<p class="name-profile">Founder & CEO</p>
+					<hr>
+					<p class="text-default-person">
+						Uddy is a passionate entrepreneur and started OfficeList to solve a problem so many start-ups face: traditional office space does not provide the level of service and flexibility companies need. He then realized the team was not just helping start-ups and professionals but companies of all sizes. His passions are his wife and two gorgeous kids, that makes him the luckiest man alive. He also loves traveling, scuba diving, tennis, and (when inspired) golf. His favorite quote around work: "Thank God for delegating and hiring people smarter than I".
+					</p>
+				</div>
+			</div>
+			<div class="bubble-team-person">
+				<figure class="container-picture-team">
+					<img src="assets/images/picture-staff-jorge.jpg" alt="">
+				</figure>
+				<button class="icon-button-plus" (click)="showModalInformationG()">
+					<i class="zwicon-plus"></i>
+				</button>
+				<div class="cont-detail-team">
+					<h2 class="name-team">George Garcia</h2>
+					<p class="name-profile">Market Specialist</p>
+					<p class="url-linkedin">
+						<i class="icon-linkedin-line"></i>
+						<a href="https://www.linkedin.com/in/uddy-carmi-6aa220/?locale=es_ES" target="_blank">www.linkedin.com</a>
+					</p>
+				</div>
+				<div class="cont-text-profile-person card-white" *ngIf="detailInfoTeamg">
+						<button class="close-button" (click)="closeModalG(null)">
+						<i class="zwicon-close"></i>
+					</button>
+					<h2 class="name-team">George Garcia</h2>
+					<p class="name-profile">Market Specialist</p>
+					<hr>
+					<p class="text-default-person">
+						George is an outgoing person who thinks we can aim higher when working in a group for a set common goal. A jack of all trades with the necessary experience to guide clients in their search for office space. Also an avid music collector and very interested in cultural endeavors.
+					</p>
+				</div>
+			</div>
+			<div class="bubble-team-person">
+				<figure class="container-picture-team">
+					<img src="assets/images/picture-staff-adrian.jpg" alt="">
+				</figure>
+				<button class="icon-button-plus" (click)="showModalInformationA()">
+					<i class="zwicon-plus"></i>
+				</button>
+				<div class="cont-detail-team">
+					<h2 class="name-team"> Adrian Dussan</h2>
+					<p class="name-profile">IT Manager</p>
+					<p class="url-linkedin">
+						<i class="icon-linkedin-line"></i>
+						<a href="https://www.linkedin.com/in/uddy-carmi-6aa220/?locale=es_ES" target="_blank">www.linkedin.com</a>
+					</p>
+				</div>
+				<div class="cont-text-profile-person card-white" *ngIf="detailInfoTeama">
+						<button class="close-button" (click)="closeModalA(null)">
+						<i class="zwicon-close"></i>
+					</button>
+					<h2 class="name-team">Adrian Dussan</h2>
+					<p class="name-profile">IT Manager</p>
+					<hr>
+					<p class="text-default-person">
+						Adrian loves being part of a team capable of achieving great things and finding solutions to everyday challenges. Being able to share time with his wife and children is not only his biggest passion but the greatest blessing he has received. As much as he would love to, he has realized carpentry and drawing are not his strengths. We guess he'll have to settle for being the Picasso of coding.
+					</p>
+				</div>
+			</div>
+			<div class="bubble-team-person">
+				<figure class="container-picture-team">
+					<img src="assets/images/picture-staff-melody.jpg" alt="">
+				</figure>
+				<button class="icon-button-plus" (click)="showModalInformationM()">
+					<i class="zwicon-plus"></i>
+				</button>
+				<div class="cont-detail-team">
+					<h2 class="name-team">Melody Ann Meyer</h2>
+					<p class="name-profile">Partner Relations Manager</p>
+					<p class="url-linkedin">
+						<i class="icon-linkedin-line"></i>
+						<a href="https://www.linkedin.com/in/uddy-carmi-6aa220/?locale=es_ES" target="_blank">www.linkedin.com</a>
+					</p>
+				</div>
+				<div class="cont-text-profile-person card-white" *ngIf="detailInfoTeamm">
+						<button class="close-button" (click)="closeModalM(null)">
+						<i class="zwicon-close"></i>
+					</button>
+					<h2 class="name-team">Melody Ann Meyer</h2>
+					<p class="name-profile">Partner Relations Manager</p>
+					<hr>
+					<p class="text-default-person">
+						Melody thrives on dedication and attention to detail. Loves to interact with clients and always addresses challenges with a smile and positive attitude. She’s lived in London, Barcelona, Buenos Aires, Bogota, and Barranquilla, and plans to continue her duties while in Paris soon. Always a traveler, an adventurer, and a team player, Melody is in charge that our partnerships with thousands of flexible office locations run smoothly and efficiently.
+					</p>
+				</div>
+			</div>
+			<div class="bubble-team-person">
+				<figure class="container-picture-team">
+					<img src="assets/images/picture-staff-jhon.jpg" alt="">
+				</figure>
+				<button class="icon-button-plus" (click)="showModalInformationJ()">
+					<i class="zwicon-plus"></i>
+				</button>
+				<div class="cont-detail-team">
+					<h2 class="name-team">John Fernandez</h2>
+					<p class="name-profile">Market Specialist</p>
+					<p class="url-linkedin">
+						<i class="icon-linkedin-line"></i>
+						<a href="https://www.linkedin.com/in/uddy-carmi-6aa220/?locale=es_ES" target="_blank">www.linkedin.com</a>
+					</p>
+				</div>
+				<div class="cont-text-profile-person card-white" *ngIf="detailInfoTeamj">
+					<button class="close-button" (click)="closeModalJ(null)">
+						<i class="zwicon-close"></i>
+					</button>
+					<h2 class="name-team">John Fernandez</h2>
+					<p class="name-profile">Market Specialist</p>
+					<hr>
+					<p class="text-default-person">
+							John’s professional expertise is in customer relations and sales. With extensive experience in hospitality and training, and a degree in Electrical Engineering, his approach to work and life always takes into account the big picture. As a passionate reader, musician, father and world traveller, John makes us all a bit smarter since he joined the OfficeList family in early 2019.
+					</p>
+				</div>
+			</div>
+		</div>
+	</article>
 </section>
 <section class="container-linetime">
 	<article class="line-time-officelist">
