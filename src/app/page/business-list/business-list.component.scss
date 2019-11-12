@@ -461,6 +461,10 @@
     padding: 0 0.5rem;
 }
 
+.spinner-container  {
+    width: 100%;
+}
+
 .result-map-container {
     position: fixed;
     height: calc(100vh - 104px);
@@ -637,7 +641,6 @@
     }
 
     .category-filter-container {
-        padding: 14px 43% 14px 18%;
         justify-content: space-around;
     }
 

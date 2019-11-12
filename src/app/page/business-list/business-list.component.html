@@ -1,5 +1,5 @@
 <ngx-spinner bdOpacity=0.5 bdColor="#ffffff" size="large" color="rgba(59, 164, 47, 1)"
-	[fullScreen]="true">
+	[fullScreen]="true" name="loadingPage">
 	<p> Loading... </p>
 </ngx-spinner>
 <section class="info-city-list-container">
@@ -58,16 +58,16 @@
 			</button>
 		</div>
 		<div class="distance-filter-contaier" *ngIf="filterDistance">
-			<button class="close-filter-button">
+			<button class="close-filter-button" (click)="hideFilterDistance()">
 				<i class="zwicon-close"></i>
 			</button>
 			<div class="slidecontainer">
-				<input type="range" min="1" max="100" value="0" class="slider-distance" id="rangeDistance">
+				<input type="range" min="1" max="100" [value]="distance" class="slider-distance" (change)="changeDistance($event)">
 				<p class="distance-label">1M</p>
 				<p class="distance-label text-rigth">1OOM</p>
 			</div>
 			<p class="distance-number-filter">
-				100
+				{{distance}}
 			</p>
 			<p class="distance-title">
 				Miles
@@ -138,6 +138,9 @@
 				</div>
 			</div>
 		</ng-container>
+		<div class="spinner-container" #bottonTest style="width: 100%;">
+			<ngx-spinner name="loadingBC" color="rgba(59, 164, 47, 0.9)" bdColor="#ffffff" [fullScreen]="false" type="ball-clip-rotate-multiple" size="large"></ngx-spinner>
+		</div>
 	</article>
 	<!--Map-->
 	<div class="result-map-container" *ngIf="mapShow">

@@ -8,7 +8,7 @@
 }
 
 .success-container {
-	color: colors('primary');
+    color: colors('primary');
 }
 
 @include from-breakpoint('desktop') {

@@ -6,7 +6,12 @@ import { retry, catchError } from 'rxjs/operators';
 import { Cacheable } from 'ngx-cacheable';
 
 import { environment } from '@env/environment';
-
+export interface PageBussines {
+	// tslint:disable-next-line: ban-types
+	businesCenters: Object;
+	// tslint:disable-next-line: ban-types
+	pageInfo: Object;
+}
 @Injectable({
 	providedIn: 'root'
 })
@@ -23,20 +28,18 @@ export class ApiServicesService {
 	constructor(private http: HttpClient) { }
 
 	@Cacheable()
-	getBussinesList(country, state, city, zipCode): Observable<Object> {
-		const limit = '6';
-		// tslint:disable-next-line: no-magic-numbers
-		const exclude = '';
+	getBussinesList(country, state, city, zipCode, excludeArray, distance): Observable<PageBussines> {
+		const exclude = excludeArray.join(',');
 		const headers = new HttpHeaders({
 			'Content-Type': 'application/json',
 			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
-		}).set('limit', limit).set('exclude', exclude);
+		}).set('exclude', exclude).set('distance', distance);
 
 		const url = (zipCode === undefined) ?
 			`${this.apiURL}/BusinessCenter/List/${country}/${state}/${city}/` :
 			`${this.apiURL}/BusinessCenter/List/${country}/${state}/${city}/${zipCode}`;
 
-		return this.http.get(url, { headers })
+		return this.http.get<PageBussines>(url, { headers })
 			.pipe(
 				retry(1),
 				catchError(this.handleError)

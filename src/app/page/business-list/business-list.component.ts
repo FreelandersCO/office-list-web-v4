@@ -1,12 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Title, Meta  } from '@angular/platform-browser';
+import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 import { EventEmitterService } from '@app/services/event-emitter.service';
 import { ApiServicesService } from '@service/api-services.service';
-
 
 @Component({
 	selector: 'office-list-business-list',
@@ -23,6 +22,7 @@ export class BusinessListComponent implements OnInit {
 	public officeInfo;
 	public mapShow;
 	public listGrid;
+	private cacheParams;
 	pageInfo;
 	bussinesCenter;
 	areas;
@@ -30,9 +30,10 @@ export class BusinessListComponent implements OnInit {
 	bussinesCenterCount;
 	city;
 	state;
-	throttle = 300;
-	scrollDistance = 1;
-	scrollUpDistance = 2;
+	loadingMore = false;
+	lastScrollTop = 0;
+	exclude = [];
+	distance = 30;
 
 	constructor(
 		private api: ApiServicesService,
@@ -46,16 +47,46 @@ export class BusinessListComponent implements OnInit {
 		this.detailOfficeInfo = this.allFilters = this.filterArea = this.filterDistance = false;
 	}
 
+	@HostListener('window:scroll', ['$event'])
+	onScroll($event: Event): void {
+		const scrollPosition = window.pageYOffset;
+		const elementPosition = this.element.nativeElement.offsetTop - 460;
+		if (scrollPosition >= elementPosition && scrollPosition > this.lastScrollTop && !this.loadingMore) {
+			this.exclude = this.bussinesCenter.map(i => i.buscenter_id);
+			this.loadingMore = true;
+			this.spinner.show('loadingBC');
+			this.api.getBussinesList(
+				this.cacheParams['country'],
+				this.cacheParams['state'],
+				this.cacheParams['city'],
+				this.cacheParams['zip_code'],
+				this.exclude,
+				this.distance
+			).subscribe(result => {
+				this.loadingMore = false;
+				this.bussinesCenter = this.bussinesCenter.concat(result.businesCenters);
+				setTimeout(() => {
+					this.spinner.hide('loadingBC');
+				}, 500);
+			});
+		}
+		this.lastScrollTop = scrollPosition <= 0 ? 0 : scrollPosition;
+	}
+
 	ngOnInit() {
-		this.spinner.show();
+		this.spinner.show('loadingPage');
 		this.mapShow = this.deviceService.isDesktop();
 		this.listGrid = !this.deviceService.isDesktop();
 		this.route.params.subscribe(params => {
-			this.city = this.capitalizeWords(params['city']);
-			this.state = this.capitalizeWords(params['state']);
-			this.api.getBussinesList(params['country'],
-				params['state'], params['city'], params['zip_code'])
-				.subscribe(result => this.processData(result));
+			this.cacheParams = params;
+			this.api.getBussinesList(
+				this.cacheParams['country'],
+				this.cacheParams['state'],
+				this.cacheParams['city'],
+				this.cacheParams['zip_code'],
+				this.exclude,
+				this.distance
+			).subscribe(result => this.processData(result));
 		});
 		if (this.eventEmitter.subsVar === undefined) {
 			this.eventEmitter.toogleDetails.subscribe((name: string) => {
@@ -72,12 +103,20 @@ export class BusinessListComponent implements OnInit {
 	}
 
 	processData(result) {
-		this.spinner.hide();
+		this.loadingMore = false;
+		this.spinner.hide('loadingPage');
 		this.bussinesCenter = result.businesCenters;
 		this.pageInfo = result.pageInfo;
 		// SEO
 		this.titleService.setTitle(this.pageInfo.metatitle);
-		this.meta.addTag({name: 'description', content: this.pageInfo.metadescription});
+		this.meta.addTag({ name: 'description', content: this.pageInfo.metadescription });
+		// City And State
+
+		this.city = this.capitalizeWords(this.cacheParams['city']);
+		this.state = this.capitalizeWords(this.cacheParams['state']);
+		// Replace Number Of BC
+		this.bussinesCenterCount = this.bussinesCenter[0].total;
+		this.pageInfo.intro = this.pageInfo.intro.replace('{{numOfBc}}', this.bussinesCenterCount);
 	}
 
 	capitalizeWords(str) {
@@ -107,6 +146,11 @@ export class BusinessListComponent implements OnInit {
 		this.filterDistance = !this.filterDistance;
 	}
 
+	hideFilterDistance() {
+		this.filterArea = false;
+
+	}
+
 	showGrid() {
 		this.listGrid = true;
 	}
@@ -125,5 +169,23 @@ export class BusinessListComponent implements OnInit {
 
 	callTour() {
 		this.eventEmitter.toogleTourHeaderEmitter();
+	}
+
+	changeDistance(event) {
+		this.distance = event.srcElement.value;
+		this.spinner.show('loadingPage');
+		this.api.getBussinesList(
+			this.cacheParams['country'],
+			this.cacheParams['state'],
+			this.cacheParams['city'],
+			this.cacheParams['zip_code'],
+			this.exclude,
+			this.distance
+		).subscribe(result => {
+			this.bussinesCenter = result.businesCenters;
+			setTimeout(() => {
+				this.spinner.hide('loadingPage');
+			}, 500);
+		});
 	}
 }

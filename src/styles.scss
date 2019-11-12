@@ -529,6 +529,19 @@ office-list-modal-scheduled-tour {
     font-size: 0.8rem !important;
 }
 
+.result-list-container .spinner-container ngx-spinner .overlay {
+    position: relative !important;
+    background-color: transparent !important;
+
+    > div {
+        &:not(.loading-text) {
+            position: relative !important;
+        }
+    }
+}
+
+
+
 /** CARD Map **/
 .si-wrapper-top {
     width: 356px;
