@@ -43,7 +43,7 @@ export class FormRegisterComponent implements OnInit {
 
 	onSubmit() {
 		this.submitted = true;
-		this.registerForm.value.amId = this.amId;
+		this.registerForm.value.am_id = this.amId;
 		this.registerForm.value.bc_list = this.bcFavorites.join(',');
 		// stop here if form is invalid
 		if (this.registerForm.invalid) {
