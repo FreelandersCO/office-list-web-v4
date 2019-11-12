@@ -19,6 +19,7 @@ import 'zone.js/dist/zone-node';
 
 import * as express from 'express';
 import { join } from 'path';
+const compression = require('compression');
 const domino = require('domino');
 const fs = require('fs');
 const path = require('path');
@@ -35,7 +36,8 @@ const DIST_FOLDER = join(process.cwd(), 'browser');
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP, ngExpressEngine, provideModuleMap } = require('./dist/server/main');
-
+// compress all responses
+app.use(compression());
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine('html', ngExpressEngine({
 	bootstrap: AppServerModuleNgFactory,
@@ -58,14 +60,6 @@ app.get('*.*', express.static(DIST_FOLDER, {
 app.get('*', (req, res) => {
 	res.render('index', { req });
 });
-
-app.get('/', (req, res) =>
-	res.sendFile(__dirname + '/public/sitemap.xml')
-);
-
-app.get('/', (req, res) =>
-	res.sendFile(__dirname + '/public/robots.txt')
-);
 
 // Start up the Node server
 app.listen(PORT, () => {
