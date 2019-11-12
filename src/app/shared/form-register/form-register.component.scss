@@ -7,6 +7,10 @@
     }
 }
 
+.success-container {
+	color: colors('primary');
+}
+
 @include from-breakpoint('desktop') {
     .container-inquire-buttons {
         display: flex;

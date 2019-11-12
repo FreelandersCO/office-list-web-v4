@@ -25,9 +25,14 @@ export class ModalDetailComponent implements OnChanges, OnInit {
 		const businessId: SimpleChange = changes.businessId;
 		if (businessId.currentValue != null) {
 			this.api.getBussinesDetails(businessId.currentValue)
-					.subscribe(result => this.business = result);
+				.subscribe(result => this.processData(result));
 		}
 	}
+
+	processData(result) {
+		this.business = result.businesCentersInfo;
+	}
+
 	openSignUp() {
 		this.closeModal();
 		this.eventEmitter.detailsEmitter();

@@ -1,5 +1,7 @@
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-	<div class="general-error" *ngIf="submitted && (f.fullName.errors || f.company.errors || f.email.errors || f.phone.errors)">Please complete form to contact Listing Manager</div>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" *ngIf="!successfully && !error">
+	<div class="general-error"
+		*ngIf="submitted && (f.fullName.errors || f.company.errors || f.email.errors || f.phone.errors)">Please complete
+		form to contact Listing Manager</div>
 	<div class="group-form">
 		<input type="text" class="input-default" required formControlName="fullName"
 			[ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
@@ -16,7 +18,7 @@
 		<label for="" class="label-default">Email*</label>
 	</div>
 	<div class="group-form">
-		<input type="text" class="input-default" required formControlName="phone"
+		<input type="text" class="input-default" required formControlName="phone" mask="(000) 000-0000"
 			[ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
 		<label for="" class="label-default">Phone number*</label>
 	</div>
@@ -34,3 +36,13 @@
 		<button class="button-default primary" type="submit">Inquire</button>
 	</div>
 </form>
+<div class="success-container" *ngIf="submitted && successfully">
+	<ng-lottie [options]="optionSuccess" width="100%" height="250px"></ng-lottie>
+	<p>Thank you for registering in Officelist. Soon one of our managers will contact you.</p>
+</div>
+
+<div class="success-container" *ngIf="submitted && error">
+		<ng-lottie [options]="optionError" width="100%" height="250px"></ng-lottie>
+
+	<p>Something went wrong please try again later</p>
+</div>

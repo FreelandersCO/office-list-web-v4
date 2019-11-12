@@ -5,6 +5,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { AgmCoreModule } from '@agm/core';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
@@ -12,7 +13,8 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
 
 import { SearchInputComponent } from './search-input/search-input.component';
 import { BcSliderComponent } from './bc-slider/bc-slider.component';
@@ -34,6 +36,14 @@ import { FormRegisterComponent } from './form-register/form-register.component';
 import { MapCardComponent } from './map-card/map-card.component';
 import { ButtonsMobileDetailComponent } from './buttons-mobile-detail/buttons-mobile-detail.component';
 
+// Note we need a separate function as it's required
+// by the AOT compiler
+export function playerFactory() {
+	return player;
+}
+
+let options: Partial<IConfig> | (() => Partial<IConfig>);
+
 @NgModule({
 	imports: [
 		CommonModule,
@@ -42,6 +52,7 @@ import { ButtonsMobileDetailComponent } from './buttons-mobile-detail/buttons-mo
 			// https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
 			apiKey: 'AIzaSyCop_zSgXsfr2eS48LTbflHNRx5N3Un3co'
 		}),
+		LottieModule.forRoot({ player: playerFactory }),
 		AgmJsMarkerClustererModule,
 		StorageServiceModule,
 		FormsModule,
@@ -55,7 +66,8 @@ import { ButtonsMobileDetailComponent } from './buttons-mobile-detail/buttons-mo
 		AgmSnazzyInfoWindowModule,
 		AutocompleteLibModule,
 		DeviceDetectorModule.forRoot(),
-		NgxSpinnerModule
+		NgxSpinnerModule,
+		NgxMaskModule.forRoot(options)
 	],
 	declarations: [
 		NormalizaeString,

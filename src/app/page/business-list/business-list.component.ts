@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta  } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -23,7 +23,7 @@ export class BusinessListComponent implements OnInit {
 	public officeInfo;
 	public mapShow;
 	public listGrid;
-	principalBanner;
+	pageInfo;
 	bussinesCenter;
 	areas;
 	originalData;
@@ -40,6 +40,7 @@ export class BusinessListComponent implements OnInit {
 		private deviceService: DeviceDetectorService,
 		private eventEmitter: EventEmitterService,
 		private titleService: Title,
+		private meta: Meta,
 		private spinner: NgxSpinnerService
 	) {
 		this.detailOfficeInfo = this.allFilters = this.filterArea = this.filterDistance = false;
@@ -52,8 +53,6 @@ export class BusinessListComponent implements OnInit {
 		this.route.params.subscribe(params => {
 			this.city = this.capitalizeWords(params['city']);
 			this.state = this.capitalizeWords(params['state']);
-			const title = `Office Space for Rent ${this.city} :: OfficeList.com`;
-			this.titleService.setTitle(title);
 			this.api.getBussinesList(params['country'],
 				params['state'], params['city'], params['zip_code'])
 				.subscribe(result => this.processData(result));
@@ -75,7 +74,10 @@ export class BusinessListComponent implements OnInit {
 	processData(result) {
 		this.spinner.hide();
 		this.bussinesCenter = result.businesCenters;
-		this.principalBanner = result.principalBanner;
+		this.pageInfo = result.pageInfo;
+		// SEO
+		this.titleService.setTitle(this.pageInfo.metatitle);
+		this.meta.addTag({name: 'description', content: this.pageInfo.metadescription});
 	}
 
 	capitalizeWords(str) {
