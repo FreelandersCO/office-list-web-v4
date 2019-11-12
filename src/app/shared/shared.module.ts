@@ -42,7 +42,7 @@ export function playerFactory() {
 	return player;
 }
 
-let options: Partial<IConfig> | (() => Partial<IConfig>);
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
 	imports: [
