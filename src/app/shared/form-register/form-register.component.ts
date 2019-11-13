@@ -54,13 +54,12 @@ export class FormRegisterComponent implements OnInit {
 	}
 
 	processResult(r) {
+		this.successfully = false;
+		this.error = true;
 		if (r.result) {
 			this.successfully = true;
 			this.error = false;
-		} else {
-			this.successfully = false;
-			this.error = true;
-		}
+		};
 		this.onReset();
 	}
 	onReset() {

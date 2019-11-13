@@ -50,7 +50,7 @@ export class BusinessListComponent implements OnInit {
 	@HostListener('window:scroll', ['$event'])
 	onScroll($event: Event): void {
 		const scrollPosition = window.pageYOffset;
-		const elementPosition = this.element.nativeElement.offsetTop - 460;
+		const elementPosition = this.element.nativeElement.offsetTop - 1000;
 		if (scrollPosition >= elementPosition && scrollPosition > this.lastScrollTop && !this.loadingMore) {
 			this.exclude = this.bussinesCenter.map(i => i.buscenter_id);
 			this.loadingMore = true;

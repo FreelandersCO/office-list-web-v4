@@ -6,14 +6,19 @@
 }
 
 .body-map-info {
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
+.text-default ,
+.title-name-office,
+.name-city ,
+.phone-number {
+	padding-bottom: 0.5rem;
+}
 .text-default {
     color: colors('black-7');
     font-weight: 300;
     font-size: 0.9rem;
-    padding-right: 28px;
     cursor: pointer;
 
     em {
@@ -24,13 +29,11 @@
 .name-city {
     color: colors('black-7');
     font-weight: 300;
-    margin-bottom: 10px;
 }
 
 .phone-number {
-    color: colors('black-7');
+    color: colors('black-5');
     font-size: 1.4rem;
-    margin-top: 8px;
 }
 
 .like-container {
@@ -66,4 +69,11 @@
         line-height: 1;
         text-align: center;
     }
+}
+
+.call-pricing {
+    color: colors('primary');
+	height: 66px;
+	border-top: 1px colors('black-5') solid;
+	border-bottom: 1px colors('black-5') solid;
 }

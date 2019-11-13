@@ -58,7 +58,11 @@ export class DetailOfficeComponent implements OnInit {
 		this.accountManager = result.accountManager[0];
 		this.accountManager.phone = this.bussinesCenter.number_tel;
 		this.titleService.setTitle('Offices in ' + this.bussinesCenter.cross_streets);
-		this.processOffice();
+
+		if (this.bussinesCenter.offices !== null) {
+			this.processOffice();
+		}
+		this.spinner.hide();
 	}
 
 	processOffice() {
@@ -93,8 +97,6 @@ export class DetailOfficeComponent implements OnInit {
 			this.virtualOffice = findVirtual;
 			this.showVirtualOffice = true;
 		}
-
-		this.spinner.hide();
 	}
 
 	openPrivate() {
