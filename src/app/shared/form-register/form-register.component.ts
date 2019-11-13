@@ -59,7 +59,7 @@ export class FormRegisterComponent implements OnInit {
 		if (r.result) {
 			this.successfully = true;
 			this.error = false;
-		};
+		}
 		this.onReset();
 	}
 	onReset() {
