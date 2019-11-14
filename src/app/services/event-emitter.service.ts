@@ -27,7 +27,7 @@ export class EventEmitterService {
 		this.favoriteAdded.emit();
 	}
 
-	detailsEmitter() {
+	toogleDetailsEmitter() {
 		this.toogleDetails.emit();
 	}
 

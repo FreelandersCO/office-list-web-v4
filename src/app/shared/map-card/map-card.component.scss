@@ -73,7 +73,10 @@
 
 .call-pricing {
     color: colors('primary');
-	height: 66px;
-	border-top: 1px colors('black-5') solid;
-	border-bottom: 1px colors('black-5') solid;
+    font-size: 20px;
+    height: 55px;
+    border-top: 1px rgba(0, 0, 0, 0.2) solid;
+    border-bottom: 1px rgba(0, 0, 0, 0.2) solid;
+    text-align: center;
+    padding-top: 12px;
 }

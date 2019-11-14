@@ -62,8 +62,13 @@ export class FormRegisterComponent implements OnInit {
 		}
 		this.onReset();
 	}
+
 	onReset() {
 		this.registerForm.reset();
+	}
+
+	callRequest() {
+
 	}
 
 }

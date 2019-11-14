@@ -14,6 +14,7 @@ export class MapCardComponent implements OnChanges {
 
 	ngOnChanges(changes: SimpleChanges) {
 		const businessInfo: SimpleChange = changes.businessInfo;
+
 		if (businessInfo.currentValue != null) {
 			this.business = businessInfo.currentValue;
 		}

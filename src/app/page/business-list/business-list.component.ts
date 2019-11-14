@@ -91,9 +91,11 @@ export class BusinessListComponent implements OnInit {
 		if (this.eventEmitter.subsVar === undefined) {
 			this.eventEmitter.toogleDetails.subscribe((name: string) => {
 				this.detailOfficeInfo = !this.detailOfficeInfo;
-				this.callSingUp();
 			});
-
+			/*this.eventEmitter.toogleSignUp.subscribe((name: string) => {
+				this.detailOfficeInfo = !this.detailOfficeInfo;
+				this.callSingUp();
+			});*/
 			this.eventEmitter.toogleTour.subscribe((name: string) => {
 				this.detailOfficeInfo = !this.detailOfficeInfo;
 				this.callTour();

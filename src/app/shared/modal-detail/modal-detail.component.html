@@ -1,4 +1,4 @@
-<div class="modal-info-container" *ngIf="modalDetailInfo">
+<div class="modal-info-container">
 	<div class="card-modal-info card-white">
 		<div class="header-modal">
 			<button class="btn-icon-transparent" (click)="closeModal()">
@@ -51,9 +51,17 @@
 				</div>
 			</div>
 			<div class="view-more">
-				<button class="button-default secondary-line" (click)="openTour()"><i class="zwicon-earth-alt"></i> Request tour</button>
-				<button class="button-default primary" (click)="openSignUp()"><i class="zwicon-receipt"></i> Inquire</button>
+				<button class="button-default secondary-line" (click)="openTour()"><i class="zwicon-earth-alt"></i>
+					Request tour</button>
+				<button class="button-default primary" (click)="openSignUp()"><i class="zwicon-receipt"></i>
+					Inquire</button>
 			</div>
 		</div>
 	</div>
+</div>
+<div class="modal-loading">
+		<ngx-spinner bdOpacity=0.5 bdColor="#ffffff" size="large" color="rgba(59, 164, 47, 1)"
+		[fullScreen]="false" name="loadingModal">
+		<p> Office List... </p>
+	</ngx-spinner>
 </div>

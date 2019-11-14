@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange } from
 
 import { ApiServicesService } from '@app/services/api-services.service';
 import { EventEmitterService } from '@app/services/event-emitter.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
 	selector: 'office-list-modal-detail',
@@ -12,13 +13,12 @@ export class ModalDetailComponent implements OnChanges, OnInit {
 	@Input() businessId;
 	business;
 
-	modalDetailInfo: boolean;
+	constructor(private api: ApiServicesService, private eventEmitter: EventEmitterService, private spinner: NgxSpinnerService) {
 
-	constructor(private api: ApiServicesService, private eventEmitter: EventEmitterService) {
-		this.modalDetailInfo = true;
 	}
 
 	ngOnInit() {
+		this.spinner.show('loadingModal');
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
@@ -31,20 +31,21 @@ export class ModalDetailComponent implements OnChanges, OnInit {
 
 	processData(result) {
 		this.business = result.businesCentersInfo;
+		this.spinner.hide('loadingModal');
 	}
 
 	openSignUp() {
-		this.closeModal();
-		this.eventEmitter.detailsEmitter();
+		this.eventEmitter.toogleDetailsEmitter();
+		this.eventEmitter.toogleSingUpEmitter();
 	}
 
 	openTour() {
-		this.closeModal();
+		this.eventEmitter.toogleDetailsEmitter();
 		this.eventEmitter.toogleTourEmitter();
 	}
 
 	closeModal() {
-		this.modalDetailInfo = false;
+		this.eventEmitter.toogleDetailsEmitter();
 	}
 
 }

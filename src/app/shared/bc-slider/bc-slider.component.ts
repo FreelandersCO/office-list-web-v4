@@ -4,7 +4,10 @@ import {
 	QueryList,
 	ElementRef,
 	Input,
-	ViewChildren
+	ViewChildren,
+	OnChanges,
+	SimpleChanges,
+	SimpleChange
 } from '@angular/core';
 
 @Component({
@@ -12,7 +15,7 @@ import {
 	templateUrl: './bc-slider.component.html',
 	styleUrls: ['./bc-slider.component.scss']
 })
-export class BcSliderComponent {
+export class BcSliderComponent implements OnChanges {
 	@Input() images;
 	@Input() fullImage = false;
 	@Input() map = false;
@@ -21,9 +24,17 @@ export class BcSliderComponent {
 	isFirst = true;
 	isLast = false;
 	slidesIndex = 0;
+	_images;
 
 	get currentItem(): ElementRef<HTMLDivElement> {
 		return this.items.find((item, index) => index === this.slidesIndex);
+	}
+
+	ngOnChanges(changes: SimpleChanges) {
+		const images: SimpleChange = changes.images;
+		if (images.currentValue != null) {
+			this._images = images.currentValue;
+		}
 	}
 
 	onClickLeft() {

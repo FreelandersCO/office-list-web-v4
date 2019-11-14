@@ -32,7 +32,7 @@
 		<button class="button-default primary" type="submit">Save your favorites</button>
 	</div>
 	<div class="container-inquire-buttons" *ngIf="inquired">
-		<button class="button-default secondary-line">Request tour</button>
+		<button class="button-default secondary-line" (click)="callRequest()">Request tour</button>
 		<button class="button-default primary" type="submit">Inquire</button>
 	</div>
 </form>
