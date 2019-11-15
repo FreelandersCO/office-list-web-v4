@@ -32,7 +32,7 @@ export class ApiServicesService {
 		const exclude = excludeArray.join(',');
 		const headers = new HttpHeaders({
 			'Content-Type': 'application/json',
-			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+			'Access-Control-Allow-Methods': 'GET'
 		}).set('exclude', exclude).set('distance', distance);
 
 		const url = (zipCode === undefined) ?
@@ -57,8 +57,16 @@ export class ApiServicesService {
 
 	@Cacheable()
 	// tslint:disable-next-line: ban-types
-	getMapBC(country, state, city): Observable<Object> {
-		return this.http.get(`${this.apiURL}/BusinessCenter/MapInfo/${country}/${state}/${city}`)
+	getMapBC(country, state, city, zipCode, distance): Observable<Object> {
+		const headers = new HttpHeaders({
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Methods': 'GET'
+		}).set('distance', distance);
+		const url = (zipCode === undefined) ?
+			`${this.apiURL}/BusinessCenter/MapInfo/${country}/${state}/${city}/` :
+			`${this.apiURL}/BusinessCenter/MapInfo/${country}/${state}/${city}/${zipCode}`;
+
+		return this.http.get(url, { headers })
 			.pipe(
 				retry(1),
 				catchError(this.handleError)

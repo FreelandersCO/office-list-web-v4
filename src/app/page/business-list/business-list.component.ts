@@ -25,8 +25,9 @@ export class BusinessListComponent implements OnInit {
 	private cacheParams;
 	pageInfo;
 	bussinesCenter;
+	bcsCoordinates;
+	bcOver = null;
 	areas;
-	originalData;
 	bussinesCenterCount;
 	city;
 	state;
@@ -79,6 +80,7 @@ export class BusinessListComponent implements OnInit {
 		this.listGrid = !this.deviceService.isDesktop();
 		this.route.params.subscribe(params => {
 			this.cacheParams = params;
+			// List Result
 			this.api.getBussinesList(
 				this.cacheParams['country'],
 				this.cacheParams['state'],
@@ -86,16 +88,23 @@ export class BusinessListComponent implements OnInit {
 				this.cacheParams['zip_code'],
 				this.exclude,
 				this.distance
-			).subscribe(result => this.processData(result));
+			).subscribe(result => this.processDataList(result));
+			// Map & Filter Result
+			this.api.getMapBC(
+				this.cacheParams['country'],
+				this.cacheParams['state'],
+				this.cacheParams['city'],
+				this.cacheParams['zip_code'],
+				this.distance
+			).subscribe(result =>
+				this.processDataMap(result)
+			);
 		});
+
 		if (this.eventEmitter.subsVar === undefined) {
 			this.eventEmitter.toogleDetails.subscribe((name: string) => {
 				this.detailOfficeInfo = !this.detailOfficeInfo;
 			});
-			/*this.eventEmitter.toogleSignUp.subscribe((name: string) => {
-				this.detailOfficeInfo = !this.detailOfficeInfo;
-				this.callSingUp();
-			});*/
 			this.eventEmitter.toogleTour.subscribe((name: string) => {
 				this.detailOfficeInfo = !this.detailOfficeInfo;
 				this.callTour();
@@ -104,7 +113,7 @@ export class BusinessListComponent implements OnInit {
 		}
 	}
 
-	processData(result) {
+	processDataList(result) {
 		this.loadingMore = false;
 		this.spinner.hide('loadingPage');
 		this.bussinesCenter = result.businesCenters;
@@ -113,7 +122,6 @@ export class BusinessListComponent implements OnInit {
 		this.titleService.setTitle(this.pageInfo.metatitle);
 		this.meta.addTag({ name: 'description', content: this.pageInfo.metadescription });
 		// City And State
-
 		this.city = this.capitalizeWords(this.cacheParams['city']);
 		this.state = this.capitalizeWords(this.cacheParams['state']);
 		// Replace Number Of BC
@@ -121,6 +129,10 @@ export class BusinessListComponent implements OnInit {
 		this.pageInfo.intro = this.pageInfo.intro.replace('{{numOfBc}}', this.bussinesCenterCount);
 	}
 
+	processDataMap(result) {
+		this.areas = result.map(item => item.area_name).filter((value, index, self) => self.indexOf(value) === index).sort();
+		this.bcsCoordinates = result;
+	}
 	capitalizeWords(str) {
 		return str.split('-').map((val) => {
 			return val.replace(/\w\S*/g, (txt) => {
@@ -189,5 +201,16 @@ export class BusinessListComponent implements OnInit {
 				this.spinner.hide('loadingPage');
 			}, 500);
 		});
+	}
+	hoverBc(bussinesCenterId) {
+		if (this.bcOver != bussinesCenterId) {
+			this.bcOver = bussinesCenterId;
+			console.log(this.bcOver);
+		}
+	}
+
+	exitHover() {
+	//	this.bcOver = null;
+		console.log('Salimos');
 	}
 }

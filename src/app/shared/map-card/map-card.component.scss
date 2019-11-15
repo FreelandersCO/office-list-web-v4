@@ -15,6 +15,11 @@
 .phone-number {
 	padding-bottom: 0.5rem;
 }
+
+.title-name-office{
+	height: 48px;
+}
+
 .text-default {
     color: colors('black-7');
     font-weight: 300;
@@ -73,7 +78,7 @@
 
 .call-pricing {
     color: colors('primary');
-    font-size: 20px;
+    font-size: 1.4rem;
     height: 55px;
     border-top: 1px rgba(0, 0, 0, 0.2) solid;
     border-bottom: 1px rgba(0, 0, 0, 0.2) solid;

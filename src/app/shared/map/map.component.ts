@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, SimpleChanges, SimpleChange, OnChanges } from '@angular/core';
+import { Component, Input, SimpleChanges, SimpleChange, OnChanges } from '@angular/core';
 import { ApiServicesService } from '@service/api-services.service';
-import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -9,51 +8,55 @@ import { NgxSpinnerService } from 'ngx-spinner';
 	styleUrls: ['./map.component.scss']
 })
 
-export class MapComponent implements OnInit, OnChanges {
-	@Input() bussinesCenter;
-	markersList;
+export class MapComponent implements OnChanges {
+	@Input() coordinates;
+	@Input() bcOver;
 	selectBussines;
 	openMarket = false;
-
-	constructor(
-		private api: ApiServicesService,
-		private route: ActivatedRoute,
-		private spinner: NgxSpinnerService) { }
+	_coordinates;
+	_bcOver;
 	// google maps zoom level
-	zoom = 11;
+	zoom;
+	usePanning = true;
 	fullScreen = false;
 	// initial center position for the map
 	lat;
 	lng;
-	coordinates;
 
-	ngOnInit() {
-		this.route.params.subscribe(params => {
-			this.api.getMapBC(params['country'], params['state'], params['city']).subscribe(result =>
-				this.setBcs(result)
-			);
-		});
-	}
+	constructor(
+		private api: ApiServicesService,
+		private spinner: NgxSpinnerService) { }
+
 
 	ngOnChanges(changes: SimpleChanges) {
-		const bussinesCenter: SimpleChange = changes.bussinesCenter;
-		if (bussinesCenter.currentValue !== undefined) {
-			this.markersList = bussinesCenter.currentValue;
+		const coordinates: SimpleChange = changes.coordinates;
+		const bcOver: SimpleChange = changes.bcOver;
+		if (('coordinates' in changes) && coordinates.currentValue != null && !('bcOver' in changes)) {
+			this._coordinates = coordinates.currentValue;
+			this.setInitialPoint();
 		}
+		if (('bcOver' in changes) && bcOver.currentValue != null) {
+			this._bcOver = bcOver.currentValue;
+			this.changePoint();
+		}
+
 	}
 
-	setInitialPoint(data) {
-		if (!(data.length > 0)) {
-			return false;
-		}
-
+	setInitialPoint() {
+		const data = this._coordinates;
 		const numCoords = data.length;
-
 		let X = 0.0;
 		let Y = 0.0;
 		let Z = 0.0;
+		let i = 0;
 
-		for (let i = 0; i < numCoords; i++) {
+		if (!(numCoords > 0)) {
+			return false;
+		} else {
+			this.zoom = (numCoords > 10) ? 11 : 17;
+		}
+
+		for (i; i < numCoords; i++) {
 			// tslint:disable-next-line: no-shadowed-variable
 			const lat = data[i].latitude * Math.PI / 180;
 			// tslint:disable-next-line: no-shadowed-variable
@@ -80,9 +83,13 @@ export class MapComponent implements OnInit, OnChanges {
 		this.lng = (lon * 180 / Math.PI);
 	}
 
-	setBcs(bussinesCenters) {
-		this.setInitialPoint(bussinesCenters);
-		this.markersList = bussinesCenters;
+	changePoint() {
+		const found = this._coordinates.findIndex(element => element.buscenter_id === this._bcOver);
+		this._coordinates.map(i => i.over = false);
+		this._coordinates[found].over = true;
+		this.lat = this._coordinates[found].latitude;
+		this.lng = this._coordinates[found].longitude;
+		this.zoom = 18;
 	}
 	clickedMarker(bdId) {
 		this.openMarket = true;

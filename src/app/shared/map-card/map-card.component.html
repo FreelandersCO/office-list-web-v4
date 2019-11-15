@@ -36,7 +36,7 @@
 			</ul>
 
 		</div>
-		<div class="prices-office call-pricing">Call For Pricing</div>
+		<div class="prices-office call-pricing" *ngIf="!business?.offices">Call For Pricing</div>
 		<div class="btn-container">
 			<button class="button-default primary" (click)="callSingUp()">
 				Get quote
