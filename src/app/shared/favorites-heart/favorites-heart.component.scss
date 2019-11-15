@@ -16,8 +16,8 @@
         stroke: none;
 
         &:hover {
-            fill: none;
-            stroke: colors('black-6');
+            fill: colors('primary');
+            stroke: none;
         }
     }
 
@@ -26,5 +26,10 @@
         stroke: white;
         border-radius: 100%;
         padding: 0.5rem;
+
+        &:hover {
+            fill: none;
+            stroke: white;
+        }
     }
 }

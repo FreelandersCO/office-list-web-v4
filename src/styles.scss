@@ -7,8 +7,8 @@
 @import 'base/animations';
 @import 'base/global';
 
-*{
-	font-family: $font-family !important;
+* {
+    font-family: $font-family !important;
 }
 
 .gm-style {
@@ -209,8 +209,6 @@ button {
     &.secondary-line {
         background-color: colors('white');
         border: 1px solid colors('primary');
-        color: colors('primary');
-        background-color: colors('white');
         color: colors('primary');
 
         &:before {

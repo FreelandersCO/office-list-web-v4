@@ -24,15 +24,6 @@
             max-height: 190px;
             width: auto;
             margin: 0 auto;
-
-            &.fullImage {
-                max-height: unset;
-            }
-
-            &.mapImage {
-                max-height: 266px;
-                margin: 0;
-            }
         }
     }
 }

@@ -225,10 +225,13 @@
 		<div class="detail-container-info" *ngIf="bussinesCenter?.amenities.length > 0">
 			<h4 class="title-detail">Amenities</h4>
 			<ul class="icons-amenities">
-				<li *ngFor="let amenitie of bussinesCenter?.amenities">
-					<button class="container-icon" matTooltip="{{amenitie.description}}" matTooltipClass="tooltip">
+				<li *ngFor="let amenitie of bussinesCenter?.amenities" (mouseenter)="amenitie.hover=true" (mouseleave)="amenitie.hover=false">
+					<div class="container-icon">
 						<i class="amenitie-icon {{amenitie.icon}}"></i>
-					</button>
+					</div>
+					<div class="amenities-description" *ngIf="amenitie.hover && amenitie.description.length > 0">
+						{{amenitie.description}}
+					</div>
 					<p class="title-amenitie">
 						{{amenitie.name}}
 					</p>

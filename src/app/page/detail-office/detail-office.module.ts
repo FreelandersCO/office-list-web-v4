@@ -1,7 +1,6 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
@@ -18,7 +17,6 @@ import { SharedModule } from '@app/shared/shared.module';
 		DetailOfficeRoutingModule,
 		SharedModule,
 		NgxUsefulSwiperModule,
-		MatTooltipModule,
 		NgxSpinnerModule
 	]
 })

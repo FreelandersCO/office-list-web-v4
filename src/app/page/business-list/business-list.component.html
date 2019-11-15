@@ -82,7 +82,7 @@
 			<div class="office-list-card card-white" [ngClass]="listGrid ? 'list-style' : 'card-style'" (mouseover)="hoverBc(bc.buscenter_id)" (mouseout)="exitHover()">
 				<figure class="img-card-office">
 					<i class="icon-star-office" *ngIf="bc.premium === 1"></i>
-					<img appLazyLoad [src]="bc.principal_image" alt="">
+					<office-list-image-component [image]="bc.principal_image"></office-list-image-component>
 					<button class="button-icon" id="btn-list-search" (click)="showModalDetail(bc.buscenter_id)" aria-label="Open details">
 						<i class="zwicon-plus"></i>
 					</button>
