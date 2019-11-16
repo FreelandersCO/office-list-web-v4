@@ -37,35 +37,6 @@ footer {
         }
     }
 
-    /* Newsletter */
-    .newsletter-container {
-        padding: 30px 0 10px;
-        text-align: center;
-
-        .zwicon-mail {
-            color: colors('white-5');
-            font-size: 1.4rem;
-        }
-
-        .group-form {
-            .text-label-footer {
-                color: colors('white-5');
-                font-size: 1.1rem;
-            }
-
-            .input-footer {
-                background-color: colors('white-8');
-                border: 0;
-                border-radius: 25px;
-                font-size: 1rem;
-                font-weight: 300;
-                margin-top: 12px;
-                padding: 10px 18px;
-                width: 100%;
-            }
-        }
-    }
-
     .copyright-container {
         display: flex;
         flex-direction: column;

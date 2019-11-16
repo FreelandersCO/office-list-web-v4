@@ -9,6 +9,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonsmobileComponent } from './shared/buttonsmobile/buttonsmobile.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
 	imports: [
@@ -16,7 +17,8 @@ import { ButtonsmobileComponent } from './shared/buttonsmobile/buttonsmobile.com
 		BrowserModule.withServerTransition({ appId: 'serverApp' }),
 		HttpClientModule,
 		AppRoutingModule,
-		SharedModule
+		SharedModule,
+		NgxSpinnerModule
 	],
 	declarations: [
 		AppComponent,

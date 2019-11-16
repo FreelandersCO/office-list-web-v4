@@ -2,7 +2,11 @@
 
 .cont-slider-preview {
     height: 190px;
-    margin: 10px 0;
+	margin: 10px 0;
+
+	img {
+		max-height: 190px;
+	}
 }
 
 .modal-info-container {
@@ -55,7 +59,7 @@
             .view-more {
                 margin-bottom: 10px;
             }
-			
+
             .description-office {
                 .text-description {
                     max-height: 110px;
@@ -139,7 +143,7 @@
                         }
                     }
                 }
-				
+
                 .container-detail-info-modal {
                     .prices-office,
                     .description-office {

@@ -74,6 +74,26 @@ export class ApiServicesService {
 	}
 
 	@Cacheable()
+	// tslint:disable-next-line: ban-types
+	filterBc(country, state, city, zipCode, distance, areas): Observable<Object> {
+		const headers = new HttpHeaders({
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Methods': 'GET'
+		})
+		.set('distance', distance)
+		.set('areas', areas);
+		const url = (zipCode === undefined) ?
+			`${this.apiURL}/BusinessCenter/Filter/${country}/${state}/${city}/` :
+			`${this.apiURL}/BusinessCenter/Filter/${country}/${state}/${city}/${zipCode}`;
+
+		return this.http.get(url, { headers })
+			.pipe(
+				retry(1),
+				catchError(this.handleError)
+			);
+	}
+
+	@Cacheable()
 	getCityList(): Observable<Object> {
 		return this.http.get(`${this.apiURL}/AutoComplete/City/`)
 			.pipe(

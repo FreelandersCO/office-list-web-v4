@@ -19,6 +19,7 @@ export class BcSliderComponent implements OnChanges {
 	@Input() images;
 	@Input() fullImage = false;
 	@Input() map = false;
+	@Input() smallImage = false;
 	@ViewChild('slider', { static: false }) slidesContainer: ElementRef<HTMLDivElement>;
 	@ViewChildren('item') items: QueryList<ElementRef<HTMLDivElement>>;
 	isFirst = true;

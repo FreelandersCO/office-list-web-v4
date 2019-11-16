@@ -3,14 +3,14 @@ import { Component, OnChanges, SimpleChanges, SimpleChange, Input, ViewEncapsula
 @Component({
 	selector: 'office-list-image-component',
 	template: `
-    <img [defaultImage]="defaultImage" [lazyLoad]="_image" class="{{_classCss}}">
+    <img [defaultImage]="defaultImage" [lazyLoad]="_image" ngClass="{ 'fullImage': _classCss.fullImage, 'mapImage': _classCss.mapImage, 'smallImage': _classCss.smallImage }">
   `,
 	styleUrls: ['./image-component.component.scss'],
 	encapsulation: ViewEncapsulation.None
 })
 export class ImageComponentComponent implements OnChanges {
 	@Input() image;
-	@Input() classCss;
+	@Input() classCss = '';
 
 	defaultImage = 'assets/images/image-default.png';
 	_image;
@@ -24,8 +24,9 @@ export class ImageComponentComponent implements OnChanges {
 		}
 
 		const classCss: SimpleChange = changes.classCss;
-		if (classCss.currentValue != null) {
+		if (classCss && classCss.currentValue != null) {
 			this._classCss = classCss.currentValue;
+			console.log(this._classCss);
 		}
 	}
 

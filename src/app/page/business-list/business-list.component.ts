@@ -25,6 +25,7 @@ export class BusinessListComponent implements OnInit {
 	private cacheParams;
 	pageInfo;
 	bussinesCenter;
+	bussinesCenterCache;
 	bcsCoordinates;
 	bcOver = null;
 	areas;
@@ -35,6 +36,7 @@ export class BusinessListComponent implements OnInit {
 	lastScrollTop = 0;
 	exclude = [];
 	distance = 30;
+	selectedAreas;
 
 	constructor(
 		private api: ApiServicesService,
@@ -75,9 +77,7 @@ export class BusinessListComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.spinner.show('loadingPage');
-		this.mapShow = this.deviceService.isDesktop();
-		this.listGrid = !this.deviceService.isDesktop();
+		this.mapShow = this.listGrid = this.deviceService.isDesktop();
 		this.route.params.subscribe(params => {
 			this.cacheParams = params;
 			// List Result
@@ -115,7 +115,6 @@ export class BusinessListComponent implements OnInit {
 
 	processDataList(result) {
 		this.loadingMore = false;
-		this.spinner.hide('loadingPage');
 		this.bussinesCenter = result.businesCenters;
 		this.pageInfo = result.pageInfo;
 		// SEO
@@ -133,6 +132,7 @@ export class BusinessListComponent implements OnInit {
 		this.areas = result.map(item => item.area_name).filter((value, index, self) => self.indexOf(value) === index).sort();
 		this.bcsCoordinates = result;
 	}
+
 	capitalizeWords(str) {
 		return str.split('-').map((val) => {
 			return val.replace(/\w\S*/g, (txt) => {
@@ -150,13 +150,13 @@ export class BusinessListComponent implements OnInit {
 		this.allFilters = !this.allFilters;
 	}
 
-	showFilterArea() {
+	toogleFilterArea() {
 		this.filterArea = !this.filterArea;
 		this.filterDistance = false;
 	}
 
-	showFilterDistance() {
-		this.filterArea = true;
+	toogleFilterDistance() {
+		this.filterArea = false;
 		this.filterDistance = !this.filterDistance;
 	}
 
@@ -185,6 +185,38 @@ export class BusinessListComponent implements OnInit {
 		this.eventEmitter.toogleTourHeaderEmitter();
 	}
 
+
+	hoverBc(bussinesCenterId) {
+		if (this.bcOver != bussinesCenterId) {
+			this.bcOver = bussinesCenterId;
+		}
+	}
+
+	exitHover() {
+	}
+
+	applyFilterArea() {
+		this.spinner.show('loadingPage');
+
+		this.bussinesCenterCache = this.bussinesCenter;
+		this.api.filterBc(
+			this.cacheParams['country'],
+			this.cacheParams['state'],
+			this.cacheParams['city'],
+			this.cacheParams['zip_code'],
+			this.distance,
+			this.selectedAreas
+		).subscribe(bcFilter => {
+			this.bussinesCenter = bcFilter;
+			this.filterArea = !this.filterArea;
+			this.spinner.hide('loadingPage');
+
+		});
+	}
+	clearArea(){
+		this.selectedAreas = '';
+		this.bussinesCenter = this.bussinesCenterCache;
+	}
 	changeDistance(event) {
 		this.distance = event.srcElement.value;
 		this.spinner.show('loadingPage');
@@ -198,19 +230,9 @@ export class BusinessListComponent implements OnInit {
 		).subscribe(result => {
 			this.bussinesCenter = result.businesCenters;
 			setTimeout(() => {
+				this.filterArea = !this.filterArea;
 				this.spinner.hide('loadingPage');
 			}, 500);
 		});
-	}
-	hoverBc(bussinesCenterId) {
-		if (this.bcOver != bussinesCenterId) {
-			this.bcOver = bussinesCenterId;
-			console.log(this.bcOver);
-		}
-	}
-
-	exitHover() {
-	//	this.bcOver = null;
-		console.log('Salimos');
 	}
 }

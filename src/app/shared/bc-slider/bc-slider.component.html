@@ -2,8 +2,7 @@
 	<aside class="bc-card-slider" #slider>
 		<ng-container *ngFor="let img of _images">
 			<div class="bc-card-img" #item>
-				<!--img appLazyLoad [src]="img.image_path" [ngClass]="{'fullImage': fullImage , 'mapImage': map}"-->
-				<office-list-image-component [image]="img.image_path" [classCss]="{'fullImage': fullImage , 'mapImage': map}"></office-list-image-component>
+				<office-list-image-component [image]="img.image_path" [classCss]="{'fullImage': fullImage , 'mapImage': map, 'smallImage': smallImage}"></office-list-image-component>
 			</div>
 		</ng-container>
 	</aside>

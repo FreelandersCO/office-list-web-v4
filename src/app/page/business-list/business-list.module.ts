@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -18,7 +20,8 @@ import { SharedModule } from '@app/shared/shared.module';
 		SharedModule,
 		DeviceDetectorModule.forRoot(),
 		NgxSpinnerModule,
-		NgSelectModule
+		NgSelectModule,
+		FormsModule
 	]
 })
 export class BusinessListModule { }

@@ -8,7 +8,12 @@ img.ng-lazyloaded {
     &.mapImage {
         max-height: 266px;
         margin: 0;
-    }
+	}
+
+	&.smallImage {
+		max-height: 190px;
+        margin: 0;
+	}
 }
 
 @keyframes fadein {

@@ -1,6 +1,6 @@
-<ngx-spinner bdOpacity=0.5 bdColor="#ffffff" size="large" color="rgba(59, 164, 47, 1)"
-	[fullScreen]="true" name="loadingPage">
-	<p> Loading... </p>
+<ngx-spinner bdOpacity=0.5 bdColor="#ffffff" size="large" color="rgba(59, 164, 47, 1)" [fullScreen]="true"
+	name="loadingPage">
+	<p> Office List... </p>
 </ngx-spinner>
 <section class="info-city-list-container">
 	<article class="container-header-mobile" [style.background-image]="'url(' + pageInfo?.image + ')'">
@@ -20,49 +20,65 @@
 				<p class="text-show-map" *ngIf="mapShow">Hide map</p>
 				<p class="text-show-map" *ngIf="!mapShow">Show map</p>
 				<label class="switch-show-map">
-					<span class="slider-show-map" [ngClass]="{'active': mapShow}" (click)="showMap()" aria-label="Toogle Map"></span>
+					<span class="slider-show-map" [ngClass]="{'active': mapShow}" (click)="showMap()"
+						aria-label="Toogle Map"></span>
 				</label>
 			</div>
 			<div class="button-icon-grid">
-				<button class="btn-icon" (click)="hideGrid()" [ngClass]="{'active': !listGrid}" aria-label="On Grid View">
+				<button class="btn-icon" (click)="hideGrid()" [ngClass]="{'active': !listGrid}"
+					aria-label="On Grid View">
 					<i class="zwicon-grid"></i>
 					<p class="text-button-filter">Grid View</p>
 				</button>
 			</div>
 			<div class="button-icon-list">
-				<button class="btn-icon" (click)="showGrid()" [ngClass]="{'active': listGrid}" aria-label="On List View">
+				<button class="btn-icon" (click)="showGrid()" [ngClass]="{'active': listGrid}"
+					aria-label="On List View">
 					<i class="zwicon-list-bullet"></i>
 					<p class="text-button-filter">List View</p>
 				</button>
 			</div>
 			<div class="button-icon-filter">
-				<button class="btn-icon" (click)="showFilters()" [ngClass]="{'active': allFilters}" aria-label="Show Filters">
+				<button class="btn-icon" (click)="showFilters()" [ngClass]="{'active': allFilters}"
+					aria-label="Show Filters">
 					<i class="zwicon-filter"></i>
 					<p class="text-button-filter">Filters</p>
 				</button>
 			</div>
 		</div>
 		<div class="category-filter-container" *ngIf="allFilters">
-			<button class="btn-icon-filter" (click)="showFilterArea()" aria-label="Filter Neighborhoods">
+			<button class="btn-icon-filter" (click)="toogleFilterArea()" aria-label="Filter Neighborhoods">
 				<i class="zwicon-expand-alt"></i>
 				<p class="text-button-filter">Neighborhoods</p>
 			</button>
-			<button class="btn-icon-filter" (click)="showFilterDistance()" aria-label="Filter Distance">
+			<button class="btn-icon-filter" (click)="toogleFilterDistance()" aria-label="Filter Distance">
 				<i class="zwicon-expand"></i>
 				<p class="text-button-filter">Distance</p>
 			</button>
 		</div>
 		<div class="area-filter-contaier" *ngIf="filterArea">
-			<button class="close-filter-button" style="display:none;">
+			<button class="close-filter-button" (click)="toogleFilterArea()">
 				<i class="zwicon-close"></i>
 			</button>
+			<ng-select [items]="areas" [multiple]="true" [closeOnSelect]="false" [searchable]="false"
+				[(ngModel)]="selectedAreas">
+			</ng-select>
+			<div class="button-area-container">
+				<button class="buttons-area-filter primary" (click)="applyFilterArea()" aria-label="Filter by area">
+					Filter
+				</button>
+				<button class="buttons-area-filter secondary" (click)="clearArea()" aria-label="Clear filter">
+					Clear
+				</button>
+			</div>
 		</div>
 		<div class="distance-filter-contaier" *ngIf="filterDistance">
-			<button class="close-filter-button" (click)="hideFilterDistance()">
+			<button class="close-filter-button" (click)="toogleFilterDistance()">
 				<i class="zwicon-close"></i>
 			</button>
 			<div class="slidecontainer">
-				<input type="range" min="1" max="100" [value]="distance" class="slider-distance" (change)="changeDistance($event)">
+				<input type="range" min="1" max="100" [value]="distance" class="slider-distance"
+					(change)="changeDistance($event)">
 				<p class="distance-label">1M</p>
 				<p class="distance-label text-rigth">1OOM</p>
 			</div>
@@ -79,11 +95,13 @@
 	<!--List-->
 	<article class="result-container">
 		<ng-container *ngFor="let bc of bussinesCenter">
-			<div class="office-list-card card-white" [ngClass]="listGrid ? 'list-style' : 'card-style'" (mouseover)="hoverBc(bc.buscenter_id)" (mouseout)="exitHover()">
+			<div class="office-list-card card-white" [ngClass]="listGrid ? 'list-style' : 'card-style'"
+				(mouseover)="hoverBc(bc.buscenter_id)" (mouseout)="exitHover()">
 				<figure class="img-card-office">
 					<i class="icon-star-office" *ngIf="bc.premium === 1"></i>
 					<office-list-image-component [image]="bc.principal_image"></office-list-image-component>
-					<button class="button-icon" id="btn-list-search" (click)="showModalDetail(bc.buscenter_id)" aria-label="Open details">
+					<button class="button-icon" id="btn-list-search" (click)="showModalDetail(bc.buscenter_id)"
+						aria-label="Open details">
 						<i class="zwicon-plus"></i>
 					</button>
 				</figure>
@@ -117,8 +135,7 @@
 						</ul>
 					</div>
 					<div class="price-container call-pricing" *ngIf="!bc.offices">
-						<button class="button-show-price"
-							aria-label="Go to details"
+						<button class="button-show-price" aria-label="Go to details"
 							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
 							<h3 class="title-price">
 								Call For Pricing
@@ -139,7 +156,8 @@
 			</div>
 		</ng-container>
 		<div class="spinner-container" #bottonTest style="width: 100%;">
-			<ngx-spinner name="loadingBC" color="rgba(59, 164, 47, 0.9)" bdColor="#ffffff" [fullScreen]="false" type="ball-clip-rotate-multiple" size="large"></ngx-spinner>
+			<ngx-spinner name="loadingBC" color="rgba(59, 164, 47, 0.9)" bdColor="#ffffff" [fullScreen]="false"
+				type="ball-clip-rotate-multiple" size="large"></ngx-spinner>
 		</div>
 	</article>
 	<!--Map-->
