@@ -17,13 +17,6 @@ export interface PageBussines {
 })
 export class ApiServicesService {
 	apiURL = environment.apiUrl;
-	// Http Options
-	httpOptions = {
-		headers: new HttpHeaders({
-			'Content-Type': 'application/json',
-			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
-		})
-	};
 
 	constructor(private http: HttpClient) { }
 
@@ -48,7 +41,25 @@ export class ApiServicesService {
 
 	@Cacheable()
 	getBussinesDetails(id): Observable<Object> {
-		return this.http.get(`${this.apiURL}/BusinessCenter/Details/${id}`)
+		const headers = new HttpHeaders({
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Methods': 'GET'
+		});
+		return this.http.get(`${this.apiURL}/BusinessCenter/Details/${id}`, { headers })
+			.pipe(
+				retry(1),
+				catchError(this.handleError)
+			);
+	}
+
+	@Cacheable()
+	getReduceBussinesDetails(id): Observable<Object> {
+		const headers = new HttpHeaders({
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Methods': 'GET'
+		}).set('reduce', 'true');
+
+		return this.http.get(`${this.apiURL}/BusinessCenter/Details/${id}`, { headers })
 			.pipe(
 				retry(1),
 				catchError(this.handleError)
@@ -109,6 +120,7 @@ export class ApiServicesService {
 			'Access-Control-Allow-Methods': 'GET'
 		})
 		.set('authorization', token);
+
 		return this.http.get(`${this.apiURL}/User/List`, { headers })
 			.pipe(
 				retry(1),

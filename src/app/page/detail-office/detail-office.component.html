@@ -19,7 +19,7 @@
 			<hr class="line-detail">
 		</div>
 		<div class="detail-container-info">
-			<h4 class="title-detail">Pricing</h4>
+			<h4 class="title-detail" *ngIf="showPrivateOffice || showPrivateOffice || showVirtualOffice">Pricing</h4>
 			<div class="container-princing-types">
 				<div class="card-white cont-type-pricing" *ngIf="showPrivateOffice"
 					[ngClass]="{'active': activePrivate}" (click)="openPrivate()">

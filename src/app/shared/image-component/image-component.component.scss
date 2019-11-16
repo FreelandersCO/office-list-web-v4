@@ -1,19 +1,23 @@
-img.ng-lazyloaded {
-    animation: fadein 0.5s;
-
-    &.fullImage {
+img {
+	&.fullImage {
         max-height: unset;
     }
 
     &.mapImage {
         max-height: 266px;
-        margin: 0;
+        margin: 0 auto;
+		width: auto;
 	}
 
 	&.smallImage {
 		max-height: 190px;
-        margin: 0;
+		margin: 0 auto;
+		width: auto;
 	}
+}
+
+img.ng-lazyloaded {
+    animation: fadein 0.5s;
 }
 
 @keyframes fadein {

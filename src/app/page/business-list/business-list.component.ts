@@ -20,8 +20,8 @@ export class BusinessListComponent implements OnInit {
 	public allFilters = false;
 	public filterArea = false;
 	public officeInfo;
-	public mapShow;
-	public listGrid;
+	public mapShow = false;
+	public listGrid = false;
 	private cacheParams;
 	pageInfo;
 	bussinesCenter;
@@ -48,6 +48,7 @@ export class BusinessListComponent implements OnInit {
 		private spinner: NgxSpinnerService
 	) {
 		this.detailOfficeInfo = this.allFilters = this.filterArea = this.filterDistance = false;
+		this.spinner.show('loadingPage');
 	}
 
 	@HostListener('window:scroll', ['$event'])
@@ -77,7 +78,7 @@ export class BusinessListComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.mapShow = this.listGrid = this.deviceService.isDesktop();
+
 		this.route.params.subscribe(params => {
 			this.cacheParams = params;
 			// List Result
@@ -99,6 +100,11 @@ export class BusinessListComponent implements OnInit {
 			).subscribe(result =>
 				this.processDataMap(result)
 			);
+
+			// View
+			if (this.deviceService.isDesktop()) {
+				this.mapShow = true;
+			}
 		});
 
 		if (this.eventEmitter.subsVar === undefined) {
@@ -114,6 +120,9 @@ export class BusinessListComponent implements OnInit {
 	}
 
 	processDataList(result) {
+		setTimeout(() => {
+			this.spinner.hide('loadingPage');
+		}, 200);
 		this.loadingMore = false;
 		this.bussinesCenter = result.businesCenters;
 		this.pageInfo = result.pageInfo;
@@ -213,7 +222,7 @@ export class BusinessListComponent implements OnInit {
 
 		});
 	}
-	clearArea(){
+	clearArea() {
 		this.selectedAreas = '';
 		this.bussinesCenter = this.bussinesCenterCache;
 	}

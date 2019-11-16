@@ -52,8 +52,6 @@
 .container-princing-types {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     width: 100%;
 
     .cont-type-pricing {
@@ -206,8 +204,8 @@
 		cursor: pointer;
 
         .amenities-description {
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
+            background: colors('black-8');
+            color: colors('white');
             position: absolute;
             width: auto;
             border-radius: 8px;
@@ -222,7 +220,7 @@
                 height: 0;
                 border-style: solid;
                 border-width: 10px 15px 10px 0;
-                border-color: transparent rgba(0, 0, 0, 0.8) transparent transparent;
+                border-color: transparent colors('black-8') transparent transparent;
                 display: inline-block;
                 vertical-align: middle;
                 margin-right: 5px;

@@ -253,7 +253,10 @@
         }
 
         .btn-container {
-            margin: 6px 0 1rem;
+			margin: 0.5rem 0 1rem;
+			text-align: center;
+
+
         }
 
         .like-container {
@@ -376,6 +379,23 @@ swiper {
 .swiper-pagination-bullet-active {
     background: colors('black-7') !important;
 }
+
+.register-container {
+	text-align: center;
+	margin: 2rem auto;
+
+	.button-default {
+		width: 25%;
+		margin: 1rem auto;
+		padding: 1rem;
+
+		&:hover {
+			color: white;
+			text-decoration: underline;
+		}
+	}
+}
+
 
 @include from-breakpoint('mobile-xl') {
     .item-doit-container {

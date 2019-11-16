@@ -16,7 +16,7 @@ export class FormInquireNowComponent implements OnChanges {
 		if (accountManager.currentValue != null) {
 			this._accountManager = accountManager.currentValue;
 			const nameProccess = this._accountManager.name.toLowerCase().replace(' ', '_');
-			this._accountManager.image = 'https://www.officelist.com/images/staff/' + nameProccess + '.png';
+			this._accountManager.image = '/assets/images/staff/picture-staff-' + nameProccess + '.jpg';
 		}
 	}
 }

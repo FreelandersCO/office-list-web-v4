@@ -46,6 +46,13 @@
 				</button>
 			</div>
 		</div>
+
+	</article>
+</section>
+<section class="result-list-container">
+
+	<!--List-->
+	<article class="result-container">
 		<div class="category-filter-container" *ngIf="allFilters">
 			<button class="btn-icon-filter" (click)="toogleFilterArea()" aria-label="Filter Neighborhoods">
 				<i class="zwicon-expand-alt"></i>
@@ -89,11 +96,6 @@
 				Miles
 			</p>
 		</div>
-	</article>
-</section>
-<section class="result-list-container">
-	<!--List-->
-	<article class="result-container">
 		<ng-container *ngFor="let bc of bussinesCenter">
 			<div class="office-list-card card-white" [ngClass]="listGrid ? 'list-style' : 'card-style'"
 				(mouseover)="hoverBc(bc.buscenter_id)" (mouseout)="exitHover()">

@@ -3,10 +3,10 @@
 .cont-slider-preview {
     height: 190px;
 	margin: 10px 0;
+}
 
-	img {
-		max-height: 190px;
-	}
+.loader-text {
+	color: colors('primary');
 }
 
 .modal-info-container {
@@ -18,6 +18,7 @@
     width: 100%;
 
     .card-modal-info {
+		position: relative;
         margin: 0 auto;
         padding: 20px;
         width: 100%;

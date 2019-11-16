@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit {
 	public showSignUp = false;
 	public showLogin = false;
 	public showTour = false;
+	public listOffice = false;
 	bcFavorites;
 	favoritesCount;
 	constructor(private eventEmitterService: EventEmitterService, private localStorageService: LocalStorageService) { }

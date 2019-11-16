@@ -15,23 +15,26 @@ export class ModalDetailComponent implements OnChanges, OnInit {
 
 	constructor(private api: ApiServicesService, private eventEmitter: EventEmitterService, private spinner: NgxSpinnerService) {
 
+		this.spinner.show('loadingModal');
+
 	}
 
 	ngOnInit() {
-		this.spinner.show('loadingModal');
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
 		const businessId: SimpleChange = changes.businessId;
 		if (businessId.currentValue != null) {
-			this.api.getBussinesDetails(businessId.currentValue)
+			this.api.getReduceBussinesDetails(businessId.currentValue)
 				.subscribe(result => this.processData(result));
 		}
 	}
 
 	processData(result) {
 		this.business = result.businesCentersInfo;
-		this.spinner.hide('loadingModal');
+		setTimeout(() => {
+			this.spinner.hide('loadingModal');
+		}, 200);
 	}
 
 	openSignUp() {

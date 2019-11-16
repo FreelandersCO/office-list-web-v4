@@ -21,7 +21,16 @@ header {
 
         .items-menu {
             text-align: right;
-            width: 20%;
+			width: 20%;
+
+			.list-container {
+				display: none;
+				padding: 0.2rem 5rem;
+
+				a {
+					color: colors('white');
+				}
+			}
         }
 
         .button-icon {
@@ -51,7 +60,35 @@ header {
                 top: 0;
                 right: -10px;
                 width: 20px;
-            }
+			}
+
+			.text-icon {
+				font-size: 14px;
+				padding: 0.5rem;
+				border-radius: 4px;
+				color: colors('white');
+				background-color: colors('black-9');
+				width: 80px;
+				position: absolute;
+				top: 48px;
+				left: -30px;
+
+				&:before {
+					content: '';
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 10px 15px 10px 0;
+					border-color: transparent colors('black-9') transparent transparent;
+					display: inline-block;
+					vertical-align: middle;
+					margin-right: 5px;
+					position: absolute;
+					top: -1.1rem;
+					transform: rotate(90deg);
+					left: 50%;
+				}
+			}
         }
 
         #btn-nav-search {
@@ -170,7 +207,11 @@ header {
             .items-menu {
                 display: flex;
                 justify-content: flex-end;
-                width: 70%;
+				width: 70%;
+
+				.list-container {
+					display: block;
+				}
             }
 
             #btn-nav-search {
