@@ -1,5 +1,5 @@
 import { Component, Input, SimpleChanges, SimpleChange, OnChanges } from '@angular/core';
-import { LocalStorageService } from '@app/services/local-storage.service';
+import { LocalStorageService } from '@app/services/storage.service';
 import { EventEmitterService } from '@app/services/event-emitter.service';
 
 @Component({

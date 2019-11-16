@@ -1,10 +1,8 @@
 <section class="details-office-container">
 	<div class="container-details">
-		<div class="cont-title-sections	">
+		<div class="cont-title-sections">
 			<h1 class="title-name-office title-favorites">Your favorite offices</h1>
-			<hr class="line-detail">
 		</div>
-
 		<div class="detail-container-info">
 			<p class="description-office-text">
 				You still have more locations to tour. Click on “Book now” and pick the time and date that best works
@@ -18,9 +16,81 @@
 			<hr>
 		</div>
 	</div>
-	<div class="container-side-form">
-		<div class="container-form-inquire">
-			<office-list-form-inquire-now></office-list-form-inquire-now>
+	<div class="container-bcs-form">
+		<div class="container-bcs">
+			<ng-container *ngFor="let bc of bussinesCenter">
+				<div class="office-list-card card-white list-style">
+					<figure class="img-card-office">
+						<office-list-image-component [image]="bc.image"></office-list-image-component>
+						<button class="button-icon" >
+							<i class="zwicon-plus"></i>
+						</button>
+					</figure>
+					<div class="info-office-container">
+						<p class="text-default"
+							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
+							{{bc.descriptive_title}}</p>
+						<h3 class="title-name-office"
+							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
+							{{ bc.cross_streets }}
+						</h3>
+						<p class="name-city">{{bc.state }}, {{bc.city}} {{bc.zip_code}}</p>
+
+						<p class="phone-number">
+							<i class="zwicon-phone"></i>
+							{{bc.phone}}
+						</p>
+						<div class="price-container"
+							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}"
+							*ngIf="bc.offices">
+							<button class="button-show-price" aria-label="Go to details">
+								<h3 class="title-price">
+									Starting at :
+								</h3>
+							</button>
+							<ul class="list-prices-office">
+								<li *ngFor="let office of bc.offices">
+									<p class="price-office">${{office.off_pricing}}</p>
+									<p class="type-office">{{office.off_name}}</p>
+								</li>
+							</ul>
+						</div>
+						<div class="price-container call-pricing" *ngIf="!bc.offices">
+							<button class="button-show-price" aria-label="Go to details"
+								routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
+								<h3 class="title-price">
+									Call For Pricing
+								</h3>
+							</button>
+						</div>
+						<div class="btn-container">
+							<button class="button-default primary">
+								Book now
+							</button>
+						</div>
+						<div class="like-container">
+							<button class="button-icon-like">
+								<office-list-favorites-heart [bcId]="bc.buscenter_id"></office-list-favorites-heart>
+							</button>
+						</div>
+					</div>
+				</div>
+			</ng-container>
+		</div>
+		<div class="container-side-form">
+			<div class="container-form-inquire">
+				<office-list-form-inquire-now></office-list-form-inquire-now>
+			</div>
 		</div>
 	</div>
+
 </section>
+
+<!--div class="call-info-modal-container" *ngIf="detailOfficeInfo">
+	<div class="close-modal">
+		<button class="close-button-modal" (click)="showModalDetail()">
+			<i class="zwicon-close"></i>
+		</button>
+	</div>
+	<office-list-modal-detail [businessId]="selectedBusiness"></office-list-modal-detail>
+</div-->

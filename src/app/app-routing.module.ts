@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuardService } from './services/auth/auth-guard.service';
 
 const routes: Routes = [
 	{
@@ -16,6 +17,7 @@ const routes: Routes = [
 	},
 	{
 		path: 'my-list',
+		canActivate: [AuthGuardService],
 		loadChildren: () => import('./page/mylist/mylist.module').then(m => m.MylistModule)
 	},
 	{

@@ -3,8 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AnimationOptions } from 'ngx-lottie';
 
 import { ApiServicesService } from '@app/services/api-services.service';
-import { EventEmitterService } from '@app/services/event-emitter.service';
-import { LocalStorageService } from '@app/services/local-storage.service';
+import { LocalStorageService } from '@app/services/storage.service';
 
 @Component({
 	selector: 'office-list-form-register',

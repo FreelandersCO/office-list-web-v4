@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition, query, animateChild } from '@angular/animations';
 import { EventEmitterService } from '@app/services/event-emitter.service';
-import { LocalStorageService } from '@app/services/local-storage.service';
+import { LocalStorageService } from '@app/services/storage.service';
 
 @Component({
 	selector: 'office-list-header',
 	templateUrl: './header.component.html',
 	styleUrls: ['./header.component.scss'],
-	providers: [LocalStorageService],
 	animations: [
 		trigger('ngIfAnimation', [
 			transition(':enter, :leave', [

@@ -102,6 +102,20 @@ export class ApiServicesService {
 			);
 	}
 
+	@Cacheable()
+	getMyList(token): Observable<Object> {
+		const headers = new HttpHeaders({
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Methods': 'GET'
+		})
+		.set('authorization', token);
+		return this.http.get(`${this.apiURL}/User/List`, { headers })
+			.pipe(
+				retry(1),
+				catchError(this.handleError)
+			);
+	}
+
 	setRegistry(data) {
 		return this.http.post(`${this.apiURL}/User/Register/`, data)
 			.pipe(

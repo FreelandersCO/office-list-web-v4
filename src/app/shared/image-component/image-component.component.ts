@@ -26,7 +26,6 @@ export class ImageComponentComponent implements OnChanges {
 		const classCss: SimpleChange = changes.classCss;
 		if (classCss && classCss.currentValue != null) {
 			this._classCss = classCss.currentValue;
-			console.log(this._classCss);
 		}
 	}
 

@@ -1,4 +1,5 @@
 @import '../../../styles/index';
+@import '../business-list/business-list.component';
 
 .title-favorites {
     font-size: 2rem;
@@ -30,3 +31,22 @@
         min-height: auto !important;
     }
 }
+
+.container-bcs-form {
+	display: flex;
+
+	.container-bcs {
+		width: 70%;
+		margin: 1rem 0.5rem;
+	}
+
+	.container-side-form{
+		width: 50%;
+		margin: 1rem 0.5rem;
+		.container-form-inquire{
+			position: sticky;
+			top: 0;
+		}
+	}
+}
+
