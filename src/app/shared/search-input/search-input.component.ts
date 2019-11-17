@@ -57,6 +57,7 @@ export class SearchInputComponent implements OnInit {
 	}
 	selectEvent(item) {
 		this.router.navigate([item.url]);
+		this.auto.clear();
 	}
 
 	onChangeSearch(val) {
