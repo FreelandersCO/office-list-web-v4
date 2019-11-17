@@ -9,6 +9,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { BusinessListRoutingModule } from './business-list-routing.module';
 import { BusinessListComponent } from './business-list.component';
 import { SharedModule } from '@app/shared/shared.module';
+import { ModuleGuardService } from '@app/services/module-guard.service';
 
 @NgModule({
 	declarations: [
@@ -22,6 +23,9 @@ import { SharedModule } from '@app/shared/shared.module';
 		NgxSpinnerModule,
 		NgSelectModule,
 		FormsModule
-	]
+	],
+	providers: [
+		ModuleGuardService
+	],
 })
 export class BusinessListModule { }

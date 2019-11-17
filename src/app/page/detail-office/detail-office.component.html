@@ -267,10 +267,10 @@
 					</figure>
 					<div class="info-office-container">
 						<p class="text-default"
-							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
+							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
 							{{bc.descriptive_title}}</p>
 						<h3 class="title-name-office"
-							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
+							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
 							{{bc.cross_streets}}</h3>
 						<p class="name-city">{{bc.city}}, {{bc.zip_code}}</p>
 						<span class="badge-city">{{bc.area_name}}</span>
@@ -279,7 +279,7 @@
 							{{bc.phone}}
 						</p>
 						<div class="price-container"
-							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}"
+							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}"
 							*ngIf="bc.offices">
 							<button class="button-show-price">
 								<h3 class="title-price">
@@ -295,7 +295,7 @@
 						</div>
 						<div class="price-container call-pricing" *ngIf="!bc.offices">
 							<button class="button-show-price"
-								routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
+								routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
 								<h3 class="title-price">
 									Call For Pricing
 								</h3>

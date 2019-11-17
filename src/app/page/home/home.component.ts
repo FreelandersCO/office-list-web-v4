@@ -43,37 +43,37 @@ export class HomeComponent implements OnInit {
 			name: 'New York',
 			url: 'office-space-for-rent/us/new-york/new-york',
 			numBc: 286,
-			img: 'assets/images/cities/home/nyc.jpg'
+			img: 'assets/images/cities/home/nyc.webp'
 		},
 		{
 			name: 'Los Angeles',
 			url: 'office-space-for-rent/us/california/los-angeles',
 			numBc: 177,
-			img: 'assets/images/cities/home/la.jpg'
+			img: 'assets/images/cities/home/la.webp'
 		},
 		{
 			name: 'Atlanta',
 			url: 'office-space-for-rent/us/georgia/atlanta',
 			numBc: 89,
-			img: 'assets/images/cities/home/atlanta.jpg'
+			img: 'assets/images/cities/home/atlanta.webp'
 		},
 		{
 			name: 'Chicago',
 			url: 'office-space-for-rent/us/illinois/chicago',
 			numBc: 109,
-			img: 'assets/images/cities/home/chicago.jpg'
+			img: 'assets/images/cities/home/chicago.webp'
 		},
 		{
 			name: 'Miami',
 			url: 'office-space-for-rent/us/florida/miami',
 			numBc: 101,
-			img: 'assets/images/cities/home/miami.jpg'
+			img: 'assets/images/cities/home/miami.webp'
 		},
 		{
 			name: 'San Francisco',
 			url: 'office-space-for-rent/us/california/san-francisco',
 			numBc: 96,
-			img: 'assets/images/cities/home/SanFrancisco.jpg'
+			img: 'assets/images/cities/home/SanFrancisco.webp'
 		},
 		{
 			name: 'Dallas',

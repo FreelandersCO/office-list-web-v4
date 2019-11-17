@@ -47,7 +47,7 @@ export class DetailOfficeComponent implements OnInit {
 	ngOnInit() {
 		this.spinner.show();
 		this.route.params.subscribe(params => {
-			const explote = params['bc_url'].split('-');
+			const explote = params['office_name'].split('-');
 			const bcId = explote[explote.length - 1];
 			this.api.getBussinesDetails(bcId).subscribe(result => this.procesData(result));
 		});

@@ -28,6 +28,14 @@ const template = fs.readFileSync(fileIndex).toString();
 const win = domino.createWindow(template);
 global['window'] = win;
 global['document'] = win.document;
+Object.defineProperty(win.document.body.style, 'transform', {
+	value: () => {
+	  return {
+		enumerable: true,
+		configurable: true
+	  };
+	},
+  });
 // Express server
 const app = express();
 

@@ -1,7 +1,7 @@
 @import '../../../styles/index';
 
 .container-banner-pages {
-    background-image: url('assets/images/image-back-pages.jpg');
+    background-image: url('assets/images/image-back-pages.webp');
     background-position: center;
     background-size: cover;
     height: 200px;
@@ -16,7 +16,7 @@
     }
 }
 
- 
+
 @include from-breakpoint('tablet') {
     .container-banner-pages {
         height: 300px;
