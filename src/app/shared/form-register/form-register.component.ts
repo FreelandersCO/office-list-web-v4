@@ -4,6 +4,7 @@ import { AnimationOptions } from 'ngx-lottie';
 
 import { ApiServicesService } from '@app/services/api-services.service';
 import { LocalStorageService } from '@app/services/storage.service';
+import { EventEmitterService } from '@app/services/event-emitter.service';
 
 @Component({
 	selector: 'office-list-form-register',
@@ -12,7 +13,8 @@ import { LocalStorageService } from '@app/services/storage.service';
 })
 export class FormRegisterComponent implements OnInit {
 	@Input() inquired = false;
-	@Input() amId;
+	@Input() amId = '';
+	@Input() bcId = 0;
 	bcFavorites;
 	registerForm: FormGroup;
 	submitted = false;
@@ -24,7 +26,11 @@ export class FormRegisterComponent implements OnInit {
 	optionError: AnimationOptions = {
 		path: 'assets/animations/error.json'
 	};
-	constructor(private api: ApiServicesService, private formBuilder: FormBuilder, private localStorageService: LocalStorageService) { }
+	constructor(
+		private api: ApiServicesService,
+		private formBuilder: FormBuilder,
+		private localStorageService: LocalStorageService,
+		private eventEmitter: EventEmitterService) { }
 
 	async ngOnInit() {
 		this.registerForm = this.formBuilder.group({
@@ -40,10 +46,16 @@ export class FormRegisterComponent implements OnInit {
 	// convenience getter for easy access to form fields
 	get f() { return this.registerForm.controls; }
 
-	onSubmit() {
+	async onSubmit() {
 		this.submitted = true;
-		this.registerForm.value.am_id = this.amId;
-		this.registerForm.value.bc_list = this.bcFavorites.join(',');
+		if (this.inquired) {
+			// Read the existing
+			this.bcFavorites.push(this.bcId);
+			await this.localStorageService.setItem('bc_favorites', this.bcFavorites);
+			this.eventEmitter.favoriteEmitter();
+			this.registerForm.value.bc_list = this.bcFavorites.join(',');
+		}
+		this.registerForm.value.am_id = this.amId === '' ? 0 : this.amId;
 		// stop here if form is invalid
 		if (this.registerForm.invalid) {
 			return;
