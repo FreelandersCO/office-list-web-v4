@@ -1,4 +1,4 @@
 export const environment = {
 	production: true,
-	apiUrl: 'http://ol.freelanders.co:8085'
+	apiUrl: 'https://www.officelist.com/api'
 };
