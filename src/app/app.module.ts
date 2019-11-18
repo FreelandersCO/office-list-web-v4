@@ -9,7 +9,6 @@ import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ButtonsmobileComponent } from './shared/buttonsmobile/buttonsmobile.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AuthGuardService } from './services/auth/auth-guard.service';
 import { AuthService } from './services/auth/auth.service';
@@ -26,8 +25,7 @@ import { AuthService } from './services/auth/auth.service';
 	declarations: [
 		AppComponent,
 		HeaderComponent,
-		FooterComponent,
-		ButtonsmobileComponent
+		FooterComponent
 	],
 	providers: [
 		AuthGuardService,

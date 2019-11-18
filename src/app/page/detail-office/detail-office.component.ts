@@ -16,10 +16,10 @@ export class DetailOfficeComponent implements OnInit {
 	config: SwiperOptions = {
 		pagination: { el: '.swiper-pagination', clickable: true },
 		spaceBetween: 50,
-		navigation: {
+		/*navigation: {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
-		}
+		}*/
 	};
 	bussinesCenter;
 	privateOffice;

@@ -20,12 +20,12 @@ export class ImageComponentComponent implements OnChanges {
 
 	ngOnChanges(changes: SimpleChanges) {
 		const image: SimpleChange = changes.image;
-		if (image.currentValue != null) {
+		if (image.currentValue !== null) {
 			this._image = image.currentValue;
 		}
 
 		const classCss: SimpleChange = changes.classCss;
-		if (classCss && classCss.currentValue != null) {
+		if (classCss && classCss.currentValue !== null) {
 			this._classCss = classCss.currentValue;
 			this.classImage = this.getClassImg();
 		}

@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 	name: 'normalizeString',
 	pure: true
 })
-export class NormalizaeString implements PipeTransform {
+export class NormalizeString implements PipeTransform {
 
 	transform(value: number, args?) {
 		return this.normalizeString(value);

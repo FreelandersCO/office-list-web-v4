@@ -18,7 +18,7 @@
 		<label for="" class="label-default">Email*</label>
 	</div>
 	<div class="group-form">
-		<input type="text" class="input-default" required formControlName="phone" mask="(000) 000-0000"
+		<input type="text" class="input-default" required formControlName="phone" prefix="+1" mask="(000) 000-0000"
 			[ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
 		<label for="" class="label-default">Phone number*</label>
 	</div>
@@ -32,7 +32,7 @@
 		<button class="button-default primary" type="submit">Save your favorites</button>
 	</div>
 	<div class="container-inquire-buttons" *ngIf="inquired">
-		<button class="button-default secondary-line" (click)="callRequest()">Request tour</button>
+		<!--button class="button-default secondary-line" (click)="callRequest()">Request tour</button-->
 		<button class="button-default primary" type="submit">Inquire</button>
 	</div>
 </form>

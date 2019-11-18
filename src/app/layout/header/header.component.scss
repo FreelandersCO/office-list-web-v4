@@ -6,7 +6,10 @@ header {
     position: sticky;
     top: 0;
     width: 100%;
-    z-index: 3;
+	z-index: 3;
+	&.header-sticky {
+		position: fixed;
+	}
 
     .menu-container {
         display: flex;
@@ -106,7 +109,8 @@ header {
         text-align: center;
 
         .text-callus {
-            font-weight: 300;
+			font-weight: 300;
+			color: colors('black');
 
             .zwicon-phone {
                 color: colors('primary');

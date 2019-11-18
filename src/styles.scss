@@ -251,13 +251,14 @@ button {
 form {
     .general-error {
         color: red;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: bold;
-        text-align: center;
+		text-align: center;
+		width: 100%;
     }
 
     .group-form {
-        padding: 14px 0 0;
+        padding: 0.8rem 0 0;
         position: relative;
 
         i {
@@ -406,14 +407,19 @@ office-list-modal-scheduled-tour {
     box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
     left: 5%;
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 1rem;
     position: absolute;
     top: 2%;
     width: 90%;
 }
 
 .header-modal {
-    text-align: right;
+	text-align: right;
+
+	&.modal-register {
+		position: absolute;
+    	right: 1rem;
+	}
 
     .btn-icon-transparent {
         color: #CCC;

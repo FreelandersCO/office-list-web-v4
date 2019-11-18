@@ -44,6 +44,7 @@
     "angular-ng-autocomplete": "^1.1.14",
     "classlist.js": "^1.1.20150312",
     "express": "^4.15.2",
+    "helmet": "^3.21.2",
     "js-marker-clusterer": "^1.0.0",
     "lottie-web": "^5.5.9",
     "ng-lazyload-image": "^7.0.1",

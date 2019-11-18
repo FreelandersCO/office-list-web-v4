@@ -1,7 +1,7 @@
 @import '../../../styles/index';
 
-.container-header-mobile {
-    //	background-image: none !important;
+.container-header-desktop {
+	display: none;
 }
 
 .title-pages {
@@ -476,7 +476,8 @@
     .phone-number {
         color: colors('black-7');
         font-size: 1.4rem;
-        margin-top: 8px;
+		margin-top: 8px;
+		display: block;
     }
 
     .like-container {
@@ -557,6 +558,14 @@
 }
 
 @include from-breakpoint('tablet') {
+	.container-header-mobile {
+		display: none;
+	}
+
+	.container-header-desktop {
+		display: block;
+	}
+
     .filter-container {
         .button-icon-grid {
             display: block;
@@ -645,7 +654,7 @@
         padding-top: 0;
     }
 
-    .container-header-mobile {
+    .container-header-desktop {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -720,7 +729,7 @@
 }
 
 @include from-breakpoint('desktop-l') {
-    .container-header-mobile {
+    .container-header-desktop {
         .title-info-city {
 
             .title-pages,

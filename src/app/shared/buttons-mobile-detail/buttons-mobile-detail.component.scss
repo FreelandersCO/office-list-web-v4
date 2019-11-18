@@ -1,11 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
 @import '../../../styles/index';
 
 .buttons-mobile-container {
     bottom: 20px;
     position: fixed;
     width: 100%;
-    z-index: 1000;
+    z-index: 10;
 
     .buttons-floating-cont {
         background: colors('primary');
@@ -14,7 +13,7 @@
         display: flex;
         justify-content: space-around;
         margin: 0 auto;
-        padding: 12px 20px;
+        padding: 1rem;
         width: 90%;
 
         .btn-mobile-floating {
@@ -22,10 +21,20 @@
             color: colors('white');
             font-size: 1.3rem;
             font-weight: 300;
-            width: 50%;
+            width: 45%;
+            position: relative;
+            text-align: center;
+
+            i {
+                position: absolute;
+                left: 0;
+                top: 3px;
+            }
 
             &:last-child {
                 border: 0;
+				left: 14px;
+				width: 60%;
             }
         }
     }

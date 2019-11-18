@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { trigger, style, animate, transition, query, animateChild } from '@angular/animations';
 import { EventEmitterService } from '@app/services/event-emitter.service';
 import { LocalStorageService } from '@app/services/storage.service';
@@ -45,11 +45,17 @@ export class HeaderComponent implements OnInit {
 	public showLogin = false;
 	public showTour = false;
 	public listOffice = false;
+	public sticky = false;
 	bcFavorites;
 	favoritesCount;
 	constructor(private eventEmitterService: EventEmitterService, private localStorageService: LocalStorageService) { }
-
+	@HostListener('window:scroll', [])
+	onScroll(): void {
+		this.sticky = window.pageYOffset >= 250 ? true : false;
+	}
 	ngOnInit() {
+		this.sticky = window.pageYOffset >= 250 ? true : false;
+
 		if (this.eventEmitterService.subsVar === undefined) {
 			this.eventEmitterService.toogleSignUp.subscribe((name: string) => {
 				this.showLogin = false;

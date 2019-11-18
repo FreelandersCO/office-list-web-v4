@@ -38,8 +38,7 @@ export class FormRegisterComponent implements OnInit {
 			company: ['', Validators.required],
 			email: ['', [Validators.required, Validators.email]],
 			phone: ['', [Validators.required]],
-			comments: [''],
-			amId: [''],
+			comments: ['']
 		});
 		this.bcFavorites = await this.localStorageService.getItem('bc_favorites');
 	}
@@ -53,9 +52,10 @@ export class FormRegisterComponent implements OnInit {
 			this.bcFavorites.push(this.bcId);
 			await this.localStorageService.setItem('bc_favorites', this.bcFavorites);
 			this.eventEmitter.favoriteEmitter();
-			this.registerForm.value.bc_list = this.bcFavorites.join(',');
+			this.registerForm.value.am_id = this.amId == '' ? 0 : this.amId;
 		}
-		this.registerForm.value.am_id = this.amId === '' ? 0 : this.amId;
+		this.registerForm.value.bc_list = this.bcFavorites.join(',');
+		this.registerForm.value.tour = false;
 		// stop here if form is invalid
 		if (this.registerForm.invalid) {
 			return;

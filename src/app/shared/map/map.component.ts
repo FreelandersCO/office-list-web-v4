@@ -11,6 +11,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class MapComponent implements OnChanges {
 	@Input() coordinates;
 	@Input() bcOver;
+	@Input() isDesktop;
 	selectBussines;
 	openMarket = false;
 	_coordinates;
@@ -27,19 +28,24 @@ export class MapComponent implements OnChanges {
 		private api: ApiServicesService,
 		private spinner: NgxSpinnerService) { }
 
-
+	// tslint:disable-next-line: cyclomatic-complexity
 	ngOnChanges(changes: SimpleChanges) {
 		const coordinates: SimpleChange = changes.coordinates;
 		const bcOver: SimpleChange = changes.bcOver;
-		if (('coordinates' in changes) && coordinates.currentValue != null && !('bcOver' in changes)) {
-			this._coordinates = coordinates.currentValue;
-			this.setInitialPoint();
+		if (this.isDesktop) {
+			if (('coordinates' in changes) && coordinates.currentValue != null && !('bcOver' in changes)) {
+				this._coordinates = coordinates.currentValue;
+				this.setInitialPoint();
+			} else if (('bcOver' in changes) && bcOver.currentValue != null) {
+				this._bcOver = bcOver.currentValue;
+				this.changePoint();
+			}
+		} else {
+			if (('coordinates' in changes) && coordinates.currentValue != null) {
+				this._coordinates = coordinates.currentValue;
+				this.setInitialPoint();
+			}
 		}
-		if (('bcOver' in changes) && bcOver.currentValue != null) {
-			this._bcOver = bcOver.currentValue;
-			this.changePoint();
-		}
-
 	}
 
 	setInitialPoint() {
@@ -84,12 +90,14 @@ export class MapComponent implements OnChanges {
 	}
 
 	changePoint() {
-		const found = this._coordinates.findIndex(element => element.buscenter_id === this._bcOver);
-		this._coordinates.map(i => i.over = false);
-		this._coordinates[found].over = true;
-		this.lat = this._coordinates[found].latitude;
-		this.lng = this._coordinates[found].longitude;
-		this.zoom = 18;
+		if (this._bcOver !== null) {
+			const found = this._coordinates.findIndex(element => element.buscenter_id === this._bcOver);
+			this._coordinates.map(i => i.over = false);
+			this._coordinates[found].over = true;
+			this.lat = this._coordinates[found].latitude;
+			this.lng = this._coordinates[found].longitude;
+			this.zoom = 18;
+		}
 	}
 	clickedMarker(bdId) {
 		this.openMarket = true;

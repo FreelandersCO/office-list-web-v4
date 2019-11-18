@@ -1,4 +1,4 @@
-<header>
+<header [ngClass]="{'header-sticky': sticky}">
 	<nav class="page-comtainer menu-container" @ngIfAnimation>
 		<button class="button-icon mobile" (click)="showOptionsNav()" id="btn-nav-search">
 			<i class="zwicon-search"></i>
@@ -29,11 +29,11 @@
 		</div>
 	</nav>
 	<div class="callus-container">
-		<p class="text-callus">
+		<a href="tel:+188663545478" class="text-callus">
 			<i class="zwicon-phone"></i>
 			Call Us
 			<span>1-866-354-5478</span>
-		</p>
+		</a>
 	</div>
 </header>
 <office-list-modal-singup *ngIf="showSignUp" [favoritesCount]="favoritesCount"></office-list-modal-singup>

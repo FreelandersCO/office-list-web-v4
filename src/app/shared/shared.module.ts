@@ -28,14 +28,14 @@ import { ModalSingupComponent } from './modal-singup/modal-singup.component';
 import { ModalPressedFormComponent } from './modal-pressed-form/modal-pressed-form.component';
 import { ModalScheduledTourComponent } from './modal-scheduled-tour/modal-scheduled-tour.component';
 import { FavoritesHeartComponent } from './favorites-heart/favorites-heart.component';
-import { NormalizaeString } from './utils/normalize-string.pipe';
+import { NormalizeString } from './utils/normalize-string.pipe';
 import { FormRegisterComponent } from './form-register/form-register.component';
 import { MapCardComponent } from './map-card/map-card.component';
 import { ButtonsMobileDetailComponent } from './buttons-mobile-detail/buttons-mobile-detail.component';
 import { ImageComponentComponent } from './image-component/image-component.component';
+import { NormalizePhone } from './utils/normalize-phone.pipe';
+import { ButtonsMobileComponent } from './buttons-mobile/buttons-mobile.component';
 
-// Note we need a separate function as it's required
-// by the AOT compiler
 export function playerFactory() {
 	return player;
 }
@@ -46,8 +46,6 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 	imports: [
 		CommonModule,
 		AgmCoreModule.forRoot({
-			// please get your own API key here:
-			// https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
 			apiKey: 'AIzaSyCop_zSgXsfr2eS48LTbflHNRx5N3Un3co'
 		}),
 		LottieModule.forRoot({ player: playerFactory }),
@@ -67,7 +65,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 		})
 	],
 	declarations: [
-		NormalizaeString,
+		NormalizeString,
+		NormalizePhone,
 		SearchInputComponent,
 		BcSliderComponent,
 		MapComponent,
@@ -86,10 +85,12 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 		FormRegisterComponent,
 		MapCardComponent,
 		ButtonsMobileDetailComponent,
-		ImageComponentComponent
+		ImageComponentComponent,
+		ButtonsMobileComponent
 	],
 	exports: [
-		NormalizaeString,
+		NormalizeString,
+		NormalizePhone,
 		SearchInputComponent,
 		BcSliderComponent,
 		MapComponent,
@@ -104,7 +105,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 		ModalPressedFormComponent,
 		ModalScheduledTourComponent,
 		ButtonsMobileDetailComponent,
-		ImageComponentComponent
+		ImageComponentComponent,
+		ButtonsMobileComponent
 	]
 })
 export class SharedModule { }

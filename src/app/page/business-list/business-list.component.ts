@@ -22,6 +22,7 @@ export class BusinessListComponent implements OnInit {
 	public officeInfo;
 	public mapShow = false;
 	public listGrid = false;
+	public isDesktop = false;
 	private cacheParams;
 	pageInfo;
 	bussinesCenter;
@@ -104,6 +105,7 @@ export class BusinessListComponent implements OnInit {
 			// View
 			if (this.deviceService.isDesktop()) {
 				this.mapShow = true;
+				this.isDesktop = true;
 			}
 		});
 

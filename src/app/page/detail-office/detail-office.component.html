@@ -229,7 +229,7 @@
 					<div class="container-icon">
 						<i class="amenitie-icon {{amenitie.icon}}"></i>
 					</div>
-					<div class="amenities-description" *ngIf="amenitie.hover && amenitie.description.length > 0">
+					<div class="amenities-description" *ngIf="amenitie.hover && amenitie.description">
 						{{amenitie.description}}
 					</div>
 					<p class="title-amenitie">
@@ -260,10 +260,7 @@
 			<div class="swiper-wrapper">
 				<div class="swiper-slide office-list-card card-white" *ngFor="let bc of bussinesCenter?.nearby">
 					<figure class="img-card-office">
-						<img appLazyLoad [src]="bc.principalImage" alt="">
-						<button class="button-icon" id="btn-list-search" (click)="showModalDetail(bc.buscenter_id)">
-							<i class="zwicon-plus"></i>
-						</button>
+						<office-list-image-component [image]="bc.principalImage"></office-list-image-component>
 					</figure>
 					<div class="info-office-container">
 						<p class="text-default"
@@ -274,10 +271,10 @@
 							{{bc.cross_streets}}</h3>
 						<p class="name-city">{{bc.city}}, {{bc.zip_code}}</p>
 						<span class="badge-city">{{bc.area_name}}</span>
-						<p class="phone-number">
+						<a class="phone-number" href="tel:{{bc.phone | normalizePhone}}">
 							<i class="zwicon-phone"></i>
 							{{bc.phone}}
-						</p>
+						</a>
 						<div class="price-container"
 							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}"
 							*ngIf="bc.offices">
