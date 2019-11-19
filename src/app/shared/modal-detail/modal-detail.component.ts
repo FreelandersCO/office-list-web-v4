@@ -3,6 +3,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange } from
 import { ApiServicesService } from '@app/services/api-services.service';
 import { EventEmitterService } from '@app/services/event-emitter.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { LocalStorageService } from '@app/services/storage.service';
 
 @Component({
 	selector: 'office-list-modal-detail',
@@ -13,7 +14,10 @@ export class ModalDetailComponent implements OnChanges, OnInit {
 	@Input() businessId;
 	business;
 
-	constructor(private api: ApiServicesService, private eventEmitter: EventEmitterService, private spinner: NgxSpinnerService) {
+	constructor(
+		private api: ApiServicesService,
+		private eventEmitter: EventEmitterService,
+		private spinner: NgxSpinnerService , private localStorageService: LocalStorageService) {
 
 		this.spinner.show('loadingModal');
 
@@ -37,7 +41,11 @@ export class ModalDetailComponent implements OnChanges, OnInit {
 		}, 200);
 	}
 
-	openSignUp() {
+	async openSignUp(bcId) {
+		const bcFavorites = await this.localStorageService.getItem('bc_favorites');
+		bcFavorites.push(bcId);
+		await this.localStorageService.setItem('bc_favorites', bcFavorites);
+		this.eventEmitter.favoriteEmitter();
 		this.eventEmitter.toogleDetailsEmitter();
 		this.eventEmitter.toogleSingUpEmitter();
 	}

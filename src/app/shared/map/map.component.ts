@@ -1,6 +1,7 @@
-import { Component, Input, SimpleChanges, SimpleChange, OnChanges } from '@angular/core';
+import { Component, Input, SimpleChanges, SimpleChange, OnChanges, OnInit } from '@angular/core';
 import { ApiServicesService } from '@service/api-services.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'office-list-map',
@@ -8,14 +9,13 @@ import { NgxSpinnerService } from 'ngx-spinner';
 	styleUrls: ['./map.component.scss']
 })
 
-export class MapComponent implements OnChanges {
-	@Input() coordinates;
-	@Input() bcOver;
-	@Input() isDesktop;
+export class MapComponent implements OnInit, OnChanges {
+	@Input() bcClick;
+	distance = 15;
 	selectBussines;
+	coordinates;
 	openMarket = false;
-	_coordinates;
-	_bcOver;
+	_bcClick;
 	// google maps zoom level
 	zoom;
 	usePanning = true;
@@ -26,30 +26,34 @@ export class MapComponent implements OnChanges {
 
 	constructor(
 		private api: ApiServicesService,
-		private spinner: NgxSpinnerService) { }
+		private spinner: NgxSpinnerService,
+		private route: ActivatedRoute) { }
+	ngOnInit(): void {
+		this.route.params.subscribe(params => {
+			// Map
+			this.api.getMapBC(
+				params['country'],
+				params['state'],
+				params['city'],
+				params['zip_code'],
+				this.distance
+			).subscribe(result =>
+				this.setInitialPoint(result)
+			);
+		});
 
-	// tslint:disable-next-line: cyclomatic-complexity
+	}
 	ngOnChanges(changes: SimpleChanges) {
-		const coordinates: SimpleChange = changes.coordinates;
-		const bcOver: SimpleChange = changes.bcOver;
-		if (this.isDesktop) {
-			if (('coordinates' in changes) && coordinates.currentValue != null && !('bcOver' in changes)) {
-				this._coordinates = coordinates.currentValue;
-				this.setInitialPoint();
-			} else if (('bcOver' in changes) && bcOver.currentValue != null) {
-				this._bcOver = bcOver.currentValue;
-				this.changePoint();
-			}
-		} else {
-			if (('coordinates' in changes) && coordinates.currentValue != null) {
-				this._coordinates = coordinates.currentValue;
-				this.setInitialPoint();
-			}
+		const bcClick: SimpleChange = changes.bcClick;
+		if (('bcClick' in changes) && bcClick.currentValue != null) {
+			this._bcClick = bcClick.currentValue;
+			this.changePoint();
 		}
 	}
 
-	setInitialPoint() {
-		const data = this._coordinates;
+	setInitialPoint(coordinates) {
+		this.coordinates = coordinates;
+		const data = this.coordinates ;
 		const numCoords = data.length;
 		let X = 0.0;
 		let Y = 0.0;
@@ -90,13 +94,13 @@ export class MapComponent implements OnChanges {
 	}
 
 	changePoint() {
-		if (this._bcOver !== null) {
-			const found = this._coordinates.findIndex(element => element.buscenter_id === this._bcOver);
-			this._coordinates.map(i => i.over = false);
-			this._coordinates[found].over = true;
-			this.lat = this._coordinates[found].latitude;
-			this.lng = this._coordinates[found].longitude;
-			this.zoom = 18;
+		if (this._bcClick !== null) {
+			const found = this.coordinates.findIndex(element => element.buscenter_id === this._bcClick);
+			this.coordinates.map(i => i.over = false);
+			this.coordinates[found].over = true;
+			this.lat = this.coordinates[found].latitude;
+			this.lng = this.coordinates[found].longitude;
+			this.zoom = 17;
 		}
 	}
 	clickedMarker(bdId) {

@@ -2,11 +2,11 @@
 
 .cont-slider-preview {
     height: 190px;
-	margin: 10px 0;
+    margin: 10px 0;
 }
 
 .loader-text {
-	color: colors('primary');
+    color: colors('primary');
 }
 
 .modal-info-container {
@@ -18,14 +18,23 @@
     width: 100%;
 
     .card-modal-info {
-		position: relative;
+        position: relative;
         margin: 0 auto;
-        padding: 20px;
+        padding: 1rem;
         width: 100%;
 
         p,
         h3 {
             padding: 0 0 0.2rem;
+        }
+
+        .text-default {
+            width: 75%;
+        }
+
+        .btn-icon-transparent {
+            position: absolute;
+            right: 1rem;
         }
 
         .text-default,
@@ -133,11 +142,11 @@
                 .view-more {
                     flex-direction: row;
                     margin: 0 auto;
-                    width: 50%;
+                    width: 100%;
 
                     .button-default {
                         margin-right: 20px;
-                        width: 50%;
+                        width: 100%;
 
                         &:last-child {
                             margin-right: 0;
@@ -146,6 +155,7 @@
                 }
 
                 .container-detail-info-modal {
+
                     .prices-office,
                     .description-office {
                         width: 50%;
@@ -163,7 +173,7 @@
 
             .body-modal-info {
                 .view-more {
-                    width: 70%;
+                    width: 100%;
                 }
             }
         }

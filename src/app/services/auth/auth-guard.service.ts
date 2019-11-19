@@ -8,7 +8,7 @@ export class AuthGuardService implements CanActivate {
 	async canActivate() {
 		const isAut = await this.auth.isAuthenticated();
 		if (!isAut) {
-			this.router.navigate(['']);
+			this.router.navigate(['/404']);
 
 			return false;
 		}

@@ -5,16 +5,16 @@
 		</div>
 		<div class="detail-container-info">
 			<p class="description-office-text">
-				You still have more locations to tour. Click on “Book now” and pick the time and date that best works
-				for you. You can also talk to one of our listing Managers to help you.
+				You still have more locations to tour. Click on “Call US” and you can also talk to one of our listing
+				Managers to help you.
 			</p>
 		</div>
-		<div class="container-cards">
+		<!--div class="container-cards">
 			<h2 class="title-home">
 				Schedule a Tour
 			</h2>
 			<hr>
-		</div>
+		</div-->
 	</div>
 	<div class="container-bcs-form">
 		<div class="container-bcs">
@@ -22,7 +22,7 @@
 				<div class="office-list-card card-white list-style">
 					<figure class="img-card-office">
 						<office-list-image-component [image]="bc.image"></office-list-image-component>
-						<button class="button-icon" >
+						<button class="button-icon">
 							<i class="zwicon-plus"></i>
 						</button>
 					</figure>
@@ -64,9 +64,11 @@
 							</button>
 						</div>
 						<div class="btn-container">
-							<button class="button-default primary">
-								Book now
-							</button>
+							<a href="tel:+188663545478" class="text-callus">
+								<i class="zwicon-phone"></i>
+								Call Us
+								<span>1-866-354-5478</span>
+							</a>
 						</div>
 						<div class="like-container">
 							<button class="button-icon-like">
@@ -79,7 +81,7 @@
 		</div>
 		<div class="container-side-form">
 			<div class="container-form-inquire">
-				<office-list-form-inquire-now></office-list-form-inquire-now>
+				<office-list-form-inquire-now [myList]="true"></office-list-form-inquire-now>
 			</div>
 		</div>
 	</div>

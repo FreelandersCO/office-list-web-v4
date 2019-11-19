@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'office-list-page-about',
-  templateUrl: './page-about.component.html',
-  styleUrls: ['./page-about.component.scss']
+	selector: 'office-list-page-about',
+	templateUrl: './page-about.component.html',
+	styleUrls: ['./page-about.component.scss']
 })
 export class PageAboutComponent implements OnInit {
 	public detailInfoTeam = false;
@@ -11,12 +11,12 @@ export class PageAboutComponent implements OnInit {
 	public detailInfoTeama = false;
 	public detailInfoTeamm = false;
 	public detailInfoTeamj = false;
-  constructor() { }
+	constructor() { }
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
 
-  	showModalInformationU() {
+	showModalInformationU() {
 		this.detailInfoTeam = true;
 	}
 	showModalInformationG() {

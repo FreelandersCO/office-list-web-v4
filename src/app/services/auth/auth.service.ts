@@ -9,9 +9,15 @@ export class AuthService {
 
 	public async isAuthenticated() {
 		const token = await this.storage.getItem('ol_tk');
+		let ret;
 
+		if (token.length > 0) {
+			ret = token ? !this.jwtHelper.isTokenExpired(token) : false;
+		} else {
+			ret = false;
+		}
 		// Check whether the token is expired and return
 		// true or false
-		return token ? !this.jwtHelper.isTokenExpired(token) : false;
+		return ret;
 	}
 }

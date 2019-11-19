@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService } from './services/auth/auth-guard.service';
+import { NotFound404Component } from './layout/not-found404/not-found404.component';
 
 const routes: Routes = [
 	{
@@ -39,7 +40,12 @@ const routes: Routes = [
 	{
 		path: 'list-your-office',
 		loadChildren: () => import('./page/page-list-your-office/page-list-your-office.module').then(m => m.PageListYourOfficeModule)
-	}
+	},
+	{
+		path: '404',
+		loadChildren: () => import('./layout/not-found404/not-found404.module').then(m => m.NotFound404Module)
+	},
+	{ path: '**', redirectTo: '404' }
 ];
 
 @NgModule({

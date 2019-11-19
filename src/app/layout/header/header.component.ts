@@ -78,6 +78,12 @@ export class HeaderComponent implements OnInit {
 	async getBussinesFavorites() {
 		this.bcFavorites = await this.localStorageService.getItem('bc_favorites');
 		this.favoritesCount = this.bcFavorites.length;
+		if (this.favoritesCount >= 1) {
+			this.listOffice = true;
+			setTimeout(() => {
+				this.listOffice = false;
+			}, 5000);
+		}
 		if (this.favoritesCount >= 6) {
 			this.showSignUp = true;
 		}

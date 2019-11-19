@@ -7,6 +7,7 @@ import { Component, Input, SimpleChanges, OnChanges, SimpleChange } from '@angul
 })
 export class FormInquireNowComponent implements OnChanges {
 	@Input() accountManager;
+	@Input() bcId;
 	_accountManager;
 
 	constructor() { }

@@ -13,7 +13,7 @@
 			</p>
 		</div>
 	</article>
-	<article class="container-header-desktop"  [style.background-image]="'url(' + pageInfo?.image + ')'">
+	<article class="container-header-desktop" [style.background-image]="'url(' + pageInfo?.image + ')'">
 		<div class="title-info-city">
 			<h1 class="title-pages">
 				{{pageInfo?.title}}
@@ -56,11 +56,9 @@
 				</button>
 			</div>
 		</div>
-
 	</article>
 </section>
 <section class="result-list-container">
-
 	<!--List-->
 	<article class="result-container">
 		<div class="category-filter-container" *ngIf="allFilters">
@@ -77,7 +75,7 @@
 			<button class="close-filter-button" (click)="toogleFilterArea()">
 				<i class="zwicon-close"></i>
 			</button>
-			<ng-select [items]="areas" [multiple]="true" [closeOnSelect]="false" [searchable]="false"
+			<ng-select [items]="areas" [dropdownPosition]="'top'" [multiple]="true" [closeOnSelect]="false" [searchable]="false"
 				[(ngModel)]="selectedAreas">
 			</ng-select>
 			<div class="button-area-container">
@@ -107,8 +105,7 @@
 			</p>
 		</div>
 		<ng-container *ngFor="let bc of bussinesCenter">
-			<div class="office-list-card card-white" [ngClass]="listGrid ? 'list-style' : 'card-style'"
-				(mouseover)="hoverBc(bc.buscenter_id)" (mouseout)="exitHover()">
+			<div class="office-list-card card-white" [ngClass]="listGrid ? 'list-style' : 'card-style'">
 				<figure class="img-card-office">
 					<i class="icon-star-office" *ngIf="bc.premium === 1"></i>
 					<office-list-image-component [image]="bc.principal_image"></office-list-image-component>
@@ -125,11 +122,20 @@
 						routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
 						{{ bc.cross_streets }}
 					</h3>
-					<p class="name-city">{{bc.state }}, {{bc.city}} {{bc.zip_code}}</p>
+					<p class="name-city">{{bc.state }}, {{bc.city}} {{bc.zip_code}}
+						<button *ngIf="isDesktop" class="view-map" (click)="showInMap(bc.buscenter_id)"  (mouseenter)="bc.overMap=true" (mouseleave)="bc.overMap=false">
+							<i class="zwicon-earth-alt"></i>
+							<span class="hover-view" *ngIf="bc.overMap">View on map</span>
+						</button>
+					</p>
 					<span class="badge-city">{{bc.area_name}}</span>
-					<a class="phone-number" href="tel:{{bc.phone | normalizePhone}}">
+					<a class="phone-number" href="tel:{{bc.phone | normalizePhone}}" *ngIf="bc.phone">
 						<i class="zwicon-phone"></i>
 						{{bc.phone}}
+					</a>
+					<a class="phone-number" href="tel:+18663545478" *ngIf="!bc.phone">
+							<i class="zwicon-phone"></i>
+							1-866-354-5478
 					</a>
 					<div class="price-container"
 						routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}"
@@ -155,8 +161,8 @@
 						</button>
 					</div>
 					<div class="btn-container">
-						<button class="button-default primary" (click)="callSingUp()" aria-label="Go to details">
-							Get quote
+						<button class="button-default primary" (click)="callSingUp(bc.buscenter_id)" aria-label="Inquire now">
+							Inquire
 						</button>
 					</div>
 					<div class="like-container">
@@ -179,7 +185,7 @@
 				<i class="zwicon-close"></i>
 			</button>
 		</div>
-		<office-list-map [coordinates]="bcsCoordinates" [bcOver]="bcOver" [isDesktop]="isDesktop"></office-list-map>
+		<office-list-map [bcClick]="bcClick"></office-list-map>
 	</div>
 </section>
 

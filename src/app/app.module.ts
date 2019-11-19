@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AuthGuardService } from './services/auth/auth-guard.service';
 import { AuthService } from './services/auth/auth.service';
+import { NotFound404Module } from './layout/not-found404/not-found404.module';
 
 @NgModule({
 	imports: [
@@ -20,7 +21,8 @@ import { AuthService } from './services/auth/auth.service';
 		HttpClientModule,
 		AppRoutingModule,
 		SharedModule,
-		NgxSpinnerModule
+		NgxSpinnerModule,
+		NotFound404Module
 	],
 	declarations: [
 		AppComponent,

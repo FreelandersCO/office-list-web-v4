@@ -38,7 +38,23 @@ export class ApiServicesService {
 				catchError(this.handleError)
 			);
 	}
+	@Cacheable()
+	getAreasFilter(country, state, city, zipCode, distance): Observable<PageBussines> {
+		const headers = new HttpHeaders({
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Methods': 'GET'
+		}).set('distance', distance);
 
+		const url = (zipCode === undefined) ?
+			`${this.apiURL}/BusinessCenter/Areas/${country}/${state}/${city}/` :
+			`${this.apiURL}/BusinessCenter/Areas/${country}/${state}/${city}/${zipCode}`;
+
+		return this.http.get<PageBussines>(url, { headers })
+			.pipe(
+				retry(1),
+				catchError(this.handleError)
+			);
+	}
 	@Cacheable()
 	getBussinesDetails(id): Observable<Object> {
 		const headers = new HttpHeaders({

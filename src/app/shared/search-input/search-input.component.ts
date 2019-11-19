@@ -29,7 +29,7 @@ export class SearchInputComponent implements OnInit {
 	constructor(public router: Router, private api: ApiServicesService, private localStorage: LocalStorageService) { }
 
 	async ngOnInit() {
-		const elementList = await this.localStorage.getItem(this.STORAGE_KEY);
+		/*const elementList = await this.localStorage.getItem(this.STORAGE_KEY);
 
 		if (elementList.length === 0 ) {
 			this.api.getCityList().subscribe(result => {
@@ -42,7 +42,14 @@ export class SearchInputComponent implements OnInit {
 			this.options = elementList;
 			this.loading = false;
 			this.disable = false;
-		}
+		}*/
+
+		this.api.getCityList().subscribe(result => {
+			this.options = result;
+			this.loading = false;
+			this.disable = false;
+		});
+
 		this.filteredOptions = this.searchControl.valueChanges
 			.pipe(
 				startWith(''),
@@ -75,5 +82,17 @@ export class SearchInputComponent implements OnInit {
 		e.stopPropagation();
 		this.auto.close();
 	}
+	keyPress(e) {
+		const keyCode = e.keyCode;
+		const val = e.srcElement.value;
+		if (val.length >= 3 && keyCode === 13) {
+			const filter = this.options.filter(option =>
+				option.name.toLowerCase().includes(val.toLowerCase())
+			);
 
+			if (filter && filter[0]) {
+				this.router.navigate([filter[0].url]);
+			}
+		}
+	}
 }

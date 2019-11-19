@@ -17,24 +17,13 @@
         width: 90%;
 
         .btn-mobile-floating {
-            border-right: 1px solid colors('white');
             color: colors('white');
             font-size: 1.3rem;
             font-weight: 300;
-			width: 50%;
+			width: 100%;
 			position: relative;
 			text-align: center;
-
-			i {
-				position: absolute;
-				left: 0;
-				top: 3px;
-			}
-
-            &:last-child {
-				border: 0;
-				left: 14px;
-            }
+			text-transform: uppercase;
         }
     }
 

@@ -6,6 +6,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 import { EventEmitterService } from '@app/services/event-emitter.service';
 import { ApiServicesService } from '@service/api-services.service';
+import { LocalStorageService } from '@app/services/storage.service';
 
 @Component({
 	selector: 'office-list-business-list',
@@ -27,8 +28,7 @@ export class BusinessListComponent implements OnInit {
 	pageInfo;
 	bussinesCenter;
 	bussinesCenterCache;
-	bcsCoordinates;
-	bcOver = null;
+	bcClick;
 	areas;
 	bussinesCenterCount;
 	city;
@@ -36,7 +36,7 @@ export class BusinessListComponent implements OnInit {
 	loadingMore = false;
 	lastScrollTop = 0;
 	exclude = [];
-	distance = 30;
+	distance = 15;
 	selectedAreas;
 
 	constructor(
@@ -46,7 +46,8 @@ export class BusinessListComponent implements OnInit {
 		private eventEmitter: EventEmitterService,
 		private titleService: Title,
 		private meta: Meta,
-		private spinner: NgxSpinnerService
+		private spinner: NgxSpinnerService,
+		private localStorageService: LocalStorageService
 	) {
 		this.detailOfficeInfo = this.allFilters = this.filterArea = this.filterDistance = false;
 		this.spinner.show('loadingPage');
@@ -91,17 +92,14 @@ export class BusinessListComponent implements OnInit {
 				this.exclude,
 				this.distance
 			).subscribe(result => this.processDataList(result));
-			// Map & Filter Result
-			this.api.getMapBC(
+			// Filter
+			this.api.getAreasFilter(
 				this.cacheParams['country'],
 				this.cacheParams['state'],
 				this.cacheParams['city'],
 				this.cacheParams['zip_code'],
 				this.distance
-			).subscribe(result =>
-				this.processDataMap(result)
-			);
-
+			).subscribe(result => this.processDataFilter(result));
 			// View
 			if (this.deviceService.isDesktop()) {
 				this.mapShow = true;
@@ -139,9 +137,8 @@ export class BusinessListComponent implements OnInit {
 		this.pageInfo.intro = this.pageInfo.intro.replace('{{numOfBc}}', this.bussinesCenterCount);
 	}
 
-	processDataMap(result) {
-		this.areas = result.map(item => item.area_name).filter((value, index, self) => self.indexOf(value) === index).sort();
-		this.bcsCoordinates = result;
+	processDataFilter(result) {
+		this.areas = result.map(r => r.area_name);
 	}
 
 	capitalizeWords(str) {
@@ -188,7 +185,12 @@ export class BusinessListComponent implements OnInit {
 		this.mapShow = !this.mapShow;
 	}
 
-	callSingUp() {
+	async callSingUp(bcId) {// Read the existing
+		const bcFavorites = await this.localStorageService.getItem('bc_favorites');
+		bcFavorites.push(bcId);
+		await this.localStorageService.setItem('bc_favorites', bcFavorites);
+
+		this.eventEmitter.favoriteEmitter();
 		this.eventEmitter.toogleSingUpEmitter();
 	}
 
@@ -196,19 +198,12 @@ export class BusinessListComponent implements OnInit {
 		this.eventEmitter.toogleTourHeaderEmitter();
 	}
 
-
-	hoverBc(bussinesCenterId) {
-		if (this.bcOver != bussinesCenterId) {
-			this.bcOver = bussinesCenterId;
-		}
-	}
-
-	exitHover() {
+	showInMap(bussinesCenterId) {
+		this.bcClick = bussinesCenterId;
 	}
 
 	applyFilterArea() {
 		this.spinner.show('loadingPage');
-
 		this.bussinesCenterCache = this.bussinesCenter;
 		this.api.filterBc(
 			this.cacheParams['country'],
