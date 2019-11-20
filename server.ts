@@ -49,6 +49,7 @@ const DIST_FOLDER = join(process.cwd(), 'browser');
 // Custom header
 function customHeaders(req, res, next) {
 	app.disable('x-powered-by');
+	app.disable('X-Frame-Options');
 	res.setHeader('X-Powered-By', 'Office List');
 	next();
 }

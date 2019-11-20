@@ -38,6 +38,7 @@ export class BusinessListComponent implements OnInit {
 	exclude = [];
 	distance = 15;
 	selectedAreas;
+	isIP = false;
 
 	constructor(
 		private api: ApiServicesService,
@@ -105,6 +106,9 @@ export class BusinessListComponent implements OnInit {
 				this.mapShow = true;
 				this.isDesktop = true;
 			}
+			this.api.getIP().subscribe(res => {
+				this.proccessIP(res);
+			});
 		});
 
 		if (this.eventEmitter.subsVar === undefined) {
@@ -118,7 +122,14 @@ export class BusinessListComponent implements OnInit {
 
 		}
 	}
-
+	proccessIP(rest) {
+		// tslint:disable-next-line: prefer-switch
+		if (rest.ip === '190.25.101.144' ||
+			rest.ip === '190.85.131.25' ||
+			rest.ip === '186.31.138.169') {
+				this.isIP = true;
+		}
+	}
 	processDataList(result) {
 		setTimeout(() => {
 			this.spinner.hide('loadingPage');
@@ -239,6 +250,15 @@ export class BusinessListComponent implements OnInit {
 				this.filterArea = !this.filterArea;
 				this.spinner.hide('loadingPage');
 			}, 500);
+		});
+	}
+
+	getNotes(bc) {
+		bc.isNote = true;
+		this.api.getBCNote(
+			bc.buscenter_id
+		).subscribe(result => {
+			bc.note = result;
 		});
 	}
 }

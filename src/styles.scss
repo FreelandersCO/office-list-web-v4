@@ -533,9 +533,12 @@ office-list-modal-scheduled-tour {
 
 /** Components **/
 
-.mat-tooltip.tooltip {
-    font-size: 0.8rem !important;
+.notes-result p {
+	font-size: 0.8rem;
+	border-bottom: 1px dotted colors('primary');
+	margin: 1rem 0;
 }
+
 
 .result-list-container .spinner-container ngx-spinner .overlay {
     position: relative !important;

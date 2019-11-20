@@ -75,8 +75,8 @@
 			<button class="close-filter-button" (click)="toogleFilterArea()">
 				<i class="zwicon-close"></i>
 			</button>
-			<ng-select [items]="areas" [dropdownPosition]="'top'" [multiple]="true" [closeOnSelect]="false" [searchable]="false"
-				[(ngModel)]="selectedAreas">
+			<ng-select [items]="areas" [dropdownPosition]="'top'" [multiple]="true" [closeOnSelect]="false"
+				[searchable]="false" [(ngModel)]="selectedAreas">
 			</ng-select>
 			<div class="button-area-container">
 				<button class="buttons-area-filter primary" (click)="applyFilterArea()" aria-label="Filter by area">
@@ -123,7 +123,8 @@
 						{{ bc.cross_streets }}
 					</h3>
 					<p class="name-city">{{bc.state }}, {{bc.city}} {{bc.zip_code}}
-						<button *ngIf="isDesktop" class="view-map" (click)="showInMap(bc.buscenter_id)"  (mouseenter)="bc.overMap=true" (mouseleave)="bc.overMap=false">
+						<button *ngIf="isDesktop" class="view-map" (click)="showInMap(bc.buscenter_id)"
+							(mouseenter)="bc.overMap=true" (mouseleave)="bc.overMap=false">
 							<i class="zwicon-earth-alt"></i>
 							<span class="hover-view" *ngIf="bc.overMap">View on map</span>
 						</button>
@@ -134,8 +135,8 @@
 						{{bc.phone}}
 					</a>
 					<a class="phone-number" href="tel:+18663545478" *ngIf="!bc.phone">
-							<i class="zwicon-phone"></i>
-							1-866-354-5478
+						<i class="zwicon-phone"></i>
+						1-866-354-5478
 					</a>
 					<div class="price-container"
 						routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}"
@@ -161,7 +162,8 @@
 						</button>
 					</div>
 					<div class="btn-container">
-						<button class="button-default primary" (click)="callSingUp(bc.buscenter_id)" aria-label="Inquire now">
+						<button class="button-default primary" (click)="callSingUp(bc.buscenter_id)"
+							aria-label="Inquire now">
 							Inquire
 						</button>
 					</div>
@@ -169,6 +171,20 @@
 						<button class="button-icon-like" aria-label="Like button">
 							<office-list-favorites-heart [bcId]="bc.buscenter_id"></office-list-favorites-heart>
 						</button>
+					</div>
+					<div class="admin-info-container" *ngIf="isIP">
+						<div class="admin-button-container">
+							<button (click)="getNotes(bc)">
+									<i class="zwicon-sticky-notes"></i>View Notes
+							</button>
+						</div>
+						<div class="admin-button-container">
+							<a href="http://admin.officelist.com/reports_bcs_details.php?bc={{bc.buscenter_id}}"
+								target="_blank">
+								<i class="zwicon-link"></i>
+							</a>
+						</div>
+						<div class="notes-result" *ngIf="bc.isNote && bc.note" [innerHtml]="bc.note.notes"></div>
 					</div>
 				</div>
 			</div>

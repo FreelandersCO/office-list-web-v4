@@ -22,6 +22,10 @@ const routes: Routes = [
 		loadChildren: () => import('./page/mylist/mylist.module').then(m => m.MylistModule)
 	},
 	{
+		path: 'token/:token',
+		loadChildren: () => import('./page/mylist-token/mylist-token.module').then(m => m.MylistTokenModule)
+	},
+	{
 		path: 'about-us',
 		loadChildren: () => import('./page/page-about/page-about.module').then(m => m.PageAboutModule)
 	},

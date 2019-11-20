@@ -1,17 +1,29 @@
 <div class="component-form-inquire card-white">
 	<figure class="image-am-office">
-		<img src="{{_accountManager?.image}}" alt="">
+		<img src="/assets/images/staff/picture-staff-george_garcia.jpg" alt="">
 	</figure>
 	<button class="button-close-icon">
 		<i class="zwicon-close"></i>
 	</button>
-	<div class="head-form-inquire">
+	<div class="head-form-inquire" *ngIf="!myList">
 		<h3 class="name-am-office">{{_accountManager?.name}}</h3>
 		<p class="profile-am-office">Listing Manager</p>
 		<p class="info-am-office"><i class="zwicon-phone"></i>{{_accountManager?.phone}}</p>
 	</div>
-	<div class="body-form-inquire">
+	<div class="head-form-inquire" *ngIf="myList">
+		<h3 class="name-am-office">George Garcia</h3>
+		<p class="profile-am-office">Listing Manager</p>
+		<p class="info-am-office"><i class="zwicon-phone"></i>1-866-354-5478</p>
+	</div>
+	<div class="body-form-inquire" *ngIf="myList">
+		<a href="tel:+188663545478" class="text-callus">
+			<i class="zwicon-phone"></i>
+			Call to George Garcia
+		</a>
+	</div>
+	<div class="body-form-inquire" *ngIf="!myList">
 		<h4 class="title-form-inquire">Inquire about this office space</h4>
-		<office-list-form-register [inquired]="true" [bcId]="bcId" [amId]="_accountManager?.user_id"></office-list-form-register>
+		<office-list-form-register [inquired]="true" [bcId]="bcId" [amId]="_accountManager?.user_id">
+		</office-list-form-register>
 	</div>
 </div>

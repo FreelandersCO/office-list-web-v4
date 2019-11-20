@@ -1,7 +1,7 @@
 @import '../../../styles/index';
 
 .container-header-desktop {
-	display: none;
+    display: none;
 }
 
 .title-pages {
@@ -14,7 +14,7 @@
 }
 
 .result-list-container {
-	position: relative;
+    position: relative;
     display: flex;
     margin: 0 auto 1rem;
     padding: 0;
@@ -37,8 +37,8 @@
         color: colors('black-7');
         font-size: 2rem;
         float: right;
-		margin-bottom: 12px;
-		z-index:1;
+        margin-bottom: 12px;
+        z-index: 1;
     }
 
     .distance-number-filter,
@@ -120,8 +120,8 @@
             width: 100px;
             font-size: 0.9rem;
             padding: 0.5rem;
-			border: 1px colors('primary') solid;
-			border-radius: 6px;
+            border: 1px colors('primary') solid;
+            border-radius: 6px;
 
 
             &.primary {
@@ -136,7 +136,7 @@
 
             &.secondary {
                 color: colors('primary');
-				margin: 0 0.5rem;
+                margin: 0 0.5rem;
 
                 &:hover {
                     background-color: colors('primary');
@@ -154,8 +154,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-	padding: 0.5rem 1rem;
-	width: 100%;
+    padding: 0.5rem 1rem;
+    width: 100%;
 }
 
 .show-map-container {
@@ -464,7 +464,7 @@
         font-size: 0.9rem;
         padding-right: 28px;
         cursor: pointer;
-		height: 35px;
+        height: 35px;
 
         em {
             color: colors('black-6');
@@ -472,30 +472,30 @@
     }
 
     .name-city {
-		margin-bottom: 10px;
+        margin-bottom: 10px;
 
-		.view-map {
-			i {
-				font-size: 1.2rem;
-				color: colors('primary');
-			}
+        .view-map {
+            i {
+                font-size: 1.2rem;
+                color: colors('primary');
+            }
 
-			.hover-view {
-				background-color: colors('black-7');
-				border-radius: 4px;
-				color: colors('white');
-				font-size: 12px;
-				padding: 0.3rem;
-				margin-left: 10px;
-			}
-		}
+            .hover-view {
+                background-color: colors('black-7');
+                border-radius: 4px;
+                color: colors('white');
+                font-size: 12px;
+                padding: 0.3rem;
+                margin-left: 10px;
+            }
+        }
     }
 
     .phone-number {
         color: colors('black-7');
         font-size: 1.4rem;
-		margin-top: 8px;
-		display: block;
+        margin-top: 8px;
+        display: block;
     }
 
     .like-container {
@@ -548,6 +548,29 @@
     }
 }
 
+.admin-info-container {
+	display: flex;
+	flex-wrap: wrap;
+
+    .admin-button-container {
+        width: 50%;
+		float: left;
+		text-align: center;
+		color: colors('primary');
+
+		i {
+			color: colors('primary');
+			font-size: 1.8rem;
+		}
+    }
+
+    .notes-result {
+        width: 100%;
+		height: auto;
+    }
+}
+
+
 .call-info-modal-container {
     top: 0;
     width: 100%;
@@ -576,13 +599,13 @@
 }
 
 @include from-breakpoint('tablet') {
-	.container-header-mobile {
-		display: none;
-	}
+    .container-header-mobile {
+        display: none;
+    }
 
-	.container-header-desktop {
-		display: block;
-	}
+    .container-header-desktop {
+        display: block;
+    }
 
     .filter-container {
         .button-icon-grid {

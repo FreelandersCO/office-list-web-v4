@@ -107,8 +107,8 @@ export class ApiServicesService {
 			'Content-Type': 'application/json',
 			'Access-Control-Allow-Methods': 'GET'
 		})
-		.set('distance', distance)
-		.set('areas', areas);
+			.set('distance', distance)
+			.set('areas', areas);
 		const url = (zipCode === undefined) ?
 			`${this.apiURL}/BusinessCenter/Filter/${country}/${state}/${city}/` :
 			`${this.apiURL}/BusinessCenter/Filter/${country}/${state}/${city}/${zipCode}`;
@@ -135,7 +135,7 @@ export class ApiServicesService {
 			'Content-Type': 'application/json',
 			'Access-Control-Allow-Methods': 'GET'
 		})
-		.set('authorization', token);
+			.set('authorization', token);
 
 		return this.http.get(`${this.apiURL}/User/List`, { headers })
 			.pipe(
@@ -153,6 +153,27 @@ export class ApiServicesService {
 	}
 	setLogin(data) {
 		return this.http.post(`${this.apiURL}/User/Login/`, data)
+			.pipe(
+				retry(1),
+				catchError(this.handleError)
+			);
+	}
+	@Cacheable()
+	getBCNote(bcId): Observable<PageBussines> {
+		const headers = new HttpHeaders({
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Methods': 'GET'
+		});
+
+		return this.http.get<PageBussines>(`${this.apiURL}/BusinessCenter/Note/${bcId}/`, { headers })
+			.pipe(
+				retry(1),
+				catchError(this.handleError)
+			);
+	}
+	@Cacheable()
+	getIP(): Observable<Object> {
+		return this.http.get('https://jsonip.com')
 			.pipe(
 				retry(1),
 				catchError(this.handleError)
