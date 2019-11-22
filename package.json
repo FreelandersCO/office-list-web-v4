@@ -16,9 +16,10 @@
     "serve:ssr": "cd dist/ && node server",
     "build:ssr": "rm -rf dist/* && npm run build:client-and-server-bundles && npm run compile:server && npm run publish:ssr",
     "build:client-and-server-bundles": "ng build --prod && ng run page-v4:server:production --bundleDependencies all",
-    "publish:ssr": "cd .. && rm -rf office-list-web-build/* && cp -r page-v4/dist/* office-list-web-build/",
+	"publish:ssr": "cd .. && rm -rf office-list-web-build/* && cp -r page-v4/dist/* office-list-web-build/",
+	"publish": "npm run build:ssr && npm run copy:seo && npm run copy:emails",
     "copy:seo": "cd .. && cp office-list-web-build/browser/assets/seo/* office-list-web-build/browser/ && rm -rf office-list-web-build/browser/assets/seo/",
-    "copy:emails": "cd .. && mkdir office-list-web-build/browser/images/ && cp office-list-web-build/browser/assets/images/email/* office-list-web-build/browser/images/ && rm -rf office-list-web-build/browser/assets/images/email/"
+    "copy:emails": "cd .. && mkdir office-list-web-build/browser/images/ && mv office-list-web-build/browser/assets/images/email/ office-list-web-build/browser/images/"
   },
   "private": true,
   "dependencies": {

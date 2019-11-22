@@ -18,6 +18,7 @@
 }
 
 .text-callus {
+
 	&:hover {
 		color: white;
 	}
@@ -51,7 +52,8 @@
 
 	.container-bcs {
 		display: flex;
-		width: 80%;
+		flex-wrap: wrap;
+		width: 70%;
 		margin: 1rem 0.5rem;
 	}
 
