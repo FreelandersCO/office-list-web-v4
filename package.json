@@ -17,10 +17,14 @@
     "build:ssr": "rm -rf dist/* && npm run build:client-and-server-bundles && npm run compile:server && npm run publish:ssr",
     "build:client-and-server-bundles": "ng build --prod && ng run page-v4:server:production --bundleDependencies all",
 	"publish:ssr": "cd .. && rm -rf office-list-web-build/* && cp -r page-v4/dist/* office-list-web-build/",
-	"publish": "npm run build:ssr && npm run copy:seo && npm run copy:emails",
-    "copy:seo": "cd .. && cp office-list-web-build/browser/assets/seo/* office-list-web-build/browser/ && rm -rf office-list-web-build/browser/assets/seo/",
-    "copy:emails": "cd .. && mkdir office-list-web-build/browser/images/ && mv office-list-web-build/browser/assets/images/email/ office-list-web-build/browser/images/"
-  },
+	"publish": "npm run build:ssr && npm run copy",
+	"copy":"npm run copy:seo && npm run copy:images:mailings && npm run copy:images:misc && npm run copy:images:emails && npm run copy:images:invoiceemail",
+    "copy:seo": "cd .. && cp -r office-list-web-build/browser/assets/seo/* office-list-web-build/browser/ && rm -rf office-list-web-build/browser/assets/seo/",
+	"copy:images:mailings": "cd .. && mkdir office-list-web-build/browser/assets/images/mailings/ && cp -r page-v4/old_site/mailings/* office-list-web-build/browser/assets/images/mailings/",
+	"copy:images:misc": "cd .. && mkdir office-list-web-build/browser/assets/images/misc/ && cp -r page-v4/old_site/misc/* office-list-web-build/browser/assets/images/misc/",
+	"copy:images:emails": "cd .. && mkdir office-list-web-build/browser/images/ && mkdir office-list-web-build/browser/images/emails/ && cp -r page-v4/old_site/emails/* office-list-web-build/browser/images/emails/",
+	"copy:images:invoiceemail": "cd .. && mkdir office-list-web-build/browser/images/invoiceemail/ && cp -r page-v4/old_site/invoiceemail/* office-list-web-build/browser/images/invoiceemail/"
+},
   "private": true,
   "dependencies": {
     "@agm/core": "^1.0.0",
