@@ -179,6 +179,14 @@ export class ApiServicesService {
 				catchError(this.handleError)
 			);
 	}
+	@Cacheable()
+	getMapLead(clientId): Observable<Object> {
+		return this.http.get(`${this.apiURL}/Admin/MapLead/${clientId}/`)
+			.pipe(
+				retry(1),
+				catchError(this.handleError)
+			);
+	}
 	// Error handling
 	handleError(error) {
 		let errorMessage = '';
