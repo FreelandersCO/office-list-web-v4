@@ -23,87 +23,88 @@
 			</p>
 		</div>
 	</article>
-	<!--Filtro-->
-	<article class="filter-container">
-		<div class="buttons-filters">
-			<div class="show-map-container">
-				<p class="text-show-map" *ngIf="mapShow">Hide map</p>
-				<p class="text-show-map" *ngIf="!mapShow">Show map</p>
-				<label class="switch-show-map">
-					<span class="slider-show-map" [ngClass]="{'active': mapShow}" (click)="showMap()"
-						aria-label="Toogle Map"></span>
-				</label>
-			</div>
-			<div class="button-icon-grid">
-				<button class="btn-icon" (click)="hideGrid()" [ngClass]="{'active': !listGrid}"
-					aria-label="On Grid View">
-					<i class="zwicon-grid"></i>
-					<p class="text-button-filter">Grid View</p>
-				</button>
-			</div>
-			<div class="button-icon-list">
-				<button class="btn-icon" (click)="showGrid()" [ngClass]="{'active': listGrid}"
-					aria-label="On List View">
-					<i class="zwicon-list-bullet"></i>
-					<p class="text-button-filter">List View</p>
-				</button>
-			</div>
-			<div class="button-icon-filter">
-				<button class="btn-icon" (click)="showFilters()" [ngClass]="{'active': allFilters}"
-					aria-label="Show Filters">
-					<i class="zwicon-filter"></i>
-					<p class="text-button-filter">Filters</p>
-				</button>
-			</div>
-		</div>
-	</article>
 </section>
 <section class="result-list-container">
-	<!--List-->
 	<article class="result-container">
-		<div class="category-filter-container" *ngIf="allFilters">
-			<button class="btn-icon-filter" (click)="toogleFilterArea()" aria-label="Filter Neighborhoods">
-				<i class="zwicon-expand-alt"></i>
-				<p class="text-button-filter">Neighborhoods</p>
-			</button>
-			<button class="btn-icon-filter" (click)="toogleFilterDistance()" aria-label="Filter Distance">
-				<i class="zwicon-expand"></i>
-				<p class="text-button-filter">Distance</p>
-			</button>
-		</div>
-		<div class="area-filter-contaier" *ngIf="filterArea">
-			<button class="close-filter-button" (click)="toogleFilterArea()">
-				<i class="zwicon-close"></i>
-			</button>
-			<ng-select [items]="areas" [dropdownPosition]="'top'" [multiple]="true" [closeOnSelect]="false"
-				[searchable]="false" [(ngModel)]="selectedAreas">
-			</ng-select>
-			<div class="button-area-container">
-				<button class="buttons-area-filter primary" (click)="applyFilterArea()" aria-label="Filter by area">
-					Filter
+		<!--Filter-->
+		<div class="filter-container">
+			<div class="buttons-filters">
+				<div class="show-map-container">
+					<p class="text-show-map" *ngIf="mapShow">Hide map</p>
+					<p class="text-show-map" *ngIf="!mapShow">Show map</p>
+					<label class="switch-show-map">
+						<span class="slider-show-map" [ngClass]="{'active': mapShow}" (click)="showMap()"
+							aria-label="Toogle Map"></span>
+					</label>
+				</div>
+				<div class="button-icon-grid">
+					<button class="btn-icon" (click)="hideGrid()" [ngClass]="{'active': !listGrid}"
+						aria-label="On Grid View">
+						<i class="zwicon-grid"></i>
+						<p class="text-button-filter">Grid View</p>
+					</button>
+				</div>
+				<div class="button-icon-list">
+					<button class="btn-icon" (click)="showGrid()" [ngClass]="{'active': listGrid}"
+						aria-label="On List View">
+						<i class="zwicon-list-bullet"></i>
+						<p class="text-button-filter">List View</p>
+					</button>
+				</div>
+				<div class="button-icon-filter">
+					<button class="btn-icon" (click)="showFilters()" [ngClass]="{'active': allFilters}"
+						aria-label="Show Filters">
+						<i class="zwicon-filter"></i>
+						<p class="text-button-filter">Filters</p>
+					</button>
+				</div>
+			</div>
+			<div class="category-filter-container" *ngIf="allFilters">
+				<button class="btn-icon-filter" (click)="toogleFilterArea()" aria-label="Filter Neighborhoods">
+					<i class="zwicon-expand-alt"></i>
+					<p class="text-button-filter">Neighborhoods</p>
 				</button>
-				<button class="buttons-area-filter secondary" (click)="clearArea()" aria-label="Clear filter">
-					Clear
+				<button class="btn-icon-filter" (click)="toogleFilterDistance()" aria-label="Filter Distance">
+					<i class="zwicon-expand"></i>
+					<p class="text-button-filter">Distance</p>
 				</button>
 			</div>
-		</div>
-		<div class="distance-filter-contaier" *ngIf="filterDistance">
-			<button class="close-filter-button" (click)="toogleFilterDistance()">
-				<i class="zwicon-close"></i>
-			</button>
-			<div class="slidecontainer">
-				<input type="range" min="1" max="100" [value]="distance" class="slider-distance"
-					(change)="changeDistance($event)">
-				<p class="distance-label">1M</p>
-				<p class="distance-label text-rigth">1OOM</p>
+			<div class="area-filter-contaier" *ngIf="filterArea">
+				<button class="close-filter-button" (click)="toogleFilterArea()">
+					<i class="zwicon-close"></i>
+				</button>
+				<ng-select [items]="areas" [dropdownPosition]="'top'" [multiple]="true" [closeOnSelect]="false"
+					placeholder="Select the neighborhoods you are interesed in" [searchable]="false"
+					[(ngModel)]="selectedAreas">
+				</ng-select>
+				<div class="button-area-container">
+					<button class="buttons-area-filter primary" (click)="applyFilterArea()" aria-label="Filter by area">
+						Filter
+					</button>
+					<button class="buttons-area-filter secondary" (click)="clearArea()" aria-label="Clear filter">
+						Clear
+					</button>
+				</div>
 			</div>
-			<p class="distance-number-filter">
-				{{distance}}
-			</p>
-			<p class="distance-title">
-				Miles
-			</p>
+			<div class="distance-filter-contaier" *ngIf="filterDistance">
+				<button class="close-filter-button" (click)="toogleFilterDistance()">
+					<i class="zwicon-close"></i>
+				</button>
+				<div class="slidecontainer">
+					<input type="range" min="1" max="100" value="{{distance}}" id="ondistance" class="slider-distance"
+						(change)="changeDistance($event)" oninput="ondistance_disp.value = ondistance.value">
+					<p class="distance-label">1M</p>
+					<p class="distance-label text-rigth">1OOM</p>
+				</div>
+				<p class="distance-number-filter">
+					<output id="ondistance_disp">{{distance}}</output>
+				</p>
+				<p class="distance-title">
+					Miles
+				</p>
+			</div>
 		</div>
+		<!-- List -->
 		<ng-container *ngFor="let bc of bussinesCenter">
 			<div class="office-list-card card-white" [ngClass]="listGrid ? 'list-style' : 'card-style'">
 				<figure class="img-card-office">
@@ -118,18 +119,18 @@
 					<p class="text-default"
 						routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
 						{{bc.descriptive_title}}</p>
-					<h3 class="title-name-office"
+					<a class="title-name-office"
 						routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
 						{{ bc.cross_streets }}
-					</h3>
-					<p class="name-city">{{bc.state }}, {{bc.city}} {{bc.zip_code}}
+					</a>
+					<p class="name-city">{{bc.state}}, {{bc.city}} {{bc.zip_code}}
 						<button *ngIf="isDesktop" class="view-map" (click)="showInMap(bc.buscenter_id)"
 							(mouseenter)="bc.overMap=true" (mouseleave)="bc.overMap=false">
 							<i class="zwicon-earth-alt"></i>
 							<span class="hover-view" *ngIf="bc.overMap">View on map</span>
 						</button>
 					</p>
-					<span class="badge-city">{{bc.area_name}}</span>
+					<span class="badge-city" *ngIf="bc.area_name">{{bc.area_name}}</span>
 					<a class="phone-number" href="tel:{{bc.phone | normalizePhone}}" *ngIf="bc.phone">
 						<i class="zwicon-phone"></i>
 						{{bc.phone}}
@@ -175,7 +176,7 @@
 					<div class="admin-info-container" *ngIf="isIP">
 						<div class="admin-button-container">
 							<button (click)="getNotes(bc)">
-									<i class="zwicon-sticky-notes"></i>View Notes
+								<i class="zwicon-sticky-notes"></i>View Notes
 							</button>
 						</div>
 						<div class="admin-button-container">
@@ -184,7 +185,12 @@
 								<i class="zwicon-link"></i>
 							</a>
 						</div>
-						<div class="notes-result" *ngIf="bc.isNote && bc.note" [innerHtml]="bc.note.notes"></div>
+						<div class="notes-result" *ngIf="bc.isNote && bc.note">
+							<h3>Bc Name</h3>
+							<p [innerHtml]="bc.note.company_name"></p>
+							<h3>Bc Notes</h3>
+							<p [innerHtml]="bc.note.notes"></p>
+						</div>
 					</div>
 				</div>
 			</div>

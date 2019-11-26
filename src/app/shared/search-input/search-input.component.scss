@@ -41,6 +41,14 @@
             font-size: 1.4rem;
         }
     }
+
+    .input-container {
+        input {
+            &:focus {
+				box-shadow: 0px 0px 30px 5px colors('primary');
+			}
+        }
+    }
 }
 
 .button-icon-home {
@@ -65,11 +73,5 @@
                 }
             }
         }
-    }
-}
-
-@include from-breakpoint('desktop') {
-    .autocomplete {
-        width: 90%;
     }
 }

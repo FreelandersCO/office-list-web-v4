@@ -77,13 +77,9 @@
             border-radius: 25px;
             height: 6px;
             outline: none;
-            opacity: 0.6;
-            transition: opacity 0.2s;
+            opacity: 1;
             width: 100%;
 
-            &:hover {
-                opacity: 1;
-            }
 
             &::-webkit-slider-thumb {
                 appearance: none;
@@ -283,7 +279,6 @@
 
 .category-filter-container {
     box-shadow: none;
-    margin-bottom: 10px;
     justify-content: space-around;
 }
 
@@ -299,6 +294,12 @@
         top: 0;
         left: 0.5rem;
         width: 16px;
+    }
+
+    .title-name-office {
+        font-weight: bold;
+        font-size: 1.2rem;
+        line-height: 1.2rem;
     }
 
     &.card-style {
@@ -549,24 +550,24 @@
 }
 
 .admin-info-container {
-	display: flex;
-	flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 
     .admin-button-container {
         width: 50%;
-		float: left;
-		text-align: center;
-		color: colors('primary');
+        float: left;
+        text-align: center;
+        color: colors('primary');
 
-		i {
-			color: colors('primary');
-			font-size: 1.8rem;
-		}
+        i {
+            color: colors('primary');
+            font-size: 1.8rem;
+        }
     }
 
     .notes-result {
         width: 100%;
-		height: auto;
+        height: auto;
     }
 }
 
@@ -669,26 +670,6 @@
     }
 }
 
-@include from-breakpoint('desktop') {
-    .call-info-modal-container {
-        .close-modal {
-            right: 28%;
-        }
-    }
-
-    .pricings-detail-container {
-        &.only-price-container {
-            width: 40%;
-        }
-    }
-
-    .container-princing-types {
-        &.only-type-container {
-            width: 40%;
-        }
-    }
-}
-
 @include from-breakpoint('desktop-s') {
     .info-city-list-container {
         margin-top: 0;
@@ -722,12 +703,6 @@
                 margin-bottom: 10px;
             }
         }
-    }
-
-    .area-filter-contaier,
-    .distance-filter-contaier,
-    .calendar-filter-contaier {
-        width: 40%;
     }
 
     .category-filter-container {
@@ -764,8 +739,28 @@
 
     .filter-container {
         max-width: 1366px;
-        margin: 0 auto;
+        margin: 0 0 1rem 0;
         width: 100%;
+    }
+}
+
+@include from-breakpoint('desktop') {
+    .call-info-modal-container {
+        .close-modal {
+            right: 28%;
+        }
+    }
+
+    .pricings-detail-container {
+        &.only-price-container {
+            width: 40%;
+        }
+    }
+
+    .container-princing-types {
+        &.only-type-container {
+            width: 40%;
+        }
     }
 }
 

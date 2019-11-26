@@ -36,7 +36,7 @@ export class BusinessListComponent implements OnInit {
 	loadingMore = false;
 	lastScrollTop = 0;
 	exclude = [];
-	distance = 15;
+	distance = 30;
 	selectedAreas;
 	isIP = false;
 
@@ -105,6 +105,7 @@ export class BusinessListComponent implements OnInit {
 			if (this.deviceService.isDesktop()) {
 				this.mapShow = true;
 				this.isDesktop = true;
+				this.listGrid = true;
 			}
 			this.api.getIP().subscribe(res => {
 				this.proccessIP(res);
@@ -126,8 +127,8 @@ export class BusinessListComponent implements OnInit {
 		// tslint:disable-next-line: prefer-switch
 		if (rest.ip === '190.25.101.144' ||
 			rest.ip === '190.85.131.25' ||
-			rest.ip === '186.31.138.169') {
-				this.isIP = true;
+			rest.ip === '186.155.68.64') {
+			this.isIP = true;
 		}
 	}
 	processDataList(result) {
@@ -149,7 +150,7 @@ export class BusinessListComponent implements OnInit {
 	}
 
 	processDataFilter(result) {
-		this.areas = result.map(r => r.area_name);
+		this.areas = result.filter(area => area.area_name !== null).map(area => area.area_name);
 	}
 
 	capitalizeWords(str) {
@@ -198,8 +199,11 @@ export class BusinessListComponent implements OnInit {
 
 	async callSingUp(bcId) {// Read the existing
 		const bcFavorites = await this.localStorageService.getItem('bc_favorites');
-		bcFavorites.push(bcId);
-		await this.localStorageService.setItem('bc_favorites', bcFavorites);
+		const obj = bcFavorites.find(o => o === bcId);
+		if (obj === undefined) {
+			bcFavorites.push(bcId);
+			await this.localStorageService.setItem('bc_favorites', bcFavorites);
+		}
 
 		this.eventEmitter.favoriteEmitter();
 		this.eventEmitter.toogleSingUpEmitter();
@@ -254,11 +258,13 @@ export class BusinessListComponent implements OnInit {
 	}
 
 	getNotes(bc) {
-		bc.isNote = true;
-		this.api.getBCNote(
-			bc.buscenter_id
-		).subscribe(result => {
-			bc.note = result;
-		});
+		bc.isNote = !bc.isNote;
+		if (bc.isNote) {
+			this.api.getBCNote(
+				bc.buscenter_id
+			).subscribe(result => {
+				bc.note = result;
+			});
+		}
 	}
 }

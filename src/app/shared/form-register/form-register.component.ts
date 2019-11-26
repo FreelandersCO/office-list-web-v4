@@ -19,6 +19,7 @@ export class FormRegisterComponent implements OnInit {
 	registerForm: FormGroup;
 	submitted = false;
 	successfully = false;
+	ip;
 	error = false;
 	optionSuccess: AnimationOptions = {
 		path: 'assets/animations/check-animation.json'
@@ -34,13 +35,19 @@ export class FormRegisterComponent implements OnInit {
 
 	async ngOnInit() {
 		this.registerForm = this.formBuilder.group({
-			fullName: ['', Validators.required],
-			company: ['', Validators.required],
-			email: ['', [Validators.required, Validators.email]],
-			phone: ['', [Validators.required]],
+			fullName: ['', { validators: [Validators.required], updateOn: 'blur' }],
+			company: ['', { validators: [Validators.required], updateOn: 'blur' }],
+			email: ['', { validators: [Validators.required, Validators.email], updateOn: 'blur' }],
+			phone: ['', { validators: [Validators.required], updateOn: 'blur' }],
 			comments: ['']
 		});
+		this.api.getIP().subscribe(res => {
+			this.proccessIP(res);
+		});
 		this.bcFavorites = await this.localStorageService.getItem('bc_favorites');
+	}
+	proccessIP(res) {
+		this.ip = res.ip;
 	}
 	// convenience getter for easy access to form fields
 	get f() { return this.registerForm.controls; }
@@ -56,6 +63,7 @@ export class FormRegisterComponent implements OnInit {
 		}
 		this.registerForm.value.bc_list = this.bcFavorites.join(',');
 		this.registerForm.value.tour = false;
+		this.registerForm.value.ip = this.ip;
 		// stop here if form is invalid
 		if (this.registerForm.invalid) {
 			return;

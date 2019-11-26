@@ -216,12 +216,14 @@
 				</div>
 			</div>
 		</div>
-		<div class="detail-container-info">
+		<div class="detail-container-info" *ngIf="bussinesCenter?.description_location && bussinesCenter?.description_near">
 			<h4 class="title-detail">Description</h4>
 			<p class="description-office-text" [innerHtml]="bussinesCenter?.description_location"></p>
-			<hr>
-			<h4 class="title-detail">Near</h4>
 			<p class="description-office-text" [innerHtml]="bussinesCenter?.description_near"></p>
+		</div>
+		<div class="detail-container-info" *ngIf="!bussinesCenter?.description_location && !bussinesCenter?.description_near">
+				<h4 class="title-detail">Description</h4>
+				<p class="description-office-text" [innerHtml]="bussinesCenter?.detailed_intro"></p>
 		</div>
 		<div class="detail-container-info" *ngIf="bussinesCenter?.amenities.length > 0">
 			<h4 class="title-detail">Amenities</h4>

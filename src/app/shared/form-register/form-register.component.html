@@ -1,21 +1,20 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" *ngIf="!successfully && !error">
 	<div class="general-error"
-		*ngIf="submitted && (f.fullName.errors || f.company.errors || f.email.errors || f.phone.errors)">Please complete
-		form to contact Listing Manager</div>
+		*ngIf="submitted && (f.fullName.errors || f.company.errors || f.email.errors || f.phone.errors)">Please review the information submitted and correct.</div>
 	<div class="group-form">
 		<input type="text" class="input-default" required formControlName="fullName"
-			[ngClass]="{ 'is-invalid': submitted && f.fullName.errors }">
-		<label for="" class="label-default">Full name*</label>
+			[ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" id="fullName" >
+		<label for="fullName" class="label-default">Full name*</label>
 	</div>
 	<div class="group-form">
 		<input type="text" class="input-default" required formControlName="company"
-			[ngClass]="{ 'is-invalid': submitted && f.company.errors }">
-		<label for="" class="label-default">Company*</label>
+			[ngClass]="{ 'is-invalid': submitted && f.company.errors }" id="company">
+		<label for="company" class="label-default">Company*</label>
 	</div>
 	<div class="group-form">
 		<input type="email" class="input-default" required formControlName="email"
-			[ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-		<label for="" class="label-default">Email*</label>
+			[ngClass]="{ 'is-invalid': submitted && f.email.errors }" id="email">
+		<label for="email" class="label-default">Email*</label>
 	</div>
 	<div class="group-form">
 		<input type="text" class="input-default" required formControlName="phone" prefix="+1" mask="(000) 000-0000"
@@ -23,10 +22,10 @@
 		<label for="" class="label-default">Phone number*</label>
 	</div>
 	<div class="group-form full-width">
-		<textarea class="input-default textarea-input" formControlName="comments"
+		<textarea class="input-default textarea-input" formControlName="comments"  id="comments"
 			[ngClass]="{ 'is-invalid': submitted && f.comments.errors }"
 			placeholder="Details on your search, such as: When do you want to move in? How many people/desks? Other specific requirements, budget, etc"></textarea>
-		<label for="" class="label-default">Comments</label>
+		<label for="comments" class="label-default">Comments</label>
 	</div>
 	<div class="container-button-modal" *ngIf="!inquired">
 		<button class="button-default primary" type="submit">Save your favorites</button>
