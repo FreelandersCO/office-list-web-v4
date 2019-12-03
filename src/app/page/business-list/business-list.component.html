@@ -38,14 +38,14 @@
 					</label>
 				</div>
 				<div class="button-icon-grid">
-					<button class="btn-icon" (click)="hideGrid()" [ngClass]="{'active': !listGrid}"
+					<button class="btn-icon" (click)="hideGrid()" [ngClass]="{'active': !grid}"
 						aria-label="On Grid View">
 						<i class="zwicon-grid"></i>
 						<p class="text-button-filter">Grid View</p>
 					</button>
 				</div>
 				<div class="button-icon-list">
-					<button class="btn-icon" (click)="showGrid()" [ngClass]="{'active': listGrid}"
+					<button class="btn-icon" (click)="showGrid()" [ngClass]="{'active': grid}"
 						aria-label="On List View">
 						<i class="zwicon-list-bullet"></i>
 						<p class="text-button-filter">List View</p>
@@ -64,6 +64,10 @@
 					<i class="zwicon-expand-alt"></i>
 					<p class="text-button-filter">Neighborhoods</p>
 				</button>
+				<button class="btn-icon-filter" (click)="toogleFilterNearby()" aria-label="Filter Neighborhoods">
+					<i class="zwicon-drafting-compass"></i>
+					<p class="text-button-filter">Nearby Cities</p>
+				</button>
 				<button class="btn-icon-filter" (click)="toogleFilterDistance()" aria-label="Filter Distance">
 					<i class="zwicon-expand"></i>
 					<p class="text-button-filter">Distance</p>
@@ -73,19 +77,30 @@
 				<button class="close-filter-button" (click)="toogleFilterArea()">
 					<i class="zwicon-close"></i>
 				</button>
-				<ng-select [items]="areas" [dropdownPosition]="'top'" [multiple]="true" [closeOnSelect]="false"
+				<ng-select [items]="areas" [dropdownPosition]="'top'" [closeOnSelect]="true"
 					placeholder="Select the neighborhoods you are interesed in" [searchable]="false"
-					[(ngModel)]="selectedAreas">
+					[(ngModel)]="selectedArea" (change)="changeSelect($event)">
 				</ng-select>
 				<div class="button-area-container">
-					<button class="buttons-area-filter primary" (click)="applyFilterArea()" aria-label="Filter by area">
-						Filter
-					</button>
 					<button class="buttons-area-filter secondary" (click)="clearArea()" aria-label="Clear filter">
 						Clear
 					</button>
 				</div>
 			</div>
+			<div class="area-filter-contaier" *ngIf="filterNearby">
+					<button class="close-filter-button" (click)="toogleFilterNearby()">
+						<i class="zwicon-close"></i>
+					</button>
+					<ng-select [items]="nearbyCities" [dropdownPosition]="'top'" [closeOnSelect]="true"
+						placeholder="Select the Nearby city you are interesed in" [searchable]="false"
+						[(ngModel)]="selectedNearby" (change)="changeNearby($event)">
+					</ng-select>
+					<div class="button-area-container">
+						<button class="buttons-area-filter secondary" (click)="clearArea()" aria-label="Clear filter">
+							Clear
+						</button>
+					</div>
+				</div>
 			<div class="distance-filter-contaier" *ngIf="filterDistance">
 				<button class="close-filter-button" (click)="toogleFilterDistance()">
 					<i class="zwicon-close"></i>
@@ -105,96 +120,10 @@
 			</div>
 		</div>
 		<!-- List -->
-		<ng-container *ngFor="let bc of bussinesCenter">
-			<div class="office-list-card card-white" [ngClass]="listGrid ? 'list-style' : 'card-style'">
-				<figure class="img-card-office">
-					<i class="icon-star-office" *ngIf="bc.premium === 1"></i>
-					<office-list-image-component [image]="bc.principal_image"></office-list-image-component>
-					<button class="button-icon" id="btn-list-search" (click)="showModalDetail(bc.buscenter_id)"
-						aria-label="Open details">
-						<i class="zwicon-plus"></i>
-					</button>
-				</figure>
-				<div class="info-office-container">
-					<p class="text-default"
-						routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
-						{{bc.descriptive_title}}</p>
-					<a class="title-name-office"
-						routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
-						{{ bc.cross_streets }}
-					</a>
-					<p class="name-city">{{bc.state}}, {{bc.city}} {{bc.zip_code}}
-						<button *ngIf="isDesktop" class="view-map" (click)="showInMap(bc.buscenter_id)"
-							(mouseenter)="bc.overMap=true" (mouseleave)="bc.overMap=false">
-							<i class="zwicon-earth-alt"></i>
-							<span class="hover-view" *ngIf="bc.overMap">View on map</span>
-						</button>
-					</p>
-					<span class="badge-city" *ngIf="bc.area_name">{{bc.area_name}}</span>
-					<a class="phone-number" href="tel:{{bc.phone | normalizePhone}}" *ngIf="bc.phone">
-						<i class="zwicon-phone"></i>
-						{{bc.phone}}
-					</a>
-					<a class="phone-number" href="tel:+18663545478" *ngIf="!bc.phone">
-						<i class="zwicon-phone"></i>
-						1-866-354-5478
-					</a>
-					<div class="price-container"
-						routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}"
-						*ngIf="bc.offices">
-						<button class="button-show-price" aria-label="Go to details">
-							<h3 class="title-price">
-								Starting at :
-							</h3>
-						</button>
-						<ul class="list-prices-office">
-							<li *ngFor="let office of bc.offices">
-								<p class="price-office">${{office.off_pricing}}</p>
-								<p class="type-office">{{office.off_name}}</p>
-							</li>
-						</ul>
-					</div>
-					<div class="price-container call-pricing" *ngIf="!bc.offices">
-						<button class="button-show-price" aria-label="Go to details"
-							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
-							<h3 class="title-price">
-								Call For Pricing
-							</h3>
-						</button>
-					</div>
-					<div class="btn-container">
-						<button class="button-default primary" (click)="callSingUp(bc.buscenter_id)"
-							aria-label="Inquire now">
-							Inquire
-						</button>
-					</div>
-					<div class="like-container">
-						<button class="button-icon-like" aria-label="Like button">
-							<office-list-favorites-heart [bcId]="bc.buscenter_id"></office-list-favorites-heart>
-						</button>
-					</div>
-					<div class="admin-info-container" *ngIf="isIP">
-						<div class="admin-button-container">
-							<button (click)="getNotes(bc)">
-								<i class="zwicon-sticky-notes"></i>View Notes
-							</button>
-						</div>
-						<div class="admin-button-container">
-							<a href="http://admin.officelist.com/reports_bcs_details.php?bc={{bc.buscenter_id}}"
-								target="_blank">
-								<i class="zwicon-link"></i>
-							</a>
-						</div>
-						<div class="notes-result" *ngIf="bc.isNote && bc.note">
-							<h3>Bc Name</h3>
-							<p [innerHtml]="bc.note.company_name"></p>
-							<h3>Bc Notes</h3>
-							<p [innerHtml]="bc.note.notes"></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</ng-container>
+		<div class="card-container" [ngClass]="grid ? 'list-cards' : 'list-grid'" *ngFor="let bc of bussinesCenter">
+			<office-list-bc-card [bc]="bc" [grid]="grid" [isDesktop]="isDesktop" [isList]="true" [isIP]="true">
+			</office-list-bc-card>
+		</div>
 		<div class="spinner-container" #bottonTest style="width: 100%;">
 			<ngx-spinner name="loadingBC" color="rgba(59, 164, 47, 0.9)" bdColor="#ffffff" [fullScreen]="false"
 				type="ball-clip-rotate-multiple" size="large"></ngx-spinner>
@@ -207,11 +136,8 @@
 				<i class="zwicon-close"></i>
 			</button>
 		</div>
-		<office-list-map [bcClick]="bcClick"></office-list-map>
+		<office-list-map></office-list-map>
 	</div>
 </section>
 
-<div class="call-info-modal-container" *ngIf="detailOfficeInfo">
-	<office-list-modal-detail [businessId]="selectedBusiness"></office-list-modal-detail>
-</div>
 <office-list-buttons-mobile></office-list-buttons-mobile>

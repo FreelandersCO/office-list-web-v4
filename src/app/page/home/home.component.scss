@@ -57,7 +57,6 @@
     padding: 0;
 }
 
-
 .type-office-container {
     display: flex;
     flex-direction: column;
@@ -179,23 +178,23 @@
 }
 
 .text-big-quote {
-	color: colors('white');
-	font-size: 1.4rem;
-	text-align: center;
+    color: colors('white');
+    font-size: 1.4rem;
+    text-align: center;
 }
 
 .testimonials-container {
     background: linear-gradient(colors('black-6'), colors('black-6')), url('assets/images/img-bg-testimonials.jpg');
     margin-bottom: 0;
 
-	.quote-mark {
-		color: colors('primary');
-		font-size: 8rem;
-		font-weight: 700;
-		line-height: 0;
-		margin-top: 50px;
-		text-align: center;
-	}
+    .quote-mark {
+        color: colors('primary');
+        font-size: 8rem;
+        font-weight: 700;
+        line-height: 0;
+        margin-top: 50px;
+        text-align: center;
+    }
 
     .name-testimonial {
         color: colors('white');

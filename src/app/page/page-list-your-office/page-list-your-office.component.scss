@@ -182,20 +182,20 @@
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/images/img-bg-testimonials.jpg');
     margin-bottom: 0;
 
-	.quote-mark {
-		color: colors('primary');
-		font-size: 8rem;
-		font-weight: 700;
-		line-height: 0;
-		margin-top: 50px;
-		text-align: center;
-	}
+    .quote-mark {
+        color: colors('primary');
+        font-size: 8rem;
+        font-weight: 700;
+        line-height: 0;
+        margin-top: 50px;
+        text-align: center;
+    }
 
-	.text-big-quote {
-		color: colors('white');
-		font-size: 1.4rem;
-		text-align: center;
-	}
+    .text-big-quote {
+        color: colors('white');
+        font-size: 1.4rem;
+        text-align: center;
+    }
 
     .name-testimonial {
         color: colors('white');
@@ -253,10 +253,8 @@
         }
 
         .btn-container {
-			margin: 0.5rem 0 1rem;
-			text-align: center;
-
-
+            margin: 0.5rem 0 1rem;
+            text-align: center;
         }
 
         .like-container {
@@ -381,21 +379,20 @@ swiper {
 }
 
 .register-container {
-	text-align: center;
-	margin: 2rem auto;
+    text-align: center;
+    margin: 2rem auto;
 
-	.button-default {
-		width: 25%;
-		margin: 1rem auto;
-		padding: 1rem;
+    .button-default {
+        width: 25%;
+        margin: 1rem auto;
+        padding: 1rem;
 
-		&:hover {
-			color: white;
-			text-decoration: underline;
-		}
-	}
+        &:hover {
+            color: white;
+            text-decoration: underline;
+        }
+    }
 }
-
 
 @include from-breakpoint('mobile-xl') {
     .item-doit-container {

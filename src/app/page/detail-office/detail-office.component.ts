@@ -58,8 +58,7 @@ export class DetailOfficeComponent implements OnInit {
 		this.accountManager = result.accountManager[0];
 		this.accountManager.phone = this.bussinesCenter.number_tel;
 		this.titleService.setTitle('Offices in ' + this.bussinesCenter.cross_streets);
-
-		if (this.bussinesCenter.offices !== null) {
+		if (this.bussinesCenter.offices) {
 			this.processOffice();
 		}
 		this.spinner.hide();

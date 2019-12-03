@@ -253,8 +253,8 @@ form {
         color: red;
         font-size: 12px;
         font-weight: bold;
-		text-align: center;
-		width: 100%;
+        text-align: center;
+        width: 100%;
     }
 
     .group-form {
@@ -414,12 +414,12 @@ office-list-modal-scheduled-tour {
 }
 
 .header-modal {
-	text-align: right;
+    text-align: right;
 
-	&.modal-register {
-		position: absolute;
-    	right: 1rem;
-	}
+    &.modal-register {
+        position: absolute;
+        right: 1rem;
+    }
 
     .btn-icon-transparent {
         color: #CCC;
@@ -534,11 +534,10 @@ office-list-modal-scheduled-tour {
 /** Components **/
 
 .notes-result p {
-	font-size: 0.8rem;
-	border-bottom: 1px dotted colors('primary');
-	margin: 1rem 0;
+    font-size: 0.8rem;
+    border-bottom: 1px dotted colors('primary');
+    margin: 1rem 0;
 }
-
 
 .result-list-container .spinner-container ngx-spinner .overlay {
     position: relative !important;
@@ -551,6 +550,10 @@ office-list-modal-scheduled-tour {
     }
 }
 
+.autocomplete-container .not-found {
+    margin-top: 4px !important;
+    color: colors('black') !important;
+}
 
 
 /** CARD Map **/

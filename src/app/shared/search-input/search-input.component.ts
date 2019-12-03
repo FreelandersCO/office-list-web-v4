@@ -26,7 +26,10 @@ export class SearchInputComponent implements OnInit {
 	options;
 	optionsObj;
 
-	constructor(public router: Router, private api: ApiServicesService, private localStorage: LocalStorageService) { }
+	constructor(
+		public router: Router,
+		private api: ApiServicesService,
+		private localStorage: LocalStorageService) { }
 
 	async ngOnInit() {
 		/*const elementList = await this.localStorage.getItem(this.STORAGE_KEY);

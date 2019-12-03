@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { AgmCoreModule } from '@agm/core';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
@@ -35,6 +35,7 @@ import { ButtonsMobileDetailComponent } from './buttons-mobile-detail/buttons-mo
 import { ImageComponentComponent } from './image-component/image-component.component';
 import { NormalizePhone } from './utils/normalize-phone.pipe';
 import { ButtonsMobileComponent } from './buttons-mobile/buttons-mobile.component';
+import { BcCardComponent } from './bc-card/bc-card.component';
 
 export function playerFactory() {
 	return player;
@@ -45,6 +46,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
 	imports: [
 		CommonModule,
+		RouterModule,
 		AgmCoreModule.forRoot({
 			apiKey: 'AIzaSyCop_zSgXsfr2eS48LTbflHNRx5N3Un3co'
 		}),
@@ -86,7 +88,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 		MapCardComponent,
 		ButtonsMobileDetailComponent,
 		ImageComponentComponent,
-		ButtonsMobileComponent
+		ButtonsMobileComponent,
+		BcCardComponent
 	],
 	exports: [
 		NormalizeString,
@@ -106,7 +109,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 		ModalScheduledTourComponent,
 		ButtonsMobileDetailComponent,
 		ImageComponentComponent,
-		ButtonsMobileComponent
+		ButtonsMobileComponent,
+		BcCardComponent
 	]
 })
 export class SharedModule { }

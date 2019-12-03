@@ -1,9 +1,6 @@
 <div class="details-galery">
 	<div class="container-images">
 		<ng-template ngFor let-image [ngForOf]="_images">
-			<!--div class="container-image" [ngStyle]="{'background-image': 'url(' + image.image_path + ')'}">
-
-			</div-->
 			<img [src]="image.image_path">
 		</ng-template>
 	</div>
@@ -12,16 +9,11 @@
 		<button class="button-default secondary-line" (click)="toogleModalGallery()">
 			View photos
 		</button>
-		<div class="like-container">
-				<office-list-favorites-heart [bcId]="_bcId" [bg]="true"></office-list-favorites-heart>
-		</div>
-
 	</div>
 </div>
 
 
 <div class="galery-modal-container" *ngIf="openModalGallery">
-
 	<div class="gallery-slider-container">
 		<div class="close-modal">
 			<button class="close-button-modal" (click)="toogleModalGallery()">

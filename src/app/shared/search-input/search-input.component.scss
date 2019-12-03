@@ -45,8 +45,8 @@
     .input-container {
         input {
             &:focus {
-				box-shadow: 0px 0px 30px 5px colors('primary');
-			}
+                box-shadow: 0 0 30px 5px colors('primary');
+            }
         }
     }
 }

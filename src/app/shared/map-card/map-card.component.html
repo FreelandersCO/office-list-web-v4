@@ -38,8 +38,11 @@
 		</div>
 		<div class="prices-office call-pricing" *ngIf="!business?.offices">Call For Pricing</div>
 		<div class="btn-container">
-			<button class="button-default primary" (click)="callSingUp(business?.buscenter_id)">
+			<button class="button-default primary" *ngIf="!added" (click)="callSingUp(business?.buscenter_id)">
 				Inquire
+			</button>
+			<button class="button-default primary" *ngIf="added" (click)="callSingUp(business?.buscenter_id)">
+				Saved
 			</button>
 		</div>
 	</div>

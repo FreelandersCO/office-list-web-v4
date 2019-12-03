@@ -11,6 +11,7 @@ export class EventEmitterService {
 	toogleDetails = new EventEmitter();
 	toogleTourHeader = new EventEmitter();
 	toogleTour = new EventEmitter();
+	callShowInMap = new EventEmitter();
 	subsVar: Subscription;
 
 	constructor() { }
@@ -37,5 +38,9 @@ export class EventEmitterService {
 
 	toogleTourHeaderEmitter() {
 		this.toogleTourHeader.emit();
+	}
+
+	showInMap(bcId) {
+		this.callShowInMap.emit({bcId});
 	}
 }

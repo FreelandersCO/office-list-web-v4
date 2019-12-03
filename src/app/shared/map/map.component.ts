@@ -1,7 +1,8 @@
-import { Component, Input, SimpleChanges, SimpleChange, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiServicesService } from '@service/api-services.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ActivatedRoute } from '@angular/router';
+import { EventEmitterService } from '@app/services/event-emitter.service';
 
 @Component({
 	selector: 'office-list-map',
@@ -9,9 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 	styleUrls: ['./map.component.scss']
 })
 
-export class MapComponent implements OnInit, OnChanges {
-	@Input() bcClick;
-	distance = 15;
+export class MapComponent implements OnInit {
+	distance = 30;
 	selectBussines;
 	coordinates;
 	openMarket = false;
@@ -20,6 +20,7 @@ export class MapComponent implements OnInit, OnChanges {
 	zoom;
 	usePanning = true;
 	fullScreen = false;
+	zip_code;
 	// initial center position for the map
 	lat;
 	lng;
@@ -27,33 +28,34 @@ export class MapComponent implements OnInit, OnChanges {
 	constructor(
 		private api: ApiServicesService,
 		private spinner: NgxSpinnerService,
-		private route: ActivatedRoute) { }
+		private route: ActivatedRoute,
+		private eventEmitter: EventEmitterService) { }
 	ngOnInit(): void {
 		this.route.params.subscribe(params => {
+			this.zip_code = params['zip_code'];
 			// Map
 			this.api.getMapBC(
 				params['country'],
 				params['state'],
 				params['city'],
-				params['zip_code'],
+				this.zip_code,
 				this.distance
 			).subscribe(result =>
 				this.setInitialPoint(result)
 			);
-		});
 
-	}
-	ngOnChanges(changes: SimpleChanges) {
-		const bcClick: SimpleChange = changes.bcClick;
-		if (('bcClick' in changes) && bcClick.currentValue != null) {
-			this._bcClick = bcClick.currentValue;
-			this.changePoint();
+		});
+		if (this.eventEmitter.subsVar === undefined) {
+			this.eventEmitter.callShowInMap.subscribe((bcId) => {
+				this._bcClick = bcId.bcId;
+				this.changePoint();
+			});
 		}
 	}
 
 	setInitialPoint(coordinates) {
 		this.coordinates = coordinates;
-		const data = this.coordinates ;
+		const data = this.coordinates;
 		const numCoords = data.length;
 		let X = 0.0;
 		let Y = 0.0;
@@ -63,7 +65,12 @@ export class MapComponent implements OnInit, OnChanges {
 		if (!(numCoords > 0)) {
 			return false;
 		} else {
-			this.zoom = (numCoords > 10) ? 11 : 17;
+			if (this.zip_code !== undefined) {
+				this.zoom = (numCoords > 10) ? 12 : 18;
+
+			} else {
+				this.zoom = (numCoords > 10) ? 11 : 17;
+			}
 		}
 
 		for (i; i < numCoords; i++) {
@@ -96,11 +103,13 @@ export class MapComponent implements OnInit, OnChanges {
 	changePoint() {
 		if (this._bcClick !== null) {
 			const found = this.coordinates.findIndex(element => element.buscenter_id === this._bcClick);
-			this.coordinates.map(i => i.over = false);
-			this.coordinates[found].over = true;
-			this.lat = this.coordinates[found].latitude;
-			this.lng = this.coordinates[found].longitude;
-			this.zoom = 17;
+			if (found >= 0) {
+				this.coordinates.map(i => i.over = false);
+				this.coordinates[found].over = true;
+				this.lat = this.coordinates[found].latitude;
+				this.lng = this.coordinates[found].longitude;
+				this.zoom = 18;
+			}
 		}
 	}
 	clickedMarker(bdId) {
@@ -114,5 +123,8 @@ export class MapComponent implements OnInit, OnChanges {
 	closeMarker() {
 		this.openMarket = false;
 		this.selectBussines = null;
+	}
+	restoreMap() {
+		this.zoom = 11;
 	}
 }

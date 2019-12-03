@@ -177,7 +177,7 @@
 						</div>
 					</div>
 				</ng-container>
-				<!--Vritual-->
+				<!--Virtual-->
 				<div class="card-white princing-type" *ngIf="showVirtualOffice && activeVirtual">
 					<div class="container-titles">
 						<div class="title-name">
@@ -225,7 +225,7 @@
 				<h4 class="title-detail">Description</h4>
 				<p class="description-office-text" [innerHtml]="bussinesCenter?.detailed_intro"></p>
 		</div>
-		<div class="detail-container-info" *ngIf="bussinesCenter?.amenities.length > 0">
+		<div class="detail-container-info" *ngIf="bussinesCenter?.amenities">
 			<h4 class="title-detail">Amenities</h4>
 			<ul class="icons-amenities">
 				<li *ngFor="let amenitie of bussinesCenter?.amenities" (mouseenter)="amenitie.hover=true" (mouseleave)="amenitie.hover=false">
@@ -261,56 +261,8 @@
 	<div class="cont-swiper-nearby">
 		<swiper class="nearby-swiper" [config]="config">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide office-list-card card-white" *ngFor="let bc of bussinesCenter?.nearby">
-					<figure class="img-card-office">
-						<office-list-image-component [image]="bc.principalImage"></office-list-image-component>
-					</figure>
-					<div class="info-office-container">
-						<p class="text-default"
-							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
-							{{bc.descriptive_title}}</p>
-						<h3 class="title-name-office"
-							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
-							{{bc.cross_streets}}</h3>
-						<p class="name-city">{{bc.city}}, {{bc.zip_code}}</p>
-						<span class="badge-city">{{bc.area_name}}</span>
-						<a class="phone-number" href="tel:{{bc.phone | normalizePhone}}">
-							<i class="zwicon-phone"></i>
-							{{bc.phone}}
-						</a>
-						<div class="price-container"
-							routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}"
-							*ngIf="bc.offices">
-							<button class="button-show-price">
-								<h3 class="title-price">
-									Starting at :
-								</h3>
-							</button>
-							<ul class="list-prices-office">
-								<li *ngFor="let office of bc.offices">
-									<p class="price-office">${{office.off_pricing}}</p>
-									<p class="type-office">{{office.off_name}}</p>
-								</li>
-							</ul>
-						</div>
-						<div class="price-container call-pricing" *ngIf="!bc.offices">
-							<button class="button-show-price"
-								routerLink="/office-space-for-rent/us/{{bc.state | normalizeString}}/{{bc.city | normalizeString }}/office/{{ bc.cross_streets | normalizeString }}-{{ bc.buscenter_id}}">
-								<h3 class="title-price">
-									Call For Pricing
-								</h3>
-							</button></div>
-						<div class="btn-container">
-							<button class="button-default primary">
-								Get quote
-							</button>
-						</div>
-						<div class="like-container">
-							<button class="button-icon-like">
-								<office-list-favorites-heart [bcId]="bc.buscenter_id"></office-list-favorites-heart>
-							</button>
-						</div>
-					</div>
+				<div class="swiper-slide office-list-card" *ngFor="let bc of bussinesCenter?.nearby">
+					<office-list-bc-card [bc]="bc"></office-list-bc-card>
 				</div>
 			</div>
 			<!-- Add Pagination -->

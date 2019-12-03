@@ -1,16 +1,17 @@
 @import '../../../styles/index';
 @import '../business-list/business-list.component';
 
-.details-office-container{
-	max-width: 80vw;
-	margin: 0 auto;
+.details-office-container {
+    max-width: 80vw;
+    margin: 0 auto;
 }
+
 .title-favorites {
     color: #000;
     font-size: 2.2rem;
     font-weight: 300;
     line-height: 2.4rem;
-	text-align: center;
+    text-align: center;
 }
 
 .container-details {
@@ -18,10 +19,9 @@
 }
 
 .text-callus {
-
-	&:hover {
-		color: white;
-	}
+    &:hover {
+        color: white;
+    }
 }
 
 .info-manager {
@@ -48,22 +48,22 @@
 }
 
 .container-bcs-form {
-	display: flex;
+    display: flex;
 
-	.container-bcs {
-		display: flex;
-		flex-wrap: wrap;
-		width: 70%;
-		margin: 1rem 0.5rem;
-	}
+    .container-bcs {
+        display: flex;
+        flex-wrap: wrap;
+        width: 70%;
+        margin: 1rem 0.5rem;
+    }
 
-	.container-side-form{
-		width: 20%;
-		margin: 1rem 0.5rem;
-		.container-form-inquire{
-			position: sticky;
-			top: 0;
-		}
-	}
+    .container-side-form {
+        width: 20%;
+        margin: 1rem 0.5rem;
+
+        .container-form-inquire {
+            position: sticky;
+            top: 0;
+        }
+    }
 }
-

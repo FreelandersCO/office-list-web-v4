@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 import { EventEmitterService } from '@app/services/event-emitter.service';
 import { ApiServicesService } from '@service/api-services.service';
-import { LocalStorageService } from '@app/services/storage.service';
+import { NormalizeString } from '@app/shared/utils/normalize-string.pipe';
 
 @Component({
 	selector: 'office-list-business-list',
@@ -15,20 +15,18 @@ import { LocalStorageService } from '@app/services/storage.service';
 })
 export class BusinessListComponent implements OnInit {
 	@ViewChild('bottonTest', { static: false }) element: ElementRef;
-	public selectedBusiness;
-	public detailOfficeInfo = false;
 	public filterDistance = false;
 	public allFilters = false;
 	public filterArea = false;
+	public filterNearby = false;
 	public officeInfo;
 	public mapShow = false;
-	public listGrid = false;
+	public grid = false;
 	public isDesktop = false;
 	private cacheParams;
 	pageInfo;
 	bussinesCenter;
 	bussinesCenterCache;
-	bcClick;
 	areas;
 	bussinesCenterCount;
 	city;
@@ -37,20 +35,22 @@ export class BusinessListComponent implements OnInit {
 	lastScrollTop = 0;
 	exclude = [];
 	distance = 30;
-	selectedAreas;
+	selectedArea;
+	selectedNearby;
+	nearbyCities;
 	isIP = false;
 
 	constructor(
 		private api: ApiServicesService,
 		private route: ActivatedRoute,
+		private router: Router,
 		private deviceService: DeviceDetectorService,
-		private eventEmitter: EventEmitterService,
 		private titleService: Title,
 		private meta: Meta,
 		private spinner: NgxSpinnerService,
-		private localStorageService: LocalStorageService
+		private normalize: NormalizeString
 	) {
-		this.detailOfficeInfo = this.allFilters = this.filterArea = this.filterDistance = false;
+		this.allFilters = this.filterArea = this.filterDistance = false;
 		this.spinner.show('loadingPage');
 	}
 
@@ -81,7 +81,6 @@ export class BusinessListComponent implements OnInit {
 	}
 
 	ngOnInit() {
-
 		this.route.params.subscribe(params => {
 			this.cacheParams = params;
 			// List Result
@@ -101,26 +100,26 @@ export class BusinessListComponent implements OnInit {
 				this.cacheParams['zip_code'],
 				this.distance
 			).subscribe(result => this.processDataFilter(result));
-			// View
-			if (this.deviceService.isDesktop()) {
-				this.mapShow = true;
-				this.isDesktop = true;
-				this.listGrid = true;
+
+			this.api.getNearbyFilter(
+				this.cacheParams['country'],
+				this.cacheParams['state'],
+				this.cacheParams['city'],
+				this.distance
+			).subscribe(result => this.processDataNearby(result));
+
+			if (this.cacheParams['zip_code'] !== undefined) {
+				this.selectedArea = this.capitalizeWords(this.cacheParams['zip_code']);
 			}
-			this.api.getIP().subscribe(res => {
-				this.proccessIP(res);
-			});
 		});
-
-		if (this.eventEmitter.subsVar === undefined) {
-			this.eventEmitter.toogleDetails.subscribe((name: string) => {
-				this.detailOfficeInfo = !this.detailOfficeInfo;
-			});
-			this.eventEmitter.toogleTour.subscribe((name: string) => {
-				this.detailOfficeInfo = !this.detailOfficeInfo;
-				this.callTour();
-			});
-
+		this.api.getIP().subscribe(res => {
+			this.proccessIP(res);
+		});
+		// View
+		if (this.deviceService.isDesktop()) {
+			this.mapShow = true;
+			this.isDesktop = true;
+			this.grid = true;
 		}
 	}
 	proccessIP(rest) {
@@ -131,6 +130,11 @@ export class BusinessListComponent implements OnInit {
 			this.isIP = true;
 		}
 	}
+
+	processDataNearby(result){
+		this.nearbyCities = result.filter(item => item.city !== null).map(item => item.city);
+	}
+
 	processDataList(result) {
 		setTimeout(() => {
 			this.spinner.hide('loadingPage');
@@ -145,7 +149,10 @@ export class BusinessListComponent implements OnInit {
 		this.city = this.capitalizeWords(this.cacheParams['city']);
 		this.state = this.capitalizeWords(this.cacheParams['state']);
 		// Replace Number Of BC
-		this.bussinesCenterCount = this.bussinesCenter[0].total;
+		this.bussinesCenterCount =
+			this.bussinesCenter && this.bussinesCenter[0] && this.bussinesCenter[0].total ?
+			this.bussinesCenter[0].total :
+			0;
 		this.pageInfo.intro = this.pageInfo.intro.replace('{{numOfBc}}', this.bussinesCenterCount);
 	}
 
@@ -161,82 +168,51 @@ export class BusinessListComponent implements OnInit {
 		}).join(' ');
 	}
 
-	showModalDetail(businessInfo) {
-		this.selectedBusiness = businessInfo;
-		this.detailOfficeInfo = !this.detailOfficeInfo;
-	}
-
 	showFilters() {
 		this.allFilters = !this.allFilters;
 	}
 
 	toogleFilterArea() {
 		this.filterArea = !this.filterArea;
-		this.filterDistance = false;
+		this.filterDistance = this.filterNearby =false;
 	}
-
+	toogleFilterNearby(){
+		this.filterNearby = !this.filterNearby;
+		this.filterDistance = this.filterArea = false;
+	}
 	toogleFilterDistance() {
-		this.filterArea = false;
+		this.filterArea = this.filterNearby  = false;
 		this.filterDistance = !this.filterDistance;
 	}
 
 	hideFilterDistance() {
 		this.filterArea = false;
-
 	}
 
 	showGrid() {
-		this.listGrid = true;
+		this.grid = true;
 	}
 
 	hideGrid() {
-		this.listGrid = false;
+		this.grid = false;
 	}
 
 	showMap() {
 		this.mapShow = !this.mapShow;
 	}
-
-	async callSingUp(bcId) {// Read the existing
-		const bcFavorites = await this.localStorageService.getItem('bc_favorites');
-		const obj = bcFavorites.find(o => o === bcId);
-		if (obj === undefined) {
-			bcFavorites.push(bcId);
-			await this.localStorageService.setItem('bc_favorites', bcFavorites);
-		}
-
-		this.eventEmitter.favoriteEmitter();
-		this.eventEmitter.toogleSingUpEmitter();
-	}
-
-	callTour() {
-		this.eventEmitter.toogleTourHeaderEmitter();
-	}
-
-	showInMap(bussinesCenterId) {
-		this.bcClick = bussinesCenterId;
-	}
-
-	applyFilterArea() {
-		this.spinner.show('loadingPage');
-		this.bussinesCenterCache = this.bussinesCenter;
-		this.api.filterBc(
-			this.cacheParams['country'],
-			this.cacheParams['state'],
-			this.cacheParams['city'],
-			this.cacheParams['zip_code'],
-			this.distance,
-			this.selectedAreas
-		).subscribe(bcFilter => {
-			this.bussinesCenter = bcFilter;
-			this.filterArea = !this.filterArea;
-			this.spinner.hide('loadingPage');
-
-		});
+	changeSelect() {
+		const area = this.normalize.normalizeString(this.selectedArea);
+		const url = `/office-space-for-rent/${this.cacheParams['country']}/${this.cacheParams['state']}/${this.cacheParams['city']}/${area}`;
+		this.router.navigate([url]);
 	}
 	clearArea() {
-		this.selectedAreas = '';
-		this.bussinesCenter = this.bussinesCenterCache;
+		const url = `/office-space-for-rent/${this.cacheParams['country']}/${this.cacheParams['state']}/${this.cacheParams['city']}`;
+		this.router.navigate([url]);
+	}
+	changeNearby(){
+		const city = this.normalize.normalizeString(this.selectedNearby);
+		const url = `/office-space-for-rent/${this.cacheParams['country']}/${this.cacheParams['state']}/${city}`;
+		this.router.navigate([url]);
 	}
 	changeDistance(event) {
 		this.distance = event.srcElement.value;
@@ -255,16 +231,5 @@ export class BusinessListComponent implements OnInit {
 				this.spinner.hide('loadingPage');
 			}, 500);
 		});
-	}
-
-	getNotes(bc) {
-		bc.isNote = !bc.isNote;
-		if (bc.isNote) {
-			this.api.getBCNote(
-				bc.buscenter_id
-			).subscribe(result => {
-				bc.note = result;
-			});
-		}
 	}
 }

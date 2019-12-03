@@ -10,6 +10,7 @@ import { BusinessListRoutingModule } from './business-list-routing.module';
 import { BusinessListComponent } from './business-list.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { ModuleGuardService } from '@app/services/module-guard.service';
+import { NormalizeString } from '@app/shared/utils/normalize-string.pipe';
 
 @NgModule({
 	declarations: [
@@ -25,7 +26,8 @@ import { ModuleGuardService } from '@app/services/module-guard.service';
 		FormsModule
 	],
 	providers: [
-		ModuleGuardService
+		ModuleGuardService,
+		NormalizeString
 	],
 })
 export class BusinessListModule { }
