@@ -53,6 +53,7 @@ export class MapComponent implements OnInit {
 		}
 	}
 
+	// tslint:disable-next-line: cyclomatic-complexity
 	setInitialPoint(coordinates) {
 		this.coordinates = coordinates;
 		const data = this.coordinates;
@@ -62,15 +63,18 @@ export class MapComponent implements OnInit {
 		let Z = 0.0;
 		let i = 0;
 
-		if (!(numCoords > 0)) {
-			return false;
-		} else {
-			if (this.zip_code !== undefined) {
-				this.zoom = (numCoords > 10) ? 12 : 18;
-
-			} else {
-				this.zoom = (numCoords > 10) ? 11 : 17;
-			}
+		switch (true) {
+			case numCoords > 0 && numCoords < 20:
+					this.zoom = 14;
+				 break;
+				case numCoords > 20 && numCoords < 100:
+					this.zoom = 13;
+				 break;
+				 case numCoords > 100 && numCoords < 200:
+					this.zoom = 12;
+				 break;
+			default:
+				break;
 		}
 
 		for (i; i < numCoords; i++) {

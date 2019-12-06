@@ -55,21 +55,7 @@ export class ApiServicesService {
 				catchError(this.handleError)
 			);
 	}
-	@Cacheable()
-	getNearbyFilter(country, state, city, distance): Observable<PageBussines> {
-		const headers = new HttpHeaders({
-			'Content-Type': 'application/json',
-			'Access-Control-Allow-Methods': 'GET'
-		}).set('distance', distance);
 
-		const url = `${this.apiURL}/BusinessCenter/NearbyCity/${country}/${state}/${city}/`;
-
-		return this.http.get<PageBussines>(url, { headers })
-			.pipe(
-				retry(1),
-				catchError(this.handleError)
-			);
-	}
 	@Cacheable()
 	getBussinesDetails(id): Observable<Object> {
 		const headers = new HttpHeaders({

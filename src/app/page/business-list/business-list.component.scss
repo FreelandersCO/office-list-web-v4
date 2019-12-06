@@ -23,16 +23,37 @@
     .card-container {
         &.list-grid {
             width: 49%;
-
-            &:nth-child(odd) {
-                margin-left: 1rem;
-            }
         }
 
         &.list-cards {
             width: 100%;
         }
-    }
+	}
+
+	.no-more {
+		width: 100%;
+		text-align: center;
+		padding: 1rem;
+
+		.no-more-title {
+			color: colors('primary');
+			font-size: 16px;
+    		font-weight: bold;
+		}
+
+		.no-more-list {
+			display: flex;
+			margin: 0.5rem 0;
+			flex-wrap: wrap;
+
+			button {
+				border: 1px colors('primary') solid;
+				margin: 0.5rem;
+				font-size: 16px;
+				width: unset;
+			}
+		}
+	}
 }
 
 .area-filter-contaier,
@@ -40,12 +61,7 @@
 .calendar-filter-contaier {
     background: colors('white');
     box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.1);
-    left: 0.5%;
-    padding: 12px 12px 20px;
-    position: absolute;
-    top: 78px;
-    width: 96%;
-    z-index: 10;
+    padding: 1rem 1rem 2.5rem;
 
     .close-filter-button {
         color: colors('black-7');
@@ -121,7 +137,7 @@
 .area-filter-contaier {
     .button-area-container {
         width: 100%;
-        padding: 0.5rem;
+        padding: 0.5rem 0;
         color: colors('black-7');
 
         .buttons-area-filter {
@@ -144,7 +160,6 @@
 
             &.secondary {
                 color: colors('primary');
-                margin: 0 0.5rem;
 
                 &:hover {
                     background-color: colors('primary');
@@ -168,7 +183,8 @@
 
 .show-map-container {
     display: flex;
-    flex-direction: row;
+	flex-direction: row;
+	padding-top: 8px;
 }
 
 .text-show-map {
@@ -368,14 +384,6 @@
 
     .show-map-container {
         margin-right: 44%;
-    }
-
-    .area-filter-contaier,
-    .distance-filter-contaier,
-    .calendar-filter-contaier {
-        left: 15%;
-        width: 70%;
-        z-index: 1;
     }
 }
 

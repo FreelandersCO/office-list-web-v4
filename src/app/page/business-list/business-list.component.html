@@ -52,34 +52,17 @@
 					</button>
 				</div>
 				<div class="button-icon-filter">
-					<button class="btn-icon" (click)="showFilters()" [ngClass]="{'active': allFilters}"
+					<button class="btn-icon" (click)="toogleFilterArea()" [ngClass]="{'active': filterArea}"
 						aria-label="Show Filters">
 						<i class="zwicon-filter"></i>
 						<p class="text-button-filter">Filters</p>
 					</button>
 				</div>
 			</div>
-			<div class="category-filter-container" *ngIf="allFilters">
-				<button class="btn-icon-filter" (click)="toogleFilterArea()" aria-label="Filter Neighborhoods">
-					<i class="zwicon-expand-alt"></i>
-					<p class="text-button-filter">Neighborhoods</p>
-				</button>
-				<button class="btn-icon-filter" (click)="toogleFilterNearby()" aria-label="Filter Neighborhoods">
-					<i class="zwicon-drafting-compass"></i>
-					<p class="text-button-filter">Nearby Cities</p>
-				</button>
-				<button class="btn-icon-filter" (click)="toogleFilterDistance()" aria-label="Filter Distance">
-					<i class="zwicon-expand"></i>
-					<p class="text-button-filter">Distance</p>
-				</button>
-			</div>
 			<div class="area-filter-contaier" *ngIf="filterArea">
-				<button class="close-filter-button" (click)="toogleFilterArea()">
-					<i class="zwicon-close"></i>
-				</button>
 				<ng-select [items]="areas" [dropdownPosition]="'top'" [closeOnSelect]="true"
-					placeholder="Select the neighborhoods you are interesed in" [searchable]="false"
-					[(ngModel)]="selectedArea" (change)="changeSelect($event)">
+					placeholder="Select the area you are interesed in" [searchable]="false"
+					[(ngModel)]="selectedArea" (change)="changeSelect()">
 				</ng-select>
 				<div class="button-area-container">
 					<button class="buttons-area-filter secondary" (click)="clearArea()" aria-label="Clear filter">
@@ -87,46 +70,21 @@
 					</button>
 				</div>
 			</div>
-			<div class="area-filter-contaier" *ngIf="filterNearby">
-					<button class="close-filter-button" (click)="toogleFilterNearby()">
-						<i class="zwicon-close"></i>
-					</button>
-					<ng-select [items]="nearbyCities" [dropdownPosition]="'top'" [closeOnSelect]="true"
-						placeholder="Select the Nearby city you are interesed in" [searchable]="false"
-						[(ngModel)]="selectedNearby" (change)="changeNearby($event)">
-					</ng-select>
-					<div class="button-area-container">
-						<button class="buttons-area-filter secondary" (click)="clearArea()" aria-label="Clear filter">
-							Clear
-						</button>
-					</div>
-				</div>
-			<div class="distance-filter-contaier" *ngIf="filterDistance">
-				<button class="close-filter-button" (click)="toogleFilterDistance()">
-					<i class="zwicon-close"></i>
-				</button>
-				<div class="slidecontainer">
-					<input type="range" min="1" max="100" value="{{distance}}" id="ondistance" class="slider-distance"
-						(change)="changeDistance($event)" oninput="ondistance_disp.value = ondistance.value">
-					<p class="distance-label">1M</p>
-					<p class="distance-label text-rigth">1OOM</p>
-				</div>
-				<p class="distance-number-filter">
-					<output id="ondistance_disp">{{distance}}</output>
-				</p>
-				<p class="distance-title">
-					Miles
-				</p>
-			</div>
 		</div>
 		<!-- List -->
 		<div class="card-container" [ngClass]="grid ? 'list-cards' : 'list-grid'" *ngFor="let bc of bussinesCenter">
 			<office-list-bc-card [bc]="bc" [grid]="grid" [isDesktop]="isDesktop" [isList]="true" [isIP]="true">
 			</office-list-bc-card>
 		</div>
-		<div class="spinner-container" #bottonTest style="width: 100%;">
+		<div class="spinner-container" #bottonTest style="width: 100%;" *ngIf="!noMore">
 			<ngx-spinner name="loadingBC" color="rgba(59, 164, 47, 0.9)" bdColor="#ffffff" [fullScreen]="false"
 				type="ball-clip-rotate-multiple" size="large"></ngx-spinner>
+		</div>
+		<div *ngIf="noMore" class="no-more">
+			<p class="no-more-title">There are no more business centers available, you can look in the following nearby areas</p>
+			<div class="no-more-list">
+				<button class="button-default secondary" *ngFor="let item of areas" (click)="noMoreSelect(item)">{{item}}</button>
+			</div>
 		</div>
 	</article>
 	<!--Map-->
