@@ -58,6 +58,7 @@ export class MapComponent implements OnInit {
 		this.coordinates = coordinates;
 		const data = this.coordinates;
 		const numCoords = data.length;
+		console.log('numCoords',numCoords);
 		let X = 0.0;
 		let Y = 0.0;
 		let Z = 0.0;
@@ -74,6 +75,7 @@ export class MapComponent implements OnInit {
 					this.zoom = 12;
 				 break;
 			default:
+				this.zoom = 12;
 				break;
 		}
 
@@ -119,7 +121,7 @@ export class MapComponent implements OnInit {
 	clickedMarker(bdId) {
 		this.openMarket = true;
 		this.spinner.show('loadingMap');
-		this.api.getBussinesDetails(bdId).subscribe(res => {
+		this.api.getReduceBussinesDetails(bdId).subscribe(res => {
 			this.selectBussines = res;
 			this.spinner.hide('loadingMap');
 		});

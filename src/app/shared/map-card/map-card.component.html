@@ -1,49 +1,10 @@
 
-<div class="map-card-container">
-
-	<office-list-bc-slider *ngIf="business?.images" [images]="business?.images" [map]="true"></office-list-bc-slider>
-
-	<div class="body-map-info">
-		<p class="text-default ">{{business?.descriptive_title}}</p>
-		<h3 class="title-name-office">{{business?.cross_streets}}</h3>
-		<p class="name-city">{{business?.city}}, {{business?.state}} {{business?.zipcode}}</p>
-		<p class="phone-number">
-			<i class="zwicon-phone"></i>
-			{{business?.number_tel}}
-		</p>
-		<div class="prices-office" *ngIf="business?.offices">
-			<h3 class="title-descrption">
-				Starting at :
-			</h3>
-			<ul class="list-prices-office">
-				<ng-container *ngFor="let office of business?.offices">
-					<ng-container [ngSwitch]="office.type_office_id">
-						<li *ngSwitchCase="1">
-							<p class="price-office">${{office.off_pricing}}</p>
-							<p class="type-office">Private</p>
-						</li>
-						<li *ngSwitchCase="3">
-							<p class="price-office">${{office.off_pricing}}</p>
-							<p class="type-office">CoWorking</p>
-						</li>
-						<li *ngSwitchCase="4">
-							<p class="price-office">${{office.off_pricing}}</p>
-							<p class="type-office">Virtual Office</p>
-						</li>
-					</ng-container>
-
-				</ng-container>
-			</ul>
-
-		</div>
-		<div class="prices-office call-pricing" *ngIf="!business?.offices">Call For Pricing</div>
-		<div class="btn-container">
-			<button class="button-default primary" *ngIf="!added" (click)="callSingUp(business?.buscenter_id)">
-				Inquire
-			</button>
-			<button class="button-default primary" *ngIf="added" (click)="callSingUp(business?.buscenter_id)">
-				Saved
-			</button>
-		</div>
-	</div>
+<div class="map-card-container" *ngIf="business">
+	<office-list-bc-card
+		[bc]="business"
+		[grid]="false"
+		[isDesktop]="true"
+		[isList]="false"
+		[isIP]="false">
+	</office-list-bc-card>
 </div>

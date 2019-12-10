@@ -14,12 +14,19 @@ import { ApiServicesService } from '@app/services/api-services.service';
 export class DetailOfficeComponent implements OnInit {
 	office = 'private';
 	config: SwiperOptions = {
+		slidesPerView: 1,
+		keyboard: true,
+		breakpoints: {
+			640: {
+				slidesPerView: 4,
+			}
+		},
 		pagination: { el: '.swiper-pagination', clickable: true },
 		spaceBetween: 50,
-		/*navigation: {
+		navigation: {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
-		}*/
+		}
 	};
 	bussinesCenter;
 	privateOffice;

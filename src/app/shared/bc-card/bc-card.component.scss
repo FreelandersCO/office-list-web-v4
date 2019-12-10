@@ -41,13 +41,12 @@
 
         .price-container {
             border-width: 1px 0;
-            margin: 12px 0;
+            margin: 0.5rem 0;
             padding: 4px 6px 0;
-            min-height: 95px;
 
             &.call-pricing {
                 position: relative;
-                height: 40px;
+                height: 84px;
 
                 .button-show-price {
                     text-align: center;
@@ -98,11 +97,17 @@
         .price-container {
             border-width: 1px 0;
             margin: 12px 0;
-            padding: 4px 6px;
+			padding: 4px 6px;
+
+			&.call-pricing {
+				height: 77px;
+				text-align: center;
+				padding-top: 28px;
+			}
         }
 
         .btn-container {
-            margin-bottom: 0;
+			margin: 25px 0px 0;
             padding: 0 0.5rem 0 0;
 
             .button-default {
@@ -158,7 +163,8 @@
 
     .img-card-office {
         overflow: hidden;
-        position: relative;
+		position: relative;
+		cursor: pointer;
 
         .button-icon {
             background: colors('white-7');
@@ -183,7 +189,6 @@
         font-size: 0.9rem;
         padding-right: 28px;
         cursor: pointer;
-        height: 35px;
 
         em {
             color: colors('black-6');
@@ -317,17 +322,5 @@
         &.only-type-container {
             width: 40%;
         }
-    }
-}
-
-@include from-breakpoint('desktop-l') {
-    .call-info-modal-container {
-        left: -2.3rem;
-    }
-}
-
-@include from-breakpoint('desktop-xl') {
-    .call-info-modal-container {
-        left: -37.3rem;
     }
 }

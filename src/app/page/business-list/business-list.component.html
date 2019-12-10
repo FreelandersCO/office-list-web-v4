@@ -73,7 +73,7 @@
 		</div>
 		<!-- List -->
 		<div class="card-container" [ngClass]="grid ? 'list-cards' : 'list-grid'" *ngFor="let bc of bussinesCenter">
-			<office-list-bc-card [bc]="bc" [grid]="grid" [isDesktop]="isDesktop" [isList]="true" [isIP]="true">
+			<office-list-bc-card [bc]="bc" [grid]="grid" [isDesktop]="isDesktop" [isList]="true" [isIP]="isIP">
 			</office-list-bc-card>
 		</div>
 		<div class="spinner-container" #bottonTest style="width: 100%;" *ngIf="!noMore">

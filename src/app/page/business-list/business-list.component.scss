@@ -61,7 +61,8 @@
 .calendar-filter-contaier {
     background: colors('white');
     box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.1);
-    padding: 1rem 1rem 2.5rem;
+	padding: 1rem 1rem;
+	display: flex;
 
     .close-filter-button {
         color: colors('black-7');
@@ -135,14 +136,18 @@
 }
 
 .area-filter-contaier {
+	.ng-select {
+		width: 80%;
+	}
+
     .button-area-container {
-        width: 100%;
-        padding: 0.5rem 0;
+		width: 20%;
+		text-align: center;
         color: colors('black-7');
 
         .buttons-area-filter {
             float: right;
-            width: 100px;
+            width: 80%;
             font-size: 0.9rem;
             padding: 0.5rem;
             border: 1px colors('primary') solid;

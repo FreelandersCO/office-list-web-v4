@@ -124,7 +124,7 @@ export class BusinessListComponent implements OnInit {
 		// tslint:disable-next-line: prefer-switch
 		if (rest.ip === '190.25.101.144' ||
 			rest.ip === '190.85.131.25' ||
-			rest.ip === '186.155.68.64') {
+			rest.ip === '186.28.27.23') {
 			this.isIP = true;
 		}
 	}

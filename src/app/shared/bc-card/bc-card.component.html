@@ -1,21 +1,18 @@
 <div class="office-list-card card-white" [ngClass]="grid ? 'list-style' : 'card-style'">
-	<figure class="img-card-office">
+	<figure class="img-card-office" *ngIf="!bc?.images" (click)="showModalDetail(bc?.buscenter_id)">
 		<i class="icon-star-office" *ngIf="bc?.premium && bc?.premium === 1"></i>
 		<office-list-image-component [image]="bc?.principal_image"></office-list-image-component>
-		<button class="button-icon" *ngIf="isList" (click)="showModalDetail(bc?.buscenter_id)"
-			aria-label="Open details">
-			<i class="zwicon-plus"></i>
-		</button>
 	</figure>
+	<office-list-bc-slider *ngIf="bc?.images" [images]="bc?.images" [map]="true"></office-list-bc-slider>
 	<div class="info-office-container">
 		<p class="text-default"
-			routerLink="/office-space-for-rent/us/{{bc?.state | normalizeString}}/{{bc?.city | normalizeString }}/office/{{ bc?.cross_streets | normalizeString }}-{{ bc?.buscenter_id}}">
+			routerLink="/office-space-for-rent/us/{{bc?.state_name | normalizeString}}/{{bc?.city | normalizeString }}/office/{{ bc?.cross_streets | normalizeString }}-{{ bc?.buscenter_id}}">
 			{{bc?.descriptive_title}}</p>
 		<a class="title-name-office"
-			routerLink="/office-space-for-rent/us/{{bc?.state | normalizeString}}/{{bc?.city | normalizeString }}/office/{{ bc?.cross_streets | normalizeString }}-{{ bc?.buscenter_id}}">
+			routerLink="/office-space-for-rent/us/{{bc?.state_name | normalizeString}}/{{bc?.city | normalizeString }}/office/{{ bc?.cross_streets | normalizeString }}-{{ bc?.buscenter_id}}">
 			{{ bc?.cross_streets }}
 		</a>
-		<p class="name-city">{{bc?.state}}, {{bc?.city}} {{bc?.zip_code}}
+		<p class="name-city">{{bc?.city}} {{bc?.state}}, {{bc?.zip_code}}
 			<button *ngIf="isDesktop && isList" class="view-map" (click)="showInMap(bc?.buscenter_id)"
 				(mouseenter)="bc.overMap=true" (mouseleave)="bc.overMap=false">
 				<i class="zwicon-earth-alt"></i>
@@ -32,7 +29,7 @@
 			1-866-354-5478
 		</a>
 		<div class="price-container"
-			routerLink="/office-space-for-rent/us/{{bc?.state | normalizeString}}/{{bc?.city | normalizeString }}/office/{{ bc?.cross_streets | normalizeString }}-{{ bc?.buscenter_id}}"
+			routerLink="/office-space-for-rent/us/{{bc?.state_name | normalizeString}}/{{bc?.city | normalizeString }}/office/{{ bc?.cross_streets | normalizeString }}-{{ bc?.buscenter_id}}"
 			*ngIf="bc?.offices">
 			<button class="button-show-price" aria-label="Go to details">
 				<h3 class="title-price">

@@ -262,14 +262,14 @@
 		<swiper class="nearby-swiper" [config]="config">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide office-list-card" *ngFor="let bc of bussinesCenter?.nearby">
-					<office-list-bc-card [bc]="bc"></office-list-bc-card>
+					<office-list-bc-card [bc]="bc" [isList]="true"></office-list-bc-card>
 				</div>
 			</div>
 			<!-- Add Pagination -->
 			<div class="swiper-pagination"></div>
 			<!-- Add Arrows -->
-			<!--div class="swiper-button-next"></div>
-			<div class="swiper-button-prev"></div-->
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
 		</swiper>
 	</div>
 </section>

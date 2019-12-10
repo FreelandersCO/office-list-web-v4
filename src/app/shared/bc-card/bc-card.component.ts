@@ -28,7 +28,7 @@ export class BcCardComponent implements OnInit {
 	ngOnInit() {
 		if (this.eventEmitter.subsVar === undefined) {
 			this.eventEmitter.toogleDetails.subscribe((name: string) => {
-				this.detailOfficeInfo = !this.detailOfficeInfo;
+				this.detailOfficeInfo = false;
 			});
 			this.eventEmitter.toogleTour.subscribe((name: string) => {
 				this.detailOfficeInfo = !this.detailOfficeInfo;

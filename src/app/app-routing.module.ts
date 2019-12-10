@@ -46,6 +46,10 @@ const routes: Routes = [
 		loadChildren: () => import('./page/page-list-your-office/page-list-your-office.module').then(m => m.PageListYourOfficeModule)
 	},
 	{
+		path: 'bc',
+		loadChildren: () => import('./page/page-list-your-office/page-list-your-office.module').then(m => m.PageListYourOfficeModule)
+	},
+	{
 		path: 'lead-map/:leadId',
 		loadChildren: () => import('./page/lead-map/lead-map.module').then(m => m.LeadMapModule)
 	},
