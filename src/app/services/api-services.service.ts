@@ -84,6 +84,21 @@ export class ApiServicesService {
 	}
 
 	@Cacheable()
+	getPageMeta(type,searchKey): Observable<Object> {
+		const headers = new HttpHeaders({
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Methods': 'GET'
+		});
+
+		return this.http.get(`${this.apiURL}/Metadata/${type}/${searchKey}`, { headers })
+			.pipe(
+				retry(1),
+				catchError(this.handleError)
+			);
+	}
+
+
+	@Cacheable()
 	// tslint:disable-next-line: ban-types
 	getMapBC(country, state, city, zipCode, distance): Observable<Object> {
 		const headers = new HttpHeaders({

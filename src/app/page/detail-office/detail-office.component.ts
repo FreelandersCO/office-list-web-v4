@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SwiperOptions } from 'swiper';
 import { ActivatedRoute } from '@angular/router';
@@ -49,7 +49,8 @@ export class DetailOfficeComponent implements OnInit {
 		private api: ApiServicesService,
 		private route: ActivatedRoute,
 		private titleService: Title,
-		private spinner: NgxSpinnerService) { }
+		private spinner: NgxSpinnerService,
+		private meta: Meta) { }
 
 	ngOnInit() {
 		this.spinner.show();
@@ -58,13 +59,24 @@ export class DetailOfficeComponent implements OnInit {
 			const bcId = explote[explote.length - 1];
 			this.api.getBussinesDetails(bcId).subscribe(result => this.procesData(result));
 		});
-	}
 
+	}
+	processDataSEO(data) {
+		const title = data.metatitle.replace('{{cross_streets}}', this.bussinesCenter.cross_streets);
+		const description = data.metadescription.replace('{{cross_streets}}', this.bussinesCenter.cross_streets);
+		// SEO
+		this.titleService.setTitle(title);
+		this.meta.addTag({ name: 'description', description });
+	}
 	procesData(result) {
+		this.api.getPageMeta(
+			'template-bc',
+			'bc'
+		).subscribe(data => this.processDataSEO(data));
+
 		this.bussinesCenter = result.businesCentersInfo;
 		this.accountManager = result.accountManager[0];
 		this.accountManager.phone = this.bussinesCenter.number_tel;
-		this.titleService.setTitle('Offices in ' + this.bussinesCenter.cross_streets);
 		if (this.bussinesCenter.offices) {
 			this.processOffice();
 		}
