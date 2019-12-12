@@ -24,7 +24,7 @@
 		</div>
 	</article>
 </section>
-<section class="result-list-container">
+<section class="result-list-container" *ngIf="bussinesCenter?.length > 0">
 	<article class="result-container">
 		<!--Filter-->
 		<div class="filter-container">
@@ -59,10 +59,10 @@
 					</button>
 				</div>
 			</div>
-			<div class="area-filter-contaier" *ngIf="filterArea">
+			<div class="area-filter-contaier" *ngIf="filterArea && areas?.length > 0">
 				<ng-select [items]="areas" [dropdownPosition]="'top'" [closeOnSelect]="true"
-					placeholder="Select the area you are interesed in" [searchable]="false"
-					[(ngModel)]="selectedArea" (change)="changeSelect()">
+					placeholder="Select the area you are interesed in" [searchable]="false" [(ngModel)]="selectedArea"
+					(change)="changeSelect()">
 				</ng-select>
 				<div class="button-area-container">
 					<button class="buttons-area-filter secondary" (click)="clearArea()" aria-label="Clear filter">
@@ -80,10 +80,11 @@
 			<ngx-spinner name="loadingBC" color="rgba(59, 164, 47, 0.9)" bdColor="#ffffff" [fullScreen]="false"
 				type="ball-clip-rotate-multiple" size="large"></ngx-spinner>
 		</div>
-		<div *ngIf="noMore" class="no-more">
-			<p class="no-more-title">There are no more business centers available, you can look in the following nearby areas</p>
+		<div *ngIf="noMore && areas?.length > 0" class="no-more">
+			<p class="no-more-title">No exact matches were found . Consider the following nearby areas.</p>
 			<div class="no-more-list">
-				<button class="button-default secondary" *ngFor="let item of areas" (click)="noMoreSelect(item)">{{item}}</button>
+				<button class="button-default secondary" *ngFor="let item of areas"
+					(click)="noMoreSelect(item)">{{item}}</button>
 			</div>
 		</div>
 	</article>
@@ -97,5 +98,7 @@
 		<office-list-map></office-list-map>
 	</div>
 </section>
-
+<section class="result-list-container" *ngIf="bussinesCenter?.length === 0">
+	<h2 class="no-result">No exact matches were found. Consider your spelling or try another term</h2>
+</section>
 <office-list-buttons-mobile></office-list-buttons-mobile>

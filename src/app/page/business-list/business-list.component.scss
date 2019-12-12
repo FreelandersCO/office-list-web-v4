@@ -22,38 +22,38 @@
 
     .card-container {
         &.list-grid {
-            width: 49%;
+            width: 100%;
         }
 
         &.list-cards {
             width: 100%;
         }
-	}
+    }
 
-	.no-more {
-		width: 100%;
-		text-align: center;
-		padding: 1rem;
+    .no-more {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
 
-		.no-more-title {
-			color: colors('primary');
-			font-size: 16px;
-    		font-weight: bold;
-		}
+        .no-more-title {
+            color: colors('primary');
+            font-size: 16px;
+            font-weight: bold;
+        }
 
-		.no-more-list {
-			display: flex;
-			margin: 0.5rem 0;
-			flex-wrap: wrap;
+        .no-more-list {
+            display: flex;
+            margin: 0.5rem 0;
+            flex-wrap: wrap;
 
-			button {
-				border: 1px colors('primary') solid;
-				margin: 0.5rem;
-				font-size: 16px;
-				width: unset;
-			}
-		}
-	}
+            button {
+                border: 1px colors('primary') solid;
+                margin: 0.5rem;
+                font-size: 16px;
+                width: unset;
+            }
+        }
+    }
 }
 
 .area-filter-contaier,
@@ -61,8 +61,8 @@
 .calendar-filter-contaier {
     background: colors('white');
     box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.1);
-	padding: 1rem 1rem;
-	display: flex;
+    padding: 1rem;
+    display: flex;
 
     .close-filter-button {
         color: colors('black-7');
@@ -136,13 +136,13 @@
 }
 
 .area-filter-contaier {
-	.ng-select {
-		width: 80%;
-	}
+    .ng-select {
+        width: 80%;
+    }
 
     .button-area-container {
-		width: 20%;
-		text-align: center;
+        width: 20%;
+        text-align: center;
         color: colors('black-7');
 
         .buttons-area-filter {
@@ -175,6 +175,15 @@
     }
 }
 
+.no-result {
+    color: colors('primary');
+    font-size: 2rem;
+    line-height: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
 .buttons-filters,
 .category-filter-container {
     background: colors('white');
@@ -188,8 +197,8 @@
 
 .show-map-container {
     display: flex;
-	flex-direction: row;
-	padding-top: 8px;
+    flex-direction: row;
+    padding-top: 8px;
 }
 
 .text-show-map {
@@ -380,6 +389,14 @@
     .result-container {
         padding: 0 1rem;
         justify-content: space-between;
+    }
+
+    .result-list-container {
+        .card-container {
+            &.list-grid {
+                width: 49%;
+            }
+        }
     }
 
     .cards-result-office {

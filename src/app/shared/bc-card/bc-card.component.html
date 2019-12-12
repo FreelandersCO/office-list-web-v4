@@ -2,6 +2,10 @@
 	<figure class="img-card-office" *ngIf="!bc?.images" (click)="showModalDetail(bc?.buscenter_id)">
 		<i class="icon-star-office" *ngIf="bc?.premium && bc?.premium === 1"></i>
 		<office-list-image-component [image]="bc?.principal_image"></office-list-image-component>
+		<button class="button-icon" *ngIf="isList"
+			aria-label="Open details">
+			Preview
+		</button>
 	</figure>
 	<office-list-bc-slider *ngIf="bc?.images" [images]="bc?.images" [map]="true"></office-list-bc-slider>
 	<div class="info-office-container">

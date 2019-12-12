@@ -17,7 +17,7 @@ export class MapComponent implements OnInit {
 	openMarket = false;
 	_bcClick;
 	// google maps zoom level
-	zoom;
+	zoom = 1;
 	usePanning = true;
 	fullScreen = false;
 	zip_code;
@@ -58,26 +58,11 @@ export class MapComponent implements OnInit {
 		this.coordinates = coordinates;
 		const data = this.coordinates;
 		const numCoords = data.length;
-		console.log('numCoords',numCoords);
 		let X = 0.0;
 		let Y = 0.0;
 		let Z = 0.0;
 		let i = 0;
 
-		switch (true) {
-			case numCoords > 0 && numCoords < 20:
-					this.zoom = 14;
-				 break;
-				case numCoords > 20 && numCoords < 100:
-					this.zoom = 13;
-				 break;
-				 case numCoords > 100 && numCoords < 200:
-					this.zoom = 12;
-				 break;
-			default:
-				this.zoom = 12;
-				break;
-		}
 
 		for (i; i < numCoords; i++) {
 			// tslint:disable-next-line: no-shadowed-variable
@@ -131,6 +116,20 @@ export class MapComponent implements OnInit {
 		this.selectBussines = null;
 	}
 	restoreMap() {
-		this.zoom = 11;
+		const numCoords = this.coordinates.length;
+		switch (true) {
+			case numCoords > 0 && numCoords < 20:
+				this.zoom = 14;
+				break;
+			case numCoords > 20 && numCoords < 100:
+				this.zoom = 13;
+				break;
+			case numCoords > 100 && numCoords < 200:
+				this.zoom = 12;
+				break;
+			default:
+				this.zoom = 12;
+				break;
+		}
 	}
 }

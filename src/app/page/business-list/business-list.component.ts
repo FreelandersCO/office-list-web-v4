@@ -123,8 +123,7 @@ export class BusinessListComponent implements OnInit {
 	proccessIP(rest) {
 		// tslint:disable-next-line: prefer-switch
 		if (rest.ip === '190.25.101.144' ||
-			rest.ip === '190.85.131.25' ||
-			rest.ip === '186.28.27.23') {
+			rest.ip === '190.85.131.25') {
 			this.isIP = true;
 		}
 	}
@@ -196,8 +195,15 @@ export class BusinessListComponent implements OnInit {
 		/**/
 	}
 	clearArea() {
-		const url = `/office-space-for-rent/${this.cacheParams['country']}/${this.cacheParams['state']}/${this.cacheParams['city']}`;
-		this.router.navigate([url]);
+		const areaType = this.cacheAreas[0].type;
+		const areaName = this.normalize.normalizeString(this.cacheAreas[0].area_name);
+		if (areaType === 1) {
+			const url = `/office-space-for-rent/${this.cacheParams['country']}/${this.cacheParams['state']}/${this.cacheParams['city']}/${areaName}`;
+			this.router.navigate([url]);
+		} else {
+			const url = `/office-space-for-rent/${this.cacheParams['country']}/${this.cacheParams['state']}/${areaName}`;
+			this.router.navigate([url]);
+		}
 	}
 	noMoreSelect(item){
 		this.selectedArea = item;

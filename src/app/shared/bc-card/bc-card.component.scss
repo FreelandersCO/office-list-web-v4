@@ -97,17 +97,17 @@
         .price-container {
             border-width: 1px 0;
             margin: 12px 0;
-			padding: 4px 6px;
+            padding: 4px 6px;
 
-			&.call-pricing {
-				height: 77px;
-				text-align: center;
-				padding-top: 28px;
-			}
+            &.call-pricing {
+                height: 77px;
+                text-align: center;
+                padding-top: 28px;
+            }
         }
 
         .btn-container {
-			margin: 25px 0px 0;
+            margin: 25px 0 0;
             padding: 0 0.5rem 0 0;
 
             .button-default {
@@ -163,25 +163,23 @@
 
     .img-card-office {
         overflow: hidden;
-		position: relative;
-		cursor: pointer;
+        position: relative;
+        cursor: pointer;
 
         .button-icon {
             background: colors('white-7');
             box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.2);
-            border-radius: 100%;
-            font-size: 1rem;
-            height: 30px;
+            border-radius: 8px;
+            font-size: 0.7rem;
             position: absolute;
-            right: 12px;
-            top: 12px;
-            width: 30px;
-
-            .zwicon-plus {
-                top: 7px;
-                position: absolute;
-                left: 7px;
-            }
+            bottom: 0.5rem;
+            left: 0.5rem;
+            right: 0.5rem;
+            width: 96%;
+            padding: 0.5rem;
+            letter-spacing: 0.5px;
+            color: colors('primary');
+            font-weight: bold;
         }
     }
 
@@ -291,6 +289,14 @@
             .title-name-office {
                 height: 42px;
             }
+        }
+
+        .img-card-office .button-icon {
+            top: 0.5rem;
+            right: 0.5rem;
+            width: unset;
+            left: unset;
+            bottom: unset;
         }
 
         .button-default {

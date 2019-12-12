@@ -6,10 +6,10 @@
 			</button>
 			<p class="text-default ">{{business?.descriptive_title}}</p>
 			<h3 class="title-name-office">{{business?.cross_streets}}</h3>
-			<p class="name-city">{{business?.city}}, {{business?.state}} {{business?.zipcode}}</p>
+			<p class="name-city">{{business?.city}}, {{business?.state}} {{business?.zip_code}}</p>
 			<p class="phone-number">
 				<i class="zwicon-phone"></i>
-				{{business?.number_tel}}
+				{{business?.phone}}
 			</p>
 		</div>
 		<div class="body-modal-info">
@@ -17,7 +17,7 @@
 				<office-list-bc-slider [images]="business?.images" [smallImage]="true"></office-list-bc-slider>
 			</div>
 			<div class="container-detail-info-modal">
-				<div class="prices-office">
+				<div class="prices-office" *ngIf="business?.offices">
 					<h3 class="title-descrption">
 						Starting at :
 					</h3>
@@ -41,6 +41,9 @@
 						</ng-container>
 					</ul>
 				</div>
+				<div class="prices-office call-pricing" *ngIf="!business?.offices">
+						<h3>Call For Pricing</h3>
+					</div>
 				<div class="description-office">
 					<h3 class="title-description">
 						Description
