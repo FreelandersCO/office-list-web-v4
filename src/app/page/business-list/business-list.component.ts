@@ -55,8 +55,8 @@ export class BusinessListComponent implements OnInit {
 		this.spinner.show('loadingPage');
 	}
 
-	@HostListener('window:scroll', ['$event'])
-	onScroll($event: Event): void {
+	@HostListener('window:scroll')
+	onScroll(): void {
 		if (!this.noMore) {
 			const scrollPosition = window.pageYOffset;
 			const elementPosition = this.bottonTest.nativeElement.offsetTop - 1000;

@@ -81,10 +81,12 @@
 				type="ball-clip-rotate-multiple" size="large"></ngx-spinner>
 		</div>
 		<div *ngIf="noMore && areas?.length > 0" class="no-more">
-			<p class="no-more-title">No exact matches were found . Consider the following nearby areas.</p>
+			<p class="no-more-title">You may be interested in these other areas.</p>
 			<div class="no-more-list">
-				<button class="button-default secondary" *ngFor="let item of areas"
+				<ng-container *ngFor="let item of areas">
+					<button class="button-default secondary"
 					(click)="noMoreSelect(item)">{{item}}</button>
+				</ng-container>
 			</div>
 		</div>
 	</article>

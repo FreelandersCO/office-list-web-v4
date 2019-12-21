@@ -1,0 +1,43 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" *ngIf="!successfully && !error">
+	<div class="general-error"
+		*ngIf="submitted && (f.name.errors || f.company.errors || f.email.errors || f.phone.errors)">Please review the information submitted and correct.</div>
+	<div class="group-form">
+		<input type="text" class="input-default" required formControlName="name"
+			[ngClass]="{ 'is-invalid': submitted && f.name.errors }" id="name" >
+		<label for="name" class="label-default">Full name*</label>
+	</div>
+	<div class="group-form">
+		<input type="text" class="input-default" required formControlName="company"
+			[ngClass]="{ 'is-invalid': submitted && f.company.errors }" id="company">
+		<label for="company" class="label-default">Company*</label>
+	</div>
+	<div class="group-form">
+		<input type="email" class="input-default" required formControlName="email"
+			[ngClass]="{ 'is-invalid': submitted && f.email.errors }" id="email">
+		<label for="email" class="label-default">Email*</label>
+	</div>
+	<div class="group-form">
+		<input type="text" class="input-default" required formControlName="phone" prefix="+1" mask="(000) 000-0000"
+			[ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+		<label for="" class="label-default">Phone number*</label>
+	</div>
+	<div class="group-form full-width">
+		<textarea class="input-default textarea-input" formControlName="comments"  id="comments"
+			[ngClass]="{ 'is-invalid': submitted && f.comments.errors }"
+			placeholder="Details on your search, such as: When do you want to move in? How many people/desks? Other specific requirements, budget, etc"></textarea>
+		<label for="comments" class="label-default">Comments</label>
+	</div>
+	<div class="container-button-modal">
+		<button class="button-default primary" type="submit">Contact OfficeList</button>
+	</div>
+</form>
+<div class="success-container" *ngIf="submitted && successfully">
+	<ng-lottie [options]="optionSuccess" width="100%" height="250px"></ng-lottie>
+	<p>Thank you for contact with OfficeList. One of our Account Managers will contact you shortly. </p>
+</div>
+
+<div class="success-container" *ngIf="submitted && error">
+		<ng-lottie [options]="optionError" width="100%" height="250px"></ng-lottie>
+
+	<p>Something went wrong please try again later</p>
+</div>

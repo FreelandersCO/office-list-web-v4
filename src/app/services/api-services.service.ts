@@ -174,6 +174,14 @@ export class ApiServicesService {
 				catchError(this.handleError)
 			);
 	}
+	setContactUs(data) {
+		return this.http.post(`${this.apiURL}/ContactUs`, data)
+			.pipe(
+				retry(1),
+				catchError(this.handleError)
+			);
+	}
+
 	@Cacheable()
 	getBCNote(bcId): Observable<PageBussines> {
 		const headers = new HttpHeaders({

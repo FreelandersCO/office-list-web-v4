@@ -7,9 +7,13 @@
 			<p class="text-default ">{{business?.descriptive_title}}</p>
 			<h3 class="title-name-office">{{business?.cross_streets}}</h3>
 			<p class="name-city">{{business?.city}}, {{business?.state}} {{business?.zip_code}}</p>
-			<p class="phone-number">
+			<p class="phone-number" *ngIf="business?.phone">
 				<i class="zwicon-phone"></i>
 				{{business?.phone}}
+			</p>
+			<p class="phone-number" *ngIf="!business?.phone">
+				<i class="zwicon-phone"></i>
+				1-866-354-5478
 			</p>
 		</div>
 		<div class="body-modal-info">
@@ -22,28 +26,15 @@
 						Starting at :
 					</h3>
 					<ul class="list-prices-office">
-						<ng-container *ngFor="let office of business?.offices">
-							<ng-container [ngSwitch]="office.type_office_id">
-								<li *ngSwitchCase="1">
-									<p class="price-office">${{office.off_pricing}}</p>
-									<p class="type-office">Private</p>
-								</li>
-								<li *ngSwitchCase="3">
-									<p class="price-office">${{office.off_pricing}}</p>
-									<p class="type-office">CoWorking</p>
-								</li>
-								<li *ngSwitchCase="4">
-									<p class="price-office">${{office.off_pricing}}</p>
-									<p class="type-office">Virtual Office</p>
-								</li>
-							</ng-container>
-
-						</ng-container>
+						<li *ngFor="let office of business?.offices">
+							<p class="price-office">${{office.off_pricing}}</p>
+							<p class="type-office">{{office.off_name}}</p>
+						</li>
 					</ul>
 				</div>
 				<div class="prices-office call-pricing" *ngIf="!business?.offices">
-						<h3>Call For Pricing</h3>
-					</div>
+					<h3>Call For Pricing</h3>
+				</div>
 				<div class="description-office">
 					<h3 class="title-description">
 						Description
@@ -56,16 +47,17 @@
 			<div class="view-more">
 				<!--button class="button-default secondary-line" (click)="openTour()"><i class="zwicon-earth-alt"></i>
 					Request tour</button-->
-				<button class="button-default primary" (click)="openSignUp(business?.buscenter_id)"><i class="zwicon-receipt"></i>
+				<button class="button-default primary" (click)="openSignUp(business?.buscenter_id)"><i
+						class="zwicon-receipt"></i>
 					Inquire</button>
 			</div>
 		</div>
 		<div class="modal-loading">
-				<ngx-spinner bdOpacity=0.9 bdColor="#ffffff" size="large" color="rgba(59, 164, 47, 1)"
-					[fullScreen]="false" name="loadingModal">
-					<p class="loader-text"> Office List ... </p>
-				</ngx-spinner>
-			</div>
+			<ngx-spinner bdOpacity=0.9 bdColor="#ffffff" size="large" color="rgba(59, 164, 47, 1)" [fullScreen]="false"
+				name="loadingModal">
+				<p class="loader-text"> Office List ... </p>
+			</ngx-spinner>
+		</div>
 	</div>
 
 </div>

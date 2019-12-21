@@ -1,0 +1,84 @@
+@import '../../../styles/index';
+
+.contact-us-container {
+    display: flex;
+    margin: 0 auto;
+    padding: 1rem;
+    flex-direction: column;
+
+    .contact-header {
+        width: 100%;
+        text-align: center;
+        flex-grow: 2;
+
+        h2 {
+            color: colors('primary');
+            font-size: 40px;
+            text-transform: uppercase;
+        }
+    }
+
+    .contact-text {
+        flex-grow: 1;
+        width: 100%;
+        padding: 1rem;
+        background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('assets/images/contact-us.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        line-height: 35px;
+
+        h2 {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        h3 {
+            color: white;
+            font-size: 16px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        div {
+            margin: 1rem 0;
+        }
+
+        .email-info {
+            display: flex;
+            flex-direction: column;
+
+            div {
+                border: 1px white dotted;
+                border-radius: 0.5rem;
+                padding: 0.5rem;
+                text-align: center;
+            }
+        }
+    }
+
+    .contact-form {
+        flex-grow: 1;
+        width: 100%;
+        padding: 0 2rem;
+    }
+
+    @include from-breakpoint('tablet') {
+        max-width: 90vw;
+        flex-direction: row;
+		flex-wrap: wrap;
+
+        .contact-text,
+        .contact-form {
+			width: 50%;
+			flex-grow: 1;
+
+            .email-info {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    }
+}

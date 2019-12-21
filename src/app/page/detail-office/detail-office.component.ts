@@ -59,8 +59,8 @@ export class DetailOfficeComponent implements OnInit {
 			const bcId = explote[explote.length - 1];
 			this.api.getBussinesDetails(bcId).subscribe(result => this.procesData(result));
 		});
-
 	}
+
 	processDataSEO(data) {
 		const title = data.metatitle.replace('{{cross_streets}}', this.bussinesCenter.cross_streets);
 		const description = data.metadescription.replace('{{cross_streets}}', this.bussinesCenter.cross_streets);
@@ -68,13 +68,13 @@ export class DetailOfficeComponent implements OnInit {
 		this.titleService.setTitle(title);
 		this.meta.addTag({ name: 'description', description });
 	}
-	procesData(result) {
-		this.api.getPageMeta(
-			'template-bc',
-			'bc'
-		).subscribe(data => this.processDataSEO(data));
 
+	procesData(result) {
 		this.bussinesCenter = result.businesCentersInfo;
+		this.api.getPageMeta(
+			'bc',
+			this.bussinesCenter.buscenter_id
+		).subscribe(data => this.processDataSEO(data));
 		this.accountManager = result.accountManager[0];
 		this.accountManager.phone = this.bussinesCenter.number_tel;
 		if (this.bussinesCenter.offices) {

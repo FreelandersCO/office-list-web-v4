@@ -1,0 +1,9 @@
+@import '../../../styles/index';
+
+.success-container {
+    p {
+        color: colors('primary');
+        font-size: 1rem;
+        font-weight: bold;
+    }
+}

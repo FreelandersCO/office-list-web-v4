@@ -45,6 +45,10 @@ const routes: Routes = [
 		loadChildren: () => import('./page/page-list-your-office/page-list-your-office.module').then(m => m.PageListYourOfficeModule)
 	},
 	{
+		path: 'contact-us',
+		loadChildren: () => import('./page/contact-us/contact-us.module').then(m => m.ContactUsModule)
+	},
+	{
 		path: '404',
 		loadChildren: () => import('./layout/not-found404/not-found404.module').then(m => m.NotFound404Module)
 	},

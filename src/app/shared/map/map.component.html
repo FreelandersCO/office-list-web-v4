@@ -1,7 +1,7 @@
 <ng-container *ngIf="lat && lng && zoom">
 	<button class="restore-button" *ngIf="zoom > 11" (click)="restoreMap()">Restore Map</button>
 	<agm-map [latitude]="lat" [longitude]="lng" [zoomControl]="true" [fullscreenControl]="false"
-		[scrollwheel]="false" [fitBounds]="true" [zoom]="zoom"
+		[scrollwheel]="false" [fitBounds]="true" [zoom]="zoom" [maxZoom]="17"
 		[styles]='[{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"administrative.country","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#b6c0cb"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"geometry.fill","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#a6bdcc"},{"visibility":"on"}]}]'>
 		<agm-marker-cluster [imagePath]="'assets/images/map/map_cluster_icon'">
 			<agm-marker *ngFor="let bc of coordinates; let i = index" [latitude]="bc.latitude"
