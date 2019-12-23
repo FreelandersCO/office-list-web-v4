@@ -89,14 +89,8 @@ export class BusinessListComponent implements OnInit {
 			this.lastScrollTop = scrollPosition <= 0 ? 0 : scrollPosition;
 		}
 	}
-	@HostListener('window:resize')
-	onResize(event) {
-	  this.innerWidth = window.innerWidth;
-	  console.log(this.innerWidth);
-	}
 
 	ngOnInit() {
-		this.innerWidth = window.innerWidth;
 		this.route.params.subscribe(params => {
 			this.cacheParams = params;
 			// List Result
