@@ -67,6 +67,8 @@
 			</button>
 		</div>
 		<div class="admin-info-container" *ngIf="isIP">
+			<h4>Bc Name : </h4> &nbsp;
+			<p [innerHtml]="bc?.company_name"></p>
 			<div class="admin-button-container">
 				<button (click)="getNotes(bc)">
 					<i class="zwicon-sticky-notes"></i>View Notes
@@ -79,8 +81,6 @@
 				</a>
 			</div>
 			<div class="notes-result" *ngIf="bc?.isNote && bc?.note">
-				<h3>Bc Name</h3>
-				<p [innerHtml]="bc?.note.company_name"></p>
 				<h3>Bc Notes</h3>
 				<p [innerHtml]="bc?.note.notes"></p>
 			</div>

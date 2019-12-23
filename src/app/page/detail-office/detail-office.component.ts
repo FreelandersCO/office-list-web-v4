@@ -85,11 +85,11 @@ export class DetailOfficeComponent implements OnInit {
 
 	processOffice() {
 		const offices = this.bussinesCenter.offices;
-		const findPrivate = offices.find(o => o.type_office_id === '1');
-		const findCoWorking = offices.find(o => o.type_office_id === '2' || o.type_office_id === '3');
-		const findHotDesk = offices.find(o => o.type_office_id === '3');
-		const findDedicated = offices.find(o => o.type_office_id === '2');
-		const findVirtual = offices.find(o => o.type_office_id === '4');
+		const findPrivate = offices.find(o => o.type_office_id === 1);
+		const findCoWorking = offices.find(o => o.type_office_id === 2 || o.type_office_id === 3);
+		const findHotDesk = offices.find(o => o.type_office_id === 3);
+		const findDedicated = offices.find(o => o.type_office_id === 2);
+		const findVirtual = offices.find(o => o.type_office_id === 4);
 
 		if (findPrivate !== undefined) {
 			this.privateOffice = findPrivate;

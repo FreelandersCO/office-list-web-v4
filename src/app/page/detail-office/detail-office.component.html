@@ -18,8 +18,8 @@
 			<span class="badge-city" *ngIf="bussinesCenter?.area_name">{{bussinesCenter?.area_name}}</span>
 			<hr class="line-detail">
 		</div>
-		<div class="detail-container-info">
-			<h4 class="title-detail" *ngIf="showPrivateOffice || showPrivateOffice || showVirtualOffice">Pricing</h4>
+		<div class="detail-container-info" *ngIf="(showPrivateOffice || showPrivateOffice || showVirtualOffice) else callPricing">
+			<h4 class="title-detail">Pricing</h4>
 			<div class="container-princing-types">
 				<div class="card-white cont-type-pricing" *ngIf="showPrivateOffice"
 					[ngClass]="{'active': activePrivate}" (click)="openPrivate()">
@@ -216,6 +216,14 @@
 				</div>
 			</div>
 		</div>
+		<ng-template #callPricing>
+			<div class="detail-container-info" >
+				<a class="button-default primary" href="tel:{{bussinesCenter?.phone | normalizePhone}}" >
+					<i class="zwicon-phone"></i>
+					Call for Pricing
+				</a>
+			</div>
+		  </ng-template>
 		<div class="detail-container-info" *ngIf="bussinesCenter?.description_location && bussinesCenter?.description_near">
 			<h4 class="title-detail">Description</h4>
 			<p class="description-office-text" [innerHtml]="bussinesCenter?.description_location"></p>

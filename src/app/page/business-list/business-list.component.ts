@@ -41,7 +41,8 @@ export class BusinessListComponent implements OnInit {
 	cacheAreas;
 	noMore = false;
 	isIP = false;
-
+	// tslint:disable-next-line: no-any
+	public innerWidth: any;
 	constructor(
 		private api: ApiServicesService,
 		private route: ActivatedRoute,
@@ -88,8 +89,14 @@ export class BusinessListComponent implements OnInit {
 			this.lastScrollTop = scrollPosition <= 0 ? 0 : scrollPosition;
 		}
 	}
+	@HostListener('window:resize')
+	onResize(event) {
+	  this.innerWidth = window.innerWidth;
+	  console.log(this.innerWidth);
+	}
 
 	ngOnInit() {
+		this.innerWidth = window.innerWidth;
 		this.route.params.subscribe(params => {
 			this.cacheParams = params;
 			// List Result
@@ -120,10 +127,11 @@ export class BusinessListComponent implements OnInit {
 			this.grid = true;
 		}
 	}
+
 	proccessIP(rest) {
 		// tslint:disable-next-line: prefer-switch
 		if (rest.ip === '190.25.101.144' ||
-			rest.ip === '190.85.131.25') {
+			rest.ip === '190.85.131.25' || rest.ip === '186.30.49.229' ) {
 			this.isIP = true;
 		}
 	}
@@ -205,7 +213,7 @@ export class BusinessListComponent implements OnInit {
 			this.router.navigate([url]);
 		}
 	}
-	noMoreSelect(item){
+	noMoreSelect(item) {
 		this.selectedArea = item;
 		this.changeSelect();
 	}

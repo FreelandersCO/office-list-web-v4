@@ -238,6 +238,15 @@
         display: flex;
         flex-wrap: wrap;
 
+		h4 {
+			color: colors('primary');
+			padding: 0.5rem;
+		}
+
+		p {
+			padding: 0.5rem;
+		}
+
         .admin-button-container {
             width: 50%;
             float: left;
