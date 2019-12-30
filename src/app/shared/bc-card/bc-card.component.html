@@ -22,6 +22,10 @@
 				<i class="zwicon-earth-alt"></i>
 				<span class="hover-view" *ngIf="bc.overMap">View on map</span>
 			</button>
+			<button *ngIf="!isDesktop && isList" class="view-map" (click)="showInMap(bc?.buscenter_id)">
+				<i class="zwicon-earth-alt"></i>
+				<span class="hover-view" >View on map</span>
+			</button>
 		</p>
 		<span class="badge-city" *ngIf="bc?.area_name">{{bc?.area_name}}</span>
 		<a class="phone-number" href="tel:{{bc?.phone | normalizePhone}}" *ngIf="bc?.phone">

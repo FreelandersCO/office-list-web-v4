@@ -35,10 +35,6 @@
 		<button class="button-default primary" type="submit">Inquire</button>
 	</div>
 </form>
-<div class="success-container" *ngIf="submitted && successfully">
-	<ng-lottie [options]="optionSuccess" width="100%" height="250px"></ng-lottie>
-	<p>Thank you for registering with OfficeList. One of our Account Managers will contact you shortly. </p>
-</div>
 
 <div class="success-container" *ngIf="submitted && error">
 		<ng-lottie [options]="optionError" width="100%" height="250px"></ng-lottie>

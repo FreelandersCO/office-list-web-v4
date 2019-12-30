@@ -3,8 +3,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AnimationOptions } from 'ngx-lottie';
 
 import { ApiServicesService } from '@app/services/api-services.service';
-import { LocalStorageService } from '@app/services/storage.service';
+import { LocalStorageService, ServiceStorageService } from '@app/services/storage.service';
 import { EventEmitterService } from '@app/services/event-emitter.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'office-list-form-register',
@@ -31,7 +32,9 @@ export class FormRegisterComponent implements OnInit {
 		private api: ApiServicesService,
 		private formBuilder: FormBuilder,
 		private localStorageService: LocalStorageService,
-		private eventEmitter: EventEmitterService) { }
+		private eventEmitter: EventEmitterService,
+		private sessionStorage: ServiceStorageService,
+		public router: Router) { }
 
 	async ngOnInit() {
 		this.registerForm = this.formBuilder.group({
@@ -59,7 +62,7 @@ export class FormRegisterComponent implements OnInit {
 			this.bcFavorites.push(this.bcId);
 			await this.localStorageService.setItem('bc_favorites', this.bcFavorites);
 			this.eventEmitter.favoriteEmitter();
-			this.registerForm.value.am_id = this.amId == '' ? 0 : this.amId;
+			this.registerForm.value.am_id = this.amId === '' ? 0 : this.amId;
 		}
 		this.registerForm.value.bc_list = this.bcFavorites.join(',');
 		this.registerForm.value.tour = false;
@@ -78,6 +81,9 @@ export class FormRegisterComponent implements OnInit {
 		if (r.result) {
 			this.successfully = true;
 			this.error = false;
+			this.sessionStorage.setItem('ol_tk', r.result.tok.data.token);
+			this.sessionStorage.setItem('ol_cl', r.result.tok.data.client_id);
+			this.router.navigate(['/my-list/']);
 		}
 		this.onReset();
 	}

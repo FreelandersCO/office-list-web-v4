@@ -195,8 +195,11 @@
 
     .name-city {
         margin-bottom: 10px;
+		display: flex;
 
         .view-map {
+			display: block;
+
             i {
                 font-size: 1.2rem;
                 color: colors('primary');

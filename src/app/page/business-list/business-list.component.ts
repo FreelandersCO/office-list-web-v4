@@ -118,14 +118,14 @@ export class BusinessListComponent implements OnInit {
 		if (this.deviceService.isDesktop()) {
 			this.mapShow = true;
 			this.isDesktop = true;
-			this.grid = true;
+			this.grid = false;
 		}
 	}
 
 	proccessIP(rest) {
 		// tslint:disable-next-line: prefer-switch
 		if (rest.ip === '190.25.101.144' ||
-			rest.ip === '190.85.131.25' || rest.ip === '186.30.49.229' ) {
+			rest.ip === '190.85.131.25') {
 			this.isIP = true;
 		}
 	}
