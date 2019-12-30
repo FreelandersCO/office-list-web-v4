@@ -1,0 +1,327 @@
+@import '../../../styles/index';
+
+.popular-cities-container {
+    background-image: url('assets/images/bg-dottedmap.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -20px;
+    padding-top: 0;
+}
+
+.cities-container,
+.logo-company-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-white {
+    flex-grow: 1;
+    margin-right: 10px;
+    width: 46%;
+
+    &:nth-child(2n) {
+        margin-right: 0;
+    }
+
+    .img-city-container {
+        border-radius: 10px 10px 0 0;
+        height: 130px;
+        overflow: hidden;
+
+        img {
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    .title-city {
+        color: colors('primary');
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-top: 10px;
+        padding: 0 12px;
+    }
+
+    .number-offices {
+        color: colors('black-4');
+        font-size: 0.8rem;
+        font-weight: 300;
+        padding: 0 12px;
+    }
+}
+
+.how-works-container {
+    margin: 0;
+    padding: 0;
+}
+
+.type-office-container {
+    display: flex;
+    flex-direction: column;
+
+    .type-office {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        cursor: pointer;
+        height: 312px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        padding: 10px;
+        position: relative;
+        width: 100%;
+
+        &.privatte-office {
+            background-image: url('assets/images/img-private-office.jpg');
+        }
+
+        &.coworking {
+            background-image: url('assets/images/img-coworking.jpg');
+        }
+
+        &.virtual-office {
+            background-image: url('assets/images/img-virtual-office.jpg');
+        }
+
+        .name-type-office {
+            background: linear-gradient(to bottom, colors('black-0'), colors('black'));
+            bottom: 0;
+            color: colors('white');
+            height: 80px;
+            left: 0;
+            padding: 10px;
+            position: absolute;
+            width: 100%;
+        }
+
+        .name-office {
+            font-size: 2.6rem;
+            font-weight: 700;
+        }
+
+        .detail-office-container {
+            background-color: colors('black-4');
+            bottom: -312px;
+            color: colors('white');
+            height: 100%;
+            left: 0;
+            padding: 40px 20px 0;
+            position: absolute;
+            transition: all 0.4s;
+            width: 100%;
+
+            .text-detail-info {
+                font-size: 1rem;
+                font-weight: 300;
+            }
+
+            .title-detail-office {
+                font-size: 1.1rem;
+                font-weight: 700;
+                margin: 10px 0;
+            }
+        }
+
+        &:hover {
+            .detail-office-container {
+                bottom: 0;
+            }
+        }
+    }
+}
+
+.item-doit-container {
+    display: flex;
+    flex-direction: column;
+
+    .itemhw-container {
+        text-align: center;
+        margin-bottom: 20px;
+
+        .icon-howw {
+            margin: 20px auto;
+            width: 24%;
+        }
+
+        .title-howw {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 2rem;
+            margin: 20px 0;
+        }
+
+        .text-howw {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.pressed-form-container {
+    background: colors('black-8');
+
+    .white-title {
+        color: colors('white');
+        margin-top: 20px;
+    }
+
+    .text-intro-form-button {
+        text-align: center;
+    }
+}
+
+.img-trust-container {
+    flex-grow: 1;
+    margin-right: 20px;
+    width: 30%;
+}
+
+.text-big-quote {
+    color: colors('white');
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.testimonials-container {
+    background: linear-gradient(colors('black-6'), colors('black-6')), url('assets/images/img-bg-testimonials.jpg');
+    margin-bottom: 0;
+
+    .quote-mark {
+        color: colors('primary');
+        font-size: 8rem;
+        font-weight: 700;
+        line-height: 0;
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .name-testimonial {
+        color: colors('white');
+        font-size: 1.4em;
+        font-weight: 700;
+        margin-top: 20px;
+        text-align: center;
+
+        &:last-child {
+            line-height: 1rem;
+            margin-top: 0;
+        }
+
+        .info-testimonial {
+            font-size: 1rem;
+            font-weight: 300;
+            margin: 0;
+            text-align: center;
+        }
+    }
+}
+
+@include from-breakpoint('mobile-xl') {
+    .item-doit-container {
+        flex-wrap: wrap;
+        flex-direction: initial;
+
+        .itemhw-container {
+            flex-grow: 1;
+            width: 50%;
+        }
+    }
+}
+
+@include from-breakpoint('tablet') {
+    .card-white {
+        width: 26%;
+
+        &:nth-child(2n) {
+            margin-right: 10px;
+        }
+
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
+    }
+
+    .img-trust-container {
+        width: 18%;
+    }
+}
+
+@include from-breakpoint('desktop-s') {
+    .type-office-container {
+        flex-direction: row;
+
+        .type-office {
+            margin-right: 20px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            .detail-office-container {
+                padding: 20px;
+            }
+        }
+    }
+
+    .text-intro-form-button {
+        .button-default {
+            width: 30%;
+        }
+    }
+}
+
+@include from-breakpoint('desktop') {
+    .card-white {
+        margin-right: 10px;
+        width: 14%;
+
+        &:nth-child(3n) {
+            margin-right: 10px;
+        }
+    }
+
+    .item-doit-container {
+        .itemhw-container {
+            flex-grow: 1;
+            padding: 0 10px;
+            width: 20%;
+
+            .title-howw {
+                font-size: 1.6rem;
+                line-height: 1.6rem;
+            }
+
+            .text-howw {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .img-trust-container {
+        width: 10%;
+    }
+
+    .testimonials-container {
+        article {
+            margin: 0 auto;
+            width: 70%;
+        }
+    }
+}
+
+@include from-breakpoint('desktop-l') {
+    .card-white {
+        width: 14%;
+    }
+
+    .item-doit-container {
+        .itemhw-container {
+            padding-top: 40px;
+        }
+    }
+
+    .form-pressed-container {
+        width: 50%;
+    }
+}

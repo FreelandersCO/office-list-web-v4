@@ -1,0 +1,25 @@
+<div class="details-galery">
+	<div class="container-images">
+		<ng-template ngFor let-image [ngForOf]="_images">
+			<img [src]="image.image_path">
+		</ng-template>
+	</div>
+
+	<div class="container-buttons">
+		<button class="button-default secondary-line" (click)="toogleModalGallery()">
+			View photos
+		</button>
+	</div>
+</div>
+
+
+<div class="galery-modal-container" *ngIf="openModalGallery">
+	<div class="gallery-slider-container">
+		<div class="close-modal">
+			<button class="close-button-modal" (click)="toogleModalGallery()">
+				<i class="zwicon-close"></i>
+			</button>
+		</div>
+		<office-list-bc-slider [images]="images" [fullImage]="true"></office-list-bc-slider>
+	</div>
+</div>

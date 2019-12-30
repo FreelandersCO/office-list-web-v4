@@ -1,0 +1,193 @@
+@import '../../../styles/index';
+
+.cont-slider-preview {
+    height: 190px;
+    margin: 10px 0;
+}
+
+.loader-text {
+    color: colors('primary');
+}
+
+.modal-info-container {
+    background: colors('white-8');
+    padding: 1rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+
+    .card-modal-info {
+        position: relative;
+        margin: 0 auto;
+        padding: 1rem;
+        width: 100%;
+
+        p,
+        h3 {
+            padding: 0 0 0.2rem;
+        }
+
+        .text-default {
+            width: 85%;
+        }
+
+        .btn-icon-transparent {
+            position: absolute;
+            right: 1rem;
+        }
+
+        .text-default,
+        .title-name-office,
+        .name-city,
+        .phone-number {
+            text-align-last: left;
+        }
+
+        .phone-number {
+            color: colors('primary');
+            font-weight: 700;
+        }
+
+        .body-modal-info {
+            display: flex;
+            flex-direction: column;
+
+            .container-detail-info-modal {
+                display: flex;
+                flex-wrap: wrap;
+
+                .prices-office,
+                .description-office {
+                    flex-grow: 1;
+                    width: 100%;
+
+                    &.call-pricing {
+                        position: relative;
+                        text-align: center;
+
+                        h3 {
+                            top: 50%;
+                            left: 50%;
+                            position: absolute;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                }
+            }
+
+            .prices-office,
+            .description-office,
+            .view-more {
+                margin-bottom: 10px;
+            }
+
+            .description-office {
+                .text-description {
+                    max-height: 110px;
+                    margin: 10px 0 20px;
+                    overflow-y: auto;
+                    padding-right: 8px;
+                    text-align: justify;
+                }
+            }
+
+            .view-more {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+
+                .button-default {
+                    margin: 0 5px;
+                    width: 100%;
+                }
+            }
+        }
+
+        .title-description {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .list-prices-office {
+            margin: 0;
+        }
+    }
+}
+
+.list-prices-office {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 4px 0 10px;
+    justify-content: space-around;
+
+    li {
+        padding: 4px;
+    }
+
+    .price-office {
+        color: colors('black-7');
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-align: center;
+
+        .title-descrption {
+            padding: 5px 0;
+        }
+    }
+
+    .type-office {
+        color: colors('black-5');
+        font-size: 0.8rem;
+        line-height: 1;
+        text-align: center;
+    }
+}
+
+@include from-breakpoint('tablet') {
+    .modal-info-container {
+        .card-modal-info {
+            width: 80%;
+
+            .body-modal-info {
+                .view-more {
+                    flex-direction: row;
+                    margin: 0 auto;
+                    width: 100%;
+
+                    .button-default {
+                        margin-right: 20px;
+                        width: 100%;
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+
+                .container-detail-info-modal {
+                    .prices-office,
+                    .description-office {
+                        width: 50%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include from-breakpoint('desktop') {
+    .modal-info-container {
+        .card-modal-info {
+            width: 50%;
+
+            .body-modal-info {
+                .view-more {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

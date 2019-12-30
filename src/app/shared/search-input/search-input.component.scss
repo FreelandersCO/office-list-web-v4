@@ -1,32 +1,77 @@
-@import 'index';
+@import '../../../styles/index';
 
-.form-search {
-    display: flex;
+.autocomplete {
+    position: relative;
+    z-index: 2;
     width: 100%;
 
-    @include from-breakpoint('tablet') {
-        display: inline-flex;
+    .example-full-width {
+        width: 100%;
+    }
+
+    .autocomplete-container {
+        width: 100%;
+        border-radius: 50px;
+
+        .input-container {
+            input {
+                border-radius: 50px;
+                font-size: 0.7rem;
+                font-weight: 300;
+            }
+
+            .x {
+                display: none;
+            }
+        }
+
+        .suggestions-container {
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+    }
+
+    .button-icon-input {
+        position: absolute;
+        right: 20px;
+        top: 8px;
+
+        .zwicon-search {
+            color: colors('primary');
+            font-size: 1.4rem;
+        }
+    }
+
+    .input-container {
+        input {
+            &:focus {
+                box-shadow: 0 0 30px 5px colors('primary');
+            }
+        }
     }
 }
 
-.input-search {
-    border-bottom: 1px colors('green-primary') solid;
-    font-size: 14px;
-    height: 30px;
-    width: 89%;
-
-    @include from-breakpoint('tablet') {
-        width: 80%;
-    }
+.button-icon-home {
+    background: colors('primary');
+    border-radius: 100%;
+    color: colors('white');
+    font-size: 1.6rem;
+    height: 40px;
+    line-height: 0;
+    margin-left: 6px;
+    width: 40px;
 }
 
-.button-locate {
-    background-color: colors('green-primary');
-    height: 30px;
-    margin: 0 0.1rem;
-    width: 30px;
-
-    i {
-        font-size: 25px;
+@include from-breakpoint('mobile-xl') {
+    .autocomplete {
+        .ng-autocomplete {
+            .autocomplete-container {
+                .input-container {
+                    input {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
     }
 }

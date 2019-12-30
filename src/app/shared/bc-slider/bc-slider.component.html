@@ -1,23 +1,18 @@
-<aside class="bc-card-slider" #slider>
-    <!--ng-container *ngFor="let img of images">
-        <div class="bc-card-img" #item>
-            <!--https://picsum.photos/290/190>
-            <img src="{{img}}">
-        </div>
-    </ng-container-->
-    <div class="bc-card-img" #item>
-        <img src="https://officelist.scdn8.secure.raxcdn.com/images/bc/640x480/14_11272.jpeg">
-    </div>
-    <div class="bc-card-img" #item>
-        <img src="https://officelist.scdn8.secure.raxcdn.com/images/bc/640x480/__v3__33991567612307.jpg">
-    </div>
-</aside>
-<div class="bc-card-slider-btns">
+<div class="bc-slider-container view-photos-detail" *ngIf="_images">
+	<aside class="bc-card-slider" #slider>
+		<ng-container *ngFor="let img of _images">
+			<div class="bc-card-img" #item>
+				<office-list-image-component [image]="img.image_path" [classCss]="{'fullImage': fullImage , 'mapImage': map, 'smallImage': smallImage}"></office-list-image-component>
+			</div>
+		</ng-container>
+	</aside>
+	<div class="bc-card-slider-btns">
 
-    <button class="arrow-left" (click)="onClickLeft()">
-        <i class="zwicon-arrow-circle-left"></i>
-    </button>
-    <button class="arrow-right" (click)="onClickRight()">
-        <i class="zwicon-arrow-circle-right"></i>
-    </button>
+		<button class="arrow-left" (click)="onClickLeft()" *ngIf="slidesIndex > 0">
+			<i class="zwicon-chevron-left"></i>
+		</button>
+		<button class="arrow-right" (click)="onClickRight()"*ngIf="slidesIndex != _images.length - 1">
+			<i class="zwicon-chevron-right"></i>
+		</button>
+	</div>
 </div>

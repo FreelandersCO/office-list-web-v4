@@ -1,6 +1,24 @@
-<form class="form-search">
-    <input class="input-search" type="text" placeholder="Where? Type city or zip/post code">
-    <button class="button-locate">
-            <i class="zwicon-pin"></i>
-    </button>
-</form>
+<div class="autocomplete">
+	<ng-autocomplete #auto [data]="options" [searchKeyword]="keyword" placeHolder="Where? Type city or zip/post code"
+		[isLoading]="loading" [disabled]="disable" (selected)='selectEvent($event)'
+		(inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
+		[minQueryLength]="3" [notFoundTemplate]="notFoundTemplate" (keypress)="keyPress($event)" >
+	</ng-autocomplete>
+	<ng-template #itemTemplate let-item>
+		<a [innerHTML]="item.name"></a>
+	</ng-template>
+
+	<ng-template #notFoundTemplate let-notFound>
+		<div> Please check your spelling or try another term </div>
+	</ng-template>
+
+	<button class="button-icon-input">
+		<i class="zwicon-search"></i>
+	</button>
+</div>
+<!--button class="button-icon-home">
+	<i class="zwicon-my-location"></i>
+</button-->
+
+
+

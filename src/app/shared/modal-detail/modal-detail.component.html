@@ -1,0 +1,63 @@
+<div class="modal-info-container">
+	<div class="card-modal-info card-white">
+		<div class="header-modal">
+			<button class="btn-icon-transparent" (click)="closeModal()">
+				<i class="zwicon-close"></i>
+			</button>
+			<p class="text-default ">{{business?.descriptive_title}}</p>
+			<h3 class="title-name-office">{{business?.cross_streets}}</h3>
+			<p class="name-city">{{business?.city}}, {{business?.state}} {{business?.zip_code}}</p>
+			<p class="phone-number" *ngIf="business?.phone">
+				<i class="zwicon-phone"></i>
+				{{business?.phone}}
+			</p>
+			<p class="phone-number" *ngIf="!business?.phone">
+				<i class="zwicon-phone"></i>
+				1-866-354-5478
+			</p>
+		</div>
+		<div class="body-modal-info">
+			<div class="cont-slider-preview">
+				<office-list-bc-slider [images]="business?.images" [smallImage]="true"></office-list-bc-slider>
+			</div>
+			<div class="container-detail-info-modal">
+				<div class="prices-office" *ngIf="business?.offices">
+					<h3 class="title-descrption">
+						Starting at :
+					</h3>
+					<ul class="list-prices-office">
+						<li *ngFor="let office of business?.offices">
+							<p class="price-office">${{office.off_pricing}}</p>
+							<p class="type-office">{{office.off_name}}</p>
+						</li>
+					</ul>
+				</div>
+				<div class="prices-office call-pricing" *ngIf="!business?.offices">
+					<h3>Call For Pricing</h3>
+				</div>
+				<div class="description-office">
+					<h3 class="title-description">
+						Description
+					</h3>
+					<p class="text-description">
+						{{business?.detailed_intro}}
+					</p>
+				</div>
+			</div>
+			<div class="view-more">
+				<!--button class="button-default secondary-line" (click)="openTour()"><i class="zwicon-earth-alt"></i>
+					Request tour</button-->
+				<button class="button-default primary" (click)="openSignUp(business?.buscenter_id)"><i
+						class="zwicon-receipt"></i>
+					Inquire</button>
+			</div>
+		</div>
+		<div class="modal-loading">
+			<ngx-spinner bdOpacity=0.9 bdColor="#ffffff" size="large" color="rgba(59, 164, 47, 1)" [fullScreen]="false"
+				name="loadingModal">
+				<p class="loader-text"> Office List ... </p>
+			</ngx-spinner>
+		</div>
+	</div>
+
+</div>

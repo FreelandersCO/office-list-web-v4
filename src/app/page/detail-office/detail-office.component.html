@@ -1,0 +1,292 @@
+<ngx-spinner bdOpacity=0.5 bdColor="#ffffff" size="large" color="rgba(59, 164, 47, 0.9)" [fullScreen]="true">
+	<p> Loading... </p>
+</ngx-spinner>
+<section class="container-gallery-detail">
+	<office-list-gallery-detail-office [images]="bussinesCenter?.images" [bcId]="bussinesCenter?.buscenter_id">
+	</office-list-gallery-detail-office>
+</section>
+<section class="details-office-container">
+	<div class="container-details">
+		<div class="cont-title-sections	">
+			<div class="container-breadcrumbs">
+				<a class="linktoback" href="javascript: history.go(-1)"> &lt; Back to list </a>
+			</div>
+			<p class="text-default">{{bussinesCenter?.descriptive_title}}</p>
+			<h1 class="title-name-office detail-office">{{bussinesCenter?.cross_streets}}</h1>
+			<p class="name-city">{{bussinesCenter?.city}}, {{bussinesCenter?.state}}
+				{{bussinesCenter?.zip_code}}</p>
+			<span class="badge-city" *ngIf="bussinesCenter?.area_name">{{bussinesCenter?.area_name}}</span>
+			<hr class="line-detail">
+		</div>
+		<div class="detail-container-info" *ngIf="(showPrivateOffice || showPrivateOffice || showVirtualOffice) else callPricing">
+			<h4 class="title-detail">Pricing</h4>
+			<div class="container-princing-types">
+				<div class="card-white cont-type-pricing" *ngIf="showPrivateOffice"
+					[ngClass]="{'active': activePrivate}" (click)="openPrivate()">
+					<figure class="image-type">
+						<img src="assets/images/img-private-office.jpg" alt="">
+					</figure>
+					<button class="button-show-pricing">
+						Private Office
+						<i class="zwicon-chevron-down"></i>
+					</button>
+					<p class="title-starting">Starting at :</p>
+					<p class="price-starting">${{privateOffice.off_pricing}}</p>
+				</div>
+				<div class="card-white cont-type-pricing" *ngIf="showCoWorking" [ngClass]="{'active': activeCoWorking}"
+					(click)="openCoWorking()">
+					<figure class="image-type">
+						<img src="assets/images/img-coworking.jpg" alt="">
+					</figure>
+					<button class="button-show-pricing">
+						Coworking
+						<i class="zwicon-chevron-down"></i>
+					</button>
+					<p class="title-starting">Starting at :</p>
+					<p class="price-starting">${{coWorking.off_pricing}}</p>
+				</div>
+				<div class="card-white cont-type-pricing" *ngIf="showVirtualOffice"
+					[ngClass]="{'active': activeVirtual}" (click)="openVirtual()">
+					<figure class="image-type">
+						<img src="assets/images/img-virtual-office.jpg" alt="">
+					</figure>
+					<button class="button-show-pricing">
+						Virtual Office
+						<i class="zwicon-chevron-down"></i>
+					</button>
+					<p class="title-starting">Starting at :</p>
+					<p class="price-starting">${{virtualOffice.off_pricing}}</p>
+				</div>
+			</div>
+			<div class="pricings-detail-container">
+				<!--Private-->
+				<div class="card-white princing-type" *ngIf="showPrivateOffice && activePrivate">
+					<div class="container-titles">
+						<div class="title-name">
+							<p class="title-suboffice-type">Private Office</p>
+							<h5 class="title-type-office">Executive Offices</h5>
+						</div>
+						<div class="price-offices">
+							<p class="title-suboffice-type">Starting at</p>
+							<p class="price-type">${{privateOffice.off_pricing}}</p>
+						</div>
+					</div>
+					<p class="description-type">
+						Enclosed, -lockable offices, providing privacy for teams and individuals. Furnished,
+						fully-serviced spaces.
+					</p>
+					<div class="container-description-items">
+						<div class="includes-container">
+							<p class="title-items">Includes</p>
+							<ul class="items-description">
+								<li>- 6 Hours of conference room</li>
+								<li>- Printing</li>
+								<li>- 24/7 Access</li>
+							</ul>
+						</div>
+						<div class="bestfor-container">
+							<p class="title-items">Best for</p>
+							<ul class="items-description">
+								<li>- Large companies</li>
+								<li>- Established businesses</li>
+								<li>- People that need privacy for their tasks</li>
+							</ul>
+						</div>
+					</div>
+					<div class="button-like-type">
+						<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true">
+						</office-list-favorites-heart>
+					</div>
+				</div>
+				<!--Co Working-->
+				<ng-container *ngIf="showCoWorking && activeCoWorking">
+					<div class="card-white princing-type" *ngIf="showHotDesk">
+						<div class="container-titles">
+							<div class="title-name">
+								<p class="title-suboffice-type">Coworking</p>
+								<h5 class="title-type-office">Hot desk</h5>
+							</div>
+							<div class="price-offices">
+								<p class="title-suboffice-type">Starting at</p>
+								<p class="price-type">${{hotDesk.off_pricing}}</p>
+							</div>
+						</div>
+						<p class="description-type">
+							A guaranteed desk in a coworking area. When you arrive, just pick a desk and get to work.
+						</p>
+						<div class="container-description-items">
+							<div class="includes-container">
+								<p class="title-items">Includes</p>
+								<ul class="items-description">
+									<li>- 4 Hours of conference room</li>
+									<li>- 24/7 Access</li>
+								</ul>
+							</div>
+							<div class="bestfor-container">
+								<p class="title-items">Best for</p>
+								<ul class="items-description">
+									<li>- Part time workers</li>
+									<li>- Remote workforce</li>
+									<li>- Freelancers</li>
+								</ul>
+							</div>
+						</div>
+						<div class="button-like-type">
+							<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true">
+							</office-list-favorites-heart>
+						</div>
+					</div>
+					<div class="card-white princing-type" *ngIf="showDedicated">
+						<div class="container-titles">
+							<div class="title-name">
+								<p class="title-suboffice-type">Coworking</p>
+								<h5 class="title-type-office">Dedicated desk</h5>
+							</div>
+							<div class="price-offices">
+								<p class="title-suboffice-type">Starting at</p>
+								<p class="price-type">${{dedicated.off_pricing}}</p>
+							</div>
+						</div>
+						<p class="description-type">
+							A desk of your own in a shared environment with a lockable file cabinet. Same desk every day
+							so feel free to personalize it.
+						</p>
+						<div class="container-description-items">
+							<div class="includes-container">
+								<p class="title-items">Includes</p>
+								<ul class="items-description">
+									<li>- 6 Hours of conference room</li>
+									<li>- Printing</li>
+									<li>- 24/7 Access</li>
+								</ul>
+							</div>
+							<div class="bestfor-container">
+								<p class="title-items">Best for</p>
+								<ul class="items-description">
+									<li>- Startups</li>
+									<li>- Small teams</li>
+									<li>- Freelancers</li>
+									<li>- Collaborative teams for everyday workCompanies whose main objective is to
+										network.</li>
+								</ul>
+							</div>
+						</div>
+						<div class="button-like-type">
+							<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true">
+							</office-list-favorites-heart>
+						</div>
+					</div>
+				</ng-container>
+				<!--Virtual-->
+				<div class="card-white princing-type" *ngIf="showVirtualOffice && activeVirtual">
+					<div class="container-titles">
+						<div class="title-name">
+							<p class="title-suboffice-type">Virtual Office</p>
+							<h5 class="title-type-office">Membership</h5>
+						</div>
+						<div class="price-offices">
+							<p class="title-suboffice-type">Starting at</p>
+							<p class="price-type">${{virtualOffice.off_pricing}}</p>
+						</div>
+					</div>
+					<p class="description-type">
+						Access to a community of peers, a professional address, hours of conference room, and services.
+					</p>
+					<div class="container-description-items">
+						<div class="includes-container">
+							<p class="title-items">Includes</p>
+							<ul class="items-description">
+								<li>- Regular Business</li>
+								<li>- Hours</li>
+							</ul>
+						</div>
+						<div class="bestfor-container">
+							<p class="title-items">Best for</p>
+							<ul class="items-description">
+								<li>- Home workers</li>
+								<li>- Out of towners</li>
+								<li>- Entrepreneurs who don’t need full-time office</li>
+							</ul>
+						</div>
+					</div>
+					<div class="button-like-type">
+						<office-list-favorites-heart [bcId]="bussinesCenter?.buscenter_id" [bg]="true">
+						</office-list-favorites-heart>
+					</div>
+				</div>
+			</div>
+		</div>
+		<ng-template #callPricing>
+			<div class="detail-container-info" >
+				<a class="button-default primary" href="tel:{{bussinesCenter?.phone | normalizePhone}}" >
+					<i class="zwicon-phone"></i>
+					Call for Pricing
+				</a>
+			</div>
+		  </ng-template>
+		<div class="detail-container-info" *ngIf="bussinesCenter?.description_location && bussinesCenter?.description_near">
+			<h4 class="title-detail">Description</h4>
+			<p class="description-office-text" [innerHtml]="bussinesCenter?.description_location"></p>
+			<p class="description-office-text" [innerHtml]="bussinesCenter?.description_near"></p>
+		</div>
+		<div class="detail-container-info" *ngIf="!bussinesCenter?.description_location && !bussinesCenter?.description_near">
+				<h4 class="title-detail">Description</h4>
+				<p class="description-office-text" [innerHtml]="bussinesCenter?.detailed_intro"></p>
+		</div>
+		<div class="detail-container-info" *ngIf="bussinesCenter?.amenities">
+			<h4 class="title-detail">Amenities</h4>
+			<ul class="icons-amenities">
+				<li *ngFor="let amenitie of bussinesCenter?.amenities" (mouseenter)="amenitie.hover=true" (mouseleave)="amenitie.hover=false">
+					<div class="container-icon">
+						<i class="amenitie-icon {{amenitie.icon}}"></i>
+					</div>
+					<div class="amenities-description" *ngIf="amenitie.hover && amenitie.description">
+						{{amenitie.description}}
+					</div>
+					<p class="title-amenitie">
+						{{amenitie.name}}
+					</p>
+				</li>
+			</ul>
+		</div>
+		<div class="detail-container-info">
+			<h4 class="title-detail">Map</h4>
+			<office-list-map-detail [lat]="bussinesCenter?.latitude" [lng]="bussinesCenter?.longitude">
+			</office-list-map-detail>
+		</div>
+	</div>
+	<div class="container-side-form">
+		<div class="container-form-inquire">
+			<office-list-form-inquire-now [accountManager]="accountManager" [bcId]="bussinesCenter?.buscenter_id"></office-list-form-inquire-now>
+		</div>
+	</div>
+</section>
+<section class="nearby-locations-container">
+	<h2 class="title-home">
+		Nearby Locations
+	</h2>
+	<hr>
+	<div class="cont-swiper-nearby">
+		<swiper class="nearby-swiper" [config]="config">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide office-list-card" *ngFor="let bc of bussinesCenter?.nearby">
+					<office-list-bc-card [bc]="bc" [isList]="true"></office-list-bc-card>
+				</div>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+			<!-- Add Arrows -->
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+		</swiper>
+	</div>
+</section>
+<div class="call-info-modal-container" *ngIf="detailOfficeInfo">
+	<div class="header-modal">
+		<button class="btn-icon-transparent" (click)="showModalDetail(null)">
+			<i class="zwicon-close"></i>
+		</button>
+	</div>
+	<office-list-modal-detail [businessId]="selectedBusiness"></office-list-modal-detail>
+</div>
+<office-list-buttons-mobile-detail></office-list-buttons-mobile-detail>

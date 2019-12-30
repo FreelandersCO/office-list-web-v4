@@ -1,5 +1,27 @@
-@import 'index';
+@import '../../../styles/index';
 
 agm-map {
-    height: calc(95vh);
+    height: calc(100vh - 104px);
+
+    @include from-breakpoint('tablet') {
+        height: 100vh;
+    }
+
+    @include from-breakpoint('desktop-s') {
+        height: 100%;
+        position: sticky;
+    }
+}
+
+.restore-button {
+    position: absolute;
+    background-color: colors('white');
+    color: colors('primary');
+    bottom: 1.5rem;
+    left: 0;
+    z-index: 2;
+    font-size: 14px;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px colors('primary') solid;
 }

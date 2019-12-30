@@ -1,0 +1,22 @@
+<div class="container-modal-default">
+	<div class="modal-default-site big-modal">
+		<div class="header-modal modal-register">
+			<button class="btn-icon-transparent" (click)="closeSingUp()">
+				<i class="zwicon-close"></i>
+			</button>
+		</div>
+		<div class="body-modal">
+			<div class="cont-icon-login-budget">
+				<i class="zwicon-user-circle"></i>
+				<p class="budget-number" *ngIf="favoritesCount>0">{{favoritesCount}}</p>
+			</div>
+			<h2 class="title-modal">You have <span>{{favoritesCount}}</span> favorites</h2>
+			<p class="intro-modal">Sign up for free to save your favorites and get full contact details and specials</p>
+			<office-list-form-register></office-list-form-register>
+			<hr class="gray-line">
+			<p class="text-end-forms">Returning to OfficeList?
+				<button (click)="callLogin()">Log in</button>
+			</p>
+		</div>
+	</div>
+</div>

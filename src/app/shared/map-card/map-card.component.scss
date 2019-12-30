@@ -1,0 +1,87 @@
+@import '../../../styles/index';
+
+.card-white {
+    padding: 20px;
+    width: 340px;
+}
+
+.body-map-info {
+    padding: 0.5rem;
+}
+
+.text-default,
+.title-name-office,
+.name-city,
+.phone-number {
+    padding-bottom: 0.5rem;
+}
+
+.title-name-office {
+    height: 48px;
+}
+
+.text-default {
+    color: colors('black-7');
+    font-weight: 300;
+    font-size: 0.9rem;
+    cursor: pointer;
+
+    em {
+        color: colors('black-6');
+    }
+}
+
+.name-city {
+    color: colors('black-7');
+    font-weight: 300;
+}
+
+.phone-number {
+    color: colors('black-5');
+    font-size: 1.4rem;
+}
+
+.like-container {
+    height: 20px;
+    position: absolute;
+    width: 20px;
+}
+
+.list-prices-office {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 4px 0 10px;
+    justify-content: space-around;
+
+    li {
+        padding: 4px;
+    }
+
+    .price-office {
+        color: colors('black-7');
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-align: center;
+
+        .title-descrption {
+            padding: 5px 0;
+        }
+    }
+
+    .type-office {
+        color: colors('black-5');
+        font-size: 0.8rem;
+        line-height: 1;
+        text-align: center;
+    }
+}
+
+.call-pricing {
+    color: colors('primary');
+    font-size: 1.4rem;
+    height: 55px;
+    border-top: 1px rgba(0, 0, 0, 0.2) solid;
+    border-bottom: 1px rgba(0, 0, 0, 0.2) solid;
+    text-align: center;
+    padding-top: 12px;
+}

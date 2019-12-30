@@ -1,0 +1,470 @@
+@import '../../../styles/index';
+
+.container-gallery-detail {
+    margin: 0;
+    padding: 0;
+}
+
+.details-office-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+.container-breadcrumbs {
+    margin-bottom: 20px;
+
+    .linktoback {
+        cursor: pointer;
+        font-weight: 300;
+    }
+}
+
+.container-details {
+    width: 100%;
+}
+
+.text-default {
+    font-size: 1rem;
+    height: auto;
+}
+
+.title-name-office {
+    color: colors('primary');
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    font-weight: bold;
+}
+
+.line-detail {
+    border: 0.6px solid colors('black-2');
+    width: 100%;
+}
+
+.title-detail {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.detail-container-info {
+    margin-bottom: 20px;
+}
+
+.container-princing-types {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .cont-type-pricing {
+        cursor: pointer;
+        margin-bottom: 12px;
+        margin-left: 14px;
+        flex-grow: 1;
+        width: 40%;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &.active {
+            border: 1px solid colors('primary');
+        }
+    }
+}
+
+.image-type {
+    border-radius: 10px 10px 0 0;
+    height: 100px;
+    overflow: hidden;
+
+    img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.button-show-pricing {
+    color: colors('primary');
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 10px 0;
+    padding: 0 10px;
+    text-align: left;
+    width: 100%;
+
+    .zwicon-chevron-down {
+        color: colors('black-5');
+        font-size: 1.2rem;
+        font-weight: 700;
+        position: absolute;
+        right: 4px;
+        top: 0;
+    }
+}
+
+.title-starting {
+    float: left;
+    font-size: 0.8rem;
+    padding-left: 10px;
+}
+
+.price-starting {
+    font-size: 0.8rem;
+    text-align: right;
+    color: colors('black-5');
+    padding-right: 10px;
+}
+
+.princing-type {
+    padding: 18px 18px 20px;
+    position: relative;
+}
+
+.container-titles {
+    border-bottom: 0.6px solid colors('black-2');
+    display: flex;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+
+    div {
+        width: 50%;
+    }
+
+    .price-offices {
+        text-align: right;
+    }
+
+    .title-suboffice-type {
+        font-size: 0.8rem;
+    }
+
+    .title-type-office {
+        color: colors('primary');
+    }
+
+    .price-type {
+        font-weight: 700;
+    }
+}
+
+.description-type {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.container-description-items {
+    display: flex;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+
+    .includes-container,
+    .bestfor-container {
+        width: 50%;
+    }
+
+    .items-description {
+        color: colors('black-5');
+
+        li {
+            font-size: 0.8rem;
+            margin-bottom: 4px;
+        }
+    }
+}
+
+.button-like-type {
+    background: colors('primary');
+    border-radius: 100%;
+    color: colors('white');
+    font-size: 1.4rem;
+    line-height: 0;
+    left: 50%;
+    height: 35px;
+    position: absolute;
+    transform: translate(-50%, 0%);
+    width: 35px;
+}
+
+.description-office-text {
+    text-align: justify;
+    line-height: 1.5rem;
+}
+
+.icons-amenities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    li {
+        flex-grow: 1;
+        margin-bottom: 1rem;
+        text-align: center;
+        width: 50%;
+        position: relative;
+        cursor: pointer;
+
+        .amenities-description {
+            background: colors('black-8');
+            color: colors('white');
+            position: absolute;
+            width: auto;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            margin: 0 auto;
+            padding: 0.5rem;
+            z-index: 9;
+
+            &:before {
+                content: '';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 10px 15px 10px 0;
+                border-color: transparent colors('black-8') transparent transparent;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 5px;
+                position: absolute;
+                top: -1.1rem;
+                transform: rotate(90deg);
+                left: calc(50% - 10px);
+            }
+        }
+    }
+
+    .container-icon {
+        background: colors('white');
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 100%;
+        color: colors('black-4');
+        height: 100px;
+        margin: 0 auto 6px;
+        text-align: center;
+        padding: 26px 0;
+        position: relative;
+        width: 100px;
+
+        i {
+            font-size: 2.4rem;
+            font-weight: 300;
+        }
+    }
+
+    .title-amenitie {
+        font-weight: 700;
+        font-size: 1rem;
+    }
+}
+
+.nearby-locations-container {
+    margin: 0;
+    padding-top: 0;
+}
+
+/* Swipper  **/
+.cont-swiper-nearby {
+    swiper {
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .swiper-container {
+        overflow: hidden;
+    }
+
+    .swiper-wrapper {
+        box-sizing: border-box;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: colors('black-7') !important;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
+    }
+}
+
+.container-form-inquire {
+    right: 5%;
+    position: sticky;
+    width: 90%;
+    display: none;
+}
+
+.call-info-modal-container {
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    height: 100%;
+    position: absolute;
+
+    .close-modal {
+        position: fixed;
+        z-index: 9;
+        right: 1rem;
+        top: 1rem;
+
+        .close-button-modal {
+            font-size: 2.2rem;
+        }
+    }
+}
+
+@include from-breakpoint('tablet') {
+    .pricings-detail-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+
+        .princing-type {
+            width: 40%;
+            max-width: 340px;
+        }
+    }
+
+    .button-show-pricing {
+        .zwicon-chevron-down {
+            font-size: 1.6rem;
+        }
+    }
+
+    .icons-amenities {
+        li {
+            width: 16%;
+        }
+
+        .title-amenitie {
+            font-weight: 700;
+            font-size: 0.8rem;
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        .container-icon {
+            height: 70px;
+            padding: 0;
+            width: 70px;
+        }
+    }
+
+    .amenitie-icon {
+        font-size: 2rem;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 50%;
+    }
+
+    .icons-amenities {
+        div {
+            width: 23%;
+        }
+    }
+
+    .call-info-modal-container {
+        .close-modal {
+            right: 26%;
+        }
+    }
+}
+
+@include from-breakpoint('desktop-s') {
+    .nearby-locations-container {
+        width: 100%;
+        padding: 0 2rem;
+
+        .cont-swiper-nearby {
+            .nearby-swiper {
+                width: 100%;
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                display: block;
+            }
+
+            .swiper-pagination {
+                display: none;
+            }
+        }
+    }
+}
+
+@include from-breakpoint('desktop') {
+    .details-office-container {
+        .container-details {
+            width: 70%;
+        }
+
+        .container-side-form {
+            padding-left: 20px;
+            width: 30%;
+        }
+    }
+
+    .cont-title-section,
+    .detail-container {
+        margin: 0 0 20px 4%;
+        width: 60%;
+    }
+
+    .description-type {
+        font-size: 0.8rem;
+    }
+
+    .title-detail {
+        margin-bottom: 10px;
+    }
+
+    .container-princing-types {
+        .cont-type-pricing {
+            float: left;
+            max-width: 225px;
+        }
+    }
+
+    .icons-amenities {
+        div {
+            width: 20%;
+        }
+
+        .title-amenitie {
+            font-size: 1rem;
+        }
+    }
+
+    .office-list-card {
+        margin-right: 20px !important;
+        width: 400px !important;
+    }
+
+    .container-form-inquire {
+        top: 145px;
+        display: inline-block;
+        position: sticky;
+        width: 100%;
+    }
+
+    .cont-swiper-nearby {
+        width: 100%;
+    }
+
+    .title-name-office {
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+        height: 42px;
+
+        &.detail-office {
+            font-size: 1.4rem;
+            height: auto;
+        }
+    }
+
+    .container-map-detail {
+        height: 320px;
+    }
+}

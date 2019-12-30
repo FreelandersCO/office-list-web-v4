@@ -1,229 +1,503 @@
-@import 'index';
+@import '../../../styles/index';
 
-.bc-list-container {
+.container-header-desktop {
+    display: none;
+}
+
+.title-pages {
+    color: colors('primary');
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.result-list-container {
+    position: relative;
     display: flex;
-    flex-direction: column;
+    margin: 0 auto 1rem;
+    padding: 0;
+    max-width: 1366px;
 
-    .bc-column-info {
-        width: 100%;
-
-        .bc-info {
-            display: flex;
-            flex-direction: column;
-            padding: 1rem 0;
-        }
-
-        .bc-city-title {
-            font-size: 14px;
-        }
-
-        .bc-filter {
-            background-color: colors('white');
-            border: 1px colors('black') solid;
-            font-size: 1rem;
-            height: 35px;
-            margin: 1rem 0;
-            padding: 0.2rem 1rem;
+    .card-container {
+        &.list-grid {
             width: 100%;
         }
 
-        .bc-num-result {
-            color: colors('black-70');
-            font-size: 12px;
-            padding-bottom: 0.5rem;
-            text-align: justify;
-        }
-
-        .bc-list {
-            padding: 1rem 0;
-        }
-
-        .bc-card {
-            border: 1px solid colors('black-18');
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 1.2rem;
+        &.list-cards {
             width: 100%;
-
-            .bc-card-slider {
-                width: 100%;
-            }
-
-            .bc-card-info {
-                display: flex;
-                flex-direction: column;
-                padding: 0 0.5rem;
-                width: 100%;
-
-                .bc-title {
-                    color: colors('black');
-                    font-size: 14px;
-                    font-weight: bold;
-                    padding: 0.5rem 0;
-                }
-
-                .bc-street,
-                .bc-city,
-                .bc-area {
-                    color: colors('black-50');
-                    font-size: 12px;
-                }
-
-                .bc-description {
-                    color: colors('black');
-                    font-size: 10px;
-                    line-height: 20px;
-                    padding: 0.5rem 0;
-                    text-align: justify;
-                }
-            }
-
-            .bc-contact {
-                padding: 0 0.5rem 1rem;
-                width: 100%;
-
-                .bc-price-list {
-                    margin: 0.5rem 0;
-                    width: 100%;
-
-                    .bc-price-row {
-                        border-bottom: 1px colors('black-50') dashed;
-                        color: colors('black-50');
-                        font-size: 12px;
-
-                        .bc-price-title {
-                            padding: 0.25rem 0;
-                        }
-
-                        .bc-price {
-                            padding: 0.25rem 0;
-                            text-align: right;
-                        }
-                    }
-                }
-
-                .bc-tel {
-                    padding: 0.5rem;
-                    text-align: center;
-                    width: 100%;
-
-                    a {
-                        color: colors('black');
-                        font-size: 12px;
-
-                        .zwicon-phone {
-                            font-size: 12px;
-                            padding-right: 0.3rem;
-                        }
-                    }
-                }
-
-                .bc-contact-btn {
-                    background-color: colors('green-primary');
-                    border-radius: 0.3rem;
-                    color: colors('white');
-                    font-size: 14px;
-                    font-weight: bold;
-                    padding: 0.5rem;
-                    width: 100%;
-                }
-            }
         }
     }
 
-    .bc-column-map {
-        height: 100vh;
+    .no-more {
         width: 100%;
-    }
+        text-align: center;
+        padding: 1rem;
 
-    @include from-breakpoint('tablet') {
-        .bc-column-info {
-            padding: 0 1rem;
+        .no-more-title {
+            color: colors('primary');
+            font-size: 16px;
+            font-weight: bold;
+        }
 
-            .bc-info {
-                flex-direction: row;
-                padding: 1rem 0;
-            }
+        .no-more-list {
+            display: flex;
+            margin: 0.5rem 0;
+            flex-wrap: wrap;
 
-            .bc-city-title {
+            button {
+                border: 1px colors('primary') solid;
+                margin: 0.5rem;
                 font-size: 16px;
-                padding: 0.5rem 0;
-                width: 70%;
+                width: unset;
+            }
+        }
+    }
+}
+
+.area-filter-contaier,
+.distance-filter-contaier,
+.calendar-filter-contaier {
+    background: colors('white');
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    display: flex;
+
+    .close-filter-button {
+        color: colors('black-7');
+        font-size: 2rem;
+        float: right;
+        margin-bottom: 12px;
+        z-index: 1;
+    }
+
+    .distance-number-filter,
+    .distance-title {
+        text-align: center;
+    }
+
+    .distance-number-filter {
+        color: colors('primary');
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-top: 12px;
+    }
+
+    .distance-title {
+        font-size: 0.9rem;
+        line-height: 0;
+        margin-bottom: 30px;
+    }
+
+    .slidecontainer {
+        margin: 0 auto;
+        position: relative;
+        width: 90%;
+
+        .distance-label {
+            color: colors('black-6');
+            font-size: 0.9rem;
+            float: left;
+            margin-top: 4px;
+            width: 50%;
+        }
+
+        .slider-distance {
+            background: colors('black-4');
+            border-radius: 25px;
+            height: 6px;
+            outline: none;
+            opacity: 1;
+            width: 100%;
+
+            &::-webkit-slider-thumb {
+                appearance: none;
+                background: colors('primary');
+                border: 2px solid colors('white');
+                border-radius: 100%;
+                box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+                height: 20px;
+                width: 20px;
             }
 
-            .bc-filter {
-                margin: 0;
-                width: 30%;
+            &::-moz-range-thumb {
+                background: colors('primary');
+                border: 2px solid colors('white');
+                border-radius: 100%;
+                box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+                height: 20px;
+                width: 20px;
             }
+        }
+    }
+}
 
-            .bc-num-result {
-                font-size: 14px;
-                padding-bottom: 0;
-            }
+.area-filter-contaier {
+    .ng-select {
+        width: 80%;
+    }
 
-            .bc-card {
-                flex-direction: row;
+    .button-area-container {
+        width: 20%;
+        text-align: center;
+        color: colors('black-7');
 
-                .bc-card-slider {
-                    width: 25%;
+        .buttons-area-filter {
+            float: right;
+            width: 80%;
+            font-size: 0.9rem;
+            padding: 0.5rem;
+            border: 1px colors('primary') solid;
+            border-radius: 6px;
+
+            &.primary {
+                background-color: colors('primary');
+                color: colors('white');
+
+                &:hover {
+                    color: colors('primary');
+                    background-color: colors('white');
                 }
+            }
 
-                .bc-card-info {
-                    padding: 0.5rem;
-                    width: 50%;
+            &.secondary {
+                color: colors('primary');
 
-                    .bc-title {
-                        font-size: 16px;
-                        padding: 0 0 0.25rem;
-                    }
-
-                    .bc-street,
-                    .bc-city,
-                    .bc-area {
-                        color: colors('black-50');
-                        font-size: 14px;
-                        padding: 0 0 0.25rem;
-                    }
-
-                    .bc-description {
-                        font-size: 12px;
-                    }
-                }
-
-                .bc-contact {
-                    display: flex;
-                    flex-direction: column;
-                    padding: 0.5rem;
-                    width: 25%;
-
-                    .bc-price-list {
-                        margin: 0;
-                    }
-
-                    .bc-tel a {
-                        font-size: 14px;
-                    }
+                &:hover {
+                    background-color: colors('primary');
+                    color: colors('white');
                 }
             }
         }
+    }
+}
 
-        .bc-column-map {
-            width: 100%;
+.no-result {
+    color: colors('primary');
+    font-size: 2rem;
+    line-height: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.buttons-filters,
+.category-filter-container {
+    background: colors('white');
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    width: 100%;
+}
+
+.show-map-container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 8px;
+}
+
+.text-show-map {
+    color: colors('black-4');
+    margin: 8px;
+    width: 75px;
+}
+
+.switch-show-map {
+    height: 34px;
+    display: inline-block;
+    position: relative;
+    width: 60px;
+
+    .slider-show-map {
+        background-color: colors('black-3');
+        border-radius: 25px;
+        bottom: 0;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        transition: 0.4s;
+
+        &:before {
+            background-color: colors('white');
+            border-radius: 100%;
+            bottom: 4px;
+            box-shadow: 4px 4px 8px colors('black-3');
+            content: '';
+            height: 26px;
+            left: 4px;
+            position: absolute;
+            transition: 0.4s;
+            width: 26px;
+        }
+
+        &.active {
+            background-color: colors('primary');
+
+            &:focus {
+                box-shadow: 0 0 1px colors('primary');
+            }
+
+            &:before {
+                transform: translateX(26px);
+            }
+        }
+    }
+}
+
+.filter-container {
+    margin: 1rem 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+
+    .show-map-container {
+        float: left;
+    }
+
+    .button-icon-grid {
+        float: right;
+        display: none;
+
+        .active {
+            color: colors('primary');
         }
     }
 
-    @include from-breakpoint('desktop-s') {
-        flex-direction: row;
+    .button-icon-list {
+        float: right;
+        display: none;
 
-        .bc-column-info {
-            width: 70%;
+        .active {
+            color: colors('primary');
+        }
+    }
+
+    .button-icon-filter {
+        float: right;
+
+        .active {
+            color: colors('primary');
+        }
+    }
+
+    .btn-icon {
+        color: colors('black-5');
+        font-size: 2rem;
+    }
+}
+
+.btn-icon-filter {
+    color: colors('black-6');
+    font-size: 2rem;
+    margin-right: 8px;
+
+    &:hover,
+    &:active,
+    &:visited {
+        color: colors('primary');
+    }
+}
+
+.text-button-filter {
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.button-show-price {
+    color: colors('primary');
+    font-size: 1.4rem;
+    text-align: left;
+    position: relative;
+    width: 100%;
+}
+
+.category-filter-container {
+    box-shadow: none;
+    justify-content: space-around;
+}
+
+.result-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 0.5rem;
+}
+
+.spinner-container {
+    width: 100%;
+}
+
+.result-map-container {
+    position: fixed;
+    height: calc(100vh - 104px);
+    width: 100%;
+    z-index: 100;
+    top: 104px;
+
+    .close-map {
+        position: absolute;
+        z-index: 9;
+        right: 0.5rem;
+    }
+
+    .close-button-map {
+        background: colors('primary');
+        border-radius: 100%;
+        box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.2);
+        color: colors('white');
+        font-size: 2rem;
+        line-height: 0;
+        margin: 20px;
+    }
+}
+
+@include from-breakpoint('mobile-xl') {
+    .office-list-card {
+        .button-default {
+            width: 50%;
+        }
+    }
+}
+
+@include from-breakpoint('tablet') {
+    .container-header-mobile {
+        display: none;
+    }
+
+    .container-header-desktop {
+        display: block;
+    }
+
+    .filter-container {
+        .button-icon-grid {
+            display: block;
         }
 
-        .bc-column-map {
-            position: sticky;
-            right: 0;
-            top: 50px;
-            width: 30%;
+        .button-icon-list {
+            display: block;
         }
+    }
+
+    .result-container {
+        padding: 0 1rem;
+        justify-content: space-between;
+    }
+
+    .result-list-container {
+        .card-container {
+            &.list-grid {
+                width: 49%;
+            }
+        }
+    }
+
+    .cards-result-office {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .show-map-container {
+        margin-right: 44%;
+    }
+}
+
+@include from-breakpoint('desktop-s') {
+    .info-city-list-container {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .container-header-desktop {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 17rem;
+        max-width: 100%;
+        position: relative;
+        width: 100%;
+
+        .title-info-city {
+            background: colors('white-7');
+            bottom: 0;
+            padding: 1rem;
+            position: absolute;
+            width: 100%;
+
+            .title-pages,
+            .text-intro {
+                text-align: left;
+                max-width: 1366px;
+            }
+
+            .title-pages {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .category-filter-container {
+        justify-content: space-around;
+    }
+
+    .result-list-container {
+        margin: 0 auto 1rem;
+        max-width: 1366px;
+    }
+
+    .result-map-container {
+        height: 90vh;
+        position: sticky;
+        z-index: 1;
+        top: 7rem;
+        width: 60%;
+        padding-right: 0.5rem;
+
+        .close-map {
+            display: none;
+        }
+    }
+
+    .buttons-filters {
+        justify-content: space-between;
+    }
+
+    .office-list-card {
+        .button-default {
+            width: 90%;
+        }
+    }
+
+    .filter-container {
+        max-width: 1366px;
+        margin: 0 0 1rem;
+        width: 100%;
+    }
+}
+
+@include from-breakpoint('desktop-l') {
+    .container-header-desktop {
+        .title-info-city {
+            .title-pages,
+            .text-intro {
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .buttons-filters {
+        padding: 0.5rem 6rem;
+    }
+
+    .category-filter-container {
+        padding: 14px;
     }
 }

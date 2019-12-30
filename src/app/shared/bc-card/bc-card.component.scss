@@ -1,81 +1,344 @@
-@import 'index';
+@import '../../../styles/index';
 
-.bc-card-info {
+.office-list-card {
     display: flex;
-    flex-direction: column;
-    padding: 0 0.5rem;
-    width: 100%;
+    position: relative;
 
-    .bc-title {
-        color: colors('black');
-        font-size: 14px;
+    .icon-star-office {
+        background: url('assets/images/icons/icon-started.svg');
+        background-size: cover;
+        height: 34px;
+        position: absolute;
+        top: 0;
+        left: 0.5rem;
+        width: 16px;
+    }
+
+    .title-name-office {
         font-weight: bold;
-        padding: 0.5rem 0;
+        font-size: 1.2rem;
+        line-height: 1.2rem;
     }
 
-    .bc-street,
-    .bc-city,
-    .bc-area {
-        color: colors('black-50');
-        font-size: 12px;
+    &.card-style {
+        flex-direction: column;
+        flex-grow: 1;
+        padding: 0;
+        width: 100%;
+
+        .img-card-office {
+            border-radius: 10px 10px 0 0;
+            min-height: 176px;
+            width: 100%;
+        }
+
+        .info-office-container {
+            cursor: pointer;
+            width: 100%;
+            padding: 0.5rem;
+            position: relative;
+        }
+
+        .price-container {
+            border-width: 1px 0;
+            margin: 0.5rem 0;
+            padding: 4px 6px 0;
+
+            &.call-pricing {
+                position: relative;
+                height: 84px;
+
+                .button-show-price {
+                    text-align: center;
+                    position: absolute;
+                    top: calc(50% - (19px / 2));
+                }
+            }
+        }
+
+        .btn-container {
+            margin: 6px 0 1rem;
+        }
+
+        .like-container {
+            right: 0.5rem;
+            top: 0.5rem;
+        }
     }
 
-    .bc-description {
-        color: colors('black');
-        font-size: 10px;
-        line-height: 20px;
-        padding: 0.5rem 0;
-        text-align: justify;
+    &.list-style {
+        flex-direction: row;
+        padding: 0;
+        width: 100%;
+
+        .img-card-office {
+            border-radius: 10px 0 0 10px;
+            height: 100%;
+            width: 55%;
+
+            img {
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        .info-office-container {
+            width: 50%;
+            padding: 1rem 0 0.5rem 0.5rem;
+        }
+
+        .title-name-office,
+        .name-city {
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .price-container {
+            border-width: 1px 0;
+            margin: 12px 0;
+            padding: 4px 6px;
+
+            &.call-pricing {
+                height: 77px;
+                text-align: center;
+                padding-top: 28px;
+            }
+        }
+
+        .btn-container {
+            margin: 25px 0 0;
+            padding: 0 0.5rem 0 0;
+
+            .button-default {
+                font-size: 1.2rem;
+                width: 100%;
+            }
+        }
+
+        .like-container {
+            right: 12px;
+            top: 12px;
+        }
+    }
+
+    .price-container {
+        border-color: colors('black-2');
+        border-style: solid;
+
+        .zwicon-chevron-down {
+            color: colors('black-6');
+            font-size: 2rem;
+            line-height: 0;
+            position: absolute;
+            right: 0;
+            top: 14px;
+        }
+    }
+
+    .list-prices-office {
+        display: flex;
+        flex-direction: row;
+        margin: 4px 0 10px;
+        justify-content: space-around;
+
+        li {
+            padding: 4px;
+        }
+
+        .price-office {
+            color: colors('black-7');
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .type-office {
+            color: colors('black-5');
+            font-size: 0.8rem;
+            line-height: 1;
+            text-align: center;
+        }
+    }
+
+    .img-card-office {
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+
+        .button-icon {
+            background: colors('white-7');
+            box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            font-size: 0.7rem;
+            position: absolute;
+            bottom: 0.5rem;
+            left: 0.5rem;
+            right: 0.5rem;
+            width: 96%;
+            padding: 0.5rem;
+            letter-spacing: 0.5px;
+            color: colors('primary');
+            font-weight: bold;
+        }
+    }
+
+    .text-default {
+        font-size: 0.9rem;
+        padding-right: 28px;
+        cursor: pointer;
+
+        em {
+            color: colors('black-6');
+        }
+    }
+
+    .name-city {
+        margin-bottom: 10px;
+		display: flex;
+
+        .view-map {
+			display: block;
+
+            i {
+                font-size: 1.2rem;
+                color: colors('primary');
+            }
+
+            .hover-view {
+                background-color: colors('primary-9');
+                border-radius: 4px;
+                color: colors('white');
+                font-size: 12px;
+                padding: 0.3rem;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .phone-number {
+        color: colors('black-7');
+        font-size: 1.4rem;
+        margin-top: 8px;
+        display: block;
+    }
+
+    .like-container {
+        height: 20px;
+        position: absolute;
+        width: 20px;
+    }
+
+    .btn-container {
+        text-align: center;
+
+        .button-default {
+            margin: 0 0 4px;
+        }
+    }
+
+    .admin-info-container {
+        display: flex;
+        flex-wrap: wrap;
+
+		h4 {
+			color: colors('primary');
+			padding: 0.5rem;
+		}
+
+		p {
+			padding: 0.5rem;
+		}
+
+        .admin-button-container {
+            width: 50%;
+            float: left;
+            text-align: center;
+            color: colors('primary');
+
+            i {
+                color: colors('primary');
+                font-size: 1.8rem;
+            }
+        }
+
+        .notes-result {
+            width: 100%;
+            height: auto;
+        }
     }
 }
 
-.bc-contact {
-    padding: 0 0.5rem 1rem;
+.call-info-modal-container {
+    top: 0;
     width: 100%;
+    z-index: 20;
+    left: 0;
+    height: 100%;
+    position: absolute;
 
-    .bc-price-list {
-        margin: 0.5rem 0;
-        width: 100%;
+    .close-modal {
+        position: fixed;
+        z-index: 9;
+        right: 1rem;
+        top: 1rem;
 
-        .bc-price-row {
-            border-bottom: 1px colors('black-50') dashed;
-            color: colors('black-50');
-            font-size: 12px;
+        .close-button-modal {
+            font-size: 2.2rem;
+        }
+    }
+}
 
-            .bc-price-title {
-                padding: 0.25rem 0;
+@include from-breakpoint('tablet') {
+    .office-list-card {
+        &.card-style {
+            margin-right: 20px;
+
+            &.map-off {
+                width: 20%;
             }
 
-            .bc-price {
-                padding: 0.25rem 0;
-                text-align: right;
+            .title-name-office {
+                height: 42px;
             }
+        }
+
+        .img-card-office .button-icon {
+            top: 0.5rem;
+            right: 0.5rem;
+            width: unset;
+            left: unset;
+            bottom: unset;
+        }
+
+        .button-default {
+            width: 80%;
         }
     }
 
-    .bc-tel {
-        padding: 0.5rem;
-        text-align: center;
-        width: 100%;
+    .call-info-modal-container {
+        .close-modal {
+            right: 12%;
+        }
+    }
+}
 
-        a {
-            color: colors('black');
-            font-size: 12px;
-
-            .zwicon-phone {
-                font-size: 12px;
-                padding-right: 0.3rem;
-            }
+@include from-breakpoint('desktop') {
+    .call-info-modal-container {
+        .close-modal {
+            right: 28%;
         }
     }
 
-    .bc-contact-btn {
-        background-color: colors('green-primary');
-        border-radius: 0.3rem;
-        color: colors('white');
-        font-size: 14px;
-        font-weight: bold;
-        padding: 0.5rem;
-        width: 100%;
+    .pricings-detail-container {
+        &.only-price-container {
+            width: 40%;
+        }
+    }
+
+    .container-princing-types {
+        &.only-type-container {
+            width: 40%;
+        }
     }
 }

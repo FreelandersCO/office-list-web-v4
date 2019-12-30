@@ -1,0 +1,31 @@
+img {
+    &.fullImage {
+        max-height: unset;
+    }
+
+    &.mapImage {
+        max-height: 266px;
+        margin: 0 auto;
+        width: auto;
+    }
+
+    &.smallImage {
+        max-height: 190px;
+        margin: 0 auto;
+        width: auto;
+    }
+}
+
+img.ng-lazyloaded {
+    animation: fadein 0.5s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

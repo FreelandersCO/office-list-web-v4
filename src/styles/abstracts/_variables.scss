@@ -1,18 +1,44 @@
 // Default breakpoints
-$breakpoints: (
-    mobile-xl: 569px,
-    tablet: 768px,
-    desktop-s: 960px,
-    desktop: 1024px,
-    desktop-l: 1440px
-);
+$breakpoints: (mobile-xl: 569px,
+tablet: 768px,
+desktop-s: 960px,
+desktop: 1024px,
+desktop-l: 1366px,
+desktop-xl: 1920px);
 
 //Z-index
-$zindex: (
-    'base': 1,
-    'menu': 2,
+$zindex: ('base': 1,
+'menu': 2,
+);
+
+// Colors
+
+$colors: ('transparent': transparent,
+'black': #000,
+'black-0': rgba(0, 0, 0, 0),
+'black-1': rgba(0, 0, 0, 0.1),
+'black-2': rgba(0, 0, 0, 0.2),
+'black-3': rgba(0, 0, 0, 0.3),
+'black-4': rgba(0, 0, 0, 0.4),
+'black-5': rgba(0, 0, 0, 0.5),
+'black-6': rgba(0, 0, 0, 0.6),
+'black-7': rgba(0, 0, 0, 0.7),
+'black-8': rgba(0, 0, 0, 0.8),
+'black-9': rgba(0, 0, 0, 0.9),
+'white': #FFF,
+'white-2': rgba(255, 255, 255, 0.2),
+'white-3': rgba(255, 255, 255, 0.3),
+'white-4': rgba(255, 255, 255, 0.4),
+'white-5': rgba(255, 255, 255, 0.5),
+'white-6': rgba(255, 255, 255, 0.6),
+'white-7': rgba(255, 255, 255, 0.7),
+'white-8': rgba(255, 255, 255, 0.8),
+'white-9': rgba(255, 255, 255, 0.9),
+'primary': #3BA42F,
+'primary-9': rgba(59, 164, 47, 0.9),
+'primary-5': rgba(59, 164, 47, 0.5),
 );
 
 $page-max-width: 1366px;
 
-$font-family: 'Roboto', sans-serif;
+$font-family: 'Roboto', 'Helvetica Neue', sans-serif;

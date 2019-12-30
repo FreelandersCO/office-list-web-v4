@@ -1,23 +1,41 @@
-<header>
-    <nav class="page-container header-content" [ngClass]="status ? 'responsive' : 'danger'">
-        <div class="item-nav">
-            <img class="logo" src="assets/images/logo-officelist-dark.svg" alt="Office List logotype">
-        </div>
-        <div class="item-nav">
-            <office-list-search-input class="search-input"></office-list-search-input>
-        </div>
-        <div class="item-nav">List your Office Space</div>
-        <div class="item-nav"><a href="/login">Sign in</a></div>
-        <div class="item-nav callus" *ngIf="!status">
-            <p class="callus-text">Call us toll free at</p>
-            <p>
-                <a class="callus-phone" href="tel:1-866-354-5478">
-                    1-866-354-5478
-                </a>
-            </p>
-        </div>
-        <button class="icon" (click)="openMenu()">
-            <i class="zwicon-hamburger-menu"></i>
-        </button>
-    </nav>
+<header [ngClass]="{'header-sticky': sticky}">
+	<nav class="page-comtainer menu-container" @ngIfAnimation>
+		<button class="button-icon mobile" (click)="showOptionsNav()" id="btn-nav-search">
+			<i class="zwicon-search"></i>
+		</button>
+		<div class="logo-container" routerLink="/">
+			<img src="assets/images/logo-officelist-dark.svg" alt="Logo">
+		</div>
+		<ul class="items-menu">
+			<li class="list-container"><a href="/list-your-office/">List your Office Space</a></li>
+			<li>
+				<button class="button-icon desktop" (click)="showOptionsNav()" id="btn-nav-search">
+					<i class="zwicon-search"></i>
+				</button>
+			</li>
+			<li>
+				<button class="button-icon" (click)="toogleSignUp()" id="btn-nav-user" (mouseover)="listOffice=true" (mouseleave)="listOffice=false">
+					<i class="zwicon-user-circle"></i>
+					<div class="text-icon" *ngIf="listOffice"> View your Office List</div>
+					<p class="budget-number" *ngIf="favoritesCount>0">{{favoritesCount}}</p>
+				</button>
+
+			</li>
+		</ul>
+		<div class="options-nav-container" *ngIf="optionsNav" @easeIn>
+			<div class="search-nav-container" @easeIn>
+				<office-list-search-input></office-list-search-input>
+			</div>
+		</div>
+	</nav>
+	<div class="callus-container">
+		<a href="tel:+188663545478" class="text-callus">
+			<i class="zwicon-phone"></i>
+			Call Us
+			<span>1-866-354-5478</span>
+		</a>
+	</div>
 </header>
+<office-list-modal-singup *ngIf="showSignUp" [favoritesCount]="favoritesCount"></office-list-modal-singup>
+<office-list-modal-login-search *ngIf="showLogin"></office-list-modal-login-search>
+<office-list-modal-scheduled-tour *ngIf="showTour"></office-list-modal-scheduled-tour>

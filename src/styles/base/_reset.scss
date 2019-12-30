@@ -56,7 +56,6 @@ thead,
 tr,
 th,
 td,
-article,
 aside,
 canvas,
 details,
@@ -67,7 +66,6 @@ header,
 hgroup,
 menu,
 nav,
-section,
 summary,
 time,
 mark,
@@ -82,7 +80,6 @@ video {
     vertical-align: baseline;
 }
 
-article,
 aside,
 details,
 figcaption,
@@ -92,8 +89,7 @@ header,
 hgroup,
 img,
 menu,
-nav,
-section {
+nav {
     display: block;
 }
 
@@ -153,5 +149,13 @@ input {
 button {
     background: none;
     border: 0;
+    cursor: pointer;
     padding: 0;
+
+    :hover,
+    :active,
+    :focus,
+    :visited {
+        outline: none;
+    }
 }

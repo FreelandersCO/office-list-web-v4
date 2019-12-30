@@ -1,20 +1,96 @@
-<office-list-bc-slider class="bc-card-slider" [images]="bc.images"> </office-list-bc-slider>
-<aside class="bc-card-info">
-    <p class="bc-title">{{bc.descriptive_title}}</p>
-    <p class="bc-street">{{bc.cross_streets}}</p>
-    <p class="bc-city">{{bc.city}}</p>
-    <p class="bc-area">{{bc.area_name}}</p>
-    <p class="bc-description">{{bc.short_intro}} ...</p>
-</aside>
-<aside class="bc-contact">
-    <table class="bc-price-list">
-        <tr class="bc-price-row" *ngFor="let office of bc.offices">
-            <td class="bc-price-title">{{office.off_type}}</td>
-            <td class="bc-price">Starting at {{office.off_pricing}}</td>
-        </tr>
-    </table>
-    <p class="bc-tel">
-        <a href="tel:{{bc.phone}}"><i class="zwicon-phone"></i>{{bc.phone}}</a>
-    </p>
-    <button class="bc-contact-btn">Contact Manager</button>
-</aside>
+<div class="office-list-card card-white" [ngClass]="grid ? 'list-style' : 'card-style'">
+	<figure class="img-card-office" *ngIf="!bc?.images" (click)="showModalDetail(bc?.buscenter_id)">
+		<i class="icon-star-office" *ngIf="bc?.premium && bc?.premium === 1"></i>
+		<office-list-image-component [image]="bc?.principal_image"></office-list-image-component>
+		<button class="button-icon" *ngIf="isList"
+			aria-label="Open details">
+			Preview
+		</button>
+	</figure>
+	<office-list-bc-slider *ngIf="bc?.images" [images]="bc?.images" [map]="true"></office-list-bc-slider>
+	<div class="info-office-container">
+		<p class="text-default"
+			routerLink="/office-space-for-rent/us/{{bc?.state_name | normalizeString}}/{{bc?.city | normalizeString }}/office/{{ bc?.cross_streets | normalizeString }}-{{ bc?.buscenter_id}}">
+			{{bc?.descriptive_title}}</p>
+		<a class="title-name-office"
+			routerLink="/office-space-for-rent/us/{{bc?.state_name | normalizeString}}/{{bc?.city | normalizeString }}/office/{{ bc?.cross_streets | normalizeString }}-{{ bc?.buscenter_id}}">
+			{{ bc?.cross_streets }}
+		</a>
+		<p class="name-city">{{bc?.city}} {{bc?.state}}, {{bc?.zip_code}}
+			<button *ngIf="isDesktop && isList" class="view-map" (click)="showInMap(bc?.buscenter_id)"
+				(mouseenter)="bc.overMap=true" (mouseleave)="bc.overMap=false">
+				<i class="zwicon-earth-alt"></i>
+				<span class="hover-view" *ngIf="bc.overMap">View on map</span>
+			</button>
+			<button *ngIf="!isDesktop && isList" class="view-map" (click)="showInMap(bc?.buscenter_id)">
+				<i class="zwicon-earth-alt"></i>
+				<span class="hover-view" >View on map</span>
+			</button>
+		</p>
+		<span class="badge-city" *ngIf="bc?.area_name">{{bc?.area_name}}</span>
+		<a class="phone-number" href="tel:{{bc?.phone | normalizePhone}}" *ngIf="bc?.phone">
+			<i class="zwicon-phone"></i>
+			{{bc?.phone}}
+		</a>
+		<a class="phone-number" href="tel:+18663545478" *ngIf="!bc?.phone">
+			<i class="zwicon-phone"></i>
+			1-866-354-5478
+		</a>
+		<div class="price-container"
+			routerLink="/office-space-for-rent/us/{{bc?.state_name | normalizeString}}/{{bc?.city | normalizeString }}/office/{{ bc?.cross_streets | normalizeString }}-{{ bc?.buscenter_id}}"
+			*ngIf="bc?.offices">
+			<button class="button-show-price" aria-label="Go to details">
+				<h3 class="title-price">
+					Starting at :
+				</h3>
+			</button>
+			<ul class="list-prices-office">
+				<li *ngFor="let office of bc?.offices">
+					<p class="price-office">${{office.off_pricing}}</p>
+					<p class="type-office">{{office.off_name}}</p>
+				</li>
+			</ul>
+		</div>
+		<div class="price-container call-pricing" *ngIf="!bc?.offices">
+			<button class="button-show-price" aria-label="Go to details"
+				routerLink="/office-space-for-rent/us/{{bc?.state | normalizeString}}/{{bc?.city | normalizeString }}/office/{{ bc?.cross_streets | normalizeString }}-{{ bc?.buscenter_id}}">
+				<h3 class="title-price">
+					Call For Pricing
+				</h3>
+			</button>
+		</div>
+		<div class="btn-container">
+			<button class="button-default primary" (click)="callSingUp(bc?.buscenter_id)"
+				aria-label="Inquire now">
+				Inquire
+			</button>
+		</div>
+		<div class="like-container">
+			<button class="button-icon-like" aria-label="Like button">
+				<office-list-favorites-heart [bcId]="bc?.buscenter_id"></office-list-favorites-heart>
+			</button>
+		</div>
+		<div class="admin-info-container" *ngIf="isIP">
+			<h4>Bc Name : </h4> &nbsp;
+			<p [innerHtml]="bc?.company_name"></p>
+			<div class="admin-button-container">
+				<button (click)="getNotes(bc)">
+					<i class="zwicon-sticky-notes"></i>View Notes
+				</button>
+			</div>
+			<div class="admin-button-container">
+				<a href="http://admin.officelist.com/reports_bcs_details.php?bc={{bc?.buscenter_id}}"
+					target="_blank">
+					<i class="zwicon-link"></i>
+				</a>
+			</div>
+			<div class="notes-result" *ngIf="bc?.isNote && bc?.note">
+				<h3>Bc Notes</h3>
+				<p [innerHtml]="bc?.note.notes"></p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="call-info-modal-container" *ngIf="detailOfficeInfo">
+	<office-list-modal-detail [businessId]="selectedBusiness"></office-list-modal-detail>
+</div>

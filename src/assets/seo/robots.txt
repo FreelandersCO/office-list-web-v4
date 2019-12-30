@@ -1,0 +1,82 @@
+# Comments explaining what the file does (optional)
+# Statements beginning with # are comments
+
+Sitemap: https://www.officelist.com/sitemap.xml
+
+# User-agent: msnbot
+# Crawl-delay: 30
+
+User-agent: *
+Disallow: /my-list
+Disallow: /calendar
+Disallow: /login
+Disallow: /redirect/process.php
+Disallow: /_backups_
+Disallow: /_js
+Disallow: /_omniture
+Disallow: /_style
+Disallow: /admin
+Disallow: /bc_account.php
+Disallow: /bc_add_process.php
+Disallow: /bc_add.php
+Disallow: /bc_add2.php
+Disallow: /bc_delete_process.php
+Disallow: /bc_delete.php
+Disallow: /bc_details.php
+Disallow: /bc_edit_corporate_process.php
+Disallow: /bc_edit_corporate.php
+Disallow: /bc_edit_process.php
+Disallow: /bc_edit.php
+Disallow: /bc_image.php
+Disallow: /bc_extended.php
+Disallow: /bc_leadaccept.php
+Disallow: /bc_leadreject.php
+Disallow: /bc_leads_update.php
+Disallow: /bc_leads.php
+Disallow: /bc_leadupdate.php
+Disallow: /bc_preview.php
+Disallow: /bc_preview_full.php
+Disallow: /bc_reactivate.php
+Disallow: /bc_reject_lead.php
+Disallow: /bc_signed_quicklink.php
+Disallow: /bc_signed.php
+Disallow: /client_account.php
+Disallow: /client_edit_notes.php
+Disallow: /client_not_interested.php
+Disallow: /client_process_report.php
+Disallow: /client_registration.php
+Disallow: /client_remove_bc.php
+Disallow: /client_signed.php
+Disallow: /client_welcome.php
+Disallow: /contact_confirm.php
+Disallow: /corporate_registration_process.php
+Disallow: /dev
+Disallow: /drawing_confirm.php
+Disallow: /dynamic_scripts
+Disallow: /find_report.php
+Disallow: /find/by/city
+Disallow: /fm
+Disallow: /forgot_password.php
+Disallow: /help.php
+Disallow: /includes
+Disallow: /logout.php
+Disallow: /manager
+Disallow: /manager.html
+Disallow: /mass_emails
+Disallow: /mfind
+Disallow: /phonereg.php
+Disallow: /php_errors*
+Disallow: /phpmyadmin
+Disallow: /plugins
+Disallow: /pre_bc_add.php
+Disallow: /process_already_regged.php
+Disallow: /process_login.php
+Disallow: /promotions
+Disallow: /redirect
+Disallow: /refer_confirm.php
+Disallow: /research
+Disallow: /searchterms
+Disallow: /skip_reg.php
+Disallow: /thanks.php
+Disallow: /users
+Disallow: /vdsbackup

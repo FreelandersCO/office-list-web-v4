@@ -1,4 +1,8 @@
-@import 'index';
+@import '../../../styles/index';
+
+.bc-slider-container {
+    position: relative;
+}
 
 .bc-card-slider {
     display: flex;
@@ -17,74 +21,36 @@
         width: 100%;
 
         img {
-            height: 100%;
+            max-height: 190px;
+            width: auto;
+            margin: 0 auto;
         }
     }
 }
 
 .bc-card-slider-btns {
-    height: 100%;
     position: absolute;
-    top: 0;
+    top: calc(50% - 18px);
     width: 100%;
 
-    .arrow-left,
-    .arrow-right {
-        color: colors('green-primary');
-        height: 100%;
-        position: absolute;
-        width: 35px;
-
-        i {
-            font-size: 35px;
-        }
+    button {
+        line-height: 0;
+        background: rgba(0, 0, 0, 0.5);
+        height: 40px;
+        width: 40px;
+        border-radius: 100%;
+        font-size: 1.8rem;
+        color: colors('white');
+        padding: 2px;
     }
 
     .arrow-right {
-        right: 0;
+        float: right;
+        margin: 0 0.5rem;
     }
 
-    @include from-breakpoint('tablet') {
-        .arrow-left {
-            color: colors('white');
-            cursor: pointer;
-            opacity: 0.5;
-            position: absolute;
-
-            &:hover {
-                background:
-                    linear-gradient(
-                        270deg,
-                        rgba(0, 0, 0, 0.1) 0%,
-                        rgba(0, 0, 0, 0.05) 50%,
-                        rgba(0, 0, 0, 0) 100%
-                    );
-            }
-        }
-
-        .arrow-right {
-            color: colors('white');
-            cursor: pointer;
-            opacity: 0.5;
-            position: absolute;
-
-            &:hover {
-                background:
-                    linear-gradient(
-                        90deg,
-                        rgba(0, 0, 0, 0.1) 0%,
-                        rgba(0, 0, 0, 0.05) 50%,
-                        rgba(0, 0, 0, 0) 100%
-                    );
-            }
-        }
-
-        &:hover {
-            .arrow-left,
-            .arrow-right {
-                color: colors('green-primary');
-                opacity: 1;
-            }
-        }
+    .arrow-left {
+        float: left;
+        margin: 0 0.5rem;
     }
 }

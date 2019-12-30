@@ -1,0 +1,294 @@
+<section class="container-banner-pages">
+
+</section>
+
+<section class="container-info-pages">
+	<article class="">
+		<h2 class="title-home white-title">
+			The secret ingredient
+		</h2>
+		<hr>
+		<p class="description-office-text">
+			We run our business the same way we live our lives. Driven, transparent, honest, and giving. We give our best to try to generate a positive impact in those who come in contact with our brand.
+		</p>
+		<h2 class="title-home white-title">
+			A business built on experience
+		</h2>
+		<hr>
+		<p class="description-office-text">
+			As an entrepreneur our CEO, Uddy Carmi, met regularly with friends and colleagues who also ran their startups. A common concern was frequently discussed: they all struggled to find an office that would inspire their teams while aligning with their business goals and projections. Traditional office space is inflexible by nature. Business, in contrast, is extremely dynamic. There had to be a better way. That's when he knew he wanted to get involved in helping shape the future of work.
+		</p>
+		<h2 class="title-home white-title">
+			We got this
+		</h2>
+		<hr>
+		<p class="description-office-text">
+			OfficeList does one thing and does it like no one else. We care about our clients and go the extra mile to understand their needs and offer the right solution. Each client is different and every flexible office we offer has its defining character and solutions. The magic happens when we find that sweet spot and create that match.
+		</p>
+	</article>
+</section>
+<section class="container-ourteam" style="display: none;">
+	<article class="container-team">
+		<h2 class="title-home white-title">
+			Our Team
+		</h2>
+		<hr>
+		<div class="container-bubbles-team">
+			<div class="bubble-team-person">
+				<figure class="container-picture-team">
+					<img src="assets/images/staff/picture-staff-uddy.jpg" alt="">
+				</figure>
+				<button class="icon-button-plus" (click)="showModalInformationU()">
+					<i class="zwicon-plus"></i>
+				</button>
+				<div class="cont-detail-team" >
+					<h2 class="name-team"> Uddy Carmi</h2>
+					<p class="name-profile">Founder & CEO</p>
+					<p class="url-linkedin">
+						<i class="icon-linkedin-line"></i>
+						<a href="https://www.linkedin.com/in/uddy-carmi-6aa220/?locale=es_ES" target="_blank">www.linkedin.com</a>
+					</p>
+				</div>
+				<div class="cont-text-profile-person card-white" *ngIf="detailInfoTeam">
+						<button class="close-button" (click)="closeModal()">
+						<i class="zwicon-close"></i>
+					</button>
+					<h2 class="name-team"> Uddy Carmi</h2>
+					<p class="name-profile">Founder & CEO</p>
+					<hr>
+					<p class="text-default-person">
+						Uddy is a passionate entrepreneur and started OfficeList to solve a problem so many start-ups face: traditional office space does not provide the level of service and flexibility companies need. He then realized the team was not just helping start-ups and professionals but companies of all sizes. His passions are his wife and two gorgeous kids, that makes him the luckiest man alive. He also loves traveling, scuba diving, tennis, and (when inspired) golf. His favorite quote around work: "Thank God for delegating and hiring people smarter than I".
+					</p>
+				</div>
+			</div>
+			<div class="bubble-team-person">
+				<figure class="container-picture-team">
+					<img src="assets/images/staff/picture-staff-jorge.jpg" alt="">
+				</figure>
+				<button class="icon-button-plus" (click)="showModalInformationG()">
+					<i class="zwicon-plus"></i>
+				</button>
+				<div class="cont-detail-team">
+					<h2 class="name-team">George Garcia</h2>
+					<p class="name-profile">Market Specialist</p>
+					<p class="url-linkedin">
+						<i class="icon-linkedin-line"></i>
+						<a href="https://www.linkedin.com/in/uddy-carmi-6aa220/?locale=es_ES" target="_blank">www.linkedin.com</a>
+					</p>
+				</div>
+				<div class="cont-text-profile-person card-white" *ngIf="detailInfoTeamg">
+						<button class="close-button" (click)="closeModalG()">
+						<i class="zwicon-close"></i>
+					</button>
+					<h2 class="name-team">George Garcia</h2>
+					<p class="name-profile">Market Specialist</p>
+					<hr>
+					<p class="text-default-person">
+						George is an outgoing person who thinks we can aim higher when working in a group for a set common goal. A jack of all trades with the necessary experience to guide clients in their search for office space. Also an avid music collector and very interested in cultural endeavors.
+					</p>
+				</div>
+			</div>
+			<div class="bubble-team-person">
+				<figure class="container-picture-team">
+					<img src="assets/images/staff/picture-staff-adrian.jpg" alt="">
+				</figure>
+				<button class="icon-button-plus" (click)="showModalInformationA()">
+					<i class="zwicon-plus"></i>
+				</button>
+				<div class="cont-detail-team">
+					<h2 class="name-team"> Adrian Dussan</h2>
+					<p class="name-profile">IT Manager</p>
+					<p class="url-linkedin">
+						<i class="icon-linkedin-line"></i>
+						<a href="https://www.linkedin.com/in/uddy-carmi-6aa220/?locale=es_ES" target="_blank">www.linkedin.com</a>
+					</p>
+				</div>
+				<div class="cont-text-profile-person card-white" *ngIf="detailInfoTeama">
+						<button class="close-button" (click)="closeModalA()">
+						<i class="zwicon-close"></i>
+					</button>
+					<h2 class="name-team">Adrian Dussan</h2>
+					<p class="name-profile">IT Manager</p>
+					<hr>
+					<p class="text-default-person">
+						Adrian loves being part of a team capable of achieving great things and finding solutions to everyday challenges. Being able to share time with his wife and children is not only his biggest passion but the greatest blessing he has received. As much as he would love to, he has realized carpentry and drawing are not his strengths. We guess he'll have to settle for being the Picasso of coding.
+					</p>
+				</div>
+			</div>
+			<div class="bubble-team-person">
+				<figure class="container-picture-team">
+					<img src="assets/images/staff/picture-staff-melody.jpg" alt="">
+				</figure>
+				<button class="icon-button-plus" (click)="showModalInformationM()">
+					<i class="zwicon-plus"></i>
+				</button>
+				<div class="cont-detail-team">
+					<h2 class="name-team">Melody Ann Meyer</h2>
+					<p class="name-profile">Partner Relations Manager</p>
+					<p class="url-linkedin">
+						<i class="icon-linkedin-line"></i>
+						<a href="https://www.linkedin.com/in/uddy-carmi-6aa220/?locale=es_ES" target="_blank">www.linkedin.com</a>
+					</p>
+				</div>
+				<div class="cont-text-profile-person card-white" *ngIf="detailInfoTeamm">
+						<button class="close-button" (click)="closeModalM()">
+						<i class="zwicon-close"></i>
+					</button>
+					<h2 class="name-team">Melody Ann Meyer</h2>
+					<p class="name-profile">Partner Relations Manager</p>
+					<hr>
+					<p class="text-default-person">
+						Melody thrives on dedication and attention to detail. Loves to interact with clients and always addresses challenges with a smile and positive attitude. She’s lived in London, Barcelona, Buenos Aires, Bogota, and Barranquilla, and plans to continue her duties while in Paris soon. Always a traveler, an adventurer, and a team player, Melody is in charge that our partnerships with thousands of flexible office locations run smoothly and efficiently.
+					</p>
+				</div>
+			</div>
+			<div class="bubble-team-person">
+				<figure class="container-picture-team">
+					<img src="assets/images/staff/picture-staff-jhon.jpg" alt="">
+				</figure>
+				<button class="icon-button-plus" (click)="showModalInformationJ()">
+					<i class="zwicon-plus"></i>
+				</button>
+				<div class="cont-detail-team">
+					<h2 class="name-team">John Fernandez</h2>
+					<p class="name-profile">Market Specialist</p>
+					<p class="url-linkedin">
+						<i class="icon-linkedin-line"></i>
+						<a href="https://www.linkedin.com/in/uddy-carmi-6aa220/?locale=es_ES" target="_blank">www.linkedin.com</a>
+					</p>
+				</div>
+				<div class="cont-text-profile-person card-white" *ngIf="detailInfoTeamj">
+					<button class="close-button" (click)="closeModalJ()">
+						<i class="zwicon-close"></i>
+					</button>
+					<h2 class="name-team">John Fernandez</h2>
+					<p class="name-profile">Market Specialist</p>
+					<hr>
+					<p class="text-default-person">
+							John’s professional expertise is in customer relations and sales. With extensive experience in hospitality and training, and a degree in Electrical Engineering, his approach to work and life always takes into account the big picture. As a passionate reader, musician, father and world traveller, John makes us all a bit smarter since he joined the OfficeList family in early 2019.
+					</p>
+				</div>
+			</div>
+		</div>
+	</article>
+</section>
+<section class="container-linetime">
+	<article class="line-time-officelist">
+		<h2 class="title-home white-title">
+			Our Story
+		</h2>
+		<hr>
+		<div class="line-time-cont">
+			<div class="container-year right">
+				2003
+				<hr class="timeline-line">
+			</div>
+			<div class="container-info-year left-text">
+				<h3 class="title-info-year">
+					There has to be a better way
+				</h3>
+				<p class="description-office-text">
+						Our founders, frustrated with the disconnect between the rigid nature of office space and the dynamic nature of business decide to do something about it.
+				</p>
+			</div>
+		</div>
+		<div class="line-time-cont">
+			<div class="container-info-year right right-text">
+				<h3 class="title-info-year">
+					Search Today, Move In Tomorrow
+				</h3>
+				<p class="description-office-text">
+						<a href="#">OfficeList.com</a> launches in the US market with hundreds of options for small companies to find the ideal Office Business Center.
+				</p>
+			</div>
+			<div class="container-year">
+				2004
+				<hr class="timeline-line">
+			</div>
+		</div>
+		<div class="line-time-cont">
+			<div class="container-year right">
+				2006
+				<hr class="timeline-line">
+			</div>
+			<div class="container-info-year left-text">
+				<h3 class="title-info-year">
+					Account Managers to serve you better
+				</h3>
+				<p class="description-office-text">
+						99.9% market coverage and we introduce our consultant to help our clients find their dream office.
+				</p>
+			</div>
+		</div>
+		<div class="line-time-cont">
+			<div class="container-info-year right right-text">
+				<h3 class="title-info-year">
+					10,000 Clients served
+				</h3>
+				<p class="description-office-text">
+					Pretty cool milestone for such a young startup.
+				</p>
+			</div>
+			<div class="container-year">
+				2007
+				<hr class="timeline-line">
+			</div>
+		</div>
+		<div class="line-time-cont">
+			<div class="container-year right">
+				2010
+				<hr class="timeline-line">
+			</div>
+			<div class="container-info-year left-text">
+				<h3 class="title-info-year">
+					Find Office Space in Minutes for Free
+				</h3>
+				<p class="description-office-text">
+					New website is launched with improvements and functionality.
+				</p>
+			</div>
+		</div>
+		<div class="line-time-cont">
+			<div class="container-info-year right right-text">
+				<h3 class="title-info-year">
+					Let’s talk aboot office space, eh?
+				</h3>
+				<p class="description-office-text">
+						<a href="#">OfficeList</a> launches in Canada to great success. Full market coverage from day one and a natural expansion to our office portfolio.
+				</p>
+			</div>
+			<div class="container-year">
+				2012
+				<hr class="timeline-line">
+			</div>
+		</div>
+		<div class="line-time-cont">
+			<div class="container-year right">
+				2013
+				<hr class="timeline-line">
+			</div>
+			<div class="container-info-year left-text">
+				<h3 class="title-info-year">
+					50,000 Clients served
+				</h3>
+				<p class="description-office-text">
+					and counting.
+				</p>
+			</div>
+		</div>
+		<div class="line-time-cont">
+			<div class="container-info-year right right-text">
+				<h3 class="title-info-year">
+					New website - New user interface - New Business focus
+				</h3>
+				<p class="description-office-text">
+						For the last year or so, OfficeList has been digging deep to reinvent itself. This means, doing everything better and being true to our values and vision. We are focused on growth, helping our clients make better, informed decisions and leaving the world in better shape than we found it.
+				</p>
+			</div>
+			<div class="container-year">
+				2019
+				<hr class="timeline-line">
+			</div>
+		</div>
+	</article>
+</section>

@@ -1,43 +1,106 @@
-<section class="bc-list-container">
-    <article class="bc-column-info">
-        <office-list-call-us></office-list-call-us>
-        <div class="bc-info">
-            <h1 class="bc-city-title">Office space for rent in {{state}}, {{city}}</h1>
-            <select class="bc-filter" (change)="filterArea($event.target.value);">
-                <option selected="selected" value="">Filter by area</option>
-                <option *ngFor="let area of areas" value="{{area}}">{{area}}</option>
-            </select>
-        </div>
-        <p class="bc-num-result">
-            {{bussinesCenterCount}} flexible office space solutions found in {{city}}, including private offices, coworking spaces and
-            virtual offices
-        </p>
-        <div class="bc-list">
-            <div class="bc-card" *ngFor="let bc of bussinesCenter">
-                <office-list-bc-slider class="bc-card-slider" [images]="bc.images"> </office-list-bc-slider>
-                <aside class="bc-card-info">
-                    <p class="bc-title">{{bc.descriptive_title}}</p>
-                    <p class="bc-street">{{bc.cross_streets}}</p>
-                    <p class="bc-city">{{bc.city}}</p>
-                    <p class="bc-area">{{bc.area_name}}</p>
-                    <p class="bc-description">{{bc.short_intro}} ...</p>
-                </aside>
-                <aside class="bc-contact">
-                    <table class="bc-price-list">
-                        <tr class="bc-price-row" *ngFor="let office of bc.offices">
-                            <td class="bc-price-title">{{office.off_type}}</td>
-                            <td class="bc-price">Starting at {{office.off_pricing}}</td>
-                        </tr>
-                    </table>
-                    <p class="bc-tel">
-                        <a href="tel:{{bc.phone}}"><i class="zwicon-phone"></i>{{bc.phone}}</a>
-                    </p>
-                    <button class="bc-contact-btn">Contact Manager</button>
-                </aside>
-            </div>
-        </div>
-    </article>
-    <article class="bc-column-map">
-        <office-list-map [bussinesCenter]="bussinesCenter"></office-list-map>
-    </article>
+<ngx-spinner bdOpacity=0.5 bdColor="#ffffff" size="large" color="rgba(59, 164, 47, 1)" [fullScreen]="true"
+	name="loadingPage">
+	<p> Office List... </p>
+</ngx-spinner>
+<section class="info-city-list-container">
+	<article class="container-header-mobile">
+		<div class="title-info-city">
+			<h1 class="title-pages">
+				{{pageInfo?.title}}
+			</h1>
+			<p class="text-intro">
+				{{pageInfo?.intro}}
+			</p>
+		</div>
+	</article>
+	<article class="container-header-desktop" [style.background-image]="'url(' + pageInfo?.image + ')'">
+		<div class="title-info-city">
+			<h1 class="title-pages">
+				{{pageInfo?.title}}
+			</h1>
+			<p class="text-intro">
+				{{pageInfo?.intro}}
+			</p>
+		</div>
+	</article>
 </section>
+<section class="result-list-container" *ngIf="bussinesCenter?.length > 0">
+	<article class="result-container">
+		<!--Filter-->
+		<div class="filter-container">
+			<div class="buttons-filters">
+				<div class="show-map-container">
+					<p class="text-show-map" *ngIf="mapShow">Hide map</p>
+					<p class="text-show-map" *ngIf="!mapShow">Show map</p>
+					<label class="switch-show-map">
+						<span class="slider-show-map" [ngClass]="{'active': mapShow}" (click)="showMap()"
+							aria-label="Toogle Map"></span>
+					</label>
+				</div>
+				<div class="button-icon-grid">
+					<button class="btn-icon" (click)="hideGrid()" [ngClass]="{'active': !grid}"
+						aria-label="On Grid View">
+						<i class="zwicon-grid"></i>
+						<p class="text-button-filter">Grid View</p>
+					</button>
+				</div>
+				<div class="button-icon-list">
+					<button class="btn-icon" (click)="showGrid()" [ngClass]="{'active': grid}"
+						aria-label="On List View">
+						<i class="zwicon-list-bullet"></i>
+						<p class="text-button-filter">List View</p>
+					</button>
+				</div>
+				<div class="button-icon-filter">
+					<button class="btn-icon" (click)="toogleFilterArea()" [ngClass]="{'active': filterArea}"
+						aria-label="Show Filters">
+						<i class="zwicon-filter"></i>
+						<p class="text-button-filter">Filters</p>
+					</button>
+				</div>
+			</div>
+			<div class="area-filter-contaier" *ngIf="filterArea && areas?.length > 0">
+				<ng-select [items]="areas" [dropdownPosition]="'top'" [closeOnSelect]="true"
+					placeholder="Select the area you are interested in" [searchable]="false" [(ngModel)]="selectedArea"
+					(change)="changeSelect()">
+				</ng-select>
+				<div class="button-area-container">
+					<button class="buttons-area-filter secondary" (click)="clearArea()" aria-label="Clear filter">
+						Clear
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- List -->
+		<div class="card-container" [ngClass]="grid ? 'list-cards' : 'list-grid'" *ngFor="let bc of bussinesCenter">
+			<office-list-bc-card [bc]="bc" [grid]="grid" [isDesktop]="isDesktop" [isList]="true" [isIP]="isIP">
+			</office-list-bc-card>
+		</div>
+		<div class="spinner-container" #bottonTest style="width: 100%;" *ngIf="!noMore">
+			<ngx-spinner name="loadingBC" color="rgba(59, 164, 47, 0.9)" bdColor="#ffffff" [fullScreen]="false"
+				type="ball-clip-rotate-multiple" size="large"></ngx-spinner>
+		</div>
+		<div *ngIf="noMore && areas?.length > 0" class="no-more">
+			<p class="no-more-title">You may be interested in these other areas.</p>
+			<div class="no-more-list">
+				<ng-container *ngFor="let item of areas">
+					<button class="button-default secondary"
+					(click)="noMoreSelect(item)">{{item}}</button>
+				</ng-container>
+			</div>
+		</div>
+	</article>
+	<!--Map-->
+	<div class="result-map-container" *ngIf="mapShow">
+		<div class="close-map">
+			<button class="close-button-map" (click)="showMap()" aria-label="Close Map">
+				<i class="zwicon-close"></i>
+			</button>
+		</div>
+		<office-list-map></office-list-map>
+	</div>
+</section>
+<section class="result-list-container" *ngIf="bussinesCenter?.length === 0">
+	<h2 class="no-result">No exact matches were found. Consider your spelling or try another term</h2>
+</section>
+<office-list-buttons-mobile></office-list-buttons-mobile>

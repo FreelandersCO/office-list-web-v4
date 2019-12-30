@@ -1,0 +1,35 @@
+
+@import '../../../styles/index';
+
+.icon-heart-like {
+    fill: none;
+    stroke: colors('black-6');
+    cursor: pointer;
+
+    &:hover {
+        fill: colors('primary-5');
+        stroke: none;
+    }
+
+    &.like-it {
+        fill: colors('primary');
+        stroke: none;
+
+        &:hover {
+            fill: colors('primary');
+            stroke: none;
+        }
+    }
+
+    &.bg-green {
+        background-color: colors('primary');
+        stroke: white;
+        border-radius: 100%;
+        padding: 0.5rem;
+
+        &:hover {
+            fill: none;
+            stroke: white;
+        }
+    }
+}
