@@ -36,8 +36,8 @@ export class EventEmitterService {
 		this.toogleTour.emit();
 	}
 
-	toogleTourHeaderEmitter() {
-		this.toogleTourHeader.emit();
+	toogleTourHeaderEmitter(bcId) {
+		this.toogleTourHeader.emit(bcId);
 	}
 
 	showInMap(bcId) {

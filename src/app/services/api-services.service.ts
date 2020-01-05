@@ -204,8 +204,14 @@ export class ApiServicesService {
 			);
 	}
 	@Cacheable()
-	getMapLead(clientId): Observable<Object> {
-		return this.http.get(`${this.apiURL}/Admin/MapLead/${clientId}/`)
+	getFavoritesBc(bcList): Observable<PageBussines> {
+		const headers = new HttpHeaders({
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Methods': 'GET'
+		})
+		.set('bcList', bcList);;
+
+		return this.http.get<PageBussines>(`${this.apiURL}/BusinessCenter/FavoriteList/`, { headers })
 			.pipe(
 				retry(1),
 				catchError(this.handleError)

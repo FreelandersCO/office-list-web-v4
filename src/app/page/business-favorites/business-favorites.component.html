@@ -1,0 +1,15 @@
+<br>
+<h2 class="title-home">
+	This is the list of your favorite centers, select <span>inquire</span> to finish
+</h2>
+<br>
+<hr>
+<section class="result-list-container" *ngIf="bussinesCenter?.length > 0">
+	<article class="result-container">
+		<!-- List -->
+		<div class="card-container" [ngClass]="grid ? 'list-cards' : 'list-grid'" *ngFor="let bc of bussinesCenter">
+			<office-list-bc-card [bc]="bc" [grid]="grid" [isDesktop]="isDesktop" [isList]="false" [isIP]="false">
+			</office-list-bc-card>
+		</div>
+	</article>
+</section>

@@ -3,8 +3,6 @@ import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { NgxSpinnerService } from 'ngx-spinner';
-
-import { EventEmitterService } from '@app/services/event-emitter.service';
 import { ApiServicesService } from '@service/api-services.service';
 import { NormalizeString } from '@app/shared/utils/normalize-string.pipe';
 

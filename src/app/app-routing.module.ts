@@ -49,6 +49,10 @@ const routes: Routes = [
 		loadChildren: () => import('./page/contact-us/contact-us.module').then(m => m.ContactUsModule)
 	},
 	{
+		path: 'favorite-list',
+		loadChildren: () => import('./page/business-favorites/business-favorites.module').then(m => m.BusinessFavoritesModule)
+	},
+	{
 		path: '404',
 		loadChildren: () => import('./layout/not-found404/not-found404.module').then(m => m.NotFound404Module)
 	},

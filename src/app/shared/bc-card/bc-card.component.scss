@@ -230,10 +230,12 @@
     }
 
     .btn-container {
-        text-align: center;
+		display: flex;
+		text-align: center;
 
         .button-default {
-            margin: 0 0 4px;
+			width: 49%;
+            margin: 0 4px;
         }
     }
 

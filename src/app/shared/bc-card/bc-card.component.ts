@@ -32,7 +32,7 @@ export class BcCardComponent implements OnInit {
 			});
 			this.eventEmitter.toogleTour.subscribe((name: string) => {
 				this.detailOfficeInfo = !this.detailOfficeInfo;
-				this.callTour();
+				this.callTour(name);
 			});
 		}
 	}
@@ -62,8 +62,8 @@ export class BcCardComponent implements OnInit {
 			});
 		}
 	}
-	callTour() {
-		this.eventEmitter.toogleTourHeaderEmitter();
+	callTour(bcId) {
+		this.eventEmitter.toogleTourHeaderEmitter(bcId);
 	}
 	showInMap(bcId) {
 		this.eventEmitter.showInMap(bcId);

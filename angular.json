@@ -49,10 +49,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": {
-                "scripts": true,
-                "styles": true
-              },
+              "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
