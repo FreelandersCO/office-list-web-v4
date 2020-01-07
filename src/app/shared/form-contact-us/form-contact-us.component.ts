@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiServicesService } from '@app/services/api-services.service';
-import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
 	selector: 'office-list-form-contact-us',
@@ -14,12 +13,6 @@ export class FormContactUsComponent implements OnInit {
 	successfully = false;
 	ip;
 	error = false;
-	optionSuccess: AnimationOptions = {
-		path: 'assets/animations/check-animation.json'
-	};
-	optionError: AnimationOptions = {
-		path: 'assets/animations/error.json'
-	};
 	constructor(
 		private api: ApiServicesService,
 		private formBuilder: FormBuilder) { }

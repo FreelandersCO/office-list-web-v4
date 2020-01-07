@@ -1,9 +1,70 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" *ngIf="!successfully && !error">
 	<div class="general-error"
-		*ngIf="submitted && (f.fullName.errors || f.company.errors || f.email.errors || f.phone.errors)">Please review the information submitted and correct.</div>
+		*ngIf="submitted && (f.fullName.errors || f.company.errors || f.email.errors || f.phone.errors)">Please review
+		the information submitted and correct.</div>
+	<div class="group-form date-tour" *ngIf="tour">
+		<input
+			type="text"
+			required
+			class="input-default"
+			formControlName="tourDate"
+			(focus)="myDatepicker.open()"
+			[ngClass]="{ 'is-invalid': submitted && f.tourDate.errors }"
+			[matDatepicker]="myDatepicker"
+			[matDatepickerFilter]="disableWeekend"
+			[min]="todayDate"
+			id="tourDate">
+		<label for="tourDate" class="label-default">Choose tour date*</label>
+		<mat-datepicker #myDatepicker></mat-datepicker>
+		<mat-datepicker-toggle class="datepicker-icon" matSuffix [for]="myDatepicker" #calendarIcon>
+		</mat-datepicker-toggle>
+	</div>
+	<div class="group-form selectt" *ngIf="tour">
+		<select type="text" class="input-default" required formControlName="tourTime"
+			[ngClass]="{ 'is-invalid': submitted && f.tourTime.errors }" id="tourTime">
+			<option value="">Choose time of the tour*</option>
+			<option value="08:00:00">08:00</option>
+			<option value="08:15:00">08:15</option>
+			<option value="08:30:00">08:30</option>
+			<option value="08:45:00">08:45</option>
+			<option value="09:00:00">09:00</option>
+			<option value="09:15:00">09:15</option>
+			<option value="09:30:00">09:30</option>
+			<option value="09:45:00">09:45</option>
+			<option value="10:00:00">10:00</option>
+			<option value="10:15:00">10:15</option>
+			<option value="10:30:00">10:30</option>
+			<option value="10:45:00">10:45</option>
+			<option value="11:00:00">11:00</option>
+			<option value="11:15:00">11:15</option>
+			<option value="11:30:00">11:30</option>
+			<option value="11:45:00">11:45</option>
+			<option value="12:00:00">12:00</option>
+			<option value="12:15:00">12:15</option>
+			<option value="12:30:00">12:30</option>
+			<option value="12:45:00">12:45</option>
+			<option value="13:00:00">13:00</option>
+			<option value="13:15:00">13:15</option>
+			<option value="13:30:00">13:30</option>
+			<option value="13:45:00">13:45</option>
+			<option value="14:00:00">14:00</option>
+			<option value="14:15:00">14:15</option>
+			<option value="14:30:00">14:30</option>
+			<option value="14:45:00">14:45</option>
+			<option value="15:00:00">15:00</option>
+			<option value="15:15:00">15:15</option>
+			<option value="15:30:00">15:30</option>
+			<option value="15:45:00">15:45</option>
+			<option value="16:00:00">16:00</option>
+			<option value="16:15:00">16:15</option>
+			<option value="16:30:00">16:30</option>
+			<option value="16:45:00">16:45</option>
+		</select>
+		<!--label for="tourTime" class="label-default">Choose time of the tour*</!--label-->
+	</div>
 	<div class="group-form">
 		<input type="text" class="input-default" required formControlName="fullName"
-			[ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" id="fullName" >
+			[ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" id="fullName">
 		<label for="fullName" class="label-default">Full name*</label>
 	</div>
 	<div class="group-form">
@@ -22,22 +83,18 @@
 		<label for="" class="label-default">Phone number*</label>
 	</div>
 	<div class="group-form full-width">
-		<textarea class="input-default textarea-input" formControlName="comments"  id="comments"
+		<textarea class="input-default textarea-input" formControlName="comments" id="comments"
 			[ngClass]="{ 'is-invalid': submitted && f.comments.errors }"
 			placeholder="Details on your search, such as: When do you want to move in? How many people/desks? Other specific requirements, budget, etc"></textarea>
 		<label for="comments" class="label-default">Comments</label>
 	</div>
-	<div class="container-button-modal" *ngIf="!inquired">
-		<button class="button-default primary" type="submit">Save your favorites</button>
-	</div>
-	<div class="container-inquire-buttons" *ngIf="inquired">
-		<!--button class="button-default secondary-line" (click)="callRequest()">Request tour</button-->
-		<button class="button-default primary" type="submit">Inquire</button>
+	<div class="container-button-modal">
+		<button class="button-default primary" type="submit" *ngIf="!inquired && !tour">Save your favorites</button>
+		<button class="button-default primary" type="submit" *ngIf="inquired && !tour">Inquire</button>
+		<button class="button-default primary" type="submit" *ngIf="!inquired && tour">Request a Tour</button>
 	</div>
 </form>
 
 <div class="success-container" *ngIf="submitted && error">
-		<ng-lottie [options]="optionError" width="100%" height="250px"></ng-lottie>
-
 	<p>Something went wrong please try again later</p>
 </div>

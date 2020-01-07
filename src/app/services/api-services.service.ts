@@ -167,6 +167,18 @@ export class ApiServicesService {
 				catchError(this.handleError)
 			);
 	}
+	setBookTour(data,token) {
+		const headers = new HttpHeaders({
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Methods': 'GET'
+		})
+			.set('authorization', token);
+		return this.http.post(`${this.apiURL}/Tour/`, data, { headers })
+			.pipe(
+				retry(1),
+				catchError(this.handleError)
+			);
+	}
 	setLogin(data) {
 		return this.http.post(`${this.apiURL}/User/Login/`, data)
 			.pipe(

@@ -2,6 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
+import { MatInputModule } from '@angular/material';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { AgmCoreModule } from '@agm/core';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
@@ -10,9 +16,7 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { LottieModule } from 'ngx-lottie';
 import { LazyLoadImageModule, intersectionObserverPreset } from 'ng-lazyload-image';
-import player from 'lottie-web';
 
 import { SearchInputComponent } from './search-input/search-input.component';
 import { BcSliderComponent } from './bc-slider/bc-slider.component';
@@ -38,10 +42,6 @@ import { ButtonsMobileComponent } from './buttons-mobile/buttons-mobile.componen
 import { BcCardComponent } from './bc-card/bc-card.component';
 import { FormContactUsComponent } from './form-contact-us/form-contact-us.component';
 
-export function playerFactory() {
-	return player;
-}
-
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
@@ -51,7 +51,6 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 		AgmCoreModule.forRoot({
 			apiKey: 'AIzaSyCop_zSgXsfr2eS48LTbflHNRx5N3Un3co'
 		}),
-		LottieModule.forRoot({ player: playerFactory }),
 		AgmJsMarkerClustererModule,
 		StorageServiceModule,
 		FormsModule,
@@ -65,7 +64,11 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 		NgxMaskModule.forRoot(options),
 		LazyLoadImageModule.forRoot({
 			preset: intersectionObserverPreset // <-- tell LazyLoadImage that you want to use IntersectionObserver
-		})
+		}),
+		MatNativeDateModule,
+		MatInputModule,
+		MatFormFieldModule,
+		MatDatepickerModule
 	],
 	declarations: [
 		NormalizeString,

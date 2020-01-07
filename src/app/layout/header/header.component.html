@@ -13,13 +13,18 @@
 					<i class="zwicon-search"></i>
 				</button>
 			</li>
-			<li>
+			<li *ngIf="!clientId">
 				<button class="button-icon" (click)="toogleSignUp()" id="btn-nav-user" (mouseover)="listOffice=true" (mouseleave)="listOffice=false">
 					<i class="zwicon-user-circle"></i>
 					<div class="text-icon" *ngIf="listOffice"> View your Office List</div>
 					<p class="budget-number" *ngIf="favoritesCount>0">{{favoritesCount}}</p>
 				</button>
-
+			</li>
+			<li *ngIf="clientId">
+				<button class="button-icon" (click)="logOut()" id="btn-nav-user" (mouseover)="listOffice=true" (mouseleave)="listOffice=false">
+					<i class="zwicon-sign-out"></i>
+					<div class="text-icon"> Log Out</div>
+				</button>
 			</li>
 		</ul>
 		<div class="options-nav-container" *ngIf="optionsNav" @easeIn>
@@ -38,4 +43,4 @@
 </header>
 <office-list-modal-singup *ngIf="showSignUp" [favoritesCount]="favoritesCount"></office-list-modal-singup>
 <office-list-modal-login-search *ngIf="showLogin"></office-list-modal-login-search>
-<office-list-modal-scheduled-tour *ngIf="showTour"></office-list-modal-scheduled-tour>
+<office-list-modal-scheduled-tour *ngIf="showTour" [bcId]="bcId"></office-list-modal-scheduled-tour>

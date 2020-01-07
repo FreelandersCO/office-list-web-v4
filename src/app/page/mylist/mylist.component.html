@@ -19,63 +19,10 @@
 	</div>
 	<div class="container-bcs-form">
 		<div class="container-bcs">
-			<ng-container *ngFor="let bc of bussinesCenter">
-				<div class="office-list-card card-white card-style">
-					<figure class="img-card-office">
-						<office-list-image-component [image]="bc?.image"></office-list-image-component>
-					</figure>
-					<div class="info-office-container">
-						<p class="text-default"
-							routerLink="/office-space-for-rent/us/{{bc?.state | normalizeString}}/{{bc?.city | normalizeString }}/office/{{ bc?.cross_streets | normalizeString }}-{{ bc?.buscenter_id}}">
-							{{bc?.descriptive_title}}</p>
-						<h3 class="title-name-office"
-							routerLink="/office-space-for-rent/us/{{bc?.state | normalizeString}}/{{bc?.city | normalizeString }}/office/{{ bc?.cross_streets | normalizeString }}-{{ bc?.buscenter_id}}">
-							{{ bc?.cross_streets }}
-						</h3>
-						<p class="name-city">{{bc?.state }}, {{bc?.city}} {{bc?.zip_code}}</p>
-
-						<p class="phone-number">
-							<i class="zwicon-phone"></i>
-							{{bc?.phone}}
-						</p>
-						<div class="price-container"
-							routerLink="/office-space-for-rent/us/{{bc?.state | normalizeString}}/{{bc?.city | normalizeString }}/office/{{ bc?.cross_streets | normalizeString }}-{{ bc?.buscenter_id}}"
-							*ngIf="bc?.offices">
-							<button class="button-show-price" aria-label="Go to details">
-								<h3 class="title-price">
-									Starting at :
-								</h3>
-							</button>
-							<ul class="list-prices-office">
-								<li *ngFor="let office of bc?.offices">
-									<p class="price-office">${{office.off_pricing}}</p>
-									<p class="type-office">{{office.off_name}}</p>
-								</li>
-							</ul>
-						</div>
-						<div class="price-container call-pricing" *ngIf="!bc?.offices">
-							<button class="button-show-price" aria-label="Go to details"
-								routerLink="/office-space-for-rent/us/{{bc?.state | normalizeString}}/{{bc?.city | normalizeString }}/office/{{ bc?.cross_streets | normalizeString }}-{{ bc?.buscenter_id}}">
-								<h3 class="title-price">
-									Call For Pricing
-								</h3>
-							</button>
-						</div>
-						<div class="btn-container">
-							<a href="tel:+188663545478" class="button-default primary text-callus">
-								<i class="zwicon-phone"></i>
-								Call
-								<span> account manager</span>
-							</a>
-						</div>
-						<div class="like-container">
-							<button class="button-icon-like">
-								<office-list-favorites-heart [bcId]="bc?.buscenter_id"></office-list-favorites-heart>
-							</button>
-						</div>
-					</div>
-				</div>
-			</ng-container>
+			<div class="card-container list-cards" *ngFor="let bc of bussinesCenter">
+				<office-list-bc-card [bc]="bc" [grid]="grid" [isDesktop]="isDesktop" [isList]="false" [myList]="true" [isIP]="false">
+				</office-list-bc-card>
+			</div>
 		</div>
 		<div class="container-side-form">
 			<div class="container-form-inquire">

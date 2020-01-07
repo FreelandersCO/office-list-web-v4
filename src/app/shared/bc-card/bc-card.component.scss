@@ -29,6 +29,7 @@
         .img-card-office {
             border-radius: 10px 10px 0 0;
             min-height: 176px;
+            max-height: 225px;
             width: 100%;
         }
 
@@ -58,6 +59,52 @@
 
         .btn-container {
             margin: 6px 0 1rem;
+
+            .book-tour-toast {
+                width: 40%;
+                margin: 0 auto;
+
+				.book-message {
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+					border: 1px red solid;
+
+					i {
+						background-color: red;
+						color: white;
+						font-size: 35px;
+					}
+				}
+
+				.datepicker-icon {
+					position: absolute;
+					right: 0;
+					top: calc(50% - 11px);
+				}
+
+				button {
+					width: 100%;
+				}
+			}
+
+			.book-schedude {
+				display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 38%;
+                margin: 0 auto;
+
+                i {
+                    color: white;
+                    background-color: colors('primary');
+					font-size: 35px;
+				}
+
+				p {
+					border: 1px colors('primary') solid;
+				}
+			}
         }
 
         .like-container {
@@ -195,10 +242,10 @@
 
     .name-city {
         margin-bottom: 10px;
-		display: flex;
+        display: flex;
 
         .view-map {
-			display: block;
+            display: block;
 
             i {
                 font-size: 1.2rem;
@@ -230,11 +277,11 @@
     }
 
     .btn-container {
-		display: flex;
-		text-align: center;
+        display: flex;
+        text-align: center;
 
         .button-default {
-			width: 49%;
+            width: 49%;
             margin: 0 4px;
         }
     }
@@ -243,14 +290,14 @@
         display: flex;
         flex-wrap: wrap;
 
-		h4 {
-			color: colors('primary');
-			padding: 0.5rem;
-		}
+        h4 {
+            color: colors('primary');
+            padding: 0.5rem;
+        }
 
-		p {
-			padding: 0.5rem;
-		}
+        p {
+            padding: 0.5rem;
+        }
 
         .admin-button-container {
             width: 50%;

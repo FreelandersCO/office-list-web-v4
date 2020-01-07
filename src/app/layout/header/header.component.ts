@@ -1,7 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { trigger, style, animate, transition, query, animateChild } from '@angular/animations';
 import { EventEmitterService } from '@app/services/event-emitter.service';
-import { LocalStorageService } from '@app/services/storage.service';
+import { LocalStorageService, ServiceStorageService } from '@app/services/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'office-list-header',
@@ -46,14 +47,20 @@ export class HeaderComponent implements OnInit {
 	public showTour = false;
 	public listOffice = false;
 	public sticky = false;
+	public bcId;
+	clientId;
 	bcFavorites;
 	favoritesCount;
-	constructor(private eventEmitterService: EventEmitterService, private localStorageService: LocalStorageService) { }
+	constructor(
+		private eventEmitterService: EventEmitterService,
+		private localStorageService: LocalStorageService,
+		private storage: ServiceStorageService,
+		public router: Router) { }
 	@HostListener('window:scroll', [])
 	onScroll(): void {
 		this.sticky = window.pageYOffset >= 250 ? true : false;
 	}
-	ngOnInit() {
+	async ngOnInit() {
 		this.sticky = window.pageYOffset >= 250 ? true : false;
 
 		if (this.eventEmitterService.subsVar === undefined) {
@@ -68,11 +75,13 @@ export class HeaderComponent implements OnInit {
 			this.eventEmitterService.favoriteAdded.subscribe((name: string) => {
 				this.getBussinesFavorites();
 			});
-			this.eventEmitterService.toogleTourHeader.subscribe((name: string) => {
-				this.toogleTour();
+			this.eventEmitterService.toogleTourHeader.subscribe((bcId: string) => {
+				this.toogleTour(bcId);
 			});
 		}
 		this.getBussinesFavorites();
+		this.clientId = await this.storage.getItem('ol_cl');
+		this.clientId = this.clientId.length > 0 ? this.clientId : null;
 	}
 
 	async getBussinesFavorites() {
@@ -106,7 +115,13 @@ export class HeaderComponent implements OnInit {
 		this.optionsNavShow = this.optionsNav ? 'Show' : 'Hide';
 	}
 
-	toogleTour() {
+	toogleTour(bcId) {
+		this.bcId = bcId;
 		this.showTour = !this.showTour;
+	}
+
+	logOut(){
+		window.sessionStorage.clear();
+		this.router.navigate(['/']);
 	}
 }

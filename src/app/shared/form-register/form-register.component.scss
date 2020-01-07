@@ -15,6 +15,12 @@
     }
 }
 
+.datepicker-icon {
+	position: absolute;
+	right: 0;
+	top: calc(50% - 11px);
+}
+
 @include from-breakpoint('desktop') {
     .container-inquire-buttons {
         display: flex;
