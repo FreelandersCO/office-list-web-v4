@@ -7,11 +7,11 @@ export class AuthGuardService implements CanActivate {
 	constructor(public auth: AuthService, public router: Router) { }
 	async canActivate() {
 		const isAut = await this.auth.isAuthenticated();
-		/*if (!isAut) {
+		if (!isAut) {
 			this.router.navigate(['/404']);
 
 			return false;
-		}*/
+		}
 
 		return true;
 	}
