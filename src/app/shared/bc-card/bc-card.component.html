@@ -63,9 +63,9 @@
 			</button>
 		</div>
 		<div class="price-container" *ngIf="myList">
-			<p>{{bc.company_name}}</p>
-			<p>{{bc.first_name}} {{bc.last_name}}</p>
-			<p>{{bc.email}}</p>
+			<p>{{bc.company_name}}</p> <br>
+			<p>{{bc.first_name}} {{bc.last_name}}</p> <br>
+			<p><a href="mailto:{{bc.email}}">{{bc.email}}</a></p>
 		</div>
 		<div class="btn-container" *ngIf="!myList">
 			<button class="button-default primary" (click)="callSingUp(bc?.buscenter_id)" aria-label="Inquire now">
