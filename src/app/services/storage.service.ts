@@ -18,6 +18,10 @@ export class LocalStorageService {
 
 		return item ? item : [];
 	}
+
+	clear() {
+		this.storage.clear();
+	}
 }
 
 // tslint:disable-next-line: max-classes-per-file

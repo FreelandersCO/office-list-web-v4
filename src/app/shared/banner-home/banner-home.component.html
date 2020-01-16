@@ -1,7 +1,14 @@
 <section class="banner-home-container">
-	<article class="detail-banner-home">
+	<article class="detail-banner-home" *ngIf="!notFound">
 		<h1 class="banner-home-title">Find Coworking, Private Offices, Flexible Workplaces</h1>
 		<p class="banner-home-description">Make an informed decision with real market data. All for free</p>
+		<div class="banner-home-input">
+			<office-list-search-input></office-list-search-input>
+		</div>
+	</article>
+	<article class="detail-banner-home" *ngIf="notFound">
+		<h1 class="banner-home-title">Oops! It seems that the page you are looking for does not exist.</h1>
+		<p class="banner-home-description">Keep looking for your Coworking, Private Offices or Flexible Workplaces below</p>
 		<div class="banner-home-input">
 			<office-list-search-input></office-list-search-input>
 		</div>

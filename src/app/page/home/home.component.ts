@@ -44,73 +44,73 @@ export class HomeComponent implements OnInit {
 		{
 			name: 'New York',
 			url: 'office-space-for-rent/us/new-york/new-york',
-			numBc: 286,
+			numBc: 199,
 			img: './assets/images/cities/home/nyc.jpg'
 		},
 		{
 			name: 'Los Angeles',
 			url: 'office-space-for-rent/us/california/los-angeles',
-			numBc: 177,
+			numBc: 79,
 			img: './assets/images/cities/home/la.jpg'
 		},
 		{
 			name: 'Atlanta',
 			url: 'office-space-for-rent/us/georgia/atlanta',
-			numBc: 89,
+			numBc: 58,
 			img: './assets/images/cities/home/atlanta.jpg'
 		},
 		{
 			name: 'Chicago',
 			url: 'office-space-for-rent/us/illinois/chicago',
-			numBc: 109,
+			numBc: 71,
 			img: './assets/images/cities/home/chicago.jpg'
 		},
 		{
 			name: 'Miami',
 			url: 'office-space-for-rent/us/florida/miami',
-			numBc: 101,
+			numBc: 42,
 			img: './assets/images/cities/home/miami.jpg'
 		},
 		{
 			name: 'San Francisco',
 			url: 'office-space-for-rent/us/california/san-francisco',
-			numBc: 96,
+			numBc: 44,
 			img: './assets/images/cities/home/SanFrancisco.jpg'
 		},
 		{
 			name: 'Dallas',
 			url: 'office-space-for-rent/us/texas/dallas',
-			numBc: 109,
+			numBc: 46,
 			img: ''
 		},
 		{
 			name: 'Houston',
 			url: 'office-space-for-rent/us/texas/houston',
-			numBc: 73,
+			numBc: 57,
 			img: ''
 		},
 		{
 			name: 'Boston',
 			url: 'office-space-for-rent/us/massachusetts/boston',
-			numBc: 75,
+			numBc: 36,
 			img: ''
 		},
 		{
 			name: 'San Diego',
 			url: 'office-space-for-rent/us/california/san-diego',
-			numBc: 43,
+			numBc: 32,
 			img: ''
 		},
 		{
 			name: 'Portland',
 			url: 'office-space-for-rent/us/oregon/portland',
-			numBc: 25,
+			numBc: 13,
 			img: ''
 		},
 		{
 			name: 'Seattle',
 			url: 'office-space-for-rent/us/washington/seattle',
-			numBc: 49,
+			numBc: 30,
 			img: ''
 		},
 		{
@@ -122,13 +122,13 @@ export class HomeComponent implements OnInit {
 		{
 			name: 'Toronto',
 			url: 'office-space-for-rent/ca/ontario/toronto',
-			numBc: 81,
+			numBc: 55,
 			img: ''
 		},
 		{
 			name: 'Washington',
 			url: 'office-space-for-rent/us/district-of-columbia/washington',
-			numBc: 44,
+			numBc: 45,
 			img: ''
 		}
 	];

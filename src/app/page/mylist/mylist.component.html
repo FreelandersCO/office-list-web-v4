@@ -6,32 +6,53 @@
 		<hr>
 		<div class="detail-container-info">
 			<p class="description-office-text">
-				You still have more locations to tour. Click on “Call US” and you can also talk to one of our listing
-				Managers to help you.
+				You can add more locations to your search or request a tour to experience the space first hand.
+			</p>
+			<p class="description-office-text">
+				Contact the Listing manager on the right any time to get help and detailed information.
 			</p>
 		</div>
-		<!--div class="container-cards">
-			<h2 class="title-home">
-				Schedule a Tour
-			</h2>
-
-			<hr>
-		</div-->
 	</div>
 	<div class="container-bcs-form">
 		<div class="container-bcs">
 			<div class="card-container list-cards" *ngFor="let bc of bussinesCenter">
-				<office-list-bc-card [bc]="bc" [grid]="grid" [isDesktop]="isDesktop" [isList]="false" [myList]="true" [isIP]="false">
-				</office-list-bc-card>
+				<div class="office-list-card card-white list-style">
+					<figure class="img-card-office" *ngIf="!bc?.images">
+						<i class="icon-star-office" *ngIf="bc?.premium && bc?.premium === 1"></i>
+						<office-list-image-component [image]="bc?.principal_image"></office-list-image-component>
+					</figure>
+					<div class="info-office-container">
+						<div class="book-schedude" *ngIf="bc.tour">
+							<i class="zwicon-checkmark-square"></i>
+							<p>Tour requested for <br> <b>{{bc.tour}}</b></p>
+						</div>
+						<div class="book-message" *ngIf="!bc.tour">
+							<i class="zwicon-exclamation-mark"></i>
+							<p>Your still need to schedule a tour for this location</p>
+						</div>
+						<div class="price-container">
+							<p class="name-city">{{bc.address}} - {{bc.address2}} <br> {{bc?.city}} {{bc?.state}}, {{bc?.zip_code}} <a href="{{bc.google_map_link}}">Map Link</a> </p> <br>
+							<p>{{bc.company_name}}</p>
+							<p>{{bc.first_name}} {{bc.last_name}}</p>
+							<p><a href="mailto:{{bc.email}}">{{bc.email}}</a></p>
+						</div>
+					</div>
+
+					<div class="btn-container">
+						<office-list-form-request-single-tour [bc]="bc"></office-list-form-request-single-tour>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="container-side-form">
 			<div class="container-form-inquire">
 				<office-list-form-inquire-now [myList]="true"></office-list-form-inquire-now>
+				<button class="button-default secondary-line" (click)="goToList()" aria-label="Inquire now">
+					Add more locations
+				</button>
 			</div>
 		</div>
 	</div>
-
 </section>
 
 <!--div class="call-info-modal-container" *ngIf="detailOfficeInfo">

@@ -279,10 +279,12 @@
     .btn-container {
         display: flex;
         text-align: center;
+		flex-direction: row;
 
         .button-default {
-            width: 49%;
-            margin: 0 4px;
+            width: 50%;
+			margin: 0 4px;
+			font-size: 1rem;
         }
     }
 
@@ -360,16 +362,21 @@
             bottom: unset;
         }
 
-        .button-default {
-            width: 80%;
-        }
+		.btn-container {
+			flex-direction: row;
+
+			.button-default {
+				width: 49%;
+				margin: 0 4px;
+			}
+		}
     }
 
     .call-info-modal-container {
         .close-modal {
             right: 12%;
         }
-    }
+	}
 }
 
 @include from-breakpoint('desktop') {

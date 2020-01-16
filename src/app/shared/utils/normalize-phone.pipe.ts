@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class NormalizePhone implements PipeTransform {
 
 	transform(value: number) {
-		return this.normalizePhone(value);
+		return value !== null ? this.normalizePhone(value) : '';
 	}
 	normalizePhone(text) {
 

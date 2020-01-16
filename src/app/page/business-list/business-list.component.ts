@@ -5,6 +5,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ApiServicesService } from '@service/api-services.service';
 import { NormalizeString } from '@app/shared/utils/normalize-string.pipe';
+import { ServiceStorageService } from '@app/services/storage.service';
 
 @Component({
 	selector: 'office-list-business-list',
@@ -21,6 +22,7 @@ export class BusinessListComponent implements OnInit {
 	public mapShow = false;
 	public grid = false;
 	public isDesktop = false;
+	public showClear = false;
 	private cacheParams;
 	pageInfo;
 	bussinesCenter;
@@ -39,6 +41,7 @@ export class BusinessListComponent implements OnInit {
 	cacheAreas;
 	noMore = false;
 	isIP = false;
+	clientId;
 	// tslint:disable-next-line: no-any
 	public innerWidth: any;
 	constructor(
@@ -49,7 +52,8 @@ export class BusinessListComponent implements OnInit {
 		private titleService: Title,
 		private meta: Meta,
 		private spinner: NgxSpinnerService,
-		private normalize: NormalizeString
+		private normalize: NormalizeString,
+		private sessionStorageService: ServiceStorageService
 	) {
 		this.spinner.show('loadingPage');
 	}
@@ -88,7 +92,7 @@ export class BusinessListComponent implements OnInit {
 		}
 	}
 
-	ngOnInit() {
+	async ngOnInit() {
 		this.route.params.subscribe(params => {
 			this.cacheParams = params;
 			// List Result
@@ -118,12 +122,20 @@ export class BusinessListComponent implements OnInit {
 			this.isDesktop = true;
 			this.grid = false;
 		}
+
+		if(this.cacheParams['zip_code']) {
+			this.showClear = true;
+		}
+
+		this.clientId = await this.sessionStorageService.getItem('ol_cl');
+		this.clientId = (typeof this.clientId === 'number') ? this.clientId : null;
 	}
 
 	proccessIP(rest) {
 		// tslint:disable-next-line: prefer-switch
 		if (rest.ip === '190.25.101.144' ||
-			rest.ip === '190.85.131.25') {
+			rest.ip === '190.85.131.25' ||
+			rest.ip === '186.31.138.169') {
 			this.isIP = true;
 		}
 	}
@@ -195,15 +207,8 @@ export class BusinessListComponent implements OnInit {
 		/**/
 	}
 	clearArea() {
-		const areaType = this.cacheAreas[0].type;
-		const areaName = this.normalize.normalizeString(this.cacheAreas[0].area_name);
-		if (areaType === 1) {
-			const url = `/office-space-for-rent/${this.cacheParams['country']}/${this.cacheParams['state']}/${this.cacheParams['city']}/${areaName}`;
-			this.router.navigate([url]);
-		} else {
-			const url = `/office-space-for-rent/${this.cacheParams['country']}/${this.cacheParams['state']}/${areaName}`;
-			this.router.navigate([url]);
-		}
+		const url = `/office-space-for-rent/${this.cacheParams['country']}/${this.cacheParams['state']}/${this.cacheParams['city']}/`;
+		this.router.navigate([url]);
 	}
 	noMoreSelect(item) {
 		this.selectedArea = item;

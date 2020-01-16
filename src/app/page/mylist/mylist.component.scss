@@ -1,8 +1,9 @@
 @import '../../../styles/index';
 @import '../business-list/business-list.component';
+@import '../../shared/bc-card/bc-card.component';
 
 .details-office-container {
-    max-width: 80vw;
+    max-width: 90vw;
     margin: 0 auto;
 }
 
@@ -63,6 +64,62 @@
 
         &.list-cards {
             width: 100%;
+        }
+    }
+}
+
+.container-bcs {
+    .card-container {
+        .office-list-card {
+            flex-wrap: wrap;
+
+
+            .book-message {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                border: 1px red solid;
+
+                i {
+                    background-color: red;
+                    color: white;
+                    font-size: 35px;
+                }
+            }
+
+            .book-schedude {
+                display: flex;
+                flex-direction: row;
+                width: 65%;
+                margin: 0 auto;
+
+                i {
+                    color: white;
+                    background-color: colors('primary');
+                    font-size: 35px;
+                }
+
+                p {
+                    border: 1px colors('primary') solid;
+                }
+            }
+
+            .img-card-office,
+            .info-office-container {
+                width: 50%;
+                flex-grow: 1;
+            }
+
+            .btn-container {
+                width: 100%;
+                flex-grow: 2;
+                padding: 0;
+                margin: 0;
+
+                office-list-form-request-single-tour {
+                    width: 100%;
+                }
+            }
         }
     }
 }

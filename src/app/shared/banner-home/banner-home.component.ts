@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
 	selector: 'office-list-banner-home',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./banner-home.component.scss']
 })
 export class BannerHomeComponent implements OnInit {
-
+	@Input() notFound = false;
 	constructor() { }
 
 	ngOnInit() {

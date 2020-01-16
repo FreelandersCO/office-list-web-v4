@@ -193,6 +193,18 @@ export class ApiServicesService {
 				catchError(this.handleError)
 			);
 	}
+	setAddBc(data, token) {
+		const headers = new HttpHeaders({
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Methods': 'GET'
+		}).set('authorization', token);
+
+		return this.http.post(`${this.apiURL}/User/AddBc`, data, { headers })
+			.pipe(
+				retry(1),
+				catchError(this.handleError)
+			);
+	}
 
 	@Cacheable()
 	getBCNote(bcId): Observable<PageBussines> {

@@ -13,8 +13,7 @@
 			</div>
 			<p class="text-default">{{bussinesCenter?.descriptive_title}}</p>
 			<h1 class="title-name-office detail-office">{{bussinesCenter?.cross_streets}}</h1>
-			<p class="name-city">{{bussinesCenter?.city}}, {{bussinesCenter?.state}}
-				{{bussinesCenter?.zip_code}}</p>
+			<p class="name-city">{{bussinesCenter?.city}} {{bussinesCenter?.state}}, {{bussinesCenter?.zip_code}}</p>
 			<span class="badge-city" *ngIf="bussinesCenter?.area_name">{{bussinesCenter?.area_name}}</span>
 			<hr class="line-detail">
 		</div>
@@ -224,7 +223,7 @@
 				</a>
 			</div>
 		  </ng-template>
-		<div class="detail-container-info" *ngIf="bussinesCenter?.description_location && bussinesCenter?.description_near">
+		<div class="detail-container-info" *ngIf="bussinesCenter?.description_location || bussinesCenter?.description_near">
 			<h4 class="title-detail">Description</h4>
 			<p class="description-office-text" [innerHtml]="bussinesCenter?.description_location"></p>
 			<p class="description-office-text" [innerHtml]="bussinesCenter?.description_near"></p>

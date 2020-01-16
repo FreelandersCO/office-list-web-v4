@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class NormalizeString implements PipeTransform {
 
 	transform(value: number, args?) {
-		return this.normalizeString(value);
+		return value !== null ? this.normalizeString(value) : '';
 	}
 	normalizeString(text) {
 		text = this.removeAccents(text);

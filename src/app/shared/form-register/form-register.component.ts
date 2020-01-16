@@ -52,6 +52,8 @@ export class FormRegisterComponent implements OnInit {
 				comments: ['']
 			});
 		}
+		const weekInMilliseconds = 7 * 24 * 60 * 60 * 1000;
+		this.todayDate.setTime(this.todayDate.getTime() + weekInMilliseconds);
 		this.api.getIP().subscribe(res => {
 			this.proccessIP(res);
 		});
@@ -79,12 +81,10 @@ export class FormRegisterComponent implements OnInit {
 		}
 
 		if (this.tour) {
-			let date = this.registerForm.value.tourDate;
+			const date = this.registerForm.value.tourDate;
 			const hour = this.registerForm.value.tourTime.split(':');
 			date.setHours(hour[0], hour[1], hour[2]);
-			date = date.toISOString().slice(0, 19).replace('T', ' ');
-
-			this.registerForm.value.date_tour = date.toString().slice(0, 19).replace('T', ' ');
+			this.registerForm.value.date_tour = date;
 			this.registerForm.value.tour_bc = this.bcId;
 			delete this.registerForm.value.tourDate;
 			delete this.registerForm.value.tourTime;
@@ -112,10 +112,13 @@ export class FormRegisterComponent implements OnInit {
 			this.error = false;
 			this.sessionStorage.setItem('ol_tk', r.tok.data.token);
 			this.sessionStorage.setItem('ol_cl', r.tok.data.client_id);
-			this.router.navigate(['/my-list/']);
+
 			if(this.tour) {
 				this.eventEmitter.toogleTourHeaderEmitter(null);
+			} else {
+				this.eventEmitter.toogleSingUpEmitter();
 			}
+			window.location.href = '/my-list/';
 		}
 		this.onReset();
 	}

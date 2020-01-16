@@ -28,6 +28,6 @@ import { NormalizeString } from '@app/shared/utils/normalize-string.pipe';
 	providers: [
 		ModuleGuardService,
 		NormalizeString
-	],
+	]
 })
 export class BusinessListModule { }

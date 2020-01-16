@@ -54,13 +54,14 @@ export class ModalLoginSearchComponent implements OnInit {
 		if (r.result.token) {
 			this.successfully = true;
 			this.error = false;
-			this.saveToken(r.result.token);
+			this.saveToken(r.result);
 		}
 		this.onReset();
 
 	}
-	saveToken(token) {
-		this.sessionStorage.setItem('ol_tk', token);
+	saveToken(r) {
+		this.sessionStorage.setItem('ol_tk', r.token);
+		this.sessionStorage.setItem('ol_cl', r.client_id);
 		this.closeLogin();
 		this.router.navigate(['/my-list/']);
 	}

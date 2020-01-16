@@ -14,11 +14,13 @@ export class FormInquireNowComponent implements OnChanges {
 	constructor() { }
 
 	ngOnChanges(changes: SimpleChanges): void {
-		const accountManager: SimpleChange = changes.accountManager;
-		if (accountManager.currentValue != null) {
-			this._accountManager = accountManager.currentValue;
-			const nameProccess = this._accountManager.name.toLowerCase().replace(' ', '_');
-			this._accountManager.image = '/assets/images/staff/picture-staff-' + nameProccess + '.png';
+		if(!this.myList) {
+			const accountManager: SimpleChange = changes.accountManager;
+			if (accountManager.currentValue != null) {
+				this._accountManager = accountManager.currentValue;
+				const nameProccess = this._accountManager.name.toLowerCase().replace(' ', '_');
+				this._accountManager.image = '/assets/images/staff/picture-staff-' + nameProccess + '.png';
+			}
 		}
 	}
 }

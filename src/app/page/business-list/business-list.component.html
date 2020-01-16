@@ -2,7 +2,7 @@
 	name="loadingPage">
 	<p> Office List... </p>
 </ngx-spinner>
-<section class="info-city-list-container">
+<section class="info-city-list-container" *ngIf="bussinesCenter?.length > 0">
 	<article class="container-header-mobile">
 		<div class="title-info-city">
 			<h1 class="title-pages">
@@ -24,6 +24,31 @@
 		</div>
 	</article>
 </section>
+<section class="info-city-list-container not-found" *ngIf="bussinesCenter?.length === 0">
+	<article class="container-header-mobile">
+		<div class="title-info-city">
+			<h2 class="title-home">
+				No exact matches were found. Consider your spelling or try another term.
+			</h2>
+			<hr>
+			<p class="not-found-input">
+				<office-list-search-input></office-list-search-input>
+			</p>
+		</div>
+	</article>
+	<article class="container-header-desktop" [style.background-image]="'url(' + pageInfo?.image + ')'">
+		<div class="title-info-city">
+			<h2 class="title-home">
+				No exact matches were found. Consider your spelling or try another term.
+			</h2>
+			<hr>
+			<p class="not-found-input">
+				<office-list-search-input></office-list-search-input>
+			</p>
+		</div>
+	</article>
+</section>
+
 <section class="result-list-container" *ngIf="bussinesCenter?.length > 0">
 	<article class="result-container">
 		<!--Filter-->
@@ -64,7 +89,7 @@
 					placeholder="Select the area you are interested in" [searchable]="false" [(ngModel)]="selectedArea"
 					(change)="changeSelect()">
 				</ng-select>
-				<div class="button-area-container">
+				<div class="button-area-container" *ngIf="showClear">
 					<button class="buttons-area-filter secondary" (click)="clearArea()" aria-label="Clear filter">
 						Clear
 					</button>
@@ -73,7 +98,7 @@
 		</div>
 		<!-- List -->
 		<div class="card-container" [ngClass]="grid ? 'list-cards' : 'list-grid'" *ngFor="let bc of bussinesCenter">
-			<office-list-bc-card [bc]="bc" [grid]="grid" [isDesktop]="isDesktop" [isList]="true" [isIP]="isIP">
+			<office-list-bc-card [bc]="bc" [clientId]="clientId" [grid]="grid" [isDesktop]="isDesktop" [isList]="true" [isIP]="isIP">
 			</office-list-bc-card>
 		</div>
 		<div class="spinner-container" #bottonTest style="width: 100%;" *ngIf="!noMore">
@@ -100,7 +125,5 @@
 		<office-list-map></office-list-map>
 	</div>
 </section>
-<section class="result-list-container" *ngIf="bussinesCenter?.length === 0">
-	<h2 class="no-result">No exact matches were found. Consider your spelling or try another term</h2>
-</section>
+
 <office-list-buttons-mobile></office-list-buttons-mobile>

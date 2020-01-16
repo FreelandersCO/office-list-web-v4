@@ -81,7 +81,8 @@ export class HeaderComponent implements OnInit {
 		}
 		this.getBussinesFavorites();
 		this.clientId = await this.storage.getItem('ol_cl');
-		this.clientId = this.clientId.length > 0 ? this.clientId : null;
+		this.clientId = (typeof this.clientId === 'number') ? this.clientId : null;
+
 	}
 
 	async getBussinesFavorites() {
@@ -93,7 +94,7 @@ export class HeaderComponent implements OnInit {
 				this.listOffice = false;
 			}, 5000);
 		}
-		if (this.favoritesCount >= 6) {
+		if (this.favoritesCount >= 6 && this.clientId === null) {
 			this.showSignUp = true;
 		}
 	}
@@ -120,8 +121,9 @@ export class HeaderComponent implements OnInit {
 		this.showTour = !this.showTour;
 	}
 
-	logOut(){
+	logOut() {
 		window.sessionStorage.clear();
-		this.router.navigate(['/']);
+		this.localStorageService.clear();
+		window.location.href = '/';
 	}
 }

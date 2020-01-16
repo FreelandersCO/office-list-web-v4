@@ -41,6 +41,7 @@ import { NormalizePhone } from './utils/normalize-phone.pipe';
 import { ButtonsMobileComponent } from './buttons-mobile/buttons-mobile.component';
 import { BcCardComponent } from './bc-card/bc-card.component';
 import { FormContactUsComponent } from './form-contact-us/form-contact-us.component';
+import { FormRequestSingleTourComponent } from './form-request-single-tour/form-request-single-tour.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -94,7 +95,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 		ImageComponentComponent,
 		ButtonsMobileComponent,
 		BcCardComponent,
-		FormContactUsComponent
+		FormContactUsComponent,
+		FormRequestSingleTourComponent
 	],
 	exports: [
 		NormalizeString,
@@ -116,7 +118,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 		ImageComponentComponent,
 		ButtonsMobileComponent,
 		BcCardComponent,
-		FormContactUsComponent
+		FormContactUsComponent,
+		FormRequestSingleTourComponent
 	]
 })
 export class SharedModule { }

@@ -83,13 +83,13 @@
 		<label for="" class="label-default">Phone number*</label>
 	</div>
 	<div class="group-form full-width">
-		<textarea class="input-default textarea-input" formControlName="comments" id="comments"
+		<textarea class="input-default textarea-input" formControlName="comments" id="comments" rows="2"
 			[ngClass]="{ 'is-invalid': submitted && f.comments.errors }"
 			placeholder="Details on your search, such as: When do you want to move in? How many people/desks? Other specific requirements, budget, etc"></textarea>
 		<label for="comments" class="label-default">Comments</label>
 	</div>
 	<div class="container-button-modal">
-		<button class="button-default primary" type="submit" *ngIf="!inquired && !tour">Save your favorites</button>
+		<button class="button-default primary" type="submit" *ngIf="!inquired && !tour">Inquire</button>
 		<button class="button-default primary" type="submit" *ngIf="inquired && !tour">Inquire</button>
 		<button class="button-default primary" type="submit" *ngIf="!inquired && tour">Request a Tour</button>
 	</div>

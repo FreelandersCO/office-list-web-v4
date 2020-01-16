@@ -1,0 +1,35 @@
+.tour-request {
+	display: flex;
+	margin: 6px 0 1rem;
+
+	.book-tour-toast {
+		width: 100%;
+		margin: 0 auto;
+
+		form {
+			display: flex;
+
+			.group-form {
+				width: 40%;
+				padding: 0 0.5rem;
+			}
+
+			button {
+				width: 20%;
+				margin-right: 0.5rem;
+			}
+		}
+
+
+
+		.datepicker-icon {
+			position: absolute;
+			right: 0;
+			top: calc(50% - 22px);
+		}
+
+		button {
+			width: 100%;
+		}
+	}
+}

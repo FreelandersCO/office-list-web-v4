@@ -13,6 +13,34 @@
     text-align: center;
 }
 
+.info-city-list-container {
+    &.not-found {
+        display: unset;
+
+
+        .container-header-desktop {
+			height: calc(100vh - 468px);
+			background: linear-gradient(to bottom,
+			rgba(255, 255, 255, .7),
+			rgba(255, 255, 255, .7));
+			background-size: cover;
+        }
+
+        .container-header-mobile {
+            padding: 5rem 0;
+            background: linear-gradient(to bottom,
+                    rgba(255, 255, 255, .7),
+					rgba(255, 255, 255, .7)), url("/assets/images/cities/img-city-default.jpg");
+			background-size: cover;
+        }
+
+        .not-found-input {
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
+}
+
 .result-list-container {
     position: relative;
     display: flex;
@@ -54,6 +82,8 @@
             }
         }
     }
+
+
 }
 
 .area-filter-contaier,
@@ -337,10 +367,10 @@
 
 .result-map-container {
     position: fixed;
-    height: calc(100vh - 104px);
+    height: calc(100vh - 61px);
     width: 100%;
     z-index: 100;
-    top: 104px;
+    top: 61px;
 
     .close-map {
         position: absolute;
@@ -486,6 +516,7 @@
 @include from-breakpoint('desktop-l') {
     .container-header-desktop {
         .title-info-city {
+
             .title-pages,
             .text-intro {
                 margin: 0 auto;
